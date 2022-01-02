@@ -5,6 +5,11 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
+
+:root{
+  --theme-color: white;
+  --main-color: #3c8cac;
+}
 code {
   font-family: monospace;
   width: 80vw;
@@ -52,7 +57,7 @@ a{
 }
 
 header {
-  background: rgb(136, 33, 101);
+  background-color: var(--main-color);
   color: #fff;
   display: block;
   width: 100%;
@@ -60,37 +65,51 @@ header {
   margin-top:  0px;
 }
 
-
+*{
+  box-sizing: border-box;
+}
 
 
 /*----------BLOG PAGE ----------*/
 .posts-grid{
-  /* display: flex; */
-  max-width: 100vw;
-  /* grid-auto-rows: minmax(100px, auto); */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 20rem);
+  justify-content: center;
 }
 
 /*----------POST CARD------*/
 .post-card-div{
-  width: 250px;
-  height: 300px;
+  background-color: var(--theme-color);
+  width: 17rem;
+  height: 15rem;
   cursor: pointer;
-  margin-left: 3vw;
   border: 2px solid #2d2d2da6;
-  border-radius: 20px;
+  border-radius: 1rem;
+  margin: 0.5rem
+}
+.post-card-image-container{
+  background-color: var(--main-color);
+  border-radius: 0.8rem 0.8rem 0px 0px;
+  height: 8rem;
+}
+.post-card-img{
+  border-radius: 0.8rem 0.8rem 0px 0px;
+  width: 100%;
+  height: 8rem;
+  object-fit: cover;
+}
 
+@media screen and (max-width: 640px) {
+  .post-card-div{width: 90vw;}
+  .posts-grid{
+    display: grid;
+    grid-template-columns:max-content;
+  }
 }
 
 .post-card-a-tag{
   color: inherit;
   text-decoration: inherit;
-}
-
-.post-card-img{
-  border-radius: 18px  18px 0px 0px;
-  height: 200px;
-  object-fit: cover;
-  width: 250px;
 }
 
 .post-card-container{
@@ -99,8 +118,10 @@ header {
   margin-top: 0.2vh;  
   margin-bottom: 0.5vh;  
 }
+
+
 .post-card-title{
-  margin-left: 1vw;
+  margin: 0;
 }
 .post-card-resume{
   margin: 0;
@@ -124,9 +145,10 @@ header {
 }
 .post-cover{
   height: 100%;
+  object-fit: cover;
   max-height: 100rem;
-  object-fit: fill;
-  max-width: 100vw;
+  max-width: 100%;
+  display: flex;
   margin-left: auto;
   margin-right: auto; 
 }
@@ -141,12 +163,10 @@ header {
     margin-left: 5vw;
     margin-right: 5vw; 
   }
-
 }
-@media  only screen and  (min-width:600px) and (max-width:1000px){
+@media  only screen and  (min-width:600px) and (max-width:800px){
   .post-container{
     margin-left: 14vw;
-    color: red;
     margin-right: 20vw; 
   }
 
