@@ -5,48 +5,59 @@ author: 'Renato'
 excerpt: 'resume'
 cover_image: 'https://via.placeholder.com/400X350'
 categories: []
-
 ---
-A ideia é fazer um blog pra postar e atualizar sobre as coisas que fazemos em desenvolvimento de jogos
+### Episódios
+- [[Sobre Agatha Christie]]
+- [[Sobre o Hobbit]]
+- [[Sobre o Guia do Mochileiro das Galaxias]]
+- Eletric Dreams e sua série horrivel
+### Info
+conta: email: [interpreteoteca@gmail.com](mailto:interpreteoteca@gmail.com)  
+senha, a msm com @ no fim
 
-# Resources
-A ideia é fazer não com gatspy mas com next js, assim fica mais fácil de conseguir o site rodando online e tudo mais.
+meu link rss:  
+```rss
+https://anchor.fm/s/79160688/podcast/rss
+```
 
-sera usado .ts (typescript) pra todo o projeto e .tsx pra páginas que contem js e html no mesmo arquivo. Além disso sera usado .scss para a estilização
+> O email do apple id é o do interpreteoteca@gmail.com
+> Senha: Cr7@
 
-Para as imagens, uma boa ideia seria criar um drive pra guardar todas as imagens usadas, assim deixando mais espeço e mais leve o site
-
-Inspirações:
-- [Celeste company](https://exok.com/)
-- [The witness blog](http://the-witness.net/news)
-
-Pra fazer o blog:
-- [next js e mk](https://dio.dev/criando-um-blog-com-nextjs-e-markdown)
-- [video next e mk USA](https://www.youtube.com/watch?v=MrjeefD8sac)
----
-- [Tematizar com CSS](https://medium.com/front-end-weekly/theming-with-css-variables-e4f30343c7c7)
-
-
-
-# Pages
-### Updates/blog
-Sera mostrado todos os posts em ordem de postagem de mais recente pra mais antigos em pequenos e retangulares cards com foto, título e pequena descrição.
-
-Será possível mostrar em grid, em fila ou ainda ter todos eles abertos (essa última não sei como vai ser, mas acho uma boa)
-
----
-todo post tem que ter um rodapé mais ou menos assim
-![[bottom of post.PNG]]
-
-com autor, data de publicação e categoria
-
-----
-Durantes os posts sera possível marcar alguem do tipo com *@fulano* e quando essa marcação for clicada levara para o "perfil" dessa pessoa, com suas redes sociais e falando um pouco dela
+- [Spotfy](https://open.spotify.com/show/7oK0KQmiXscUQYdkYtWpik)
+- [Anchor](https://anchor.fm/interpreteoteca)
+- [iTunes](https://podcasts.apple.com/us/podcast/interpreteoteca/id1600518641)
+- [Google](https://podcasts.google.com/feed/aHR0cHM6Ly9hbmNob3IuZm0vcy83OTE2MDY4OC9wb2RjYXN0L3Jzcw)
+- [Breaker](https://www.breaker.audio/interpreteoteca)
+- [CastBox](https://castbox.fm/channel/id4722931?country=br)
+- [Pocket Cast](https://pca.st/8rrb90d2)
+- [RadioPublic](https://radiopublic.com/interpreteoteca-Wxmvz3)
+- [Deezer](https://deezer.com/show/3260532)
+#### Gerenciamento:
+- [iTunes](https://podcastsconnect.apple.com/my-podcasts)
+- [Google](https://podcastsmanager.google.com/show?hl=pt&show=show:s_ZrSa9J-REMlF7i23yj3g)
+- [Spotfy](https://podcasters.spotify.com/home)
+- [Anchor](https://anchor.fm/dashboard)
+- [Breaker](https://www.breaker.audio/p/interpreteoteca?ownershipVerified=true)
+- [CastBox](https://castbox.fm/creator/channels?chsource=claim&cid=4722931&country=br&noreload=1)
+- [Radio Public](https://podcasters.radiopublic.com/dashboard?programId=6b119f1a-cb75-424e-a44c-40cf520d4465&t=eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhcGkucmFkaW9wdWJsaWMuY29tL3BvZGNhc3RlcnMiLCJhdWQiOiJhcGkucmFkaW9wdWJsaWMuY29tL3BvZGNhc3RlcnMiLCJzdWIiOiI2YjExOWYxYS1jYjc1LTQyNGUtYTQ0Yy00MGNmNTIwZDQ0NjUiLCJpYXQiOjE2NDA2OTU4NzEsImV4cCI6MTY0MDczOTA3MX0.FQEnO2h75QPWeQjJVMLM_uTXpToLgYHAn3nRYXi4uD79rlsvqqqOBgIrVp5FqaAbBXOgQwN1Ydnxp91HjQPqfg)
+- [Stitcher](https://partners.stitcher.com/show/673337/stats)
 
 
-### Team
-Sera mostrado todos os participantes do time, da mesma forma que a MotionTwin faz, acho essa ideia da pixel art muito boa e vou roubar sim.
-![[Pasted image 20220101091819.png]]
 
-### About
-uma pagina sobre o time no geral, de onde viemos, o que fazemos, o que usamos e etc.
+```ad-info
+
+Uma boa ideia seria voltar pro Spreaker depois de um tempo, quando, e se, o podcast crescer um pouco mais.
+```
+
+### Outro
+
+Daria pra ver como interpretar links RSS e fazer um site do interpreteoteca pra compartilhar todas as plataformas onde ele ta disponível e tals
+
+[Ler sobre metricas no Spotfy](https://podcasters.spotify.com/blog/a-quick-guide-to-spotifys-podcast-metrics)
+[Spotfy falando sobre podcasts dnovo](https://podcasters.spotify.com/blog/introducing-the-input-a-new-video-series-from-spotify-for-podcasters)
+
+### Youtube
+- [x] Criar o canal
+- [ ] Criar uma descrição com todos os links úteis par colocar no vídeo
+- [ ] Adicionar o primeiro episódio
+- [ ] Adicionar o segundo episódio

@@ -2,8 +2,6 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import Image from 'next/image'
-import Author from '../classes/authorType'
-import Category from '../classes/category'
 import PostCard from '../components/PostCard'
 import Post from '../classes/postType'
 
@@ -11,10 +9,8 @@ import Post from '../classes/postType'
 interface PostList{
   posts: Post[]
 }
+
 export default function BlogPage(posts:PostList ){
-
-
-
     return (
         <div>
             <h1>Posts</h1>
@@ -25,7 +21,6 @@ export default function BlogPage(posts:PostList ){
               ))
             }
             </div>
-
         </div>
     )
 }
@@ -35,7 +30,7 @@ export async function getStaticProps(){
     const files = fs.readdirSync(path.join('posts'))
   
     const posts: Post[] = files.map(filename => {
-      const slug = filename.replace('.md', '')
+      const slug: string = filename.replace('.md', '')
       const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8')
       const {data, content} = matter(markdownWithMeta)
       
@@ -53,9 +48,7 @@ export async function getStaticProps(){
     })  
     
     return {
-      props:{
-        posts
-      } 
-    }
-    
-  }
+      props:{ posts } 
+    } 
+  
+}

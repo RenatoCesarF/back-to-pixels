@@ -194,6 +194,11 @@
   "resolved" "https://registry.npmjs.org/@types/json5/-/json5-0.0.29.tgz"
   "version" "0.0.29"
 
+"@types/marked@^4.0.1":
+  "integrity" "sha512-ZigEmCWdNUU7IjZEuQ/iaimYdDHWHfTe3kg8ORfKjyGYd9RWumPoOJRQXB0bO+XLkNwzCthW3wUIQtANaEZ1ag=="
+  "resolved" "https://registry.npmjs.org/@types/marked/-/marked-4.0.1.tgz"
+  "version" "4.0.1"
+
 "@types/node@*", "@types/node@17.0.6":
   "integrity" "sha512-+XBAjfZmmivILUzO0HwBJoYkAyyySSLg5KCGBDFLomJo0sV6szvVLAf4ANZZ0pfWzgEds5KmGLG9D5hfEqOhaA=="
   "resolved" "https://registry.npmjs.org/@types/node/-/node-17.0.6.tgz"
