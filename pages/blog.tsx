@@ -2,9 +2,11 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 import Image from 'next/image'
+
 import PostCard from '../components/PostCard'
 import Post from '../classes/postType'
 
+import Header from '../components/header'
 
 interface PostList{
   posts: Post[]

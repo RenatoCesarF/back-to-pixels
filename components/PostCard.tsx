@@ -9,7 +9,7 @@ interface IPost{
 const PostCard: React.FC<IPost> = ({post}: IPost) => {
     //
     return(
-        <Link href={`/blog/${post.slug}`}><a className='post-card-a-tag'> 
+        <Link href={`/blog/${post.slug}`}>
             <div className='post-card-div'>
                     <img className='post-card-img' src={post.cover_image}/>
                     <div className='post-card-container'>
@@ -20,9 +20,8 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                             {/* <p>{post.categories}</p> */}
                         </div>
                     </div>
-            
             </div>
-        </a></Link>
+        </Link>
     )
 }
 

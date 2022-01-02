@@ -11,11 +11,11 @@ type StaticResponse = {params: Params}
 
 const PostPage: React.FC<IPost> = ({post}: IPost) => {
     return(
-        <section>
-
+        <section className='post-section'>
             <div className='post-container'>
-                <img className='post-cover'src={post.cover_image}></img>
+            <img className='post-cover'src={post.cover_image}/>
                 <h1 className='post-title'>{post.title}</h1>
+                <br/>
                 <div className='post-content'>
                     <div className='post-parsed-md' dangerouslySetInnerHTML={{__html: marked.parse(post.content)}}></div>
                 </div>

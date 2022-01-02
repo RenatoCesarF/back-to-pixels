@@ -3,7 +3,7 @@ title: 'Titulo do Post'
 date: '01/01/2022'
 author: 'Renato'
 excerpt: 'Descrição do que sera dito no post'
-cover_image: '/images/test.jpg'
+cover_image: '/images/test.gif'
 categories: []
 ---
 
