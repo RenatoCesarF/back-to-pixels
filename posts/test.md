@@ -3,7 +3,9 @@ title: 'test post'
 date: '01/01/2022'
 author: 'Renato'
 excerpt: 'resume'
-cover_image: 'https://via.placeholder.com/150'
+cover_image: 'https://via.placeholder.com/400X350'
+categories: []
+
 ---
 A ideia é fazer um blog pra postar e atualizar sobre as coisas que fazemos em desenvolvimento de jogos
 

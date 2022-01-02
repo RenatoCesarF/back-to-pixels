@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 
 * {
-  box-sizing: border-box;
+  /* box-sizing: border-box; */
   margin: 0;
   padding: 0;
 }
@@ -10,20 +10,6 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
-p {
-  margin: 15px 0;
-  line-height: 1.8;
-}
-
-a {
-  text-decoration: none;
-  color: #333;
-}
-
-img {
-  width: 100%;
-  border-radius: 10px;
-}
 
 header {
   background: steelblue;
@@ -41,4 +27,48 @@ header a {
   margin: auto;
   overflow: auto;
   padding: 0 10px;
+}
+/*----------BLOG PAGE ----------*/
+.posts-grid{
+  display: flex;
+  /* grid-auto-rows: minmax(100px, auto); */
+}
+
+/*----------POST CARD------*/
+.post-card-div{
+  width: 250px;
+  height: 300px;
+  margin-left: 3vw;
+  border: 2px solid #2d2d2da6;
+  border-radius: 20px;
+}
+
+
+
+.post-card-img{
+  border-radius: 20px  20px 0px 0px;
+
+  height: 200px;
+  object-fit: cover;
+  width: 250px;
+}
+
+
+.post-card-container{
+  margin-left: 0.5vw;  
+  margin-right: 0.5vw;  
+  margin-top: 0.2vh;  
+  margin-bottom: 0.5vh;  
+}
+.post-card-title{
+  margin-left: 1vw;
+}
+.post-card-resume{
+  margin: 0;
+  font-size: 12px;
+}
+
+.post-card-date{
+  color: #2d2d2da6;
+  font-size: 12px;
 }
