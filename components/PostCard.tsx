@@ -7,18 +7,18 @@ interface IPost{
 }
 
 const PostCard: React.FC<IPost> = ({post}: IPost) => {
-    const hasCoverImage:boolean = post.cover_image != undefined
+    const hasCoverImage:boolean = post.cover_image != undefined || post.cover_image != null
     return(
         <Link href={`/blog/${post.slug}`}>
             
             <div className='post-card-div'>
                     <div className='post-card-image-container'>
-
+                
                     {
-                        hasCoverImage === true ? 
+                        hasCoverImage ? 
                         (<img className='post-card-img' src={post.cover_image}/>)
                         : 
-                        (<h1>aaaa{post.date}</h1>)
+                        (<h1 className='post-card-cover-date'>{post.date}</h1>)
                     }
                     </div>
                     <div className='post-card-container'>

@@ -10,10 +10,21 @@ type Params = {slug: string}
 type StaticResponse = {params: Params}
 
 const PostPage: React.FC<IPost> = ({post}: IPost) => {
+    const hasCoverImage:boolean = post.cover_image != undefined || post.cover_image != null
     return(
         <section className='post-section'>
             <div className='post-container'>
-            <img className='post-cover'src={post.cover_image}/>
+            {
+                hasCoverImage ? 
+                (<img className='post-cover'src={post.cover_image}/>)
+                : 
+                (
+                    <div className='post-cover-div'>        
+                        <h1 className='post-cover-date'>{post.date}</h1>
+                    </div>
+                )
+            }
+            
                 <h1 className='post-title'>{post.title}</h1>
                 <br/>
                 <div className='post-content'>
