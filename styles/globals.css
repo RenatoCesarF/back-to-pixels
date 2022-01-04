@@ -10,15 +10,15 @@ body {
   --theme-color: white;
   --main-color: #3c8cac;
 }
-.img-fit {
-  height: 100%;
+.img-fit{
   object-fit: cover;
-  max-height: 100rem;
+  /* max-height: 100vh; */
   max-width: 100%;
   display: flex;
   margin-left: auto;
   margin-right: auto; 
 }
+
 code {
   font-family: monospace;
   width: 80vw;
@@ -133,8 +133,6 @@ header {
   margin-top: 0.2vh;  
   margin-bottom: 0.5vh;  
 }
-
-
 .post-card-title{
   margin: 0;
 }
@@ -183,6 +181,7 @@ header {
   justify-content: center;
   margin-left: 25vw;
   margin-right: 30vw; 
+  font-family: charter, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
 @media  only screen and (max-width: 600px){
@@ -191,7 +190,7 @@ header {
     margin-right: 5vw; 
   }
 }
-@media  only screen and  (min-width:600px) and (max-width:800px){
+@media  only screen and  (min-width:600px) and (max-width:850px){
   .post-container{
     margin-left: 14vw;
     margin-right: 20vw; 

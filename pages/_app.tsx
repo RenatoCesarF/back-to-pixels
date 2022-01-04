@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app'
 import Header from '../components/header'
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
+
   return(
     <div>
       <Header/>

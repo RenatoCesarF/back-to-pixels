@@ -1,19 +1,24 @@
 import fs from 'fs'
 import path from 'path'
 import matter  from 'gray-matter'
-import React from 'react'
-import {marked} from 'marked'
 import Post from '../../classes/postType'
+import React from 'react'
+import ReactMarkdown from 'react-markdown'
+import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter'
+import {darcula} from 'react-syntax-highlighter/dist/cjs/styles/prism'
+
 
 interface IPost{post: Post}
 type Params = {slug: string}
 type StaticResponse = {params: Params}
+
 
 const PostPage: React.FC<IPost> = ({post}: IPost) => {
     const hasCoverImage:boolean = post.cover_image != undefined || post.cover_image != null
     return(
         <section className='post-section'>
             <div className='post-container'>
+
             {
                 hasCoverImage ? 
                 (<img className='post-cover'src={post.cover_image}/>)
@@ -24,16 +29,42 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                     </div>
                 )
             }
-            
                 <h1 className='post-title'>{post.title}</h1>
                 <br/>
                 <div className='post-content'>
-                    <div className='post-parsed-md' dangerouslySetInnerHTML={{__html: marked.parse(post.content)}}></div>
+                <ReactMarkdown
+                    skipHtml={false}
+                    children={post.content}
+                    components={{
+                        img({node, className, children, ...props}){
+                            return <img className='img-fit' src={props.src} ></img>
+                        },
+                        code({node, inline, className, children, ...props}) {
+                            const match = /language-(\w+)/.exec(className || '')
+                            console.log(match);
+                            return !inline && match ? (
+                                <SyntaxHighlighter
+                                    children={String(children).replace(/\n$/, '')}
+                                    style={darcula}
+                                    language='python'
+                                    PreTag="div"
+                                    {...props}
+                                />
+                                  ) : (
+                                    <code className={className} {...props}>
+                                      {children}
+                                    </code>
+                                  )
+                                }
+                        }
+                           
+                    }
+                />
                 </div>
             </div>
         </section>
     )
-}
+};
 
 export async function getStaticPaths(){
     const files = fs.readdirSync(path.join('posts'))
