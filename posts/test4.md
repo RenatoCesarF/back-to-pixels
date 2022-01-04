@@ -5,6 +5,7 @@ author: 'Renato'
 excerpt: 'Descrição do que sera dito no post'
 cover_image: '/images/test.gif'
 categories: []
+code_theme: null
 ---
 
 # Reescrita de Operadores

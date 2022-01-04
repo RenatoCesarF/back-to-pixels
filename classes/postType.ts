@@ -9,6 +9,7 @@ type Post = {
     date: string,
     excerpt: string,
     slug: string,
+    code_theme: string, // need to create a type that store these values
     title: string,
 }
 

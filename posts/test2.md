@@ -5,4 +5,5 @@ author: 'Renato'
 excerpt: 'resume'
 cover_image: '/images/203536.png'
 categories: []
+code_theme: null
 ---

@@ -5,6 +5,7 @@ author: 'Renato'
 excerpt: 'resume'
 cover_image: 'https://via.placeholder.com/400X350'
 categories: []
+code_theme: null
 ---
 ### Episódios
 - [[Sobre Agatha Christie]]

@@ -1,3 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap');
 html,
 body {
   padding: 0;
@@ -9,6 +17,8 @@ body {
 :root{
   --theme-color: white;
   --main-color: #3c8cac;
+  --code-background-color: #7c7c7c;
+  --code-color: rgb(255, 255, 255);
 }
 .img-fit{
   object-fit: cover;
@@ -20,7 +30,6 @@ body {
 }
 
 code {
-  font-family: monospace;
   width: 80vw;
   white-space: normal;
   max-width:100%;
@@ -31,11 +40,20 @@ code {
   line-height: 1.4em;
   text-indent: 1rem;
 }
+.simple-code{
+  font-size: 0.8em;
+  font-family: 'Source Code Pro', monospace ;
+  background-color: var(--code-background-color);
+  padding: 0.2rem;
+  border-radius: 0.4rem;
+  font-weight: normal;
+  color:  var(--code-color);
+}
 
 h1{
   line-height: 1.12;
   font-style: normal;
-  font-weight: 800;
+  font-weight: 700;
   color: rgba(41, 41, 41, 1);
   font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
@@ -52,7 +70,7 @@ p {
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  font-family: charter, Georgia, Cambria, "Times New Roman", Times, serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 1em;
   line-height: 1.4em;
 }
@@ -93,16 +111,16 @@ header {
   height: 15rem;
   cursor: pointer;
   border: 2px solid #2d2d2da6;
-  border-radius: 1rem;
+  border-radius: 0.7rem;
   margin: 0.5rem
 }
 .post-card-image-container{
   background-color: var(--main-color);
-  border-radius: 0.8rem 0.8rem 0px 0px;
+  border-radius: 0.5rem 0.5rem 0px 0px;
   height: 8rem;
 }
 .post-card-img{
-  border-radius: 0.8rem 0.8rem 0px 0px;
+  border-radius: 0.5rem 0.5rem 0px 0px;
   width: 100%;
   height: 8rem;
   object-fit: cover;
@@ -134,6 +152,7 @@ header {
   margin-bottom: 0.5vh;  
 }
 .post-card-title{
+  font-family: 'Inconsolata', sans-serif;
   margin: 0;
 }
 .post-card-resume{
@@ -181,6 +200,7 @@ header {
   justify-content: center;
   margin-left: 25vw;
   margin-right: 30vw; 
+  margin-bottom: 10vh;
   font-family: charter, Georgia, Cambria, "Times New Roman", Times, serif;
 }
 
@@ -190,7 +210,7 @@ header {
     margin-right: 5vw; 
   }
 }
-@media  only screen and  (min-width:600px) and (max-width:850px){
+@media  only screen and  (min-width:600px) and (max-width:960px){
   .post-container{
     margin-left: 14vw;
     margin-right: 20vw; 

@@ -1,16 +1,14 @@
-import fs from 'fs'
-import path from 'path'
-import matter from 'gray-matter'
-import Image from 'next/image'
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
+import Image from 'next/image';
 
-import PostCard from '../components/PostCard'
-import Post from '../classes/postType'
-
-import Header from '../components/header'
+import PostCard from '../components/PostCard';
+import Post from '../classes/postType';
 
 interface PostList{
   posts: Post[]
-}
+};
 
 export default function BlogPage(posts:PostList ){
     return (
@@ -29,28 +27,29 @@ export default function BlogPage(posts:PostList ){
 
 
 export async function getStaticProps(){
-    const files = fs.readdirSync(path.join('posts'))
+    const files = fs.readdirSync(path.join('posts'));
   
     const posts: Post[] = files.map(filename => {
-      const slug: string = filename.replace('.md', '')
-      const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8')
-      const {data, content} = matter(markdownWithMeta)
+      const slug: string = filename.replace('.md', '');
+      const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8');
+      const {data, content} = matter(markdownWithMeta);
       
       return {
-        slug, 
-        content,
-        author: data.author,
-        cover_image: data.cover_image,
-        categories: data.categories,
-        date:data.date,
-        excerpt: data.excerpt, 
-        title: data.title
-      }
+          slug, 
+          content,
+          author: data.author ?? null,
+          cover_image: data.cover_image ?? null,
+          categories: data.categories ?? null,
+          date:data.date ?? null,
+          excerpt: data.excerpt ?? null, 
+          title: data.title ?? null,
+          code_theme: data.code_theme ?? null
+      };
 
     })  
     
     return {
       props:{ posts } 
-    } 
+    };
   
 }
