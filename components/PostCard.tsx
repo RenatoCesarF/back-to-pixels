@@ -16,7 +16,7 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                 
                     {
                         hasCoverImage ? 
-                        (<img className='post-card-img' src={post.cover_image}/>)
+                        (<img className='post-card-img' alt='post card image' src={post.cover_image}/>)
                         : 
                         (<h1 className='post-card-cover-date'>{post.date}</h1>)
                     }

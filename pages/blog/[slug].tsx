@@ -46,7 +46,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
 
                 {
                     hasCoverImage ? 
-                    (<img  className='post-cover'src={post.cover_image}/>)
+                    (<img  alt='blog post cover' className='post-cover'src={post.cover_image}/>)
                     : 
                     (
                         <div className='post-cover-div'>        
@@ -60,22 +60,22 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                     
                     <ReactMarkdown
                         skipHtml={false}
-                        children={post.content}
                         components={{
                             img({node, className, children, ...props}){
-                                return <img className='img-fit' src={props.src} ></img>
+                                return <img alt='blog post inside image' className='img-fit' src={props.src} ></img>
                             },
                             code({node, inline, className, children, ...props}) {
                                 const match = /language-(\w+)/.exec(className || '')
                                 return !inline && match ? (
                                     <SyntaxHighlighter
-                                        children={String(children).replace(/\n$/, '')}
                                         style={codeTheme}
                                         language='python'
                                         PreTag="div"
                                         {...props}
-                                    />
-                                    ) : (
+                                    >
+                                        {String(children).replace(/\n$/, '')}
+                                    </SyntaxHighlighter>
+                                ) : (
                                         <code className='simple-code' {...props}>
                                         {children}
                                         </code>
@@ -84,7 +84,9 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                             }
                             
                         }
-                    />
+                    >
+                        {post.content}
+                    </ReactMarkdown>
                     {/* <div className='post-parsed-md' dangerouslySetInnerHTML={{__html: marked.parse(post.content)}}></div> */}
                     </div>
                 </div>
