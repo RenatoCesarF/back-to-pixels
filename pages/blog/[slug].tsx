@@ -4,9 +4,11 @@ import matter  from 'gray-matter';
 import Post from '../../classes/postType';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 import {darcula,a11yDark,atomDark,dracula} from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
+import globalStyles from '../../styles/post.styles';
 
 interface IPost{post: Post};
 type Params = {slug: string};
@@ -35,52 +37,59 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
     const hasCoverImage:boolean = post.cover_image != undefined || post.cover_image != null;
     const codeTheme: string = getCodeTheme(post.code_theme);
     return(
-        <section className='post-section'>
-            <div className='post-container'>
+        <>
+            <style jsx global>
+            {globalStyles}
+            </style>
+            <section className='post-section'>
+                <div className='post-container'>
 
-            {
-                hasCoverImage ? 
-                (<img className='post-cover'src={post.cover_image}/>)
-                : 
-                (
-                    <div className='post-cover-div'>        
-                        <h1 className='post-cover-date'>{post.date}</h1>
+                {
+                    hasCoverImage ? 
+                    (<img  className='post-cover'src={post.cover_image}/>)
+                    : 
+                    (
+                        <div className='post-cover-div'>        
+                            <h1 className='post-cover-date'>{post.date}</h1>
+                        </div>
+                    )
+                }
+                    <h1 className='post-title'>{post.title}</h1>
+                    <br/>
+                    <div className='post-content'>
+                    
+                    <ReactMarkdown
+                        skipHtml={false}
+                        children={post.content}
+                        components={{
+                            img({node, className, children, ...props}){
+                                return <img className='img-fit' src={props.src} ></img>
+                            },
+                            code({node, inline, className, children, ...props}) {
+                                const match = /language-(\w+)/.exec(className || '')
+                                return !inline && match ? (
+                                    <SyntaxHighlighter
+                                        children={String(children).replace(/\n$/, '')}
+                                        style={codeTheme}
+                                        language='python'
+                                        PreTag="div"
+                                        {...props}
+                                    />
+                                    ) : (
+                                        <code className='simple-code' {...props}>
+                                        {children}
+                                        </code>
+                                    )
+                            }
+                            }
+                            
+                        }
+                    />
+                    {/* <div className='post-parsed-md' dangerouslySetInnerHTML={{__html: marked.parse(post.content)}}></div> */}
                     </div>
-                )
-            }
-                <h1 className='post-title'>{post.title}</h1>
-                <br/>
-                <div className='post-content'>
-                <ReactMarkdown
-                    skipHtml={false}
-                    children={post.content}
-                    components={{
-                        img({node, className, children, ...props}){
-                            return <img className='img-fit' src={props.src} ></img>
-                        },
-                        code({node, inline, className, children, ...props}) {
-                            const match = /language-(\w+)/.exec(className || '')
-                            return !inline && match ? (
-                                <SyntaxHighlighter
-                                    children={String(children).replace(/\n$/, '')}
-                                    style={codeTheme}
-                                    language='python'
-                                    PreTag="div"
-                                    {...props}
-                                />
-                                  ) : (
-                                    <code className='simple-code' {...props}>
-                                      {children}
-                                    </code>
-                                  )
-                        }
-                        }
-                           
-                    }
-                />
                 </div>
-            </div>
-        </section>
+            </section>
+        </>
     )
 };
 

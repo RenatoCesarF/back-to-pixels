@@ -3,6 +3,7 @@ import path from 'path';
 import matter from 'gray-matter';
 import Image from 'next/image';
 
+import globalStyles from '../styles/blog.styles'
 import PostCard from '../components/PostCard';
 import Post from '../classes/postType';
 
@@ -13,6 +14,9 @@ interface PostList{
 export default function BlogPage(posts:PostList ){
     return (
         <div>
+            <style jsx global>
+                {globalStyles}
+            </style>
             <h1>Posts</h1>
             <div className='posts-grid'>
             {

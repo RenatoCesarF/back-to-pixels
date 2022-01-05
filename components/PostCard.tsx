@@ -9,7 +9,7 @@ interface IPost{
 const PostCard: React.FC<IPost> = ({post}: IPost) => {
     const hasCoverImage:boolean = post.cover_image != undefined || post.cover_image != null
     return(
-        <Link href={`/blog/${post.slug}`}>
+        <Link passHref href={`/blog/${post.slug}`}>
             
             <div className='post-card-div'>
                     <div className='post-card-image-container'>

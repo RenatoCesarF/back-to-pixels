@@ -5,7 +5,7 @@ export default function Header() {
     return(
         <header>
             <div className="headerDiv">
-                <Link href="/">
+                <Link href="/" passHref>
                     <h3>CompanyName</h3>
                 </Link>
             </div>
