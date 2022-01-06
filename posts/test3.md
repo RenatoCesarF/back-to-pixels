@@ -1,5 +1,5 @@
 ---
-title: 'test 3'
+title: 'Test Card Title'
 date: '01/01/2022'
 author: 'Renato'
 excerpt: 'Lorem ipsum dolor sit amet. Sit dolorem nesciunt aut veniam quis vel iusto Quis qui temporibus labore! In neque quia a'

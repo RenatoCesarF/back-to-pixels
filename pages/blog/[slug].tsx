@@ -8,7 +8,9 @@ import ReactMarkdown from 'react-markdown';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 import {darcula,a11yDark,atomDark,dracula} from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
+import CustomButton, {ButtonIcon} from '../../components/CustomButton';
 import globalStyles from '../../styles/post.styles';
+import { useRouter } from 'next/router';
 
 interface IPost{post: Post};
 type Params = {slug: string};
@@ -34,6 +36,7 @@ const getCodeTheme = (name: string) => {
 }
 
 const PostPage: React.FC<IPost> = ({post}: IPost) => {
+    const router = useRouter()
     const hasCoverImage:boolean = post.cover_image != undefined || post.cover_image != null;
     const codeTheme: string = getCodeTheme(post.code_theme);
     return(
@@ -43,6 +46,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
             </style>
             <section className='post-section'>
                 <div className='post-container'>
+                <CustomButton text='Button Test' icon={ButtonIcon.arrowBack} onClick={() => {router.back()}}/>
 
                 {
                     hasCoverImage ? 

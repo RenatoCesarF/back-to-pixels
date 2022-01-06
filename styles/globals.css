@@ -1,17 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@500&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&family=Source+Sans+Pro:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap');
+
+:root{
+  --button-font: '';
+  --card-border-color: none; 
+  --card-text-color: #2d2d2d;
+  --background-color: #D9E4DD;/* rgb(243, 243, 243);*/
+  --main-color: #555555;
+  --secondary-color: #CDC9C3;
+  --page-title-color: #555555;
+  --button-text-color: #fff;
+  --button-color: #D3E0EA;
+  --shadow-color: #333333c4;
+  --main-font-color: #FFEFEF;
+  --code-background-color: #747373;
+  --code-color: rgb(255, 255, 255);
+}
+
 html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: var(--background-color);
+  font-family: 'Roboto', sans-serif;
 }
 
 *{
@@ -19,14 +33,14 @@ body {
 }
 
 
-:root{
-  --button-font: '';
-  --theme-color: white;
-  --main-color: #3c8cac;
-  --code-background-color: #747373;
-  --code-color: rgb(255, 255, 255);
-  --button-text-color: rgb(253, 253, 253);
-  --button-color: rgb(173, 173, 173);
+.page-title{
+  color: var(--page-title-color);
+  margin-top: 1rem;
+  margin-left: 1.6rem;
+  padding-left: 0.6rem;
+  border-bottom: solid  7px;
+  border-left: solid 7px;
+  width: 7rem;
 }
 .img-fit{
   object-fit: cover;
@@ -44,7 +58,10 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-align: center;
+  text-align: left;
+   /*  */
+  margin-top: 100vh;
+  overflow: scroll;
 }
 
 
@@ -91,8 +108,8 @@ p {
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  font-family: 'Nunito', sans-serif;
   font-size: 1em;
+  font-family: 'Roboto', sans-serif;
   line-height: 1.4em;
 }
 a{
@@ -107,9 +124,20 @@ a{
 header {
   background-color: var(--main-color);
   color: #fff;
-  display: block;
   width: 100%;
+  display: inline-flexbox;
+  top: 0px;
   max-width: 100vw;
-  margin-top:  0px;
+  height: 70px;
+  justify-content: space-between;
+
+  margin-top: 0px;
+}
+h3{
+  /* margin: 20px 0px 0px 40px; */
+  margin: 0px;
+  padding-top: 25px;
+  padding-left: 30px;
+
 }
 

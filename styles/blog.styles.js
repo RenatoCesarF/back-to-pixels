@@ -11,27 +11,31 @@ export default css.global`
   
   /*----------POST CARD------*/
 .post-card-div{
-    background-color: var(--theme-color);
+    background-color: var(--secondary-color);
     width: 17rem;
     height: 15rem;
     cursor: pointer;
-    border: 2px solid #2d2d2da6;
+    border: 2px solid var(--card-border-color);
     border-radius: 0.7rem;
-    margin: 0.5rem
+    margin: 0.5rem;
+
+    -webkit-box-shadow:  9px 9px 10px -6px rgba(58, 58, 58, 0.69);
+    -moz-box-shadow:  9px 9px 10px -6px rgba(58, 58, 58, 0.69);
+    box-shadow: 9px 9px 10px -6px rgba(58, 58, 58, 0.69);
 }
   .post-card-image-container{
     background-color: var(--main-color);
     border-radius: 0.5rem 0.5rem 0px 0px;
-    height: 8rem;
+    height: 9rem;
   }
   .post-card-img{
     border-radius: 0.5rem 0.5rem 0px 0px;
     width: 100%;
-    height: 8rem;
+    height: 9rem;
     object-fit: cover;
   }
   .post-card-cover-date{
-    color: white;
+    color: var(--main-font-color);
     text-align: center;
     padding-top: 3rem;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
@@ -59,15 +63,21 @@ export default css.global`
   .post-card-title{
     font-family: 'Inconsolata', sans-serif;
     margin: 0;
+    margin-top: 0.6rem;
+    margin-left: 0.4rem;
+    color: var(--card-text-color)
   }
   .post-card-resume{
     margin: 0;
-    font-size: 12px;
+    margin-left: 0.2rem;
+    font-size: 0.80rem;
+    color: var(--card-text-color)
   }
   
   .post-card-date{
-    color: #2d2d2da6;
+    color: var(--card-text-color);
     font-size: 12px;
+    margin-left: 0.2rem
   }
   
 `

@@ -10,6 +10,7 @@ export default css.global`
   .post-cover-div{
     background-color: var(--main-color);
     height: 100%;
+    margin-top: 1rem;
     line-height: 100px;
     text-align: center;
   }
