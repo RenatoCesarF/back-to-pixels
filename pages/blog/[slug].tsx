@@ -46,18 +46,18 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
             </style>
             <section className='post-section'>
                 <div className='post-container'>
-                <CustomButton text='Button Test' icon={ButtonIcon.arrowBack} onClick={() => {router.back()}}/>
+                <CustomButton text='' icon={ButtonIcon.arrowBack} onClick={() => {router.back()}}/>
 
-                {
-                    hasCoverImage ? 
-                    (<img  alt='blog post cover' className='post-cover'src={post.cover_image}/>)
-                    : 
-                    (
-                        <div className='post-cover-div'>        
-                            <h1 className='post-cover-date'>{post.date}</h1>
-                        </div>
-                    )
-                }
+                    {
+                        hasCoverImage ? 
+                        (<img  alt='blog post cover' className='post-cover'src={post.cover_image}/>)
+                        : 
+                        (
+                            <div className='post-cover-div'>        
+                                <h1 className='post-cover-date'>{post.date}</h1>
+                            </div>
+                        )
+                    }   
                     <h1 className='post-title'>{post.title}</h1>
                     <br/>
                     <div className='post-content'>
@@ -85,9 +85,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                                         </code>
                                     )
                             }
-                            }
-                            
-                        }
+                        }}
                     >
                         {post.content}
                     </ReactMarkdown>
@@ -119,7 +117,6 @@ export async function getStaticProps(object: StaticResponse ){
     const {data, content} = matter(markdownWithMeta);
 
       
-
     const post: Post = {
         slug, 
         content,

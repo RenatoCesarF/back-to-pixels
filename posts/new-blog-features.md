@@ -1,7 +1,7 @@
 ---
 title: 'New Blog Features'
 date: '01/04/2022'
-author: 'Renato'
+author: 'renato'
 cover_image: '/images/203536.png'
 excerpt: "Adding new stuff to this blog, it it's gettting very cool"
 categories: [BLOG]
@@ -21,8 +21,6 @@ it has many themes and options.
 
 All posts are writen in MarkDown files, so it's possible to choose a language in every code-section. And also choose a highlight theme for the post using the configuration header
 
-# This is a title
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 Still need to add more themes (load each one from the package into a external file), but I think that it's a good idea after all.
 

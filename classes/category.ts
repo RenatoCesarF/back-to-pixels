@@ -1,8 +1,8 @@
 enum Category {
-    General,
-    Art,
-    Programming,
-    Rings
+    ART,
+    PROGRAMMING,
+    RINGS,
+    BLOG
 }
 
 export default Category

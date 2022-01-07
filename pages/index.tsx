@@ -6,8 +6,9 @@ import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
   return (
-   <Link  passHref href={`/blog`}><a>to blog
-    </a></Link>
+    <div>
+      <h1>Home</h1>
+    </div>
   )
 }
 

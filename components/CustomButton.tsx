@@ -27,10 +27,10 @@ const CustomButton: React.FC<ButtomProps> = (prop: ButtomProps)=>{
             <style jsx global>
                 {globalStyles}
             </style>
-            <div className="button-div" onClick={() => {prop.onClick()}}>
+            <button className="button-div" onClick={() => {prop.onClick()}}>
                 {geticon(prop.icon)}
                 <h1 className="button-text">{prop.text}</h1>
-            </div>
+            </button>
         </>
     )
 }

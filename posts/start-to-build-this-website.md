@@ -1,7 +1,7 @@
 ---
 title: 'Start to build this website'
 date: '01/01/2022'
-author: 'Renato'
+author: 'renato'
 excerpt: 'Just documenting the first cool stuf, this blog'
 cover_image: '/images/test.jpg'
 code_theme: atomDark
