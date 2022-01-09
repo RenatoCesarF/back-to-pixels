@@ -8,10 +8,13 @@ export default function Custom404() {
     const router = useRouter()
 
     return (
-        <div className='center-404'>
-            <h1>404 - Page Not Found</h1>
+        <div className="page">
 
-            <CustomButton onClick={() => {router.back()}} text="Back" icon={ButtonIcon.arrowBack} />
+            <div className='center-404'>
+                <h1 className='text-404'> Page Not Found <br/>404</h1>
+
+                <CustomButton onClick={() => {router.back()}} text="Back" icon={ButtonIcon.arrowBack} />
+            </div>
         </div>
     )
 }

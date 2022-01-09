@@ -15,7 +15,7 @@ interface PostList{
 export default function BlogPage(posts:PostList ){
     const sourtedPosts = posts.posts.sort(sortByDate);
     return (
-        <div>
+        <div className='page'>
             <style jsx global>
                 {globalStyles}
             </style>
@@ -39,7 +39,11 @@ export async function getStaticProps(){
       const slug: string = filename.replace('.md', '');
       const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8');
       const {data, content} = matter(markdownWithMeta);
-      
+
+      if(data.excerpt.length > 80){
+          data.excerpt = data.excerpt.substr(0, 80) + '...';
+      }
+    
       return {
           slug, 
           content,

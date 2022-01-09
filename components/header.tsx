@@ -1,12 +1,14 @@
 import { useRouter } from 'next/router'
 import Link from "next/link";
 import React from "react";
+import path from 'path/posix';
 
 
 enum HeaderOption{
     HOME,
     BLOG,
-    TEAM
+    TEAM,
+    NONE
 };
 
 export default function Header() {
@@ -20,6 +22,7 @@ export default function Header() {
                      CompanyLogo
                 </a>
             </Link>
+
             <div className="header-right">
                 <Link href="/">
                     <a 
@@ -54,13 +57,16 @@ const changeToOption = (selectedOption: HeaderOption) => {
 }
 
 const getCurrentPage = (pathName: string) =>{
-    var currentPage: HeaderOption = HeaderOption.HOME;
+    var currentPage: HeaderOption = HeaderOption.NONE;
     
+    if(pathName === '/'){
+        currentPage = HeaderOption.HOME;
+        return currentPage;
+    }
     if(pathName.includes('/blog')){
         currentPage = HeaderOption.BLOG;
         return currentPage;
     }
-    
     if(pathName.includes('/team')){
         currentPage = HeaderOption.TEAM;
         return currentPage;

@@ -3,7 +3,7 @@ import next from 'next'
 const TeamPage = () => {
 
     return(
-        <div>
+        <div className='page'>
             <h1>Teams page</h1>
         </div>
     )

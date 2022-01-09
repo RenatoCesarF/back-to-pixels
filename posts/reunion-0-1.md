@@ -2,8 +2,8 @@
 title: 'Reunion 0.1'
 date: '01/06/2022'
 author: 'renato'
-cover_image: '/images/reunion-0-1/painted-us.png'
-excerpt: "The progress made in our first company reunion"
+cover_image: '/images/reunion-0-1/painted-us-cover.png'
+excerpt: 'The progress made in our first company reunion'
 categories: [BLOG]
 ---
 
@@ -56,4 +56,6 @@ To improve the palette swap I created many variables to centralize the styles of
 
   
 
-And to document the moment, we decided to shoot some photos:
+And to document the moment, we decided to shoot some photos *(and I made some effects by hand)*:
+
+![painted-1](/images/reunion-0-1/painted-us.png)

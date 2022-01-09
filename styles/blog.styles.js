@@ -8,8 +8,6 @@ export default css.global`
     display: grid;
     grid-template-columns: repeat(auto-fit, 20rem);
     justify-content: center;
-    height: 100%;
-    min-height: 100vh;
 }
   
   /*----------POST CARD------*/

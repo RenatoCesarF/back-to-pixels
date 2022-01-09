@@ -15,7 +15,7 @@
   --secondary-color: #CDC9C3;
   --header-option-activated: #D9E4DD;
   --header-option-hover: #cdc9c33b;
-  --page-title-color: #555555;
+  --page-title-color: #2d2d2d;
   --button-text-color: #fff;
   --button-color: #555555;
   --shadow-color: #333333c4;
@@ -141,7 +141,10 @@ a{
   text-indent: 1rem;
 }
 
-
+.page{
+  height: 100%;
+  min-height: 100vh;
+}
 
 /*--------------------FOOTER------------*/
 footer{
