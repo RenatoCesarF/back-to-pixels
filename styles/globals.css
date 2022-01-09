@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');/*H2 font*/
 
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&family=Source+Sans+Pro:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap');
@@ -8,7 +9,8 @@
   --button-font: '';
   --card-border-color: none; 
   --card-text-color: #2d2d2d;
-  --background-color: #D9E4DD;/* rgb(243, 243, 243);*/
+  --card-color: #CDC9C3;
+  --background-color: #D9E4DD;
   --main-color: #555555;
   --secondary-color: #CDC9C3;
   --header-option-activated: #D9E4DD;
@@ -22,6 +24,10 @@
   --code-color: rgb(255, 255, 255);
 }
 
+*{
+  box-sizing: border-box;
+  margin: 0;
+}
 html,
 body {
   padding: 0;
@@ -30,9 +36,6 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-*{
-  box-sizing: border-box;
-}
 
 
 .page-title{
@@ -53,8 +56,6 @@ body {
   margin-right: auto; 
 }
 /*TEMP*/
-
-
 .center-404 {
   position: absolute;
   top: 50%;
@@ -62,8 +63,6 @@ body {
   transform: translate(-50%, -50%);
   text-align: center;
 }
-
-
 /*0----------------0*/
 
 code {
@@ -88,15 +87,30 @@ code {
 }
 
 h1{
+  /* font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif; */
   line-height: 1.12;
   font-style: normal;
   font-weight: 700;
   color: rgba(41, 41, 41, 1);
-  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
+ 
+}
+h2{
+  font-family: 'Merriweather', serif;
+  margin: 2rem 0px 0px  0px;
+}
+h3{
+  /* margin: 20px 0px 0px 40px; */
+  margin: 0px;
+  padding-top: 25px;
+  padding-left: 30px;
+
+}
+hr{
+  border: 1px solid #acacac;
 }
 
-p {
+p{
   line-height: 28px;
   margin-top: 1.56em;
   margin-bottom: -0.46em;
@@ -107,25 +121,48 @@ p {
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  font-size: 1em;
   font-family: 'Roboto', sans-serif;
   line-height: 1.4em;
+  font-size: 1em;
+}
+li{
+  line-height: 1.4em;
+  font-size: 1em;
+  font-family: 'Roboto', sans-serif;
+  color: rgba(41, 41, 41, 1);
+
 }
 a{
   color: #292929;
   font-weight: 700;
-  font-family: medium-content-sans-serif-font, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  /* font-family: medium-content-sans-serif-font, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif; */
   font-size: 0.9rem;
   line-height: 1.4em;
   text-indent: 1rem;
 }
 
-h3{
-  /* margin: 20px 0px 0px 40px; */
-  margin: 0px;
-  padding-top: 25px;
-  padding-left: 30px;
 
+
+/*--------------------FOOTER------------*/
+footer{
+  background: var(--main-color);
+  text-align: center;
+  bottom: 0px;
+  height: 3rem; /* height of footer */
+  width: 100%;
+  margin:0px 0px;
+  margin-top: 3rem;
+}
+footer::after{
+  
+  position: absolute;
+  bottom: 0px; 
+}
+footer p{
+  color: var(--main-font-color);
+  margin: 0;
+  font-size: 0.8em;
+  padding-top: 0.9rem;
 }
 
 
@@ -161,8 +198,8 @@ h3{
 }
 
 .header a.active {
-  background-color:var(--secondary-color); /* var(--header-option-activated);*/
-  color: var(--main-color);
+  background-color:var(--secondary-color);
+  color: #2d2d2d;
 }
 
 .header-right {

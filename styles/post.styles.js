@@ -18,10 +18,11 @@ export default css.global`
     letter-spacing: -0.016em;
     line-height: 42px;
     margin-top: 0.56em;
-    font-size: 34px;
-    margin-bottom: 0.27em;
+    font-size: 3rem;
+    margin-bottom: 0.24rem;
     font-family: fell, Georgia, Cambria, "Times New Roman", Times, serif;
-    font-weight: 400;
+    /* font-family: 'Merriweather', serif;*/
+    font-weight: 500;
   }
   .post-cover{
     height: 100%;

@@ -6,7 +6,7 @@ import Image from 'next/image';
 import globalStyles from '../styles/blog.styles'
 import PostCard from '../components/PostCard';
 import Post from '../classes/postType';
-import { sortByDate } from '../utils/sort';
+import {sortByDate, sortByDateReverse} from '../utils/sort';
 
 interface PostList{
   posts: Post[]
@@ -14,7 +14,6 @@ interface PostList{
 
 export default function BlogPage(posts:PostList ){
     const sourtedPosts = posts.posts.sort(sortByDate);
-
     return (
         <div>
             <style jsx global>
@@ -29,7 +28,7 @@ export default function BlogPage(posts:PostList ){
             }
             </div>
         </div>
-    )
+    );
 }
 
 

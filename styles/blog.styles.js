@@ -3,15 +3,18 @@ import css from 'styled-jsx/css'
 export default css.global`
 
 /*----------BLOG PAGE ----------*/
+
 .posts-grid{
     display: grid;
     grid-template-columns: repeat(auto-fit, 20rem);
     justify-content: center;
+    height: 100%;
+    min-height: 100vh;
 }
   
   /*----------POST CARD------*/
 .post-card-div{
-    background-color: var(--secondary-color);
+    background-color: var(--card-color);
     width: 17rem;
     height: 15rem;
     cursor: pointer;
