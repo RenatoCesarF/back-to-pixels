@@ -32,19 +32,19 @@ It was a lot of fun and we are excited to improve each time more this website an
   
 Between the pallets tested we have these:
 
-![mouse-palette](/images/reunion-0-1/mouse-palete.png)
+![mouse-palette](/images/reunion-0-1/mouse-palette.png)
 
 ---
 
-![granito-palette](/images/reunion-0-1/granito-palete.png)
+![granito-palette](/images/reunion-0-1/granito-palette.png)
 
 ---
 
-![baleia-palettte](/images/reunion-0-1/baleia-palete.png)
+![baleia-palette](/images/reunion-0-1/baleia-palette.png)
 
 ---
 
-![cimento-palettte](/images/reunion-0-1/cimento-palete.png)
+![cimento-palette](/images/reunion-0-1/cimento-palette.png)
 
 ----
 

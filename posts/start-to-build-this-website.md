@@ -3,7 +3,7 @@ title: 'Start to build this website'
 date: '01/01/2022'
 author: 'renato'
 excerpt: 'Just documenting the first cool stuf, this blog'
-cover_image: '/images/test.jpg'
+cover_image: null
 code_theme: atomDark
 categories: [BLOG]
 ---
