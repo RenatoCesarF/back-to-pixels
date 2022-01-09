@@ -1,7 +1,7 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
-import Header from '../components/Header'
 import Footer from '../components/Footer'
+import Header from '../components/HeaderComponent'
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
 
@@ -15,7 +15,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
           name="description"
           content="..."
         />
-        <meta name="keywords" content="Indie Games, Development, Game, Indie, Company, Next, Developers"></meta>
+        <meta name="keywords" content="Indie Games, Development, Game, Indie, Company, Next, Developers, Blog"></meta>
         <meta name="author" content="Renato Cesar"></meta>
         <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
 
