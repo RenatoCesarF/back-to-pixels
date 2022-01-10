@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 import Link from "next/link";
 import React, { useState } from "react";
-import {BiMenu, BiX} from 'react-icons/Bi'
+import {BiMenu, BiX} from 'react-icons/bi'
 
 
 enum HeaderOption{
