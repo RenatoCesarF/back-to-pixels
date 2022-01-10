@@ -3,7 +3,8 @@
 export default function Footer(){
     return(
         <footer>
-            <p>@CompanyName</p>
+            
+            <p>© 2022 Renato Cesar</p>
         </footer>
     )
 }

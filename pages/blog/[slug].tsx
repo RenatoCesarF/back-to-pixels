@@ -4,13 +4,13 @@ import matter  from 'gray-matter';
 import Post from '../../classes/postType';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import { useRouter } from 'next/router';
 
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 import {darcula,a11yDark,atomDark,dracula} from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 import CustomButton, {ButtonIcon} from '../../components/CustomButton';
 import globalStyles from '../../styles/post.styles';
-import { useRouter } from 'next/router';
 
 interface IPost{post: Post};
 type Params = {slug: string};

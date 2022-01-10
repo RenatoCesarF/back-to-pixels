@@ -39,7 +39,7 @@ export default css.global`
     color: var(--main-font-color);
     text-align: center;
     padding-top: 3rem;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+    font-family: 'Source Code Pro', sans-serif;
   }
   
   @media screen and (max-width: 640px) {

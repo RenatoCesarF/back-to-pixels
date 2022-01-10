@@ -2,9 +2,10 @@ import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import Footer from '../components/Footer'
 import Header from '../components/HeaderComponent'
+import Link from 'next/link'
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
-
+  //TODO: change location of head tag
   return(
     <>
       <head>
@@ -25,6 +26,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
       <Component {...pageProps} />
       <Footer/>
     </>
+
   ) 
 }
 

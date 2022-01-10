@@ -36,8 +36,6 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-
-
 .page-title{
   color: var(--page-title-color);
   margin-top: 1rem;
@@ -47,14 +45,7 @@ body {
   border-left: solid 7px;
   width: 7rem;
 }
-.img-fit{
-  object-fit: cover;
-  /* max-height: 100vh; */
-  max-width: 100%;
-  display: flex;
-  margin-left: auto;
-  margin-right: auto; 
-}
+
 /*TEMP*/
 .center-404 {
   position: absolute;
@@ -112,22 +103,23 @@ hr{
 
 p{
   line-height: 28px;
-  margin-top: 1.56em;
-  margin-bottom: -0.46em;
   word-break: break-word;
   color: rgba(41, 41, 41, 1);
   display: block;
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.4em;
+  font-size: 1.2em;
+  margin-top: 1.56em;
+  margin-bottom: -0.46em;
   margin-block-start: 1em;
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.4em;
-  font-size: 1em;
 }
 li{
   line-height: 1.4em;
-  font-size: 1em;
+  font-size: 1.2em;
+  font-size: 1.2em;
   font-family: 'Roboto', sans-serif;
   color: rgba(41, 41, 41, 1);
 
@@ -173,7 +165,7 @@ footer p{
 .header {
   overflow: hidden;
   background-color: var(--main-color);
-  padding: 20px 10px;
+  padding: 15px 10px;
   
 }
 
@@ -181,9 +173,10 @@ footer p{
   float: left;
   color: white;
   text-align: center;
-  margin: 0 0.2vw;
+  margin: 0.2vh 0.2vw;
   padding: 8px 0px 8px 0px;
   padding-right: 14px;
+
   text-decoration: none;
   font-size: 18px; 
   line-height: 25px;
@@ -203,6 +196,10 @@ footer p{
 .header a.active {
   background-color:var(--secondary-color);
   color: #2d2d2d;
+
+}
+.menu-icon{
+  display: none;
 }
 
 .header-right {
@@ -210,19 +207,53 @@ footer p{
 }
 
 @media screen and (max-width: 500px) {
+  .header .logo-menu-line{
+    display: inline-flex;
+}
+  .header a.logo{
+    padding: 5px;
+    width: 13rem;
+  }
+  #home-option{
+    margin-top: 20px;
+  }
   .header a {
     float: none;
     display: block;
     text-align: left;
   }
-  
   .header-right {
     float: none;
+    margin-top: 20px;
+    visibility: visible;
+    background-color: var(--main-color);
+    height: 125px;
+    transition: height .5s  cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
-  .header a.logo{
-    padding: 5px;
-    width: 13rem;
-    margin-bottom: 2vh;
-    
+  .closed{
+    transition: height .5s cubic-bezier(0.175, 0.885, 0.32, 1.275), visibility .32s ;
+    height: 10px;
+    margin-top: 0px;
+    float: none;
+    display: block;
+    overflow-y: hidden;
+    visibility: hidden;
   }
+  /*-------MENU----------*/
+  .menu-icon{
+    display: flex;
+    color: var(--secondary-color);
+    width: 40px;
+    height: 40px;
+  }
+  
+  
+  .header .menu-icon-div{
+    color: var(--secondary-color);
+    position: absolute;
+    right: 0;      
+    margin-right: 2vw;
+  }
+
+
 }

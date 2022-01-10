@@ -7,7 +7,7 @@ export default css.global`
     border-radius: 0.3rem;
     display: inline-flex;
     cursor: pointer;
-    padding: 0.5rem;
+    padding: 0.3rem 0.5rem;
     border: none;
     text-align:center;
     vertical-align:middle;
@@ -23,9 +23,10 @@ export default css.global`
   }
   .button-icon{
     color: var(--button-text-color);
-    width: 1.4em;
-    height: 1.4em;
-    margin: 0.1rem 0;
+    width: 1.6em;
+    height: 1.6em;
+    margin: 0.1rem;
+    // margin-top: 3px;
   }
   
 `
