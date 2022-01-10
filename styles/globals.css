@@ -207,6 +207,9 @@ footer p{
 }
 
 @media screen and (max-width: 500px) {
+  .header{
+    padding-bottom: 5px;
+  }
   .header .logo-menu-line{
     display: inline-flex;
 }
