@@ -68,8 +68,8 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                 <meta property="og:description" content={post.excerpt}/>
                 <meta property="og:image" content={`${post.cover_image}`}/>
                 <meta property="og:image:type" content={`image/${imageType}`} />
-                <meta property="og:image:width" content="800"/> 
-                <meta property="og:image:height" content="600"/> 
+                <meta property="og:image:width" content="300"/>
+                <meta property="og:image:height" content="300"/>
                 <meta property="og:image:alt" content="Post cover image"/> 
                 
                 <meta property="blog:title" content={post.title}/>
