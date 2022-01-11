@@ -22,7 +22,7 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                     }
                     </div>
                     <div className='post-card-container'>
-                        <h4 className='post-card-title'>{post.title}</h4>
+                        <h2 className='post-card-title'>{post.title}</h2>
                         <p className='post-card-resume'>{post.excerpt}</p>
                         <div>
                             <p className="post-card-date">{post.date}</p>

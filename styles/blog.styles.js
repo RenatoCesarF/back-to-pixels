@@ -63,8 +63,9 @@ export default css.global`
   }
   .post-card-title{
     font-family: 'Inconsolata', sans-serif;
+    font-size: 1.15rem;
     margin: 0;
-    margin-top: 0.6rem;
+    margin-top: 0.2rem;
     margin-left: 0.4rem;
     color: var(--card-text-color)
   }
