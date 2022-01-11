@@ -81,8 +81,8 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                     ))
                 }
 
-                <meta name="twitter:image" content="https://s2.glbimg.com/iBxmBg2eA_Ot9k5bGewkF3MlhbM=/640x424/i.glbimg.com/og/ig/infoglobo1/f/original/2022/01/11/chuveiro.jpg"/>
                 <meta name="twitter:card" content="summary_large_image"/>
+                <meta name="twitter:image" content={post.cover_image}/>
                 <meta name="twitter:website" content="@nerat0"/>
                 <meta name="twitter:url" content={`https://devblog-nine.vercel.app/blog/${post.slug}`}/>
                 <meta name="twitter:title" content={post.title}/>
