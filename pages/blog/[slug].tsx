@@ -53,13 +53,14 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                 <meta name="description" content={post.excerpt}/>
                 <meta name="author" content={post.author.name}/>
                 <meta name="keywords" content="Indie Games, Development, Game, Indie, Developers, Blog"/>
+                <meta name="robots" content="index, follow"/>
+                <meta name="googlebot" content="index, follow"/>
                 {
                     post.categories.map((name: Category, index:number) =>(
                         <meta name="keywords" content={name} key={index}/>
                     ))
                 }
-                <meta name="robots" content="index, follow"/>
-                <meta name="googlebot" content="index, follow"/>
+
                 <meta property="og:type" content="blog"/>
                 <meta property="og:url" content={`https://devblog-nine.vercel.app/blog/${post.slug}`} />
                 <meta property="og:title" content={post.title}/>
@@ -73,18 +74,20 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                 
                 <meta property="blog:title" content={post.title}/>
                 <meta property="blog:author" content={post.author.name}/>
+                <meta property="blog:published_time" content={post.date}/>
                 {
                     post.categories.map((name: Category, index: number) =>(
                         <meta property="blog:tag" content={name} key={index}/>
                     ))
                 }
-                <meta property="blog:published_time" content={post.date}/>
 
+                <meta name="twitter:card" content="summary_large_image"/>
+                <meta name="twitter:website" content="@nerat0"/>
                 <meta name="twitter:url" content={`https://devblog-nine.vercel.app/blog/${post.slug}`}/>
                 <meta name="twitter:title" content={post.title}/>
-                <meta name="twitter:card" content="summary_large_image"/>
                 <meta name="twitter:description" content={post.excerpt}/>
-                <meta name="twitter:image"content={`${post.cover_image}`}/>
+                <meta name="twitter:image" content={"http://graphics8.nytimes.com/images/2012/02/19/us/19whitney-span/19whitney-span-articleLarge.jpg"}/>
+                <meta name="twitter:creator" content={post.author.twitter}/>
             </Head>
             <style jsx global>
                 {globalStyles}

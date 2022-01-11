@@ -219,6 +219,7 @@ footer p{
   }
   .header .logo-menu-line{
     display: inline-flex;
+    margin-top: 2vh;
 }
   .header a.logo{
     padding: 5px;
