@@ -173,7 +173,8 @@ footer p{
   float: left;
   color: white;
   text-align: center;
-  margin: 0.2vh 0.2vw;
+  margin: 0.2vh 0.6vw;
+
   padding: 8px 0px 8px 0px;
   padding-right: 14px;
 
@@ -230,13 +231,14 @@ footer p{
     float: none;
     display: block;
     text-align: left;
+    margin-bottom: 7px;
   }
   .header-right {
     float: none;
     margin-top: 20px;
     visibility: visible;
     background-color: var(--main-color);
-    height: 125px;
+    height: 150px;
     transition: height .5s  cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
   .closed{
@@ -279,13 +281,15 @@ footer p{
     outline:0;
     display: block;
     visibility: visible;
+    margin-right: 4vw;
   }
-  
   .menu-toggle span {
     background-color: var(--secondary-color);
     display: block;
     height: 0.3em;
+    border-radius: 30%;
     margin-bottom: .5em;
+ 
     transition: ease 0.3s;
   }
   
