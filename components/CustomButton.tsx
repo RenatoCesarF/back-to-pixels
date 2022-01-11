@@ -28,7 +28,7 @@ const CustomButton: React.FC<ButtomProps> = (props: ButtomProps)=>{
             <style jsx global>
                 {globalStyles}
             </style>
-            <button name={props.description} className="button-div" onClick={() => {props.onClick()}}>
+            <button aria-label={props.description} name={props.description} className="button-div" onClick={() => {props.onClick()}}>
                 {geticon(props.icon)}
                 <h1 className="button-text">{props.text}</h1>
             </button>

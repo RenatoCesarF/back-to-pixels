@@ -46,7 +46,6 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
     return(
         <>
             <Head>
-                <html lang="en" />
                 <meta name="description" content={post.excerpt}/>
                 <meta name="author" content={post.author.name}/>
                 <meta name="keywords" content="Indie Games, Development, Game, Indie, Developers, Blog"/>

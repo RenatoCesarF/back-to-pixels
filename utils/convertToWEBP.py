@@ -1,0 +1,24 @@
+from pathlib import Path
+from PIL import Image
+import os
+
+def convert_to_webp(source):
+    destination = source.with_suffix(".webp")
+
+    image = Image.open(source)  # Open image
+    image.save(destination, format="webp")  # Convert image to webp
+    os.remove(source) #remove png
+
+    return destination
+
+
+def main():
+    paths = Path("public/images").glob("**/*.png")
+    print("Started...")
+    for path in paths:
+        print(path)
+        webp_path = convert_to_webp(path)
+    print("Finished")
+
+
+main()
