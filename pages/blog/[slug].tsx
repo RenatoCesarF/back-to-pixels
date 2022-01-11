@@ -41,7 +41,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
     const router = useRouter()
     const hasCoverImage:boolean = post.cover_image != undefined || post.cover_image != null;
     const codeTheme: string = getCodeTheme(post.code_theme);
-    const imageType = getImageType(post.cover_image);
+    const imageType = hasCoverImage? getImageType(post.cover_image) : "none"
 
     return(
         <>

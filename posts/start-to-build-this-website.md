@@ -16,7 +16,7 @@ And everything was *almost* responsive, at least I tried to make it so.
 
 
 
-![first-version](/images/first-version.gif)
+![first-version](/images/posts/first-version.gif)
 
 Another important thing, english is not my main language, so maybe I gonna write wrong some things.
 
