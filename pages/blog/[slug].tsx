@@ -65,7 +65,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                 
                 <meta property="blog:title" content={post.title}/>
                 <meta property="blog:author" content={post.author.name}/>
-                <meta property="blog:section" content="Tutoriais"/>
+                {/* <meta property="blog:section" content="Tutoriais"/> */}
                 <meta property="blog:tag" content=""/>
                 {/* Fazer um map aqui com todas as categorias do post e adicionar como tags */}
                 <meta property="blog:published_time" content={post.date}/>

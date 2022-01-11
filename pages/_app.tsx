@@ -10,7 +10,6 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return(
     <>
       <Head>
-        <html lang="en" />
         <meta charSet='utf-8' />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#555555" />
@@ -23,9 +22,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         <meta property="og:locale" content="en_US"/>
         <meta property="og:site_name" content="Company Name"/>
         <meta property="og:type" content="website"></meta>
-        {/* <link rel="manifest" href="%PUBLIC_URL%/manifest.json" /> */}
       </Head>
-
       <Header/>
       <Component {...pageProps} />
       <Footer/>

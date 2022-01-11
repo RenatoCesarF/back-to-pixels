@@ -287,7 +287,7 @@ footer p{
     background-color: var(--secondary-color);
     display: block;
     height: 0.3em;
-    border-radius: 30%;
+    border-radius: 30px;
     margin-bottom: .5em;
  
     transition: ease 0.3s;
