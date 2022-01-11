@@ -54,8 +54,8 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                 <meta name="author" content={post.author.name}/>
                 <meta name="keywords" content="Indie Games, Development, Game, Indie, Developers, Blog"/>
                 {
-                    post.categories.map((name: Category) =>(
-                        <meta name="keywords" content={name}/>
+                    post.categories.map((name: Category, index:number) =>(
+                        <meta name="keywords" content={name} key={index}/>
                     ))
                 }
                 <meta name="robots" content="index, follow"/>
@@ -73,8 +73,8 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                 <meta property="blog:title" content={post.title}/>
                 <meta property="blog:author" content={post.author.name}/>
                 {
-                    post.categories.map((name: Category) =>(
-                        <meta name="blog:tag" content={name}/>
+                    post.categories.map((name: Category, index: number) =>(
+                        <meta name="blog:tag" content={name} key={index}/>
                     ))
                 }
                 <meta property="blog:published_time" content={post.date}/>
