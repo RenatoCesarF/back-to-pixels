@@ -198,6 +198,7 @@ footer p{
   color: #2d2d2d;
 
 }
+
 .menu-icon{
   display: none;
 }
@@ -205,6 +206,11 @@ footer p{
 .header-right {
   float: right;
 }
+.menu-toggle{
+  visibility: hidden;
+  display: none;
+}
+
 
 @media screen and (max-width: 500px) {
   .header{
@@ -259,4 +265,46 @@ footer p{
   }
 
 
+}
+
+
+/*===========MENU ICON ============*/
+@media screen and (max-width: 500px){ 
+  .menu-toggle {
+    box-sizing: border-box;
+    background-color: transparent;
+    width: 3.3em;
+    height: 3.3em;
+    border: none;
+    outline:0;
+    display: block;
+    visibility: visible;
+  }
+  
+  .menu-toggle span {
+    background-color: var(--secondary-color);
+    display: block;
+    height: 0.3em;
+    margin-bottom: .5em;
+    transition: ease 0.3s;
+  }
+  
+  
+  button.toggled span:nth-child(1) {
+    transform: rotate(45deg);
+    margin-bottom: .8em;
+    margin-top:.8em;
+  }
+  
+  button.toggled span:nth-child(2) {
+    transform: rotate(-135deg);
+    margin-bottom: .8em;
+    margin-top: -1.1em;
+  }
+  
+  button.toggled span:nth-child(3) {
+    transform: rotate(-45deg);
+    margin-bottom: .8em;
+    margin-top: -1.1em;
+  }  
 }

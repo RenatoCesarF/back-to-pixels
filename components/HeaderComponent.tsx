@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router'
 import Link from "next/link";
 import React, { useState } from "react";
-import {BiMenu, BiX} from 'react-icons/bi'
 
+import MenuIcon from './MenuIcon';
 
 enum HeaderOption{
     HOME,
@@ -10,8 +10,6 @@ enum HeaderOption{
     TEAM,
     NONE
 };
-
-
 
 
 export default function Header() {
@@ -26,7 +24,8 @@ export default function Header() {
         }
         setMenuState(true);
     }
-    const isActive =(checkedOption: HeaderOption) => {
+
+    const isMenuActive =(checkedOption: HeaderOption) => {
         return currentPage === checkedOption ? "active" : ""
     }
     const checkMenuState =() => {
@@ -42,12 +41,8 @@ export default function Header() {
                     </a>
                 </Link>
                 <div className='menu-icon-div' onClick={(toggleMenuIcon)}>
-                    {
-                        isMenuOpened?
-                        (<BiX className='menu-icon' size={33}/>)
-                        :
-                        (<BiMenu className='menu-icon' size={33}/>)    
-                    }
+                    
+                    <MenuIcon/>
                 </div>
             </div>
 
@@ -56,19 +51,19 @@ export default function Header() {
                     <a 
                         onClick={()=>changeToOption(HeaderOption.HOME)}
                         id='home-option'
-                        className={`menu-option ${isActive(HeaderOption.HOME)}`}>Home 
+                        className={`menu-option ${isMenuActive(HeaderOption.HOME)}`}>Home 
                     </a>
                 </Link>
                 <Link href="/blog">
                     <a 
                         onClick={()=>changeToOption(HeaderOption.BLOG)} 
-                        className={`menu-option ${isActive(HeaderOption.BLOG)}` } >Blog
+                        className={`menu-option ${isMenuActive(HeaderOption.BLOG)}` } >Blog
                     </a>
                 </Link>
                 <Link href="/team">
                     <a 
                         onClick={()=>changeToOption(HeaderOption.TEAM)} 
-                        className={`menu-option ${isActive(HeaderOption.TEAM)}` } >Team
+                        className={`menu-option ${isMenuActive(HeaderOption.TEAM)}` } >Team
                     </a>
                 </Link>
             </div>
