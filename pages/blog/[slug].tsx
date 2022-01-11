@@ -59,10 +59,11 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                     ))
                 }
                 <meta name="robots" content="index, follow"/>
-                <meta name="googlebot" content="idnex, follow"/>
+                <meta name="googlebot" content="index, follow"/>
                 <meta property="og:type" content="blog"/>
                 <meta property="og:url" content={`https://devblog-nine.vercel.app/blog/${post.slug}`} />
                 <meta property="og:title" content={post.title}/>
+                <meta property="og:site_name" content={post.title}/>
                 <meta property="og:description" content={post.excerpt}/>
                 <meta property="og:image" content={`${post.cover_image}`}/>
                 <meta property="og:image:type" content={`image/${imageType}`} />
@@ -74,13 +75,14 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                 <meta property="blog:author" content={post.author.name}/>
                 {
                     post.categories.map((name: Category, index: number) =>(
-                        <meta name="blog:tag" content={name} key={index}/>
+                        <meta property="blog:tag" content={name} key={index}/>
                     ))
                 }
                 <meta property="blog:published_time" content={post.date}/>
 
                 <meta name="twitter:url" content={`https://devblog-nine.vercel.app/blog/${post.slug}`}/>
                 <meta name="twitter:title" content={post.title}/>
+                <meta name="twitter:card" content="summary_large_image"/>
                 <meta name="twitter:description" content={post.excerpt}/>
                 <meta name="twitter:image"content={`${post.cover_image}`}/>
             </Head>
