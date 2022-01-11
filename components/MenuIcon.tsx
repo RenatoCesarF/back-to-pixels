@@ -13,7 +13,7 @@ const MenuIcon = ( ) =>{
     };
 
     return(
-            <button onClick={toggleMenuButton} className={`menu-toggle ${menuIcon? "toggled" : ""}`} aria-controls="primary-menu" aria-expanded="false">
+            <button name="Open Menu Button" onClick={toggleMenuButton} className={`menu-toggle ${menuIcon? "toggled" : ""}`} aria-controls="primary-menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>

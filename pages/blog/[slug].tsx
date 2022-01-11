@@ -46,6 +46,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
     return(
         <>
             <Head>
+                <html lang="en" />
                 <meta name="description" content={post.excerpt}/>
                 <meta name="author" content={post.author.name}/>
                 <meta name="keywords" content="Indie Games, Development, Game, Indie, Developers, Blog"/>
@@ -80,7 +81,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
             </style>
             <section className='post-section'>
                 <div className='post-container'>
-                <CustomButton text='' icon={ButtonIcon.arrowBack} onClick={() => {router.back()}}/>
+                <CustomButton description='Return to Blog list' text='' icon={ButtonIcon.arrowBack} onClick={() => {router.back()}}/>
 
                     {
                         hasCoverImage ? 

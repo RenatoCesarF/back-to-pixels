@@ -1,5 +1,5 @@
 ---
-title: 'Start to build this website'
+title: 'Start To Build This Website'
 date: '01/01/2022'
 author: 'renato'
 excerpt: 'Just documenting the first cool stuf, this blog'

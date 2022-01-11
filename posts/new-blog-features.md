@@ -2,7 +2,7 @@
 title: 'New Blog Features'
 date: '01/04/2022'
 author: 'renato'
-cover_image: '/images/posts/203536.png'
+cover_image: null
 excerpt: "Adding new stuff to this blog, it it's gettting very cool"
 categories: [BLOG]
 code_theme: 'dracula'

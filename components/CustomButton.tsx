@@ -7,6 +7,7 @@ interface ButtomProps{
     text: string;
     onClick: Function;
     icon: ButtonIcon;
+    description: string;
 };
 export enum ButtonIcon{
     arrowBack = 1,
@@ -21,15 +22,15 @@ const geticon = (iconName: ButtonIcon) =>{
     }
 }
 
-const CustomButton: React.FC<ButtomProps> = (prop: ButtomProps)=>{
+const CustomButton: React.FC<ButtomProps> = (props: ButtomProps)=>{
     return(
         <>
             <style jsx global>
                 {globalStyles}
             </style>
-            <button className="button-div" onClick={() => {prop.onClick()}}>
-                {geticon(prop.icon)}
-                <h1 className="button-text">{prop.text}</h1>
+            <button name={props.description} className="button-div" onClick={() => {props.onClick()}}>
+                {geticon(props.icon)}
+                <h1 className="button-text">{props.text}</h1>
             </button>
         </>
     )
