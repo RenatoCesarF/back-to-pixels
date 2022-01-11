@@ -3,8 +3,10 @@ import path from 'path';
 import matter  from 'gray-matter';
 import Post from '../../classes/postType';
 import React from 'react';
+// import Image from 'react'
 import ReactMarkdown from 'react-markdown';
 import { useRouter } from 'next/router';
+// import reactImageSize  from 'react-image-size';
 
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 import {darcula,a11yDark,atomDark,dracula} from 'react-syntax-highlighter/dist/cjs/styles/prism';
@@ -13,6 +15,7 @@ import CustomButton, {ButtonIcon} from '../../components/CustomButton';
 import globalStyles from '../../styles/post.styles';
 import Head from 'next/head';
 import getImageType from '../../utils/getImageType';
+import Category from '../../classes/category';
 
 interface IPost{post: Post};
 type Params = {slug: string};
@@ -50,25 +53,30 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                 <meta name="description" content={post.excerpt}/>
                 <meta name="author" content={post.author.name}/>
                 <meta name="keywords" content="Indie Games, Development, Game, Indie, Developers, Blog"/>
-                {/* Fazer um map aqui com todas as categorias do post e adicionar como keyword */}
+                {
+                    post.categories.map((name: Category) =>(
+                        <meta name="keywords" content={name}/>
+                    ))
+                }
                 <meta name="robots" content="index, follow"/>
                 <meta name="googlebot" content="idnex, follow"/>
-
                 <meta property="og:type" content="blog"/>
                 <meta property="og:url" content={`https://devblog-nine.vercel.app/blog/${post.slug}`} />
                 <meta property="og:title" content={post.title}/>
                 <meta property="og:description" content={post.excerpt}/>
                 <meta property="og:image" content={`${post.cover_image}`}/>
                 <meta property="og:image:type" content={`image/${imageType}`} />
-                {/* <meta property="og:image:width" content="800"/> 
-                <meta property="og:image:height" content="600"/>  */}
+                <meta property="og:image:width" content="800"/> 
+                <meta property="og:image:height" content="600"/> 
                 <meta property="og:image:alt" content="Post cover image"/> 
                 
                 <meta property="blog:title" content={post.title}/>
                 <meta property="blog:author" content={post.author.name}/>
-                {/* <meta property="blog:section" content="Tutoriais"/> */}
-                <meta property="blog:tag" content=""/>
-                {/* Fazer um map aqui com todas as categorias do post e adicionar como tags */}
+                {
+                    post.categories.map((name: Category) =>(
+                        <meta name="blog:tag" content={name}/>
+                    ))
+                }
                 <meta property="blog:published_time" content={post.date}/>
 
                 <meta name="twitter:url" content={`https://devblog-nine.vercel.app/blog/${post.slug}`}/>
