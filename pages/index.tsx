@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
+import generateRssFeed from '../scripts/rss'
 import styles from '../styles/Home.module.css'
 
 const Home: NextPage = () => {
@@ -25,6 +26,12 @@ const Home: NextPage = () => {
       <h1>Home</h1>
     </div>
   )
+}
+
+export async function getStaticProps(){
+  await generateRssFeed();
+
+  return {props: {}};
 }
 
 export default Home;
