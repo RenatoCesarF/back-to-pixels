@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+          <url>
+    <loc>https://devblog-nine.vercel.app//404.tsx</loc>
+    <lastmod>2022-01-12T16:49:57.125Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://devblog-nine.vercel.app//blog.tsx</loc>
+    <lastmod>2022-01-12T16:49:57.125Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://devblog-nine.vercel.app//index.tsx</loc>
+    <lastmod>2022-01-12T16:49:57.125Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://devblog-nine.vercel.app//team.tsx</loc>
+    <lastmod>2022-01-12T16:49:57.125Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://devblog-nine.vercel.app//blog/[slug].tsx</loc>
+    <lastmod>2022-01-12T16:49:57.125Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://devblog-nine.vercel.app//team/[teammate].tsx</loc>
+    <lastmod>2022-01-12T16:49:57.125Z</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+  </url>
+        </urlset>
+    
