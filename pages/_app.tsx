@@ -19,6 +19,8 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
         <meta name="robots" content="index, follow"/>
         <meta name="googlebot" content="idnex, follow"/>
 
+        <meta name="google-site-verification" content="amj1tyhcjvwNjY_pZi-WJjthO7eC5SyaZZCrmbb835M" />
+        
         <meta property="og:locale" content="en_US"/>
         <meta property="og:site_name" content="Company Name"/>
         <meta property="og:type" content="website"></meta>
