@@ -2,7 +2,7 @@
 title: 'Discovering Meta tags And Website Updates'
 date: '01/11/2022'
 author: 'renato'
-cover_image: '/images/posts/discovering-meta-tags-and-website-uptades/metatags.webp'
+cover_image: 'https://media.publit.io/file/metatags.webp'
 excerpt: 'How I maneged to make our posts look amazing in social midia using meta tags and new website features that I added recently'
 
 categories: [BLOG, NEXTJS]
