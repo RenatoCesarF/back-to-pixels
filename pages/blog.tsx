@@ -51,9 +51,9 @@ export async function getStaticProps(){
       const slug: string = filename.replace('.md', '');
       const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8');
       const {data, content} = matter(markdownWithMeta);
-
-      if(data.excerpt.length > 80){
-          data.excerpt = data.excerpt.substr(0, 80) + '...';
+      const maximumExcerptSize: number = 80
+      if(data.excerpt.length > maximumExcerptSize){
+          data.excerpt = data.excerpt.substr(0, maximumExcerptSize) + '...';
       }
 
       const postAuthor: Author = {name: "Renato", about: "", email: "", image:"", instagram: "", twitter: "", role: ""}

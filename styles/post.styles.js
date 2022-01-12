@@ -1,6 +1,19 @@
 import css from 'styled-jsx/css'
 
 export default css.global`
+
+  .post-section  li{
+    line-height: 1.4em;
+    font-size: 1.0em;
+    font-family: 'Roboto', sans-serif;
+    color: rgba(41, 41, 41, 1);
+  }
+
+  .post-section a{
+    text-decoration: underline;
+    color: var(--link-color);
+    font-family: 'Roboto', sans-serif; 
+  }
   .img-fit{
     object-fit: cover;
     /* max-height: 100vh; */

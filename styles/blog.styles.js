@@ -14,7 +14,7 @@ export default css.global`
 .post-card-div{
     background-color: var(--card-color);
     width: 17rem;
-    height: 15rem;
+    height: 17rem;
     cursor: pointer;
     border: 2px solid var(--card-border-color);
     border-radius: 0.7rem;

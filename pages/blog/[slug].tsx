@@ -82,19 +82,20 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                 }
 
                 <meta name="twitter:card" content="summary_large_image"/>
-                <meta name="twitter:image" content={post.cover_image}/>
                 <meta name="twitter:website" content="@nerat0"/>
-                <meta name="twitter:url" content={`https://devblog-nine.vercel.app/blog/${post.slug}`}/>
+                <meta name="twitter:image" content={post.cover_image}/>
                 <meta name="twitter:title" content={post.title}/>
                 <meta name="twitter:description" content={post.excerpt}/>
                 <meta name="twitter:creator" content={post.author.twitter}/>
+                <meta property="twitter:url" content={`https://devblog-nine.vercel.app/blog/${post.slug}`}/>
+                <meta property="twitter:domain" content="devblog-nine.vercel.app"/>
             </Head>
             <style jsx global>
                 {globalStyles}
             </style>
             <section className='post-section'>
                 <div className='post-container'>
-                <CustomButton description='Return to Blog list' text='' icon={ButtonIcon.arrowBack} onClick={() => {router.back()}}/>
+                <CustomButton description='Return to Blog list' text='' icon={ButtonIcon.arrowBack} onClick={() => {router.push("/blog")}}/>
 
                     {
                         hasCoverImage ? 
