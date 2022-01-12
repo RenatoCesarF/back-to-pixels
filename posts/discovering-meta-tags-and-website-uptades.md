@@ -2,7 +2,7 @@
 title: 'Discovering Meta tags And Website Updates'
 date: '01/11/2022'
 author: 'renato'
-cover_image: 'https://blogger.googleusercontent.com/img/a/AVvXsEhYvuTEcl7uWvkK_-OO5_xjOYQdMDG9CF1AvntLWDsSxXIPzQ7clU-gP1t_-pqWiMjrU_pxMbKgLaq40FEgCarrGBU2w94yDqZ2jrytjE8x58yoLBwmIIi66we0id0gKY9_iIC8AJlpHazATe_nzpI3l58rOnR3htAmSBTlL6luDtQpm4zI_bfBqs6Eqw=s1200'
+cover_image: 'https://i.imgur.com/RueCNhG.png'
 excerpt: 'How I maneged to make our posts look amazing in social midia using meta tags and new website features that I added recently'
 
 categories: [BLOG, NEXTJS]
