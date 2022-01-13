@@ -1,7 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
-import { Feed } from "feed";
+import { Feed ,Item} from "feed";
 import matter from 'gray-matter';
 
 import Post from '../classes/postType';
@@ -13,8 +13,8 @@ async function generateRssFeed() {
     return;
   }
   console.log("Creating RSS feeds");
-  const baseUrl = "https://localhost:3000";
-  const date = new Date();
+  const baseUrl= "https://devblog-nine.vercel.app";
+  const date  = new Date();
   const author = {
       name: "Renato Cesar",
       email: "re.fbarcellos@hotmail.com",
@@ -43,34 +43,36 @@ async function generateRssFeed() {
 
   const files = fs.readdirSync(path.join('posts'));
     
-  files.map((filename: string) => {
-    const slug: string = filename.replace('.md', '');
+  files.map((filename) => {
+    const slug = filename.replace('.md', '');
     const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8');
     const {data, content} = matter(markdownWithMeta);
-    const maximumExcerptSize: number = 80
+    const maximumExcerptSize = 80
     if(data.excerpt.length > maximumExcerptSize){
         data.excerpt = data.excerpt.substr(0, maximumExcerptSize) + '...';
-    }
-
-    
-    const url = `${baseUrl}/${data.slug}`;
-    feed.addItem({
+    } 
+    const url = `${baseUrl}/${slug}`;
+    const item: Item = {
       title: data.title,
-      id: data.slug,
-      link: url,
+      image: data.cover_image,
+      link: url.toString(),
+      date: new Date(),
+      id: slug,
       description: data.excerpt,
-      content:  content,
+      content:  data.content,
       author: [data.author],
       contributor: [author],
-      date: new Date(data.date),
-    });
+    }
+    feed.addItem(item);
   });
 
-
+  feed.rss2
+  feed.atom1
+  feed.json1
   fs.mkdirSync("./public/rss", { recursive: true });
   fs.writeFileSync("./public/rss/feed.xml", feed.rss2());
-  fs.writeFileSync("./public/rss/atom.xml", feed.atom1());
   fs.writeFileSync("./public/rss/feed.json", feed.json1());
+  // fs.writeFileSync("./public/rss/atom.xml", feed.atom1());
 }
 
 export default generateRssFeed;

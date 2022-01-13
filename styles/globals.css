@@ -5,24 +5,29 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&family=Source+Sans+Pro:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap');
 
+
+/*--------DARK BLUE-----------*/
+
 :root{
   --button-font: '';
   --card-border-color: none; 
   --card-text-color: #2d2d2d;
-  --card-color: #CDC9C3;
-  --background-color: #D9E4DD;
-  --main-color: #555555;
-  --secondary-color: #CDC9C3;
-  --header-option-activated: #D9E4DD;
-  --header-option-hover: #cdc9c33b;
+  --card-color: hsl(36, 9%, 78%);
+  --background-color: #EEEEEE;
+  --main-color: #334257;
+  --secondary-color: #476072;
+  --header-option-activated: #548CA8;
+  --header-option-hover: #47607296;
+  --header-text-option-activated: white;
+  --open-menu-icon-color: #EEEEEE;
   --page-title-color: #2d2d2d;
   --button-text-color: #fff;
-  --button-color: #555555;
+  --button-color: #476072;
   --shadow-color: #333333c4;
-  --main-font-color: #FFEFEF;
+  --main-font-color: #EEEEEE;
   --code-background-color: #747373;
   --code-color: rgb(255, 255, 255);
-  --link-color: #195faa
+  --link-color: #548CA8
 }
 
 *{
@@ -192,7 +197,7 @@ footer p{
 
 .header a.active {
   background-color:var(--secondary-color);
-  color: #2d2d2d;
+  color: var(--header-text-option-activated);
 
 }
 
@@ -281,7 +286,7 @@ footer p{
     margin-right: 4vw;
   }
   .menu-toggle span {
-    background-color: var(--secondary-color);
+    background-color: var(--open-menu-icon-color);
     display: block;
     height: 0.3em;
     border-radius: 30px;
