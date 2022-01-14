@@ -12,7 +12,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
       <Head>
         <meta charSet='utf-8' />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#555555" />
+        <meta name="theme-color" content="var(--main-color)" />
         <meta name="keywords" content="Indie Games, Development, Game, Indie, Company, Next, Developers, Blog"></meta>
         <meta name="copyright" content="© 2022 Renato Cesar" />
         <meta name="creator" content="Renato Cesar"/>
