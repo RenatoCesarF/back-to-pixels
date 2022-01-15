@@ -24,10 +24,10 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                     <div className='post-card-container'>
                         <h2 className='post-card-title'>{post.title}</h2>
                         <p className='post-card-resume'>{post.excerpt}</p>
-                        <div>
-                            <p className="post-card-date">{post.date}</p>
-                            {/* <p>{post.categories}</p> */}
-                        </div>
+                    </div>
+                    <div className='post-card-date-div'>
+                        <p className="post-card-date">{post.date}</p>
+                        {/* <p>{post.categories}</p> */}
                     </div>
             </div>
         </Link>

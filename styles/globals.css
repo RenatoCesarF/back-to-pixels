@@ -12,7 +12,7 @@
   --button-font: '';
   --card-border-color: none; 
   --card-text-color: #2d2d2d;
-  --card-color: hsl(36, 9%, 78%);
+  --card-color: #EEEEEE ;/* hsl(36, 9%, 78%);*/
   --background-color: #EEEEEE;
   --main-color: #334257;
   --secondary-color: #476072;
@@ -27,7 +27,7 @@
   --main-font-color: #EEEEEE;
   --code-background-color: #747373;
   --code-color: rgb(255, 255, 255);
-  --link-color: #548CA8
+  --link-color: #548CA8;
 }
 
 *{
@@ -149,7 +149,6 @@ footer{
   margin-top: 3rem;
 }
 footer::after{
-  
   position: absolute;
   bottom: 0px; 
 }

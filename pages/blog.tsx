@@ -46,12 +46,12 @@ export default function BlogPage(posts:PostList ){
 
 export async function getStaticProps(){
     const files = fs.readdirSync(path.join('posts'));
+    const maximumExcerptSize: number = 70
   
     var posts: Post[] = files.map(filename => {
       const slug: string = filename.replace('.md', '');
       const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8');
       const {data, content} = matter(markdownWithMeta);
-      const maximumExcerptSize: number = 80
       if(data.excerpt.length > maximumExcerptSize){
           data.excerpt = data.excerpt.substr(0, maximumExcerptSize) + '...';
       }
