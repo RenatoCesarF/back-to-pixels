@@ -1,7 +1,7 @@
 import Post from '../classes/postType'
 import Link from 'next/link'
 import React from 'react'
-
+import {FaCalendarAlt,FaRegCalendarAlt} from 'react-icons/fa'
 interface IPost{
     post: Post
 }
@@ -25,8 +25,12 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                         <h2 className='post-card-title'>{post.title}</h2>
                         <p className='post-card-resume'>{post.excerpt}</p>
                     </div>
-                    <div className='post-card-date-div'>
-                        <p className="post-card-date">{post.date}</p>
+                    <div className='post-card-footer'>
+                        <div className='card-date-row'>
+
+                            <FaRegCalendarAlt id='card-date-icon' size={16}/>
+                            <p className="post-card-date">{post.date}</p>
+                        </div>
                         {/* <p>{post.categories}</p> */}
                     </div>
             </div>

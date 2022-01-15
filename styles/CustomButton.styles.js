@@ -26,7 +26,7 @@ export default css.global`
     width: 1.6em;
     height: 1.6em;
     margin: 0.1rem;
-    // margin-top: 3px;
+    /* margin-top: 3px;*/
   }
   
 `

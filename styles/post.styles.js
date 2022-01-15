@@ -39,10 +39,10 @@ export default css.global`
     text-align: center;
   }
   .post-title{
-    letter-spacing: -0.016em;
+    letter-spacing: -0.019em;
     line-height: 42px;
     margin-top: 0.56em;
-    font-size: 3rem;
+    font-size: 2.3rem;
     margin-bottom: 0.24rem;
     font-family: fell, Georgia, Cambria, "Times New Roman", Times, serif;
     /* font-family: 'Merriweather', serif;*/
