@@ -1,17 +1,28 @@
 import Post from '../classes/postType'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 import {FaCalendarAlt,FaRegCalendarAlt} from 'react-icons/fa'
+
 interface IPost{
     post: Post
 }
+const maximumExcerptSize: number = 70
 
 const PostCard: React.FC<IPost> = ({post}: IPost) => {
+    const [isHovering, setIsHovering] = useState(false);
     const hasCoverImage:boolean = post.cover_image != undefined || post.cover_image != null
+    var shortExcerpt: string = post.excerpt;
+    if(post.excerpt.length > maximumExcerptSize){
+        shortExcerpt = post.excerpt.substring( 0, maximumExcerptSize) + '...';
+    }
+
     return(
         <Link passHref href={`/blog/${post.slug}`}>
             
-            <div className='post-card-div'>
+            <div className='post-card-div' 
+                onMouseOver={()=>{setIsHovering(true)}}
+                onMouseLeave={()=>{setIsHovering(false)}}
+            >
                     <div className='post-card-image-container'>
                 
                     {
@@ -23,7 +34,7 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                     </div>
                     <div className='post-card-container'>
                         <h2 className='post-card-title'>{post.title}</h2>
-                        <p className='post-card-resume'>{post.excerpt}</p>
+                        <p className='post-card-resume'>{isHovering? post.excerpt : shortExcerpt}</p>
                     </div>
                     <div className='post-card-footer'>
                         <div className='card-date-row'>

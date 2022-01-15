@@ -86,12 +86,13 @@ export default css.global`
   margin: 0;
   margin-left: 0.2rem;
   font-size: 0.80rem;
-  color: var(--card-text-color)
+  color: var(--card-text-color);
+  transition: all 1.3s cubic-bezier(.165,.84,.44,1);
+  transition-delay: 2s;
 }
 
 .post-card-footer{
   margin-top: auto;
-  transition: all 0.69s cubic-bezier(.65,-0.53,.24,1.12);  
 }
 .card-date-row{
   overflow: hidden;
