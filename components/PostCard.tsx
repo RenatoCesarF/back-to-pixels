@@ -23,7 +23,7 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
             
             <div className='post-card-div' 
                 onMouseOver={()=>{setIsHovering(true)}}
-                onMouseLeave={()=>{setIsHovering(true)}}
+                onMouseLeave={()=>{setIsHovering(false)}}
             >
                     <div className='post-card-image-container'>
                 
