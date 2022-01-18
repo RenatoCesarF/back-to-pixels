@@ -8,6 +8,7 @@ excerpt: 'How I maneged to make our posts look amazing in social midia using met
 categories: [BLOG, NEXTJS]
 ---
 
+
 From now on, if you share one of our posts on *social media* it will look something like that:
 
 ![post-in-twitter](/images/posts/discovering-meta-tags-plus-website-uptades/post-in-twitter.webp)

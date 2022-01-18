@@ -18,8 +18,8 @@ export default css.global`
   display: flex;
   flex-direction: column;
   background-color: var(--card-color);
-  border-left: 0.2rem solid var(--secondary-color);
-  border-bottom: 0.2rem solid var(--secondary-color);
+  border-left:   0.2rem solid var(--secondary-color);
+  border-bottom: 0.15rem solid var(--secondary-color);
   border-radius: 0.7rem;
   margin: 0.5rem;
   user-select: none;
@@ -29,7 +29,12 @@ export default css.global`
   -moz-box-shadow:  9px 9px 10px -6px rgba(58, 58, 58, 0.69);
   box-shadow: 9px 9px 10px -6px rgba(58, 58, 58, 0.69);
 }
-  
+.post-card-div::after {
+  content: "";
+  display: table;
+  clear: both;
+  }
+/*----------IMAGE------------*/
 .post-card-image-container{
   background-color: var(--main-color);
   border-radius: 0.5rem 0.5rem 0px 0px;
@@ -38,7 +43,6 @@ export default css.global`
   width: 100%;
   overflow: hidden;
 }
-
 .post-card-img{
   border-radius: 0.5rem 0.5rem 0px 0px;
   width: 100%;
@@ -66,7 +70,7 @@ export default css.global`
     grid-template-columns:max-content;
   }
 }
-
+/*----------CONTENT-----------*/
 .post-card-container{
   margin-left: 0.5vw;  
   margin-right: 0.5vw;  
@@ -82,17 +86,47 @@ export default css.global`
   margin-left: 0.4rem;
   color: var(--card-text-color)
 }
+.excerpt-post-card-div{
+  /*
+  height: 10rem;
+  min-height: fit-content; */
+  position: relative; 
+  background-color: var(--card-color);
+}
 .post-card-resume{
   margin: 0;
-  margin-left: 0.2rem;
+  display: block;
+  position: absolute;
+  
+  margin-left: 0.3rem;
+  word-break: keep-all;
   font-size: 0.80rem;
+  
+  
   color: var(--card-text-color);
-  transition: all 1.3s cubic-bezier(.165,.84,.44,1);
-  transition-delay: 2s;
-}
 
+  transition: all .7s cubic-bezier(.165,.84,.44,1);
+}
+.post-card-complete-resume{
+  margin: 0;
+  display: block;
+  position: absolute;
+  
+  margin-left: 0.3rem;
+  word-break: keep-all;
+  font-size: 0.80rem;
+  
+  opacity: 0;
+
+  color: var(--card-text-color);
+  transition: all .7s cubic-bezier(.165,.84,.44,1);
+
+}
 .post-card-footer{
   margin-top: auto;
+  background-color: var(--card-color);
+  z-index: 2;
+  border-radius: 0.7rem;
 }
 .card-date-row{
   overflow: hidden;
@@ -115,6 +149,11 @@ export default css.global`
 }
 
 /*--------Animations and hover -------------*/
+.post-card-div:hover{
+  
+  min-height: 19rem;
+  height: min-content;
+}
 /*on hover, change image and text*/
 .post-card-div:hover .post-card-img,.post-card-div:hover .post-card-cover-date{
   -webkit-transform:scale(1.15); /* Safari and Chrome */
@@ -122,10 +161,12 @@ export default css.global`
   -ms-transform:scale(1.15); /* IE 9 */
   -o-transform:scale(1.15); /* Opera */
   transform:scale(1.15);
+  min-height: 100%;
 }
 
 
-.post-card-div:hover{
-  height: 19em;
+.post-card-div:hover .post-card-complete-resume {
+  opacity: 1;
+  height: fit-content;
 }
 `

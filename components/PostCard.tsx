@@ -12,8 +12,10 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
     const [isHovering, setIsHovering] = useState(false);
     const hasCoverImage:boolean = post.cover_image != undefined || post.cover_image != null
     var shortExcerpt: string = post.excerpt;
+    var excerptRest: string = "";
     if(post.excerpt.length > maximumExcerptSize){
-        shortExcerpt = post.excerpt.substring( 0, maximumExcerptSize) + '...';
+        shortExcerpt = post.excerpt.substring( 0, maximumExcerptSize) + "...";
+        excerptRest = post.excerpt.substring(maximumExcerptSize)
     }
 
     return(
@@ -21,7 +23,7 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
             
             <div className='post-card-div' 
                 onMouseOver={()=>{setIsHovering(true)}}
-                onMouseLeave={()=>{setIsHovering(false)}}
+                onMouseLeave={()=>{setIsHovering(true)}}
             >
                     <div className='post-card-image-container'>
                 
@@ -32,13 +34,25 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                         (<h1 className='post-card-cover-date'>{post.date}</h1>)
                     }
                     </div>
-                    <div className='post-card-container'>
                         <h2 className='post-card-title'>{post.title}</h2>
-                        <p className='post-card-resume'>{isHovering? post.excerpt : shortExcerpt}</p>
+                    <div className='post-card-container'>
+                        <div className='excerpt-post-card-div'>
+                            {!isHovering? 
+                            
+                                (<p className='post-card-resume' >
+                                    {shortExcerpt}
+                                </p>)
+                                :
+                                (<p className="post-card-complete-resume">
+                                    {post.excerpt}
+                                </p>)
+                            }
+                        
+                        </div>
+                       
                     </div>
                     <div className='post-card-footer'>
                         <div className='card-date-row'>
-
                             <FaRegCalendarAlt id='card-date-icon' size={16}/>
                             <p className="post-card-date">{post.date}</p>
                         </div>
