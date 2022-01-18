@@ -31,6 +31,9 @@ export default function BlogPage(posts:PostList){
                   {globalStyles}
               </style>
               <h1 className="page-title">Posts</h1>
+            
+            
+          
               <div className='posts-grid'>
               {
                 sourtedPosts.map((post: Post, index: number) =>(

@@ -15,8 +15,12 @@ export default css.global`
   width: 17rem;
   height: 17rem;
   cursor: pointer;
-  display: flex;
-  flex-direction: column;
+  
+  display: table;
+  columns: 100% 1;
+
+  /* table-layout: fixed; */
+  
   background-color: var(--card-color);
   border-left:   0.2rem solid var(--secondary-color);
   border-bottom: 0.15rem solid var(--secondary-color);
@@ -29,11 +33,7 @@ export default css.global`
   -moz-box-shadow:  9px 9px 10px -6px rgba(58, 58, 58, 0.69);
   box-shadow: 9px 9px 10px -6px rgba(58, 58, 58, 0.69);
 }
-.post-card-div::after {
-  content: "";
-  display: table;
-  clear: both;
-  }
+
 /*----------IMAGE------------*/
 .post-card-image-container{
   background-color: var(--main-color);
@@ -77,6 +77,7 @@ export default css.global`
   margin-top: 0.2vh;  
   margin-bottom: 0.5vh;  
   height: auto;
+
 }
 .post-card-title{
   font-family: 'Inconsolata', sans-serif;
@@ -87,11 +88,11 @@ export default css.global`
   color: var(--card-text-color)
 }
 .excerpt-post-card-div{
-  /*
-  height: 10rem;
-  min-height: fit-content; */
   position: relative; 
+  width: 100%;
   background-color: var(--card-color);
+  margin-left: 0.15rem;
+  margin-top: 0.1rem;
 }
 .post-card-resume{
   margin: 0;
@@ -99,6 +100,7 @@ export default css.global`
   position: absolute;
   
   margin-left: 0.3rem;
+  margin-right: 0.3rem;
   word-break: keep-all;
   font-size: 0.80rem;
   
@@ -113,6 +115,7 @@ export default css.global`
   position: absolute;
   
   margin-left: 0.3rem;
+  margin-right: 0.3rem;
   word-break: keep-all;
   font-size: 0.80rem;
   
@@ -122,11 +125,14 @@ export default css.global`
   transition: all .7s cubic-bezier(.165,.84,.44,1);
 
 }
+
+/*------------FOOOTER--------------*/
 .post-card-footer{
   margin-top: auto;
   background-color: var(--card-color);
-  z-index: 2;
   border-radius: 0.7rem;
+  height: auto;
+  
 }
 .card-date-row{
   overflow: hidden;
@@ -150,12 +156,11 @@ export default css.global`
 
 /*--------Animations and hover -------------*/
 .post-card-div:hover{
-  
-  min-height: 19rem;
-  height: min-content;
+  height: 20em;
+  overflow:hidden;
 }
 /*on hover, change image and text*/
-.post-card-div:hover .post-card-img,.post-card-div:hover .post-card-cover-date{
+.post-card-div:hover .post-card-img, .post-card-div:hover .post-card-cover-date{
   -webkit-transform:scale(1.15); /* Safari and Chrome */
   -moz-transform:scale(1.15); /* Firefox */
   -ms-transform:scale(1.15); /* IE 9 */
@@ -167,6 +172,5 @@ export default css.global`
 
 .post-card-div:hover .post-card-complete-resume {
   opacity: 1;
-  height: fit-content;
 }
 `

@@ -20,11 +20,13 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
 
     return(
         <Link passHref href={`/blog/${post.slug}`}>
-            
+
             <div className='post-card-div' 
                 onMouseOver={()=>{setIsHovering(true)}}
                 onMouseLeave={()=>{setIsHovering(false)}}
-            >
+                onTouchStart={()=>{setIsHovering(true)}}
+                onTouchEnd={()=>{setIsHovering(false)}}
+                >
                     <div className='post-card-image-container'>
                 
                     {
@@ -34,12 +36,14 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                         (<h1 className='post-card-cover-date'>{post.date}</h1>)
                     }
                     </div>
-                        <h2 className='post-card-title'>{post.title}</h2>
+
+                    <h2 className='post-card-title'>{post.title}</h2>
+
                     <div className='post-card-container'>
                         <div className='excerpt-post-card-div'>
                             {!isHovering? 
                             
-                                (<p className='post-card-resume' >
+                            (<p className='post-card-resume' >
                                     {shortExcerpt}
                                 </p>)
                                 :
@@ -51,12 +55,12 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                         </div>
                        
                     </div>
+
                     <div className='post-card-footer'>
                         <div className='card-date-row'>
                             <FaRegCalendarAlt id='card-date-icon' size={16}/>
                             <p className="post-card-date">{post.date}</p>
                         </div>
-                        {/* <p>{post.categories}</p> */}
                     </div>
             </div>
         </Link>
