@@ -1,14 +1,21 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
-import Image from 'next/image';
+import dynamic from 'next/dynamic'
 
-import globalStyles from '../styles/blog.styles'
+import { motion } from 'framer-motion';
+import NextHead from 'next/head';
+
+
 import PostCard from '../components/PostCard';
+import globalStyles from '../styles/blog.styles'
 import Post from '../classes/postType';
 import {sortByDate, sortByDateReverse} from '../utils/sort';
 import Author from '../classes/authorType';
-import Head from 'next/head';
+
+import { slideInUp, slideInLeft, slideCardUp } from '../helpers/animations';
+
+// const PostCard = dynamic(() => import("../components/PostCard"))
 
 interface PostList{
   posts: Post[]
@@ -18,28 +25,34 @@ export default function BlogPage(posts:PostList){
     const sourtedPosts = posts.posts.sort(sortByDate);
     return (
         <>
-          <Head>
+          <NextHead>
                 <meta name="description" content="Blog Page - A list of all our articles and blog posts."/>
                 <meta name="author" content="Renato Cesar"></meta>
                 <meta name="robots" content="follow"/>
                 <meta name="robots" content="index, follow"/>
                 <meta name="googlebot" content="index, follow"/>
                 <title>CompanyName Blog</title>
-          </Head>
+          </NextHead>
           <div className='page'>
               <style jsx global>
                   {globalStyles}
               </style>
-              <h1 className="page-title">Posts</h1>
+              <motion.div variants={slideInLeft}>
+                <h1 className="page-title">Posts</h1>
+              </motion.div>
             
             
           
               <div className='posts-grid'>
-              {
+   
+                {
                 sourtedPosts.map((post: Post, index: number) =>(
-                  <PostCard post={post} key={index}/>
+                  <motion.div variants={slideCardUp} key={index}>
+                    <PostCard post={post} key={index}/>
+                  </motion.div>
                   ))
                 }
+  
               </div>
           </div>
         </>
@@ -55,8 +68,6 @@ export async function getStaticProps(){
       const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8');
       const {data, content} = matter(markdownWithMeta);
 
-      console.log(data.excerpt)
-      
       const postAuthor: Author = {name: "Renato", about: "", email: "", image:"", instagram: "", twitter: "", role: ""}
     
       return {

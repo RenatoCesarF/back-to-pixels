@@ -1,8 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 import matter  from 'gray-matter';
-import Post from '../../classes/postType';
 import React from 'react';
+import Head from 'next/head';
+import NextHead from 'next/head';
 // import Image from 'react'
 import ReactMarkdown from 'react-markdown';
 import { useRouter } from 'next/router';
@@ -11,9 +12,9 @@ import { useRouter } from 'next/router';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 import {darcula,a11yDark,atomDark,dracula} from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
+import Post from '../../classes/postType';
 import CustomButton, {ButtonIcon} from '../../components/CustomButton';
 import globalStyles from '../../styles/post.styles';
-import Head from 'next/head';
 import getImageType from '../../utils/getImageType';
 import Category from '../../classes/category';
 
@@ -27,16 +28,11 @@ const getCodeTheme = (name: string) => {
         return dracula;
     }
     switch (name) {
-        case 'darcula':
-            return darcula;
-        case 'dracula':
-            return dracula;
-        case 'a11yDark':
-            return a11yDark;
-        case 'atomDark':
-            return atomDark;
-        default:
-            return dracula;
+        case 'darcula': return darcula;
+        case 'dracula': return dracula;
+        case 'a11yDark': return a11yDark;
+        case 'atomDark': return atomDark;
+        default: return dracula;
     }
 }
 
@@ -48,7 +44,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
 
     return(
         <>
-            <Head>
+            <NextHead>
                 <title>{post.title}</title>
                 <meta name="description" content={post.excerpt}/>
                 <meta name="author" content={post.author.name}/>
@@ -89,17 +85,16 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                 <meta name="twitter:creator" content={post.author.twitter}/>
                 <meta property="twitter:url" content={`https://devblog-nine.vercel.app/blog/${post.slug}`}/>
                 <meta property="twitter:domain" content="devblog-nine.vercel.app"/>
-            </Head>
+            </NextHead>
             <style jsx global>
                 {globalStyles}
             </style>
             <section className='post-section'>
                 <div className='post-container'>
                 <CustomButton description='Return to Blog list' text='' icon={ButtonIcon.arrowBack} onClick={() => {router.push("/blog")}}/>
-
                     {
                         hasCoverImage ? 
-                        (<img  alt='blog post cover' className='post-cover'src={post.cover_image}/>)
+                        (<img  alt='blog post cover' className='post-cover' src={post.cover_image}/>)
                         : 
                         (
                             <div className='post-cover-div'>        
@@ -108,40 +103,40 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                         )
                     }   
                     <h1 className='post-title'>{post.title}</h1>
+                    <p className='post-resume'>{post.excerpt}</p>
                     <br/>
                     <div className='post-content'>
-                    
-                    <ReactMarkdown
-                        skipHtml={false}
-                        components={{
-                            img({node, className, children, ...props}){
-                                return <img alt='blog post inside image' className='img-fit' src={props.src} ></img>
-                            },
-                            a({node, className, children, ...props}){
-                                return <a target="_blank" rel="noopener noreferrer" href={props.href} >{children}</a>
-                            },
-                            code({node, inline, className, children, ...props}) {
-                                const match = /language-(\w+)/.exec(className || '')
-                                return !inline && match ? (
-                                    <SyntaxHighlighter
-                                        style={codeTheme}
-                                        language='python'
-                                        PreTag="div"
-                                        {...props}
-                                    >
-                                        {String(children).replace(/\n$/, '')}
-                                    </SyntaxHighlighter>
-                                ) : (
-                                        <code className='simple-code' {...props}>
-                                        {children}
-                                        </code>
-                                    )
-                            }
-                        }}
-                    >
-                        {post.content}
-                    </ReactMarkdown>
-                    {/* <div className='post-parsed-md' dangerouslySetInnerHTML={{__html: marked.parse(post.content)}}></div> */}
+                        
+                        <ReactMarkdown
+                            skipHtml={false}
+                            components={{
+                                img({node, className, children, ...props}){
+                                    return <img alt='blog post inside image' className='img-fit' src={props.src} ></img>
+                                },
+                                a({node, className, children, ...props}){
+                                    return <a target="_blank" rel="noopener noreferrer" href={props.href} >{children}</a>
+                                },
+                                code({node, inline, className, children, ...props}) {
+                                    const match = /language-(\w+)/.exec(className || '')
+                                    return !inline && match ? (
+                                        <SyntaxHighlighter
+                                            style={codeTheme}
+                                            language='python'
+                                            PreTag="div"
+                                            {...props}
+                                        >
+                                            {String(children).replace(/\n$/, '')}
+                                        </SyntaxHighlighter>
+                                    ) : (
+                                            <code className='simple-code' {...props}>
+                                            {children}
+                                            </code>
+                                        )
+                                }
+                            }}
+                        >
+                            {post.content}
+                        </ReactMarkdown>
                     </div>
                 </div>
             </section>

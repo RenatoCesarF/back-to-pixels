@@ -3,12 +3,10 @@ title: 'Discovering Meta tags + Website Updates'
 date: '01/11/2022'
 author: 'renato'
 cover_image: 'https://i.imgur.com/RueCNhG.png'
-excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'
-
+excerpt: 'How I maneged to make our posts look amazing in social midia using meta tags and new website features that I added recently'
 categories: [BLOG, NEXTJS]
 ---
 
-'How I maneged to make our posts look amazing in social midia using meta tags and new website features that I added recently'
 
 From now on, if you share one of our posts on *social media* it will look something like that:
 

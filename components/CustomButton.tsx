@@ -2,6 +2,7 @@ import React from "react";
 import { getStaticProps } from "../pages/blog";
 import globalStyles from '../styles/CustomButton.styles.js'
 import { BiLeftArrowAlt } from 'react-icons/bi';
+import { motion } from "framer-motion";
 
 interface ButtomProps{
     text: string;
@@ -28,10 +29,17 @@ const CustomButton: React.FC<ButtomProps> = (props: ButtomProps)=>{
             <style jsx global>
                 {globalStyles}
             </style>
-            <button aria-label={props.description} name={props.description} className="button-div" onClick={() => {props.onClick()}}>
+            <motion.button 
+                aria-label={props.description}
+                name={props.description}
+                className="button-div" 
+                onClick={() => {props.onClick()}}
+                whileHover={{scale: 1.1}}
+                whileTap={{scale: 0.9}}
+            >
                 {geticon(props.icon)}
                 <h1 className="button-text">{props.text}</h1>
-            </button>
+            </motion.button>
         </>
     )
 }

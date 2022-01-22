@@ -3,7 +3,7 @@ title: 'Reunion 0.1'
 date: '01/06/2022'
 author: 'renato'
 cover_image: 'https://i.imgur.com/d3iChWE.png'
-excerpt: 'The progress made in our first company reunion'
+excerpt: 'The progress made in our first company reunion. The colors we tested and documenting things'
 categories: [BLOG]
 ---
 

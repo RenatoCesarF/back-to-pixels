@@ -16,10 +16,9 @@ export default css.global`
   height: 17rem;
   cursor: pointer;
   
-  display: table;
-  columns: 100% 1;
-
-  /* table-layout: fixed; */
+  
+  display: flex;
+  flex-direction: column;
   
   background-color: var(--card-color);
   border-left:   0.2rem solid var(--secondary-color);
@@ -89,6 +88,8 @@ export default css.global`
 }
 .excerpt-post-card-div{
   position: relative; 
+  z-index: 0;
+  
   width: 100%;
   background-color: var(--card-color);
   margin-left: 0.15rem;
@@ -98,39 +99,25 @@ export default css.global`
   margin: 0;
   display: block;
   position: absolute;
+  height: auto;
   
   margin-left: 0.3rem;
   margin-right: 0.3rem;
   word-break: keep-all;
   font-size: 0.80rem;
-  
+  text-size-adjust: 20%;
   
   color: var(--card-text-color);
 
   transition: all .7s cubic-bezier(.165,.84,.44,1);
-}
-.post-card-complete-resume{
-  margin: 0;
-  display: block;
-  position: absolute;
-  
-  margin-left: 0.3rem;
-  margin-right: 0.3rem;
-  word-break: keep-all;
-  font-size: 0.80rem;
-  
-  opacity: 0;
-
-  color: var(--card-text-color);
-  transition: all .7s cubic-bezier(.165,.84,.44,1);
-
 }
 
 /*------------FOOOTER--------------*/
 .post-card-footer{
+  z-index: 1;
   margin-top: auto;
   background-color: var(--card-color);
-  border-radius: 0.7rem;
+  border-radius: 0px 0px 0.7rem 0.7rem;
   height: auto;
   
 }
@@ -141,13 +128,13 @@ export default css.global`
 }
 
 #card-date-icon{
-  color: #757575;
+  color: #636363;
   margin-top: 0.95rem;
   margin-right: 0.14rem;
 }
 
 .post-card-date{
-  color: #757575;
+  color: #636363;
   font-size: 0.9em;
   margin-bottom: 0.45rem;
   vertical-align: bottom;
@@ -169,8 +156,4 @@ export default css.global`
   min-height: 100%;
 }
 
-
-.post-card-div:hover .post-card-complete-resume {
-  opacity: 1;
-}
 `

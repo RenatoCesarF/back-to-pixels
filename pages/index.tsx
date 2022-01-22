@@ -3,12 +3,15 @@ import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
 import generateRssFeed from '../scripts/rss'
+import NextHead from 'next/head';
 import styles from '../styles/Home.module.css'
+import { motion } from 'framer-motion'
+import { slideInLeft } from '../helpers/animations'
 
 const Home: NextPage = () => {
   return (
     <div  className='page'>
-      <Head>
+      <NextHead>
           <meta name="description" content="Company name website Home page, where you can learn more about our work"/>
           <meta name="author" content="Renato Cesar"/>
           <meta property="og:url" content="https://https://devblog-nine.vercel.app/"></meta>
@@ -22,8 +25,10 @@ const Home: NextPage = () => {
           <meta property="og:image:width" content="800"/> 
           <meta property="og:image:height" content="600"/>  */}
           <title>CompanyName Home</title>
-      </Head>
-      <h1>Home</h1>
+      </NextHead>
+      <motion.div className='page' variants={slideInLeft}>
+        <h1>Home</h1>
+      </motion.div>
     </div>
   )
 }

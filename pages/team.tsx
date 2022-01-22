@@ -1,5 +1,8 @@
+import { m, motion } from 'framer-motion'
 import next from 'next'
 import Head from 'next/head'
+
+import { slideInLeft } from '../helpers/animations';
 
 const TeamPage = () => {
 
@@ -13,9 +16,9 @@ const TeamPage = () => {
                 <meta name="googlebot" content="index, follow"/>
                 <title>CompanyName Team</title>
             </Head>
-            <div className='page'>
+            <motion.div className='page' variants={slideInLeft}>
                 <h1>Teams page</h1>
-            </div>
+            </motion.div>
         </>
     )
 

@@ -4,9 +4,6 @@ import path from 'path'
 import { Feed ,Item} from "feed";
 import matter from 'gray-matter';
 
-import Post from '../classes/postType';
-import Author from '../classes/authorType';
-
 
 async function generateRssFeed() {
   if (process.env.NODE_ENV === 'development') {
@@ -35,7 +32,7 @@ async function generateRssFeed() {
       feedLinks: {
         rss2: `${baseUrl}/rss/feed.xml`,
         json: `${baseUrl}/rss/feed.json`,
-        atom: `${baseUrl}/rss/atom.xml`,
+        // atom: `${baseUrl}/rss/atom.xml`,
       },
       author,
   });
@@ -60,7 +57,7 @@ async function generateRssFeed() {
       id: slug,
       description: data.excerpt,
       content:  data.content,
-      author: [data.author],
+      author: data.author.toString(),
       contributor: [author],
     }
     feed.addItem(item);
@@ -73,6 +70,7 @@ async function generateRssFeed() {
   fs.writeFileSync("./public/rss/feed.xml", feed.rss2());
   fs.writeFileSync("./public/rss/feed.json", feed.json1());
   // fs.writeFileSync("./public/rss/atom.xml", feed.atom1());
+  console.log("Finish RSS feeds")
 }
 
 export default generateRssFeed;
