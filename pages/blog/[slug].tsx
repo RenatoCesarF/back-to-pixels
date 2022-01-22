@@ -17,7 +17,7 @@ import globalStyles from '../../styles/post.styles';
 import getImageType from '../../utils/getImageType';
 import Category from '../../classes/category';
 import { motion } from 'framer-motion';
-import { easing, slideButtonDown, slideImageDown, slideInDown, slideInUp } from '../../helpers/animations';
+import { easing, slideButtonDown, slideInUp } from '../../helpers/animations';
 
 interface IPost{post: Post};
 type Params = {slug: string};
