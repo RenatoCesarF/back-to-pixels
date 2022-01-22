@@ -9,21 +9,45 @@ export const slideInUp = {
     enter: {
       y: 0,
       opacity: 1,
-      transition: { delay: 0.1, duration: 0.5, ease: easing }
+      transition: {duration: 0.5, ease: easing }
     }
-  };
-export const slideCardUp = {
+};
+export const slideInDown = {
     exit: {
-      y: 100,
+      y: -100,
       opacity: 0,
-      transition: { duration: 0.5, ease: easing }
+      transition: { duration: 0.2, ease: easing }
     },
     enter: {
       y: 0,
       opacity: 1,
-      transition: { duration: 0.6, ease: easing }
+      transition: {duration: 0.5, ease: easing }
     }
-  };
+};
+export const slideButtonDown = {
+    exit: {
+      y: -50,
+      opacity: 0,
+      transition: { duration: 0.2, ease: easing }
+    },
+    enter: {
+      y: 0,
+      opacity: 1,
+      transition: {duration: 0.5, ease: easing }
+    }
+};
+export const slideCardUp = {
+    exit: {
+      y: 300,
+      opacity: 0,
+      transition: { duration: 0.4, ease: easing }
+    },
+    enter: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.4, ease: easing }
+    }
+};
 
 export const slideInLeft = {
     exit: {
@@ -34,8 +58,8 @@ export const slideInLeft = {
     enter: {
       x: 0,
       opacity: 1,
-      transition: { delay: 0.1, duration: 0.5, ease: easing }
+      transition: {duration: 0.5, ease: easing }
     }
-    };
+};
   
   

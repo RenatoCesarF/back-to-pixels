@@ -75,8 +75,8 @@ export default css.global`
     margin-bottom: 10vh;
     font-family: charter, Georgia, Cambria, "Times New Roman", Times, serif;
   }
-  .post-resume {
-    line-height: 1rem;
+  .post-section .post-resume {
+    line-height: 1.2rem;
     color: #575757;
     font-size: 1rem;
 

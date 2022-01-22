@@ -40,11 +40,8 @@ export default function BlogPage(posts:PostList){
               <motion.div variants={slideInLeft}>
                 <h1 className="page-title">Posts</h1>
               </motion.div>
-            
-            
-          
+    
               <div className='posts-grid'>
-   
                 {
                 sourtedPosts.map((post: Post, index: number) =>(
                   <motion.div variants={slideCardUp} key={index}>
@@ -52,7 +49,6 @@ export default function BlogPage(posts:PostList){
                   </motion.div>
                   ))
                 }
-  
               </div>
           </div>
         </>

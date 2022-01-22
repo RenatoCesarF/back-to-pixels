@@ -166,6 +166,7 @@ footer p{
 /*----------------header------------------*/
 .header {
   overflow: hidden;
+  z-index: 1;
   background-color: var(--main-color);
   padding: 15px 10px;
   
@@ -315,3 +316,4 @@ footer p{
     margin-top: -1.1em;
   }  
 }
+
