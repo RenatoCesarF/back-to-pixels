@@ -154,7 +154,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
 };
 
 export async function getStaticPaths(){
-    const files = fs.readdirSync(path.join('src/posts'));
+    const files = fs.readdirSync(path.join('posts'));
     const paths = files.map(filename => ({
         params: {
             slug: filename.replace('.md', '')
@@ -169,7 +169,7 @@ export async function getStaticProps(object: StaticResponse ){
     if(!slug || slug === null || slug === undefined){
         throw new Error("Slug was not defined, define it inside the .md file");
     }
-    const markdownWithMeta = fs.readFileSync(path.join('src/posts', slug + '.md'), 'utf-8');
+    const markdownWithMeta = fs.readFileSync(path.join('posts', slug + '.md'), 'utf-8');
     const {data, content} = matter(markdownWithMeta);
 
       

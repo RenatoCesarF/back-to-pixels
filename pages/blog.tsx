@@ -59,11 +59,11 @@ export default function BlogPage(posts:PostList){
 }
 
 export async function getStaticProps(){
-    const files = fs.readdirSync(path.join('src/posts'));
+    const files = fs.readdirSync(path.join('posts'));
   
     var posts: Post[] = files.map(filename => {
       const slug: string = filename.replace('.md', '');
-      const markdownWithMeta = fs.readFileSync(path.join('src/posts', filename), 'utf-8');
+      const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8');
       const {data, content} = matter(markdownWithMeta);
 
       const postAuthor: Author = {name: "Renato", about: "", email: "", image:"", instagram: "", twitter: "", role: ""}
