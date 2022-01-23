@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>DevBlog</title>
+        <link>https://localhost:3000</link>
+        <description>Welcome to the blog containing all the articles and documentation about all the games and projects that I (Renato Cesar) produce with my team</description>
+        <lastBuildDate>Wed, 12 Jan 2022 22:48:12 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>Next.js using Feed for Node.js</generator>
+        <language>en</language>
+        <copyright>All rights reserved 2022, Renato Cesar</copyright>
+        <item>
+            <title><![CDATA[Discovering Meta tags + Website Updates]]></title>
+            <link>https://localhost:3000/undefined</link>
+            <guid>https://localhost:3000/undefined</guid>
+            <pubDate>Tue, 11 Jan 2022 04:00:00 GMT</pubDate>
+            <description><![CDATA[How I maneged to make our posts look amazing in social midia using meta tags and...]]></description>
+            <content:encoded><![CDATA[
+From now on, if you share one of our posts on *social media* it will look something like that:
+
+![post-in-twitter](/images/posts/discovering-meta-tags-plus-website-uptades/post-in-twitter.webp)
+
+It also works in *instagram*, *whatsapp*, *facebook*, *Discord* and *LinkedIn*.
+
+I have never known how this kind of interpretation was made. The only thing like that I knew was the RSS system that many podcast providers use. The RSS is a bunch of HTML tags with all the information of the podcast. First I thought that this cover image and description was based on RSS ass well. But no. It's all **Meta Tags**.
+
+## More About Meta Tags
+
+The only thing that I knew about meta tags is that they could change the *favi.icon*, the bar color, and the title of the website. But searching a little bit about meta tags to fix a Next.Js bug, I came across another kind of meta tags, with properties like *og* (OpenGraph) and *twitter*.
+
+This *OpenGraph* protocol was created by facebook and:
+> enables developers to integrate their pages into Facebook's global mapping/tracking tool Social Graph.
+according to the [Facebook Platform Wikipedia](https://en.wikipedia.org/wiki/Facebook_Platform).
+Over time more websites and social media start to use it as well.
+
+## How I implemented it here
+
+First I added a simple `<head>`component with general metatag info in the *_app.tsx* file. Info like:
+- Creator
+- Theme-color
+- copyright
+- og:locale
+
+Since this kind of value doesn't change through the website.
+
+---
+
+And in every single page (Home, Team, Blog) I added more additional info like the description of the page and the title.
+ 
+But the cool thing is on the *post* page. Each post, when generated as a static page, generates its meta tags with all its information. Sucha as:
+- post Description
+- post author
+- keywords
+- All the og tags 
+    - type
+    - url
+    - title
+    - image
+- all twitter tags
+    - card type
+    - image
+    - title
+    - description
+    - creator
+    - domain
+
+And more not so important tags, like height and width of images, etc.
+
+Just using this it's possible to implement the cool share card in social Media. Look how my post tags look like now:
+
+![post-meta-tags](/images/posts/discovering-meta-tags-plus-website-uptades/post-meta-tags.webp)
+
+The only thing that give me some problems was the Twitter postcard. I don't know why, but Twitter only accepts when you put the post image coming from the internet, and not local. I will make some new tests to see if this deduction is correct.
+
+## New features in this website
+
+Since the last update ([reunion 0.1](/blog/reunion-0-1)) I made some new things here. But the coolest and more important is the animations.
+
+So yes, we finally added the Header, but the cool part is the animation that I, kind of, found. I was creating a *Media Query* for smartphones and then, when I was adding a transition of states, the VS code start to suggest some [Bézier curvs](https://en.wikipedia.org/wiki/B%C3%A9zier_curve) as animations transition parameters. I tested someones and liked this one that I'm using now. After this, I study some animations from [codepen](https://codepen.io/) and made this one. Look how the header is looking great:
+
+![header-animations](/images/posts/discovering-meta-tags-plus-website-uptades/header-animations.gif)
+
+I had some new animation ideas to implement in the future, so wait for it!]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[New Blog Features]]></title>
+            <link>https://localhost:3000/undefined</link>
+            <guid>https://localhost:3000/undefined</guid>
+            <pubDate>Tue, 04 Jan 2022 04:00:00 GMT</pubDate>
+            <description><![CDATA[Adding new stuff to this blog, it it's gettting very cool]]></description>
+            <content:encoded><![CDATA[
+
+Add code highlight, and it's preaty cool! Like That:
+```python
+def preaty_cool_python_function(cool_param):
+    if(not cool_param):
+        return
+    print(cool_param)
+```
+
+it has many themes and options.
+
+All posts are writen in MarkDown files, so it's possible to choose a language in every code-section. And also choose a highlight theme for the post using the configuration header
+
+
+Still need to add more themes (load each one from the package into a external file), but I think that it's a good idea after all.
+
+
+
+But it bring some problems, for no reason each post (even the shortests ones like this) take almost 2 seconds to load. I think it's something about the new method of MarkDown parse that I'm using. Need to test it out.
+
+After this session I will publish this "website" thus I can show for people easily
+
+-----------
+
+Another cool thing is that, if I didn't add cover image for the post, it will generate one. For now it still just an `<h1>`, but i will create more diversed things in the future. ]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Reunion 0.1]]></title>
+            <link>https://localhost:3000/undefined</link>
+            <guid>https://localhost:3000/undefined</guid>
+            <pubDate>Thu, 06 Jan 2022 04:00:00 GMT</pubDate>
+            <description><![CDATA[The progress made in our first company reunion]]></description>
+            <content:encoded><![CDATA[
+Yesterday (01/05/2022) we made our first reunion, sadly with only two of us personally and one via Google Meet. But even in this situation, we did a lot of progress.
+
+-   We choose a font: Robot for the body of every text (Maybe try Open Sans in the future).
+-   We tried some palette colors 
+-   Improve the overall CSS structure with new variables
+
+## Choosing Fonts
+To choose the font we made some kind of display of the possible options. Between the options was:
+
+- Mukto
+- Inconsolata
+- Open Sans
+- Roboto
+- Nunito
+
+We ended up with Roboto, just because the time was running out. Maybe I will test some Open Sans in the future
+
+
+## Trying Palettes
+
+It was a lot of fun and we are excited to improve each time more this website and write new and improved articles here.
+
+  
+Between the pallets tested we have these:
+
+![mouse-palette](/images/posts/reunion-0-1/mouse-palette.webp)
+
+---
+
+![granito-palette](/images/posts/reunion-0-1/granito-palette.webp)
+
+---
+
+![baleia-palette](/images/posts/reunion-0-1/baleia-palette.webp)
+
+---
+
+![cimento-palette](/images/posts/reunion-0-1/cimento-palette.webp)
+
+----
+
+I liked the gray one. But will try nome others in the future, thus it's nothing defined yet. Maybe a bluer grey. 
+
+  
+
+To improve the palette swap I created many variables to centralize the styles of the website. In the future, I want to make a Dark Theme as well, but to do this will need to make some changes again. 
+
+  
+
+And to document the moment, we decided to shoot some photos *(and I made some effects by hand)*:
+
+![painted-1](/images/posts/reunion-0-1/painted-us.webp)]]></content:encoded>
+        </item>
+        <item>
+            <title><![CDATA[Start To Build This Website]]></title>
+            <link>https://localhost:3000/undefined</link>
+            <guid>https://localhost:3000/undefined</guid>
+            <pubDate>Sat, 01 Jan 2022 04:00:00 GMT</pubDate>
+            <description><![CDATA[Just documenting the first cool stuf, this blog]]></description>
+            <content:encoded><![CDATA[
+So, I'm starting this new projetct, a blog to post articles about game development and architecture. Thus I need a web site to post it. The first option would be to use Medium. But I'm a web developer, so I need to try to create my onw!
+
+After 2 days fighting with CSS I reach a very simple grid template with a markDown parser to help the writting.
+
+And everything was *almost* responsive, at least I tried to make it so.
+
+
+
+![first-version](/images/posts/first-version.gif)
+
+Another important thing, english is not my main language, so maybe I gonna write wrong some things.
+
+I will comeback latter to talk a little more about the company and the ideas behind it, but for now this is the first post ever :)
+
+]]></content:encoded>
+        </item>
+    </channel>
+</rss>

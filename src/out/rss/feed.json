@@ -1,0 +1,45 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "DevBlog",
+    "home_page_url": "https://localhost:3000",
+    "feed_url": "https://localhost:3000/rss/feed.json",
+    "description": "Welcome to the blog containing all the articles and documentation about all the games and projects that I (Renato Cesar) produce with my team",
+    "author": {
+        "name": "Renato Cesar",
+        "url": "https://twitter.com/nerat0"
+    },
+    "items": [
+        {
+            "content_html": "\r\nFrom now on, if you share one of our posts on *social media* it will look something like that:\r\n\r\n![post-in-twitter](/images/posts/discovering-meta-tags-plus-website-uptades/post-in-twitter.webp)\r\n\r\nIt also works in *instagram*, *whatsapp*, *facebook*, *Discord* and *LinkedIn*.\r\n\r\nI have never known how this kind of interpretation was made. The only thing like that I knew was the RSS system that many podcast providers use. The RSS is a bunch of HTML tags with all the information of the podcast. First I thought that this cover image and description was based on RSS ass well. But no. It's all **Meta Tags**.\r\n\r\n## More About Meta Tags\r\n\r\nThe only thing that I knew about meta tags is that they could change the *favi.icon*, the bar color, and the title of the website. But searching a little bit about meta tags to fix a Next.Js bug, I came across another kind of meta tags, with properties like *og* (OpenGraph) and *twitter*.\r\n\r\nThis *OpenGraph* protocol was created by facebook and:\r\n> enables developers to integrate their pages into Facebook's global mapping/tracking tool Social Graph.\r\naccording to the [Facebook Platform Wikipedia](https://en.wikipedia.org/wiki/Facebook_Platform).\r\nOver time more websites and social media start to use it as well.\r\n\r\n## How I implemented it here\r\n\r\nFirst I added a simple `<head>`component with general metatag info in the *_app.tsx* file. Info like:\r\n- Creator\r\n- Theme-color\r\n- copyright\r\n- og:locale\r\n\r\nSince this kind of value doesn't change through the website.\r\n\r\n---\r\n\r\nAnd in every single page (Home, Team, Blog) I added more additional info like the description of the page and the title.\r\n \r\nBut the cool thing is on the *post* page. Each post, when generated as a static page, generates its meta tags with all its information. Sucha as:\r\n- post Description\r\n- post author\r\n- keywords\r\n- All the og tags \r\n    - type\r\n    - url\r\n    - title\r\n    - image\r\n- all twitter tags\r\n    - card type\r\n    - image\r\n    - title\r\n    - description\r\n    - creator\r\n    - domain\r\n\r\nAnd more not so important tags, like height and width of images, etc.\r\n\r\nJust using this it's possible to implement the cool share card in social Media. Look how my post tags look like now:\r\n\r\n![post-meta-tags](/images/posts/discovering-meta-tags-plus-website-uptades/post-meta-tags.webp)\r\n\r\nThe only thing that give me some problems was the Twitter postcard. I don't know why, but Twitter only accepts when you put the post image coming from the internet, and not local. I will make some new tests to see if this deduction is correct.\r\n\r\n## New features in this website\r\n\r\nSince the last update ([reunion 0.1](/blog/reunion-0-1)) I made some new things here. But the coolest and more important is the animations.\r\n\r\nSo yes, we finally added the Header, but the cool part is the animation that I, kind of, found. I was creating a *Media Query* for smartphones and then, when I was adding a transition of states, the VS code start to suggest some [Bézier curvs](https://en.wikipedia.org/wiki/B%C3%A9zier_curve) as animations transition parameters. I tested someones and liked this one that I'm using now. After this, I study some animations from [codepen](https://codepen.io/) and made this one. Look how the header is looking great:\r\n\r\n![header-animations](/images/posts/discovering-meta-tags-plus-website-uptades/header-animations.gif)\r\n\r\nI had some new animation ideas to implement in the future, so wait for it!",
+            "url": "https://localhost:3000/undefined",
+            "title": "Discovering Meta tags + Website Updates",
+            "summary": "How I maneged to make our posts look amazing in social midia using meta tags and...",
+            "date_modified": "2022-01-11T04:00:00.000Z",
+            "author": {}
+        },
+        {
+            "content_html": "\r\n\r\nAdd code highlight, and it's preaty cool! Like That:\r\n```python\r\ndef preaty_cool_python_function(cool_param):\r\n    if(not cool_param):\r\n        return\r\n    print(cool_param)\r\n```\r\n\r\nit has many themes and options.\r\n\r\nAll posts are writen in MarkDown files, so it's possible to choose a language in every code-section. And also choose a highlight theme for the post using the configuration header\r\n\r\n\r\nStill need to add more themes (load each one from the package into a external file), but I think that it's a good idea after all.\r\n\r\n\r\n\r\nBut it bring some problems, for no reason each post (even the shortests ones like this) take almost 2 seconds to load. I think it's something about the new method of MarkDown parse that I'm using. Need to test it out.\r\n\r\nAfter this session I will publish this \"website\" thus I can show for people easily\r\n\r\n-----------\r\n\r\nAnother cool thing is that, if I didn't add cover image for the post, it will generate one. For now it still just an `<h1>`, but i will create more diversed things in the future. ",
+            "url": "https://localhost:3000/undefined",
+            "title": "New Blog Features",
+            "summary": "Adding new stuff to this blog, it it's gettting very cool",
+            "date_modified": "2022-01-04T04:00:00.000Z",
+            "author": {}
+        },
+        {
+            "content_html": "\r\nYesterday (01/05/2022) we made our first reunion, sadly with only two of us personally and one via Google Meet. But even in this situation, we did a lot of progress.\r\n\r\n-   We choose a font: Robot for the body of every text (Maybe try Open Sans in the future).\r\n-   We tried some palette colors \r\n-   Improve the overall CSS structure with new variables\r\n\r\n## Choosing Fonts\r\nTo choose the font we made some kind of display of the possible options. Between the options was:\r\n\r\n- Mukto\r\n- Inconsolata\r\n- Open Sans\r\n- Roboto\r\n- Nunito\r\n\r\nWe ended up with Roboto, just because the time was running out. Maybe I will test some Open Sans in the future\r\n\r\n\r\n## Trying Palettes\r\n\r\nIt was a lot of fun and we are excited to improve each time more this website and write new and improved articles here.\r\n\r\n  \r\nBetween the pallets tested we have these:\r\n\r\n![mouse-palette](/images/posts/reunion-0-1/mouse-palette.webp)\r\n\r\n---\r\n\r\n![granito-palette](/images/posts/reunion-0-1/granito-palette.webp)\r\n\r\n---\r\n\r\n![baleia-palette](/images/posts/reunion-0-1/baleia-palette.webp)\r\n\r\n---\r\n\r\n![cimento-palette](/images/posts/reunion-0-1/cimento-palette.webp)\r\n\r\n----\r\n\r\nI liked the gray one. But will try nome others in the future, thus it's nothing defined yet. Maybe a bluer grey. \r\n\r\n  \r\n\r\nTo improve the palette swap I created many variables to centralize the styles of the website. In the future, I want to make a Dark Theme as well, but to do this will need to make some changes again. \r\n\r\n  \r\n\r\nAnd to document the moment, we decided to shoot some photos *(and I made some effects by hand)*:\r\n\r\n![painted-1](/images/posts/reunion-0-1/painted-us.webp)",
+            "url": "https://localhost:3000/undefined",
+            "title": "Reunion 0.1",
+            "summary": "The progress made in our first company reunion",
+            "date_modified": "2022-01-06T04:00:00.000Z",
+            "author": {}
+        },
+        {
+            "content_html": "\r\nSo, I'm starting this new projetct, a blog to post articles about game development and architecture. Thus I need a web site to post it. The first option would be to use Medium. But I'm a web developer, so I need to try to create my onw!\r\n\r\nAfter 2 days fighting with CSS I reach a very simple grid template with a markDown parser to help the writting.\r\n\r\nAnd everything was *almost* responsive, at least I tried to make it so.\r\n\r\n\r\n\r\n![first-version](/images/posts/first-version.gif)\r\n\r\nAnother important thing, english is not my main language, so maybe I gonna write wrong some things.\r\n\r\nI will comeback latter to talk a little more about the company and the ideas behind it, but for now this is the first post ever :)\r\n\r\n",
+            "url": "https://localhost:3000/undefined",
+            "title": "Start To Build This Website",
+            "summary": "Just documenting the first cool stuf, this blog",
+            "date_modified": "2022-01-01T04:00:00.000Z",
+            "author": {}
+        }
+    ]
+}
