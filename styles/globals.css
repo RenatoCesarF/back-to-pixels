@@ -10,24 +10,24 @@
 
 :root{
   --button-font: '';
-  --card-border-color: #476072; 
+  --card-border-color: #485188; 
   --card-text-color: #2d2d2d;
-  --card-color: #EEEEEE ;/* hsl(36, 9%, 78%);*/
+  --card-color: #EEEEEE ;
   --background-color: #EEEEEE;
-  --main-color: #334257;
-  --secondary-color: #476072;
-  --header-option-activated: #548CA8;
-  --header-option-hover: #47607296;
+  --main-color: #382F60;
+  --secondary-color: #485188;
+  --header-option-activated: #485188;
+  --header-option-hover: #48518896;
   --header-text-option-activated: white;
   --open-menu-icon-color: #EEEEEE;
   --page-title-color: #2d2d2d;
   --button-text-color: #fff;
-  --button-color: #476072;
+  --button-color: #485188;
   --shadow-color: #333333c4;
   --main-font-color: #EEEEEE;
   --code-background-color: #747373;
   --code-color: rgb(255, 255, 255);
-  --link-color: #548CA8;
+  --link-color: #4B81AB;
 }
 ::selection {
   color:var(--main-font-color);
