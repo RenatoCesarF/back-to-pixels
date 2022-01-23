@@ -5,6 +5,8 @@ import Post from '../classes/postType';
 import {FaCalendarAlt,FaRegCalendarAlt} from 'react-icons/fa';
 import { m } from 'framer-motion';
 import { cardVariants } from '../helpers/animations';
+import Category from '../classes/category';
+import CategoryTag from './CategoryTag';
 
 interface IPost{
     post: Post
@@ -54,6 +56,13 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                         <div className='card-date-row'>
                             <FaRegCalendarAlt id='card-date-icon' size={16}/>
                             <p className="post-card-date">{post.date}</p>
+                        </div>
+                        <div className='post-card-categories-row'>
+                            {
+                                post.categories.map((category: Category, index: number)=>{
+                                    return (<CategoryTag categoryKey={category} key={index}/>)
+                                })
+                            }
                         </div>
                     </div>
             </m.div>

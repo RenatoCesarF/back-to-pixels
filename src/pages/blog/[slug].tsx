@@ -54,7 +54,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                 <meta name="googlebot" content="index, follow"/>
                 {
                     post.categories.map((name: Category, index:number) =>(
-                        <meta name="keywords" content={name} key={index}/>
+                        <meta name="keywords" content={name.toString()} key={index}/>
                     ))
                 }
 
@@ -74,7 +74,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                 <meta property="blog:published_time" content={post.date}/>
                 {
                     post.categories.map((name: Category, index: number) =>(
-                        <meta property="blog:tag" content={name} key={index}/>
+                        <meta property="blog:tag" content={name.toString()} key={index}/>
                     ))
                 }
 

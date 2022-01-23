@@ -7,11 +7,12 @@ import { domAnimation, LazyMotion, m, motion } from 'framer-motion';
 import NextHead from 'next/head';
 
 
-import PostCard from '../components/PostCard';
 import globalStyles from '../styles/blog.styles'
+import PostCard from '../components/PostCard';
+import CategoryTag from '../components/CategoryTag';
 import Post from '../classes/postType';
-import {sortByDate, sortByDateReverse} from '../utils/sort';
 import Author from '../classes/authorType';
+import {sortByDate, sortByDateReverse} from '../utils/sort';
 
 import { slideInUp, slideInLeft, slideCardUp, slideInDown, cardVariants } from '../helpers/animations';
 

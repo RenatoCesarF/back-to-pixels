@@ -118,9 +118,11 @@ export default css.global`
 .post-card-footer{
   z-index: 1;
   margin-top: auto;
+  display: flex;
   background-color: var(--card-color);
   border-radius: 0px 0px 0.7rem 0.7rem;
   height: auto;
+  justify-content: space-between;
   
 }
 .card-date-row{
@@ -128,7 +130,11 @@ export default css.global`
   display: inline-flex;
   margin-left: 0.3rem;
 }
-
+.post-card-categories-row{
+  margin-top: auto;
+  margin-bottom: 0.3rem;
+  margin-right: 0.5rem;
+}
 #card-date-icon{
   color: #636363;
   margin-top: 0.95rem;
