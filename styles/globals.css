@@ -168,10 +168,21 @@ footer p{
   overflow: hidden;
   z-index: 1;
   background-color: var(--main-color);
-  padding: 15px 10px;
+  /* padding: 15px 10px; */
+  display: flex;
+  justify-content: space-between;
   
 }
 
+.header .logo{
+  margin-left: 1.3rem;
+  margin-top:0.5rem;
+  margin-bottom: 0.7em;
+  height: 3.5rem;
+}
+.header .logo-menu-line{
+  display: inline-flex;
+}
 .header a {
   float: left;
   color: white;
@@ -186,12 +197,6 @@ footer p{
   line-height: 25px;
   border-radius: 3px;
 }
-
-.header a.logo {
-  font-size: 25px;
-  font-weight: bold;
-}
-
 .header a:hover {
   background-color: var(--header-option-hover);
   color: white;
@@ -209,6 +214,9 @@ footer p{
 
 .header-right {
   float: right;
+  margin-top:1rem;
+  height: auto;
+
 }
 .menu-toggle{
   visibility: hidden;
@@ -218,16 +226,15 @@ footer p{
 
 @media screen and (max-width: 500px) {
   .header{
-    padding-bottom: 5px;
+    display: block;
+  }
+  .logo{
+    padding-top:0;
+    padding-bottom:0;
   }
   .header .logo-menu-line{
-    display: inline-flex;
     margin-top: 1vh;
 }
-  .header a.logo{
-    padding: 5px;
-    width: 13rem;
-  }
   #home-option{
     margin-top: 20px;
   }
@@ -280,7 +287,8 @@ footer p{
     box-sizing: border-box;
     background-color: transparent;
     width: 3.3em;
-    height: 3.3em;
+    /* height: 3.3em; */
+    height: 6em;
     border: none;
     outline:0;
     display: block;

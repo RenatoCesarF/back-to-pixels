@@ -8,7 +8,6 @@ import Link from 'next/link'
 import { AnimatePresence, motion } from 'framer-motion';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
-  //TODO: change location of head tag
   function handleScrollToTop() {
     window.scrollTo({
       top: 0,
@@ -18,6 +17,27 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   return(
     <>
       <NextHead>
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link
+          key="apple-touch-icon"
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/images/icon/apple-touch-icon.png"
+        />
+        <link key="icon32" rel="icon" type="image/png" sizes="32x32" href="/images/icon/favicon-32x32.png"/>
+        <link key="icon16" rel="icon" type="image/png" sizes="16x16" href="/images/icon/favicon-16x16.png" />
+        {/* <link key="manifest" rel="manifest" href="/site.webmanifest" /> */}
+
+
+        {/* <link key="mask-icon" rel="mask-icon" href="/images/icon/safari-pinned-tab.svg"	
+            color="#382F60"
+        /> */}
+
+        <meta key="msapplication-TileColor" name="msapplication-TileColor" 
+            content="#382F60" 
+        />
+
+
         <meta charSet='utf-8' />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="theme-color" content="#382F60" />

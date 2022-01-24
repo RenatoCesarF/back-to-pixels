@@ -36,12 +36,10 @@ export default function Header() {
         <div className="header">
             <div className='logo-menu-line'>
                 <Link href="/">
-                    <a className="logo">
-                        CompanyLogo
-                    </a>
+                    <img src='images/logo_name.png' className='logo'/>
                 </Link>
+                
                 <div className='menu-icon-div' onClick={(toggleMenuIcon)}>
-                    
                     <MenuIcon/>
                 </div>
             </div>
@@ -68,6 +66,7 @@ export default function Header() {
                 </Link>
             </div>
         </div>
+
     )
 }
 
