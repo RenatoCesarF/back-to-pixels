@@ -329,6 +329,7 @@ footer p{
 }
 
 .category-tag{
+  z-index: 2;
   background-color:var(--secondary-color);
   border-radius: 0.375rem;
   border: none;
@@ -340,11 +341,19 @@ footer p{
   margin-right: 0.2rem;
   max-width: 100vw;
 }
-.category-tag p{
+.category-tag-text{
   font-size: 1em;
   color: var(--main-font-color);
   font-family: "Open Sans", sans-serif;
+  font-weight: bolder;
   margin: 0;
+}
+
+.transparent-tag{
+  background-color:transparent;
+  background-image: linear-gradient(90deg, grey 5px, #00000000 10px);
+  margin-right: 0px;
+  padding-right: 0px;
 }
 
 

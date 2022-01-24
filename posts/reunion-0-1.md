@@ -4,7 +4,7 @@ date: '01/06/2022'
 author: 'renato'
 cover_image: 'https://i.imgur.com/d3iChWE.png'
 excerpt: 'The progress made in our first company reunion. The colors we tested and documenting things'
-categories: [BLOG]
+categories: [BLOG, DESIGN]
 ---
 
 Yesterday (01/05/2022) we made our first reunion, sadly with only two of us personally and one via Google Meet. But even in this situation, we did a lot of progress.

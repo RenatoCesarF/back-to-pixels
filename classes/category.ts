@@ -8,11 +8,13 @@ interface Category{
 }
 
 export enum CategoryType {
-    ART = "art" ,
-    PROGRAMMING = "programming",
     RINGS = "rings",
+    ART = "art" ,
     BLOG = "blog",
-    NEXTJS =  "nextjs"
+    NEXTJS =  "nextjs",
+    DESIGN = "design",
+    PROGRAMMING = "programming",
+    TRANSPARENT = 'transparent'
 }
 
 export default Category

@@ -9,6 +9,30 @@
         "name": "Blog",
         "color": "#FE5722",
         "about": "Articles about the creation or documentation around the blog it self",
-        "textColor": "#FFFFFF"
+        "textColor": "#2a2a2a"
+    },
+    "transparent":{
+        "name": " ",
+        "color": "#2d2d22",
+        "about": "",
+        "textColor": "#2d2d22"
+    },
+    "art":{
+        "name": "Art",
+        "color": "#43639B",
+        "about": "Articles about art direction, pixel art and art in general",
+        "textColor": "#EEEEEE"
+    },
+    "programming":{
+        "name": "Programming",
+        "color": "#7f4596",
+        "about": "Articles with about programming, tutorials, examples, explanations and etc",
+        "textColor": "#EEEEEE"
+    },
+    "design":{
+        "name": "Design",
+        "color": "#85BC3C",
+        "about": "Articles with about web side design, character design and etc",
+        "textColor": "#2a2a2a"
     }
 }

@@ -15,6 +15,7 @@ import Author from '../classes/authorType';
 import {sortByDate, sortByDateReverse} from '../utils/sort';
 
 import { slideInUp, slideInLeft, slideCardUp, slideInDown, cardVariants } from '../helpers/animations';
+import { CategoryType } from '../classes/category';
 
 // const PostCard = dynamic(() => import("../components/PostCard"))
 
@@ -48,9 +49,9 @@ export default function BlogPage(posts:PostList){
     
               <m.div className='posts-grid'>
                 {
-                  sourtedPosts.map((post: Post, index: number) =>(
-                      <PostCard post={post} key={index}/>
-                  ))
+                  sourtedPosts.map((post: Post, index: number) =>{
+                    return <PostCard post={post} key={index}/>
+                  })
                 }
                </m.div>
 
@@ -69,13 +70,13 @@ export async function getStaticProps(){
       const {data, content} = matter(markdownWithMeta);
 
       const postAuthor: Author = {name: "Renato", about: "", email: "", image:"", instagram: "", twitter: "", role: ""}
-    
+      const categories: CategoryType = data.categories;
       return {
           slug, 
           content,
           author: postAuthor ?? null,
           cover_image: data.cover_image ?? null,
-          categories: data.categories ?? null,
+          categories: categories ?? null,
           date:data.date ?? null,
           excerpt: data.excerpt ?? null, 
           title: data.title ?? null,

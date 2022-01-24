@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 
 import Post from '../classes/postType';
-import {FaCalendarAlt,FaRegCalendarAlt} from 'react-icons/fa';
-import { m } from 'framer-motion';
-import { cardVariants } from '../helpers/animations';
-import Category from '../classes/category';
-import CategoryTag from './CategoryTag';
+import { FaRegCalendarAlt } from 'react-icons/fa';
+import { m, motion } from 'framer-motion';
+import { cardVariants, slideInUp } from '../helpers/animations';
+import { CategoryType } from '../classes/category';
+import CategoryTag, { CategoryTagTransparent } from './CategoryTag';
 
 interface IPost{
     post: Post
@@ -16,28 +16,27 @@ const maximumExcerptSize: number = 70;
 const PostCard: React.FC<IPost> = ({post}: IPost) => {
     const [isHovering, setIsHovering] = useState(false);
     const hasCoverImage:boolean = post.cover_image != undefined || post.cover_image != null;
+    const extendedCategories: boolean = post.categories.length > 2;
     var shortExcerpt: string = post.excerpt;
     if(post.excerpt.length > maximumExcerptSize){
         shortExcerpt = post.excerpt.substring( 0, maximumExcerptSize) + "...";
     }
 
     return(
-        <Link passHref href={`/blog/${post.slug}`}>
-            <m.div 
-                className='post-card-div' 
-                variants={cardVariants}
-
-                onMouseOver={()=>{setIsHovering(true)}}
-                onMouseLeave={()=>{setIsHovering(false)}}
-                onTouchStart={()=>{setIsHovering(true)}}
-                onTouchEnd={()=>{setIsHovering(false)}}>
-                    
+        <m.div className='post-card-div'  variants={cardVariants} 
+            onMouseOver={()=>{setIsHovering(true)}}
+            onMouseLeave={()=>{setIsHovering(false)}}
+            onTouchStart={()=>{setIsHovering(true)}}
+            onTouchEnd={()=>{setIsHovering(false)}}
+        >
+            <Link passHref href={`/blog/${post.slug}`}>
+                <m.div >
                     <div className='post-card-image-container'>
                         {
                             hasCoverImage ? 
-                            (<img className='post-card-img' alt='post card image' src={post.cover_image}/>)
+                            <img className='post-card-img' alt='post card image' src={post.cover_image}/>
                             : 
-                            (<h1 className='post-card-cover-date'>{post.date}</h1>)
+                            <h1 className='post-card-cover-date'>{post.date}</h1>
                         }
                     </div>
 
@@ -49,39 +48,56 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                                 {isHovering ? post.excerpt : shortExcerpt}
                             </p>
                         </div>
-                       
+                    
                     </div>
-
-                    <div className='post-card-footer'>
-                        <div className='card-date-row'>
-                            <FaRegCalendarAlt id='card-date-icon' size={16}/>
-                            <p className="post-card-date">{post.date}</p>
+                </m.div>
+            </Link>
+            {/* Footer */}
+            <m.div className='post-card-footer'>
+                <div className='card-date-row'>
+                    <FaRegCalendarAlt id='card-date-icon' size={16}/>
+                    <p className="post-card-date">{post.date}</p>
+                </div>
+                <div className='post-card-categories-row'>
+                    <div className='tooltip'>
+                        <div className={extendedCategories? "categories-row" : ""}>
+                            {
+                                post.categories.map((category: CategoryType, index: number)=>{
+                                    if(index >= 2) return;
+                                    return <CategoryTag categoryKey={category} key={index}/>
+                                })
+                            }
+                            {/* {extendedCategories ? "..." : ""} */}
+                            {extendedCategories ? <CategoryTagTransparent categoryKey={post.categories[2]}/> : <></>}
                         </div>
-                        <div className='post-card-categories-row'>
-                            <div className='tooltip'>
+                        {
+                            extendedCategories
+                            ?
+                            <span className="tooltiptext">
+                                <div className="extended-categories"  >
                                 {
-                                    post.categories.map((category: Category, index: number)=>{
-                                        return (<CategoryTag categoryKey={category} key={index}/>)
+                                    post.categories.map((category: CategoryType, index: number)=>{
+                                        return (
+                                        <m.div 
+                                            whileHover={{ scale: 1.1 }}
+                                            style={{display: "inline-block", transitionDuration: "0s"}}
+                                            key={index}  
+                                        >
+                                            <CategoryTag categoryKey={category} key={index} />
+                                        </m.div>
+                                        )
                                     })
                                 }
-                                {
-                                    post.categories.length > 1
-                                    ?
-                                    <span className="tooltiptext">
-                                        {
-                                            post.categories.map((category: Category, index: number)=>{
-                                                return (<CategoryTag categoryKey={category} key={index}/>)
-                                            })
-                                        }
-                                    </span>
-                                    :
-                                    <div/>
-                                }
-                            </div>
-                        </div>
+                                </div>
+                            </span>
+                            :
+                            <></>
+                        }
                     </div>
+                </div>
             </m.div>
-        </Link>
+        </m.div>
+
     )
 }
 

@@ -131,44 +131,43 @@ export default css.global`
   margin-left: 0.3rem;
 }
 .post-card-categories-row{
-  margin-top: auto;
-  margin-bottom: 0.3rem;
-  margin-right: 0.5rem;
+  padding-top: 0.7rem;
+  /* margin-top: auto; */
+  padding-bottom: 0.3rem;
+  padding-right: 0.5rem;
 }
 
 /*========= TOOLTIP ========= */
 .tooltip {
   position: relative;
-  /* top: 383px; */
-  /* left: 238px; */
   display: inline-block;
-  /* margin-right: 300px; */
-  z-index: 2;
-  
 }
-.tooltiptext {
-  visibility: hidden;
- 
-  width: 0px;
-  height: 0px;
-  background-color: var(--main-font-color);
-  text-align: center;
-  padding: 8px 0;
 
-  border-left:   0.2rem solid var(--card-border-color);
-  border-bottom: 0.15rem solid var(--card-border-color);
+.tooltiptext {
+  display: -webkit-inline-box;
+  line-height: 2rem;
+
+  width: 50px;
+  height: 20px;
+  /* background-color: var(--main-font-color); */
+  background-color:var(--main-color);
+  text-align: center;
+  padding: 8px 2px;
+  visibility: hidden;
   border-radius: 0.7rem;
 
   /* Position the tooltip text */
   position: absolute;
   z-index: 1;
-  bottom: 130%;
-  left: 37%;
+  bottom: 120%;
+  left: 57%;
   margin-left: -90px;
 
   /* Fade in tooltip */
   opacity: 0;
-  transition: all 0.5s cubic-bezier(.65,-0.53,.24,1.12);
+  transition: all 0.4s cubic-bezier(.65,-0.53,.24,1.12);
+  /* transition-delay: 0s, 4s; */
+  /* transition: height .7s; */
 }
 /* Tooltip arrow */
 .tooltiptext::after {
@@ -179,15 +178,62 @@ export default css.global`
   margin-left: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: #2D034C transparent transparent transparent;
+  border-color:var(--main-color) transparent transparent transparent;
+}
+
+.tooltip .categories-row{
+  transition: all 0.5s cubic-bezier(.65,-0.53,.24,1.12);
+  animation: moveLeft 0.5s 1;
+  animation-fill-mode: forwards;
+}
+
+.tooltip .extended-categories{
+  opacity: 0;
 }
 
 /* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
+.post-card-categories-row:hover .tooltiptext {
   visibility: visible;
   width: 155px;
-  height: 55px;
+  height: fit-content;
   opacity: 1;
+}
+.post-card-categories-row:hover .categories-row{
+  animation: moveRight 0.4s 1 cubic-bezier(.65,-0.53,.24,1.12);
+  animation-fill-mode: forwards;
+  animation-delay: 0.2s;
+}
+.post-card-categories-row:hover .extended-categories{
+  opacity: 1;
+}
+@keyframes moveRight {
+  0% {
+    opacity: 1;
+    margin-right: 0rem;
+  }
+  
+  90% {
+    margin-right: 2rem;
+  }
+  100%{
+    opacity: 0;
+    /* margin-right: 0px; */
+    margin-right: 2rem;
+  }
+}
+@keyframes moveLeft {
+  0% {
+    opacity: 0;
+    margin-right: 2rem;
+  }
+
+  90% {
+    margin-right: 0rem;
+  }
+  100%{
+    margin-right: 0rem;
+    opacity: 1;
+  }
 }
 /*========== */
 
@@ -206,7 +252,7 @@ export default css.global`
 }
 
 /*--------Animations and hover -------------*/
-.post-card-div:hover{
+.post-card-div:hover, .post-card-div:active, .post-card-div:focus {
   height: 20em;
   overflow:hidden;
 }

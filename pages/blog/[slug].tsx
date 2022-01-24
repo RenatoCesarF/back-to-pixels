@@ -15,9 +15,9 @@ import Post from '../../classes/postType';
 import CustomButton, {ButtonIcon} from '../../components/CustomButton';
 import globalStyles from '../../styles/post.styles';
 import getImageType from '../../utils/getImageType';
-import Category from '../../classes/category';
+import Category, { CategoryType } from '../../classes/category';
 import { motion } from 'framer-motion';
-import { easing, slideButtonDown, slideInUp } from '../../helpers/animations';
+import {slideButtonDown, slideInUp } from '../../helpers/animations';
 
 interface IPost{post: Post};
 type Params = {slug: string};
@@ -53,7 +53,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                 <meta name="robots" content="index, follow"/>
                 <meta name="googlebot" content="index, follow"/>
                 {
-                    post.categories.map((name: Category, index:number) =>(
+                    post.categories.map((name: CategoryType, index:number) =>(
                         <meta name="keywords" content={name.toString()} key={index}/>
                     ))
                 }
@@ -73,7 +73,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                 <meta property="blog:author" content={post.author.name}/>
                 <meta property="blog:published_time" content={post.date}/>
                 {
-                    post.categories.map((name: Category, index: number) =>(
+                    post.categories.map((name: CategoryType, index: number) =>(
                         <meta property="blog:tag" content={name.toString()} key={index}/>
                     ))
                 }
@@ -97,16 +97,14 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                     </motion.div>
                             
                     <motion.div variants={slideInUp}>
-
                         {
                             hasCoverImage ? 
-                            (<img  alt='blog post cover' className='post-cover' src={post.cover_image}/>)
-                            : 
-                            (
+                                <img  alt='blog post cover' className='post-cover' src={post.cover_image}/>
+                                : 
+                            
                                 <div className='post-cover-div'>        
                                     <h1 className='post-cover-date'>{post.date}</h1>
                                 </div>
-                            )
                         }   
                     </motion.div >
                     <motion.div variants={slideInUp}>
