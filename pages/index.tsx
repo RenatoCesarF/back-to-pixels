@@ -12,7 +12,7 @@ const Home: NextPage = () => {
   return (
     <div  className='page'>
       <NextHead>
-          <meta name="description" content="Company name website Home page, where you can learn more about our work"/>
+          <meta name="description" content="Coding Ideas website Home page, where you can learn more about our work"/>
           <meta name="author" content="Renato Cesar"/>
           <meta property="og:url" content="https://https://devblog-nine.vercel.app/"></meta>
           <meta property="og:title" content="Coding Ideas Home Page - Learn more about us"></meta>

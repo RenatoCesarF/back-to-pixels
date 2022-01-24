@@ -51,17 +51,17 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
         <meta name="google-site-verification" content="amj1tyhcjvwNjY_pZi-WJjthO7eC5SyaZZCrmbb835M" />
         
         <meta property="og:locale" content="en_US"/>
-        <meta property="og:site_name" content="Company Name"/>
+        <meta property="og:site_name" content="Coding Ideas"/>
         <meta property="og:type" content="blog"></meta>
 
         <meta property="og:url" content={`https://devblog-nine.vercel.app`} />
         <meta property="og:title" content="Coding Ideas"/>
         <meta property="og:site_name" content="Coding Ideas"/>
         <meta property="og:description" content="Coding Ideas official website. You can follow our journey creating our projects and Games"/>
-        <meta property="og:image" content="/images/logo.png"/>
+        <meta property="og:image" content="https://devblog-nine.vercel.app/images/logo.png"/>
         <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:width" content="494"/>
-        <meta property="og:image:height" content="494"/>
+        <meta property="og:image:width" content="300"/>
+        <meta property="og:image:height" content="300"/>
         <meta property="og:image:alt" content="Logo"/> 
 
         <meta name="twitter:card" content="summary_large_image"/>
