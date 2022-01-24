@@ -64,7 +64,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
         <meta property="og:image:height" content="300"/>
         <meta property="og:image:alt" content="Logo"/> 
 
-        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:card" content="summary"/>
         <meta name="twitter:website" content="@nerat0"/>
         <meta name="twitter:image" content="https://devblog-nine.vercel.app/images/logo.png"/>
         <meta name="twitter:title" content="Coding Ideas"/>
