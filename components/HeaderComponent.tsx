@@ -36,7 +36,7 @@ export default function Header() {
         <div className="header">
             <div className='logo-menu-line'>
                 <Link href="/">
-                    <img src='images/logo_name.png' className='logo'/>
+                    <img src='/images/logo_name.png' className='logo' alt='Logo Image'/>
                 </Link>
                 
                 <div className='menu-icon-div' onClick={(toggleMenuIcon)}>

@@ -45,6 +45,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
         <meta name="keywords" content="Indie Games, Development, Game, Indie, Company, Next, Developers, Blog"></meta>
         <meta name="copyright" content="© 2022 Renato Cesar" />
         <meta name="creator" content="Renato Cesar"/>
+        <meta name="author" content="Renato Cesar"/>
         <meta name="robots" content="index, follow"/>
         <meta name="googlebot" content="idnex, follow"/>
 
@@ -57,7 +58,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
         <meta property="og:url" content={`https://devblog-nine.vercel.app`} />
         <meta property="og:title" content="Coding Ideas"/>
         <meta property="og:site_name" content="Coding Ideas"/>
-        <meta property="og:description" content="Coding Ideas official website. You can follow our journey creating our projects and Games"/>
+        <meta property="og:description" content="Coding Ideas official website. Follow our journey creating our projects and Games"/>
         <meta property="og:image" content="https://devblog-nine.vercel.app/images/logo.png"/>
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="300"/>
@@ -68,7 +69,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
         <meta name="twitter:website" content="@nerat0"/>
         <meta name="twitter:image" content="https://devblog-nine.vercel.app/images/logo.png"/>
         <meta name="twitter:title" content="Coding Ideas"/>
-        <meta name="twitter:description" content="Coding Ideas official website. You can follow our journey creating our projects and Games"/>
+        <meta name="twitter:description" content="Coding Ideas official website. Follow our journey creating our projects and Games"/>
         <meta name="twitter:creator" content="@nerat0"/>
         <meta property="twitter:url" content="https://devblog-nine.vercel.app/blog/"/>
         <meta property="twitter:domain" content="devblog-nine.vercel.app"/>

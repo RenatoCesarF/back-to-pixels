@@ -1,30 +1,39 @@
 import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import Link from 'next/link'
 import generateRssFeed from '../scripts/rss'
 import NextHead from 'next/head';
 import styles from '../styles/Home.module.css'
-import { motion } from 'framer-motion'
+import { motion} from 'framer-motion'
+import programmerLotie from '../public/lotties/programmer-lottie.json';
 import { slideInLeft } from '../helpers/animations'
+import UnderDevelopment from '../components/UnderDevelopment'
 
 const Home: NextPage = () => {
+  const defaultOptions = {
+    loop: true,
+    autoplay: true,
+    animationData: programmerLotie,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice"
+    }
+  };
   return (
     <div  className='page'>
       <NextHead>
-          <meta name="description" content="Coding Ideas website Home page, where you can learn more about our work"/>
-          <meta name="author" content="Renato Cesar"/>
-          <meta property="og:url" content="https://https://devblog-nine.vercel.app/"></meta>
-          <meta property="og:title" content="Coding Ideas Home Page - Learn more about us"></meta>
+          <meta name="description" content="Coding Ideas website Home page, Learn more about our work"/>
+          <meta property="og:url" content="https://https://devblog-nine.vercel.app"/>
+          <meta property="og:title" content="Coding Ideas Home Page - Learn more about us"/>
           <meta name="robots" content="follow"/>
           <meta name="robots" content="index, follow"/>
           <meta name="googlebot" content="index, follow"/>
   
           <title>Coding Ideas Home</title>
       </NextHead>
-      <motion.div className='page' variants={slideInLeft}>
-        <h1>Home</h1>
-      </motion.div>
+      <div className='page' >
+        <motion.div variants={slideInLeft}>
+          <h1>Home</h1>
+        </motion.div>
+        <UnderDevelopment/>
+      </div>
     </div>
   )
 }

@@ -168,7 +168,7 @@ export default css.global`
 
   /* Fade in tooltip */
   opacity: 0;
-  transition: all 0.3s cubic-bezier(.65,-0.53,.24,1.12);
+  transition: all 0.5s cubic-bezier(.65,-0.53,.24,1.12);
 }
 /* Tooltip arrow */
 .tooltiptext::after {
