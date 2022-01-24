@@ -70,7 +70,7 @@ export async function getStaticProps(){
       const {data, content} = matter(markdownWithMeta);
 
       const postAuthor: Author = {name: "Renato", about: "", email: "", image:"", instagram: "", twitter: "", role: ""}
-      const categories: CategoryType = data.categories;
+      const categories: CategoryType[] = data.categories;
       return {
           slug, 
           content,
