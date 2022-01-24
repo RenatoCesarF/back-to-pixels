@@ -27,12 +27,14 @@ export default function BlogPage(posts:PostList){
     return (
         <>
           <NextHead>
+                <title>Coding Ideas Blog</title>
                 <meta name="description" content="Blog Page - A list of all our articles and blog posts."/>
                 <meta name="author" content="Renato Cesar"></meta>
                 <meta name="robots" content="follow"/>
                 <meta name="robots" content="index, follow"/>
                 <meta name="googlebot" content="index, follow"/>
-                <title>CompanyName Blog</title>
+                <meta property="og:url" content="https://https://devblog-nine.vercel.app/blog"></meta>
+                <meta property="og:title" content="Coding Ideas Blog Page - Read our posts"></meta>
           </NextHead>
           <div className='page'>
               <style jsx global>

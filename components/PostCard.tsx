@@ -58,11 +58,26 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                             <p className="post-card-date">{post.date}</p>
                         </div>
                         <div className='post-card-categories-row'>
-                            {
-                                post.categories.map((category: Category, index: number)=>{
-                                    return (<CategoryTag categoryKey={category} key={index}/>)
-                                })
-                            }
+                            <div className='tooltip'>
+                                {
+                                    post.categories.map((category: Category, index: number)=>{
+                                        return (<CategoryTag categoryKey={category} key={index}/>)
+                                    })
+                                }
+                                {
+                                    post.categories.length > 1
+                                    ?
+                                    <span className="tooltiptext">
+                                        {
+                                            post.categories.map((category: Category, index: number)=>{
+                                                return (<CategoryTag categoryKey={category} key={index}/>)
+                                            })
+                                        }
+                                    </span>
+                                    :
+                                    <div/>
+                                }
+                            </div>
                         </div>
                     </div>
             </m.div>

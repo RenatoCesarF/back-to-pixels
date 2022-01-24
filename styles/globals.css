@@ -163,7 +163,7 @@ footer p{
 }
 
 
-/*----------------header------------------*/
+/*---------------- HEADER ------------------*/
 .header {
   overflow: hidden;
   z-index: 1;
@@ -201,7 +201,6 @@ footer p{
   background-color: var(--header-option-hover);
   color: white;
 }
-
 .header a.active {
   background-color:var(--secondary-color);
   color: var(--header-text-option-activated);
@@ -231,6 +230,7 @@ footer p{
   .logo{
     padding-top:0;
     padding-bottom:0;
+    margin-bottom: 0;
   }
   .header .logo-menu-line{
     margin-top: 1vh;
@@ -304,8 +304,6 @@ footer p{
  
     transition: ease 0.3s;
   }
-  
-  
   button.toggled span:nth-child(1) {
     transform: rotate(45deg);
     margin-bottom: .8em;

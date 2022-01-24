@@ -135,6 +135,62 @@ export default css.global`
   margin-bottom: 0.3rem;
   margin-right: 0.5rem;
 }
+
+/*========= TOOLTIP ========= */
+.tooltip {
+  position: relative;
+  /* top: 383px; */
+  /* left: 238px; */
+  display: inline-block;
+  /* margin-right: 300px; */
+  z-index: 2;
+  
+}
+.tooltiptext {
+  visibility: hidden;
+ 
+  width: 0px;
+  height: 0px;
+  background-color: var(--main-font-color);
+  text-align: center;
+  padding: 8px 0;
+
+  border-left:   0.2rem solid var(--card-border-color);
+  border-bottom: 0.15rem solid var(--card-border-color);
+  border-radius: 0.7rem;
+
+  /* Position the tooltip text */
+  position: absolute;
+  z-index: 1;
+  bottom: 130%;
+  left: 37%;
+  margin-left: -90px;
+
+  /* Fade in tooltip */
+  opacity: 0;
+  transition: all 0.3s cubic-bezier(.65,-0.53,.24,1.12);
+}
+/* Tooltip arrow */
+.tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #2D034C transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  width: 155px;
+  height: 55px;
+  opacity: 1;
+}
+/*========== */
+
 #card-date-icon{
   color: #636363;
   margin-top: 0.95rem;

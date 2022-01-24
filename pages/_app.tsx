@@ -18,24 +18,25 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
     <>
       <NextHead>
         <link rel="shortcut icon" href="/favicon.ico" />
-        <link
-          key="apple-touch-icon"
-          rel="apple-touch-icon"
-          sizes="180x180"
-          href="/images/icon/apple-touch-icon.png"
-        />
+
+        {/* APPLE*/}
+        <meta name="apple-mobile-web-app-title" content="My Site"/>
+        <link rel="apple-touch-icon" sizes="180x180" href="/images/icon/apple-touch-icon.png"/>
+        <link key="apple-touch-icon" rel="apple-touch-icon" sizes="180x180" href="/images/icon/apple-touch-icon.png"/>
+        {/* <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="grey"/> */}
+
+        {/* MICROSOFT */}
+        <meta  key="msapplication-TileColor" name="msapplication-TileColor" content="#382F60"/>
         <link key="icon32" rel="icon" type="image/png" sizes="32x32" href="/images/icon/favicon-32x32.png"/>
         <link key="icon16" rel="icon" type="image/png" sizes="16x16" href="/images/icon/favicon-16x16.png" />
-        {/* <link key="manifest" rel="manifest" href="/site.webmanifest" /> */}
+        <link key="manifest" rel="manifest" href="/images/icon/site.webmanifest" />
+        {/* <meta name="msapplication-config" content="/favicons/browserconfig.xml"/> */}
 
 
         {/* <link key="mask-icon" rel="mask-icon" href="/images/icon/safari-pinned-tab.svg"	
             color="#382F60"
         /> */}
 
-        <meta key="msapplication-TileColor" name="msapplication-TileColor" 
-            content="#382F60" 
-        />
 
 
         <meta charSet='utf-8' />
@@ -51,7 +52,26 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
         
         <meta property="og:locale" content="en_US"/>
         <meta property="og:site_name" content="Company Name"/>
-        <meta property="og:type" content="website"></meta>
+        <meta property="og:type" content="blog"></meta>
+
+        <meta property="og:url" content={`https://devblog-nine.vercel.app`} />
+        <meta property="og:title" content="Coding Ideas"/>
+        <meta property="og:site_name" content="Coding Ideas"/>
+        <meta property="og:description" content="Coding Ideas official website. You can follow our journey creating our projects and Games"/>
+        <meta property="og:image" content="/images/logo.png"/>
+        <meta property="og:image:type" content="image/png" />
+        <meta property="og:image:width" content="494"/>
+        <meta property="og:image:height" content="494"/>
+        <meta property="og:image:alt" content="Logo"/> 
+
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:website" content="@nerat0"/>
+        <meta name="twitter:image" content="/images/logo.png"/>
+        <meta name="twitter:title" content="Coding Ideas"/>
+        <meta name="twitter:description" content="Coding Ideas official website. You can follow our journey creating our projects and Games"/>
+        <meta name="twitter:creator" content="@nerat0"/>
+        <meta property="twitter:url" content="https://devblog-nine.vercel.app/blog/"/>
+        <meta property="twitter:domain" content="devblog-nine.vercel.app"/>
       </NextHead>
       <Header/>
       <AnimatePresence exitBeforeEnter onExitComplete={handleScrollToTop}>
