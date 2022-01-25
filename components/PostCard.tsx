@@ -7,6 +7,7 @@ import { m, motion } from 'framer-motion';
 import { cardVariants, slideInUp } from '../helpers/animations';
 import Category, { CategoryType } from '../classes/category';
 import CategoryTag, { CategoryTagTransparent } from './CategoryTag';
+import { sortByCategoryImportance } from '../utils/sort';
 
 interface IPost{
     post: Post
@@ -17,6 +18,7 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
     const [isHovering, setIsHovering] = useState(false);
     const hasCoverImage:boolean = post.cover_image != undefined || post.cover_image != null;
     const extendedCategories: boolean = post.categories.length > 2;
+    const sortedCategories: Category[] = post.categories.sort(sortByCategoryImportance);
     var shortExcerpt: string = post.excerpt;
     if(post.excerpt.length > maximumExcerptSize){
         shortExcerpt = post.excerpt.substring( 0, maximumExcerptSize) + "...";
@@ -26,19 +28,22 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
         <m.div className='post-card-div'  variants={cardVariants} 
             onMouseOver={()=>{setIsHovering(true)}}
             onMouseLeave={()=>{setIsHovering(false)}}
-            onTouchStart={()=>{setIsHovering(true)}}
-            onTouchEnd={()=>{setIsHovering(false)}}
+            // onTouchStart={()=>{setIsHovering(true)}}
+            // onTouchEnd={()=>{setIsHovering(false)}}
+            onTouchCancel={()=>{setIsHovering(false)}}
+            onTouchEndCapture={()=>{setIsHovering(true)}}
+            onTouchCancelCapture={()=>{setIsHovering(false)}}
         >
             <Link passHref href={`/blog/${post.slug}`}>
-                <m.div className="post-card-clickable">
-                    <div className='post-card-image-container'>
+                <m.article className="post-card-clickable">
+                    <header className='post-card-image-container'>
                         {
                             hasCoverImage ? 
                             <img className='post-card-img' alt='post card image' src={post.cover_image}/>
                             : 
                             <h1 className='post-card-cover-date'>{post.date}</h1>
                         }
-                    </div>
+                    </header>
 
                     <h2 className='post-card-title'>{post.title}</h2>
 
@@ -50,7 +55,7 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                         </div>
                     
                     </div>
-                </m.div>
+                </m.article>
             </Link>
 
             <m.footer className='post-card-footer'>
@@ -62,13 +67,13 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                     <div className='tooltip'>
                         <div className={extendedCategories? "categories-row" : ""}>
                             {
-                                post.categories.map((category: Category, index: number)=>{
+                                sortedCategories.map((category: Category, index: number)=>{
                                     if(index >= 2) return;
                                     return <CategoryTag category={category} key={index}/>
                                 })
                             }
                             {/* {extendedCategories ? "..." : ""} */}
-                            {extendedCategories ? <CategoryTagTransparent category={post.categories[2]}/> : <></>}
+                            {extendedCategories ? <CategoryTagTransparent category={sortedCategories[2]}/> : <></>}
                         </div>
                         {
                             extendedCategories
@@ -76,7 +81,7 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                             <span className="tooltiptext">
                                 <div className="extended-categories"  >
                                 {
-                                    post.categories.map((category: Category, index: number)=>{
+                                    sortedCategories.map((category: Category, index: number)=>{
                                         return (
                                         <m.div 
                                             whileHover={{ scale: 1.1 }}
@@ -97,7 +102,6 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                 </div>
             </m.footer>
         </m.div>
-
     )
 }
 

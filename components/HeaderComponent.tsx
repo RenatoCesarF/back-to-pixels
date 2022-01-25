@@ -35,7 +35,7 @@ export default function Header() {
     return(
         <div className="header">
             <div className='logo-menu-line'>
-                <Link href="/">
+                <Link passHref href="/">
                     <img src='/images/logo_name.png' className='logo' alt='Logo Image'/>
                 </Link>
                 

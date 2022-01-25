@@ -23,7 +23,7 @@ interface PostList{
 };
 
 export default function BlogPage(posts:PostList){
-    const sourtedPosts = posts.posts.sort(sortByDate);
+    const sortedPosts = posts.posts.sort(sortByDate);
     return (
         <>
           <NextHead>
@@ -48,7 +48,7 @@ export default function BlogPage(posts:PostList){
     
               <m.div className='posts-grid'>
                 {
-                  sourtedPosts.map((post: Post, index: number) =>{
+                  sortedPosts.map((post: Post, index: number) =>{
                     return <PostCard post={post} key={index}/>
                   })
                 }

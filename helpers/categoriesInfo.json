@@ -1,5 +1,6 @@
 {
     "rings": {
+        "key": "rings",
         "name": "Rings",
         "color": "#000000",
         "gradient": ["#727A9A", "#D8DBE9"],
@@ -7,36 +8,42 @@
         "textColor": "#000000"
     },
     "nextjs": {
+        "key": "nextjs",
         "name": "Next JS",
         "color": "#000000",
         "about": "Articles about projects or matters that envolves the Next.JS framework",
         "textColor": "#EEEEEE"
     },
     "blog":{
+        "key": "blog",
         "name": "Blog",
         "color": "#FE5722",
         "about": "Articles about the creation or documentation around the blog it self",
         "textColor": "#2a2a2a"
     },
     "transparent":{
+        "key": "transparent",
         "name": " ",
         "color": "#2d2d22",
         "about": "",
         "textColor": "#2d2d22"
     },
     "art":{
+        "key": "art",
         "name": "Art",
         "color": "#43639B",
         "about": "Articles about art direction, pixel art and art in general",
         "textColor": "#EEEEEE"
     },
     "programming":{
+        "key": "programming",
         "name": "Programming",
         "color": "#7f4596",
         "about": "Articles with about programming, tutorials, examples, explanations and etc",
         "textColor": "#EEEEEE"
     },
     "design":{
+        "key": "design",
         "name": "Design",
         "color": "#85BC3C",
         "about": "Articles with about web side design, character design and etc",

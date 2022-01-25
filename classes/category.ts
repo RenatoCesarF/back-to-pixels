@@ -11,13 +11,16 @@ interface Category{
 }
 
 export enum CategoryType {
-    RINGS = "rings",
-    ART = "art" ,
-    BLOG = "blog",
-    NEXTJS =  "nextjs",
-    DESIGN = "design",
-    PROGRAMMING = "programming",
-    TRANSPARENT = 'transparent'
+  TRANSPARENT,
+  //Categories
+  DESIGN,
+  ART,
+  PROGRAMMING,
+  //Tools / languages
+  NEXTJS,
+  //Projects
+  BLOG,
+  RINGS,
 }
 
 
@@ -29,8 +32,8 @@ export const getCategories = (categories: any[]) => {
         return;
       }
       const tagkey: string = category.toString().toLowerCase();
-      const tagInfo: Category  = categoriesInfo[tagkey];
-      
+      var tagInfo: Category  = categoriesInfo[tagkey];
+
       if(tagInfo.gradient && tagInfo.gradient.length < 2){
           throw new Error("Gradiend need to be an array with 2 values ");
       }
@@ -39,5 +42,8 @@ export const getCategories = (categories: any[]) => {
     });
     return categoryList;
 }
+
+
+
 
 export default Category

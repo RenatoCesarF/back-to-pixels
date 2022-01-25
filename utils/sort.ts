@@ -1,3 +1,4 @@
+import Category, { CategoryType } from "../classes/category";
 import Post from "../classes/postType"
 
 export const sortByDate = (a: Post, b: Post) =>{
@@ -12,4 +13,9 @@ export const sortByDateReverse = (a: Post, b: Post) =>{
     const dateB = new Date(b.date);
 
     return dateA.valueOf() - dateB.valueOf();
+}
+
+export const sortByCategoryImportance =(a: Category, b: Category) =>{
+    
+    return a.key.valueOf() - b.key.valueOf();
 }
