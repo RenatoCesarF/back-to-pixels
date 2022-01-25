@@ -1,11 +1,11 @@
 import Author from './authorType'
-import Category, { CategoryType } from './category'
+import Category from './category'
 
 type Post = {
     author: Author,
     content: string,
     cover_image: string
-    categories: CategoryType[]
+    categories: Category[]
     date: string,
     excerpt: string,
     slug: string,

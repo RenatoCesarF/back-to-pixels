@@ -9,13 +9,12 @@ import NextHead from 'next/head';
 
 import globalStyles from '../styles/blog.styles'
 import PostCard from '../components/PostCard';
-import CategoryTag from '../components/CategoryTag';
 import Post from '../classes/postType';
 import Author from '../classes/authorType';
 import {sortByDate, sortByDateReverse} from '../utils/sort';
 
-import { slideInUp, slideInLeft, slideCardUp, slideInDown, cardVariants } from '../helpers/animations';
-import { CategoryType } from '../classes/category';
+import { slideInLeft } from '../helpers/animations';
+import Category, { getCategories } from '../classes/category';
 
 // const PostCard = dynamic(() => import("../components/PostCard"))
 
@@ -69,10 +68,13 @@ export async function getStaticProps(){
       const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8');
       const {data, content} = matter(markdownWithMeta);
 
-      const postAuthor: Author = {name: "Renato", about: "", email: "", image:"", instagram: "", twitter: "", role: ""}
-      const categories: CategoryType[] = data.categories;
-      return {
-          slug, 
+      // verifyPostValues(data);
+ 
+      const postAuthor: Author = {name: data.author, about: "", email: "", image:"", instagram: "", twitter: "", role: ""}
+      const categories: Category[] = getCategories(data.categories);
+ 
+      const post: Post = {
+          slug,
           content,
           author: postAuthor ?? null,
           cover_image: data.cover_image ?? null,
@@ -81,11 +83,18 @@ export async function getStaticProps(){
           excerpt: data.excerpt ?? null, 
           title: data.title ?? null,
           code_theme: data.code_theme ?? null
-      };
+      }
+      return post;
     })
 
     return {
       props: {posts}
     };
   
+}
+
+const verifyPostValues = (post:Post) =>{
+  if(!post.title || post.title.length < 5){
+    throw new Error("Title null or too short");
+  }
 }

@@ -1,4 +1,11 @@
 {
+    "rings": {
+        "name": "Rings",
+        "color": "#000000",
+        "gradient": ["#727A9A", "#D8DBE9"],
+        "about": "Development process and documentation about the project Rings",
+        "textColor": "#000000"
+    },
     "nextjs": {
         "name": "Next JS",
         "color": "#000000",

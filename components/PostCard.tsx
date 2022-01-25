@@ -5,7 +5,7 @@ import Post from '../classes/postType';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import { m, motion } from 'framer-motion';
 import { cardVariants, slideInUp } from '../helpers/animations';
-import { CategoryType } from '../classes/category';
+import Category, { CategoryType } from '../classes/category';
 import CategoryTag, { CategoryTagTransparent } from './CategoryTag';
 
 interface IPost{
@@ -30,7 +30,7 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
             onTouchEnd={()=>{setIsHovering(false)}}
         >
             <Link passHref href={`/blog/${post.slug}`}>
-                <m.div >
+                <m.div className="post-card-clickable">
                     <div className='post-card-image-container'>
                         {
                             hasCoverImage ? 
@@ -52,8 +52,8 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                     </div>
                 </m.div>
             </Link>
-            {/* Footer */}
-            <m.div className='post-card-footer'>
+
+            <m.footer className='post-card-footer'>
                 <div className='card-date-row'>
                     <FaRegCalendarAlt id='card-date-icon' size={16}/>
                     <p className="post-card-date">{post.date}</p>
@@ -62,13 +62,13 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                     <div className='tooltip'>
                         <div className={extendedCategories? "categories-row" : ""}>
                             {
-                                post.categories.map((category: CategoryType, index: number)=>{
+                                post.categories.map((category: Category, index: number)=>{
                                     if(index >= 2) return;
-                                    return <CategoryTag categoryKey={category} key={index}/>
+                                    return <CategoryTag category={category} key={index}/>
                                 })
                             }
                             {/* {extendedCategories ? "..." : ""} */}
-                            {extendedCategories ? <CategoryTagTransparent categoryKey={post.categories[2]}/> : <></>}
+                            {extendedCategories ? <CategoryTagTransparent category={post.categories[2]}/> : <></>}
                         </div>
                         {
                             extendedCategories
@@ -76,14 +76,14 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                             <span className="tooltiptext">
                                 <div className="extended-categories"  >
                                 {
-                                    post.categories.map((category: CategoryType, index: number)=>{
+                                    post.categories.map((category: Category, index: number)=>{
                                         return (
                                         <m.div 
                                             whileHover={{ scale: 1.1 }}
                                             style={{display: "inline-block", transitionDuration: "0s"}}
                                             key={index}  
                                         >
-                                            <CategoryTag categoryKey={category} key={index} />
+                                            <CategoryTag category={category} key={index} />
                                         </m.div>
                                         )
                                     })
@@ -95,7 +95,7 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                         }
                     </div>
                 </div>
-            </m.div>
+            </m.footer>
         </m.div>
 
     )

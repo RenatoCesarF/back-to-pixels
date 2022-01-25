@@ -3,24 +3,26 @@ const categoriesInfo = require('../helpers/categoriesInfo.json');
 // import categoriesInfo from '../helpers/categoriesInfo'
 
 interface tagProps{
-    categoryKey: CategoryType
+    category: Category
 }
 
 const CategoryTag: React.FC<tagProps> = (props: tagProps)=>{
-    const tagkey: string = props.categoryKey.toLowerCase();
-    const tagInfo: Category  = categoriesInfo[tagkey];
-    const isGradient: boolean = tagInfo.gradient ? tagInfo === null : false;
+    const category = props.category
+    const buttonStyle = {
+        backgroundColor: category.color,
+        backgroundImage: category.gradient ? `linear-gradient(90deg, ${category.gradient[0]}, ${category.gradient[1]})` : "none"
+    }
 
     return(
-        <button className="category-tag" style={{backgroundColor: tagInfo.color}} >
-            <p className='category-tag-text' style={{color: tagInfo.textColor }}>{tagInfo.name}</p>
+        <button className="category-tag" style={buttonStyle} >
+            <p className='category-tag-text' style={{color: category.textColor }}>{category.name}</p>
         </button>
     )
 }
 
 export const CategoryTagTransparent: React.FC<tagProps> = (props: tagProps) => {
-    const tagkey: string = props.categoryKey.toLowerCase();
-    const gradientColor:string  = categoriesInfo[tagkey].color;
+    const category = props.category
+    const gradientColor:string  = category.color;
     const style = {backgroundImage: `linear-gradient(90deg, ${gradientColor} 7px, #00000000 17px)`}
     return (
         <button className="category-tag transparent-tag" style={style}>
@@ -29,5 +31,5 @@ export const CategoryTagTransparent: React.FC<tagProps> = (props: tagProps) => {
     )
 }
 
-export default CategoryTag
+export default CategoryTag;
 

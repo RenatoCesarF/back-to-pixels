@@ -15,7 +15,7 @@ import Post from '../../classes/postType';
 import CustomButton, {ButtonIcon} from '../../components/CustomButton';
 import globalStyles from '../../styles/post.styles';
 import getImageType from '../../utils/getImageType';
-import Category, { CategoryType } from '../../classes/category';
+import Category, { getCategories } from '../../classes/category';
 import { motion } from 'framer-motion';
 import {slideButtonDown, slideInUp } from '../../helpers/animations';
 
@@ -53,8 +53,8 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                 <meta name="robots" content="index, follow"/>
                 <meta name="googlebot" content="index, follow"/>
                 {
-                    post.categories.map((name: CategoryType, index:number) =>(
-                        <meta name="keywords" content={name.toString()} key={index}/>
+                    post.categories.map((name: Category, index:number) =>(
+                        <meta name="keywords" content={name.toString().toLowerCase()} key={index}/>
                     ))
                 }
 
@@ -73,8 +73,8 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                 <meta property="blog:author" content={post.author.name}/>
                 <meta property="blog:published_time" content={post.date}/>
                 {
-                    post.categories.map((name: CategoryType, index: number) =>(
-                        <meta property="blog:tag" content={name.toString()} key={index}/>
+                    post.categories.map((name: Category, index: number) =>(
+                        <meta property="blog:tag" content={name.toString().toLowerCase()} key={index}/>
                     ))
                 }
 
@@ -169,14 +169,14 @@ export async function getStaticProps(object: StaticResponse ){
     }
     const markdownWithMeta = fs.readFileSync(path.join('posts', slug + '.md'), 'utf-8');
     const {data, content} = matter(markdownWithMeta);
-
+    const categories: Category[] = getCategories(data.categories);
       
     const post: Post = {
         slug, 
         content,
         author: data.author ?? null,
         cover_image: data.cover_image ?? null,
-        categories: data.categories ?? null,
+        categories: categories ?? null,
         date:data.date ?? null,
         excerpt: data.excerpt ?? null, 
         title: data.title ?? null,

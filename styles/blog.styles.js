@@ -11,10 +11,10 @@ export default css.global`
 }
   
   /*----------POST CARD------*/
+
 .post-card-div{
   width: 17rem;
   height: 17rem;
-  cursor: pointer;
   
   
   display: flex;
@@ -25,14 +25,16 @@ export default css.global`
   border-bottom: 0.15rem solid var(--card-border-color);
   border-radius: 0.7rem;
   margin: 0.5rem;
-  user-select: none;
+  user-select:none;
   transition: height 0.69s cubic-bezier(.65,-0.53,.24,1.12);
   
   -webkit-box-shadow:  9px 9px 10px -6px rgba(58, 58, 58, 0.69);
   -moz-box-shadow:  9px 9px 10px -6px rgba(58, 58, 58, 0.69);
-  box-shadow: 9px 9px 10px -6px rgba(58, 58, 58, 0.69);
+  box-shadow: 9px 9px 10px -6px rgba(58, 58, 58, 0.69); 
 }
-
+.post-card-clickable{
+  cursor: pointer;
+}
 /*----------IMAGE------------*/
 .post-card-image-container{
   background-color: var(--main-color);
@@ -146,6 +148,7 @@ export default css.global`
 .tooltiptext {
   display: -webkit-inline-box;
   line-height: 2rem;
+  user-select: none;
 
   width: 50px;
   height: 20px;
@@ -158,7 +161,7 @@ export default css.global`
 
   /* Position the tooltip text */
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   bottom: 120%;
   left: 57%;
   margin-left: -90px;
@@ -257,7 +260,7 @@ export default css.global`
   overflow:hidden;
 }
 /*on hover, change image and text*/
-.post-card-div:hover .post-card-img, .post-card-div:hover .post-card-cover-date{
+.post-card-clickable:hover .post-card-img, .post-card-clickable:hover .post-card-cover-date{
   -webkit-transform:scale(1.15); /* Safari and Chrome */
   -moz-transform:scale(1.15); /* Firefox */
   -ms-transform:scale(1.15); /* IE 9 */
@@ -266,4 +269,10 @@ export default css.global`
   min-height: 100%;
 }
 
+.post-card-clickable:focus .post-card-title{
+  text-decoration: underline;
+}
+.post-card-clickable:focus-within h2:focus {
+  text-decoration: none;
+}
 `

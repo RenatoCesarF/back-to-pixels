@@ -147,7 +147,7 @@ a{
 }
 
 /*--------------------FOOTER------------*/
-footer{
+.page-footer{
   background: var(--main-color);
   text-align: center;
   bottom: 0px;
@@ -156,11 +156,11 @@ footer{
   margin:0px 0px;
   margin-top: 3rem;
 }
-footer::after{
+.page-footer::after{
   position: absolute;
   bottom: 0px; 
 }
-footer p{
+.page-footer p{
   color: var(--main-font-color);
   margin: 0;
   font-size: 0.8em;
