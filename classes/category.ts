@@ -11,16 +11,16 @@ interface Category{
 }
 
 export enum CategoryType {
-  TRANSPARENT,
+  TRANSPARENT = 0,
   //Categories
-  DESIGN,
-  ART,
-  PROGRAMMING,
+  DESIGN = 1,
+  ART = 2,
+  PROGRAMMING = 3,
   //Tools / languages
-  NEXTJS,
+  NEXTJS = 4,
   //Projects
-  BLOG,
-  RINGS,
+  BLOG = 5,
+  RINGS = 6,
 }
 
 
@@ -33,6 +33,7 @@ export const getCategories = (categories: any[]) => {
       }
       const tagkey: string = category.toString().toLowerCase();
       var tagInfo: Category  = categoriesInfo[tagkey];
+      
 
       if(tagInfo.gradient && tagInfo.gradient.length < 2){
           throw new Error("Gradiend need to be an array with 2 values ");

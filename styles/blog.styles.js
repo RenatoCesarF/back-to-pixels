@@ -34,6 +34,7 @@ export default css.global`
 }
 .post-card-clickable{
   cursor: pointer;
+  user-select:none;
 }
 /*----------IMAGE------------*/
 .post-card-image-container{
@@ -44,8 +45,6 @@ export default css.global`
   width: 100%;
   overflow: hidden;
 }
-
-
 .post-card-img{
   border-radius: 0.5rem 0.5rem 0px 0px;
   width: 100%;
@@ -68,6 +67,7 @@ export default css.global`
 
 @media screen and (max-width: 640px) {
   .post-card-div{width: 90vw;}
+  .post-card-clickable{cursor: none;}
   .posts-grid{
     display: grid;
     grid-template-columns:max-content;

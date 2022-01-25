@@ -27,7 +27,7 @@ export default function BlogPage(posts:PostList){
     return (
         <>
           <NextHead>
-                <title>Coding Ideas Blog</title>
+                <title>Coding Ideas – Blog</title>
                 <meta name="description" content="Blog Page - A list of all our articles and blog posts."/>
                 <meta name="author" content="Renato Cesar"></meta>
                 <meta name="robots" content="follow"/>

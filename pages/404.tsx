@@ -21,7 +21,7 @@ export default function Custom404() {
         <div className="page">
             <NextHead>
                 <meta name="description" content="Coding Ideas website Home page, Learn more about our work"/>
-                <meta property="og:title" content="Coding Ideas - 404 Not Found"/>
+                <meta property="og:title" content="Coding Ideas – 404 Not Found"/>
         
                 <title>404 - Not Found</title>
             </NextHead>

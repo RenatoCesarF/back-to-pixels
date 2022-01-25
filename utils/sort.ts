@@ -15,7 +15,8 @@ export const sortByDateReverse = (a: Post, b: Post) =>{
     return dateA.valueOf() - dateB.valueOf();
 }
 
-export const sortByCategoryImportance =(a: Category, b: Category) =>{
-    
-    return a.key.valueOf() - b.key.valueOf();
+export const sortByCategoryImportance =(a: any, b: any) =>{
+    const valueA: number = Number(CategoryType[a.key.toUpperCase()]);
+    const valueB: number = Number(CategoryType[b.key.toUpperCase()]);
+    return valueB - valueA;
 }
