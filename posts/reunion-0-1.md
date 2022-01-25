@@ -2,7 +2,7 @@
 title: 'Reunion 0.1'
 date: '01/06/2022'
 author: 'renato'
-cover_image: 'https://devblog-nine.vercel.app/images/posts/reunion-0-1/painted-us-cover.webp'
+cover_image: 'painted-us-cover'
 excerpt: 'The progress made in our first company reunion. The colors we tested and documenting things'
 categories: [BLOG, DESIGN]
 ---

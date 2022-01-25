@@ -9,7 +9,7 @@ import NextHead from 'next/head';
 
 import globalStyles from '../styles/blog.styles'
 import PostCard from '../components/PostCard';
-import Post from '../classes/postType';
+import Post, { getCoverImage } from '../classes/postType';
 import Author from '../classes/authorType';
 import {sortByDate, sortByDateReverse} from '../utils/sort';
 
@@ -72,12 +72,14 @@ export async function getStaticProps(){
  
       const postAuthor: Author = {name: data.author, about: "", email: "", image:"", instagram: "", twitter: "", role: ""}
       const categories: Category[] = getCategories(data.categories);
+      const coverImage = getCoverImage(slug,data.cover_image)
+      
  
       const post: Post = {
           slug,
           content,
           author: postAuthor ?? null,
-          cover_image: data.cover_image ?? null,
+          cover_image: coverImage ?? null,
           categories: categories ?? null,
           date:data.date ?? null,
           excerpt: data.excerpt ?? null, 

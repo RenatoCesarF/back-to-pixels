@@ -11,7 +11,7 @@ import { useRouter } from 'next/router';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 import {darcula,a11yDark,atomDark,dracula} from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
-import Post from '../../classes/postType';
+import Post, { getCoverImage } from '../../classes/postType';
 import CustomButton, {ButtonIcon} from '../../components/CustomButton';
 import globalStyles from '../../styles/post.styles';
 import getImageType from '../../utils/getImageType';
@@ -170,12 +170,14 @@ export async function getStaticProps(object: StaticResponse ){
     const markdownWithMeta = fs.readFileSync(path.join('posts', slug + '.md'), 'utf-8');
     const {data, content} = matter(markdownWithMeta);
     const categories: Category[] = getCategories(data.categories);
-      
+
+    const coverImage = getCoverImage(slug,data.cover_image)
+    
     const post: Post = {
         slug, 
         content,
         author: data.author ?? null,
-        cover_image: data.cover_image ?? null,
+        cover_image: coverImage ?? null,
         categories: categories ?? null,
         date:data.date ?? null,
         excerpt: data.excerpt ?? null, 
