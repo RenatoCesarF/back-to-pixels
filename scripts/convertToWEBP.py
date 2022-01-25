@@ -13,18 +13,14 @@ def convert_to_webp(source):
 
 
 def main():
-    pathsPngs = Path("public/images").glob("**/*.png" )
-    pathsJpgs = Path("public/images").glob("**/*.jpg")
+    pathsPngs = Path("public/images/posts").glob("**/*.png" )
+    pathsJpgs = Path("public/images/posts").glob("**/*.jpg")
 
     print("Started...")
     for path in pathsJpgs:
-        if str(path).find("-cover") != -1:
-            continue
         print(path)
         webp_path = convert_to_webp(path)
     for path in pathsPngs:
-        if str(path).find("-cover") != -1:
-            continue
         print(path)
         webp_path = convert_to_webp(path)
     print("Finished")
