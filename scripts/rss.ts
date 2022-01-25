@@ -9,6 +9,7 @@ async function generateRssFeed() {
   if (process.env.NODE_ENV === 'development') {
     return;
   }
+  return;
   console.log("Creating RSS feeds");
   const baseUrl= "https://devblog-nine.vercel.app";
   const date  = new Date();
@@ -43,7 +44,7 @@ async function generateRssFeed() {
   files.map((filename) => {
     const slug = filename.replace('.md', '');
     const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8');
-    const {data, content} = matter(markdownWithMeta);
+    const {data} = matter(markdownWithMeta);
     const maximumExcerptSize = 80
     if(data.excerpt.length > maximumExcerptSize){
         data.excerpt = data.excerpt.substr(0, maximumExcerptSize) + '...';
