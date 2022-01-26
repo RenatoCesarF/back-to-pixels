@@ -1,5 +1,5 @@
 {
-  "name": "devb",
+  "name": "codingideas",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -21,7 +21,8 @@
     "react-image-size": "^1.0.4",
     "react-lottie": "^1.2.3",
     "react-markdown": "^7.1.2",
-    "react-syntax-highlighter": "^15.4.5"
+    "react-syntax-highlighter": "^15.4.5",
+    "next-sitemap": "^1.9.5"
   },
   "devDependencies": {
     "@types/markdown-it": "^12.2.3",

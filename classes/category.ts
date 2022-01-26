@@ -1,5 +1,6 @@
 
-const categoriesInfo = require('../helpers/categoriesInfo.json');
+const categoriesInfo = require('../public/categoriesInfo.json');
+
 
 interface Category{
     key: CategoryType;
@@ -43,8 +44,5 @@ export const getCategories = (categories: any[]) => {
     });
     return categoryList;
 }
-
-
-
 
 export default Category

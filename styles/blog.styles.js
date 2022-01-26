@@ -94,6 +94,7 @@ export default css.global`
   margin: 0;
   margin-top: 0.2rem;
   margin-left: 0.4rem;
+  margin-right: 0.4rem;
   color: var(--card-text-color)
 }
 .excerpt-post-card-div{

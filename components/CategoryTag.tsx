@@ -1,5 +1,4 @@
 import Category, { CategoryType } from '../classes/category'
-const categoriesInfo = require('../helpers/categoriesInfo.json');
 // import categoriesInfo from '../helpers/categoriesInfo'
 
 interface tagProps{
