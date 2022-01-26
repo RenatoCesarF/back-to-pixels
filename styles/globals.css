@@ -167,7 +167,6 @@ a{
   overflow: hidden;
   z-index: 1;
   background-color: var(--main-color);
-  /* padding: 15px 10px; */
   display: flex;
   justify-content: space-between;
   
@@ -230,7 +229,7 @@ a{
 @media screen and (max-width: 500px) {
   .header{
     display: block;
-    height: 5rem;
+    /* height: 5rem; */
   }
   .logo{
     padding-top:0;
@@ -291,12 +290,12 @@ a{
     box-sizing: border-box;
     background-color: transparent;
     width: 3.3em;
-    height: 5.5em;
+    height: 6.5em;
     border: none;
     outline:0;
     display: block;
     visibility: visible;
-    margin-right: 4vw;
+    margin-right: 1rem;
   }
   .menu-toggle span {
     background-color: var(--open-menu-icon-color);

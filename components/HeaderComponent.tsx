@@ -31,7 +31,7 @@ export default function Header() {
     const checkMenuState =() => {
         return isMenuOpened? "" : "closed"
     }
-    //height="56px" width="129px" 
+    
     return(
         <div className="header">
             <div className='logo-menu-line'>
