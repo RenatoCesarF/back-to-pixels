@@ -13,7 +13,7 @@ import {darcula,a11yDark,atomDark,dracula} from 'react-syntax-highlighter/dist/c
 
 import Post, { getCoverImage } from '../../classes/postType';
 import CustomButton, {ButtonIcon} from '../../components/CustomButton';
-import globalStyles from '../../styles/post.styles';
+import globalStyles from '../../styles/slug.styles';
 import getImageType from '../../utils/getImageType';
 import Category, { getCategories } from '../../classes/category';
 import { motion } from 'framer-motion';
@@ -24,24 +24,13 @@ type Params = {slug: string};
 type StaticResponse = {params: Params};
 
 
-const getCodeTheme = (name: string) => {
-    if(name === null || name === undefined){
-        return dracula;
-    }
-    switch (name) {
-        case 'darcula': return darcula;
-        case 'dracula': return dracula;
-        case 'a11yDark': return a11yDark;
-        case 'atomDark': return atomDark;
-        default: return dracula;
-    }
-}
+
 
 const PostPage: React.FC<IPost> = ({post}: IPost) => {
     const router = useRouter()
-    const hasCoverImage:boolean = post.cover_image != undefined || post.cover_image != null;
+    const doenstHaveCoverImage:boolean = post.cover_image.includes('/defaultImages')
     const codeTheme: string = getCodeTheme(post.code_theme);
-    const imageType = hasCoverImage? getImageType(post.cover_image) : "none"
+    const imageType =  getImageType(post.cover_image)
 
     return(
         <>
@@ -96,17 +85,17 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                         <CustomButton description='Return to Blog list' text='' icon={ButtonIcon.arrowBack} onClick={() => {router.push("/blog")}}/>
                     </motion.div>
                             
-                    <motion.div variants={slideInUp}>
-                        {
-                            hasCoverImage ? 
-                                <img  alt='blog post cover' className='post-cover' src={post.cover_image}/>
-                                : 
-                            
-                                <div className='post-cover-div'>        
-                                    <h1 className='post-cover-date'>{post.date}</h1>
-                                </div>
-                        }   
+                    <motion.div variants={slideInUp} className='post-cover-div'>
+
+                            <img width='536px'  height='341px' alt='blog post cover' className='post-cover' src={post.cover_image}/>
+                            {
+                                doenstHaveCoverImage ? 
+                                
+                                <h1 className='post-cover-date'>{post.date}</h1>
+                                : null
+                            }   
                     </motion.div >
+
                     <motion.div variants={slideInUp}>
                         <h1 className='post-title'>{post.title}</h1>
                         <p className='post-resume'>{post.excerpt}</p>
@@ -117,32 +106,36 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                                 skipHtml={false}
                                 components={{
                                     img({node, className, children, ...props}){
-                                        return <img alt='blog post inside image' className='img-fit' src={props.src} ></img>
+                                        return <img alt='blog post inside image' className='img-fit' src={props.src}/>
                                     },
                                     a({node, className, children, ...props}){
                                         return <a target="_blank" rel="noopener noreferrer" href={props.href} >{children}</a>
                                     },
                                     code({node, inline, className, children, ...props}) {
+                                        // console.log({props, inline, children})
                                         const match = /language-(\w+)/.exec(className || '')
-                                        return !inline && match ? (
+                                        return !inline && match ? 
+                                        
                                             <SyntaxHighlighter
-                                            style={codeTheme}
+                                                style={codeTheme}
                                                 language='python'
                                                 PreTag="div"
                                                 {...props}
-                                                >
+                                            >
                                                 {String(children).replace(/\n$/, '')}
                                             </SyntaxHighlighter>
-                                        ) : (
+                                         
+                                        :
                                             <code className='simple-code' {...props}>
                                                 {children}
-                                                </code>
-                                            )
+                                            </code>
+                                           
                                         }
                                     }}
                                     >
                                 {post.content}
                             </ReactMarkdown>
+
                         </div>
                     </motion.div>
                 </div>
@@ -189,4 +182,16 @@ export async function getStaticProps(object: StaticResponse ){
     };
 }
 
+const getCodeTheme = (name: string) => {
+    if(name === null || name === undefined){
+        return dracula;
+    }
+    switch (name) {
+        case 'darcula': return darcula;
+        case 'dracula': return dracula;
+        case 'a11yDark': return a11yDark;
+        case 'atomDark': return atomDark;
+        default: return dracula;
+    }
+}
 export default PostPage;

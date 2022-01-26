@@ -131,13 +131,7 @@ p{
   margin-inline-end: 0px;
 }
 a{
-  text-decoration: underline;
-  color: #2d2d2d;
-  font-weight: 700;
   font-family: 'Roboto', sans-serif; 
-  font-size: 0.9rem;
-  line-height: 1.4em;
-  text-indent: 1rem;
 }
 
 
@@ -184,6 +178,8 @@ a{
   margin-top:0.5rem;
   margin-bottom: 0.7em;
   height: 3.5rem;
+  cursor: pointer;
+  aspect-ratio: 129/56;
 }
 .header .logo-menu-line{
   display: inline-flex;
@@ -191,15 +187,18 @@ a{
 .header a {
   float: left;
   color: white;
+  font-weight: 700;
   text-align: center;
-  margin: 0.2vh 0.6vw;
 
+  margin: 0.2vh 0.6vw;
   padding: 8px 0px 8px 0px;
   padding-right: 14px;
 
+  line-height: 1.4em;
+  text-indent: 1rem;
+
   text-decoration: none;
   font-size: 18px; 
-  line-height: 25px;
   border-radius: 3px;
 }
 .header a:hover {
@@ -231,6 +230,7 @@ a{
 @media screen and (max-width: 500px) {
   .header{
     display: block;
+    height: 5rem;
   }
   .logo{
     padding-top:0;
@@ -248,6 +248,8 @@ a{
     display: block;
     text-align: left;
     margin-bottom: 7px;
+    margin-left: 3vw;
+    margin-right: 3vw;
   }
   .header-right {
     float: none;
@@ -273,16 +275,13 @@ a{
     width: 40px;
     height: 40px;
   }
-  
-  
+ 
   .header .menu-icon-div{
     color: var(--secondary-color);
     position: absolute;
     right: 0;      
     margin-right: 2vw;
   }
-
-
 }
 
 
@@ -292,8 +291,7 @@ a{
     box-sizing: border-box;
     background-color: transparent;
     width: 3.3em;
-    /* height: 3.3em; */
-    height: 6em;
+    height: 5.5em;
     border: none;
     outline:0;
     display: block;

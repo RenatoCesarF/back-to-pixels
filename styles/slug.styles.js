@@ -1,11 +1,13 @@
 import css from 'styled-jsx/css'
 
 export default css.global`
-
+  .post-section{
+    line-height: 1.8em;
+    font-family: 'Roboto', sans-serif;
+  }
   .post-section  li{
     line-height: 1.7em;
     font-size: 1.0em;
-    font-family: 'Roboto', sans-serif;
     color: rgba(41, 41, 41, 1);
   }
   .post-section em{
@@ -15,13 +17,12 @@ export default css.global`
   }
 
   .post-section a{
+    font-size: 1.0em;
     text-decoration: underline;
+    font-weight: bold;
     color: var(--link-color);
-    font-family: 'Roboto', sans-serif; 
   }
-  .post-section p{
-    line-height: 1.8em;
-  }
+ 
   /*============ IMAGE ===============*/
   .img-fit{
     object-fit: cover;
@@ -33,28 +34,31 @@ export default css.global`
   }
   .post-cover{
     height: 100%;
+    width:100%;
     object-fit: cover;
     max-height: 100rem;
     max-width: 100%;
-    display: flex;
     margin-left: auto;
     margin-right: auto; 
   }
   .post-cover-div{
-    background-color: var(--main-color);
-    height: 100%;
-    padding: 2rem 0px;
-    margin-top: 1rem;
-    line-height: 100px;
-    text-align: center;
+    display: flex;
+    position: relative;
   }
+
   .post-cover-date{
-    color: white;
-    display: inline-block;
-    vertical-align: middle;
-    line-height: normal;
-    font-size: 2em;
-    font-family: 'Source Code Pro', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    margin: auto;
+    margin-top: 30%;
+    text-align: center;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    user-select: none;
+  
+    font-size: 1.8em;
+    color: var(--main-font-color); 
+   
   }
   /*============= CONTENT =============*/
   .post-title{
@@ -90,18 +94,19 @@ export default css.global`
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
   }
-  
-  @media only screen and (max-width: 600px){
-    .post-container{
-      margin-left: 5vw;
-      margin-right: 5vw; 
-    }
-  }
+
   @media only screen and (min-width:600px) and (max-width:960px){
     .post-container{
       margin-left: 14vw;
       margin-right: 20vw; 
     }
-  
   }
+  
+  @media only screen and (max-width: 599px){
+    .post-container{
+      margin-left: 5vw;
+      margin-right: 5vw; 
+    }
+  }
+
 `

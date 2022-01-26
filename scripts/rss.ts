@@ -3,13 +3,13 @@ import path from 'path'
 
 import { Feed ,Item} from "feed";
 import matter from 'gray-matter';
+import { getCoverImage } from '../classes/postType';
 
 
 async function generateRssFeed() {
   if (process.env.NODE_ENV === 'development') {
     return;
   }
-  return;
   console.log("Creating RSS feeds");
   const baseUrl= "https://devblog-nine.vercel.app";
   const date  = new Date();
@@ -52,7 +52,7 @@ async function generateRssFeed() {
     const url = `${baseUrl}/${slug}`;
     const item: Item = {
       title: data.title,
-      image: data.cover_image,
+      image: getCoverImage(slug, data.cover_image),
       link: url.toString(),
       date: new Date(),
       id: slug,

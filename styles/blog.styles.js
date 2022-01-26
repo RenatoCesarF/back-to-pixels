@@ -42,6 +42,7 @@ export default css.global`
   border-radius: 0.5rem 0.5rem 0px 0px;
   height: 9rem;
   display: inline-flex; 
+  position: relative;
   width: 100%;
   overflow: hidden;
 }
@@ -54,14 +55,19 @@ export default css.global`
   transition: opacity 4s cubic-bezier(.65,-0.53,.24,1.12);
   transition: transform 1.3s cubic-bezier(.165,.84,.44,1);
 }
+
 .post-card-cover-date{
-  color: var(--main-font-color);
+  font-family: 'Open Sans', sans-serif;
+  margin: auto;
+  margin-top: 3.7rem;
   text-align: center;
-  margin-top: 3.5rem;
-  margin-left: auto;
-  margin-right: auto;
-  vertical-align: middle;
-  font-family: 'Source Code Pro', sans-serif;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+
+  font-size: 1.8em;
+  color: var(--main-font-color); 
+ 
   transition: transform 1.3s cubic-bezier(.165,.84,.44,1);
 }
 
@@ -166,11 +172,9 @@ export default css.global`
   left: 57%;
   margin-left: -90px;
 
-  /* Fade in tooltip */
   opacity: 0;
   transition: all 0.4s cubic-bezier(.65,-0.53,.24,1.12);
-  /* transition-delay: 0s, 4s; */
-  /* transition: height .7s; */
+
 }
 /* Tooltip arrow */
 .tooltiptext::after {
@@ -205,6 +209,11 @@ export default css.global`
   animation: moveRight 0.4s 1 cubic-bezier(.65,-0.53,.24,1.12);
   animation-fill-mode: forwards;
   animation-delay: 0.2s;
+}
+.post-card-categories-row:hover .categories-row button{
+  user-select: none;
+  cursor: default;
+  pointer-events: none;
 }
 .post-card-categories-row:hover .extended-categories{
   opacity: 1;

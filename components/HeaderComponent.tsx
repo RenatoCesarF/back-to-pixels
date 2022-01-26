@@ -31,12 +31,12 @@ export default function Header() {
     const checkMenuState =() => {
         return isMenuOpened? "" : "closed"
     }
-    
+    //height="56px" width="129px" 
     return(
         <div className="header">
             <div className='logo-menu-line'>
                 <Link passHref href="/">
-                    <img src='/images/logo_name.png' className='logo' alt='Logo Image'/>
+                    <img src='/images/logo-little.png' height="56px" width="129px" className='logo' alt='Logo Image'/>
                 </Link>
                 
                 <div className='menu-icon-div' onClick={(toggleMenuIcon)}>
@@ -66,7 +66,6 @@ export default function Header() {
                 </Link>
             </div>
         </div>
-
     )
 }
 

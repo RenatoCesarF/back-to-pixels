@@ -16,7 +16,7 @@ const maximumExcerptSize: number = 70;
 
 const PostCard: React.FC<IPost> = ({post}: IPost) => {
     const [isHovering, setIsHovering] = useState(false);
-    const hasCoverImage:boolean = post.cover_image != undefined || post.cover_image != null;
+    const doenstHaveCoverImage:boolean = post.cover_image.includes('/defaultImages')
     const extendedCategories: boolean = post.categories.length > 2;
     const sortedCategories: Category[] = post.categories.sort(sortByCategoryImportance);
     var shortExcerpt: string = post.excerpt;
@@ -28,8 +28,6 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
         <m.div className='post-card-div'  variants={cardVariants} 
             onMouseOver={()=>{setIsHovering(true)}}
             onMouseLeave={()=>{setIsHovering(false)}}
-            // onTouchStart={()=>{setIsHovering(true)}}
-            // onTouchEnd={()=>{setIsHovering(false)}}
             onTouchCancel={()=>{setIsHovering(false)}}
             onTouchEndCapture={()=>{setIsHovering(true)}}
             onTouchCancelCapture={()=>{setIsHovering(false)}}
@@ -37,11 +35,11 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
             <Link passHref href={`/blog/${post.slug}`}>
                 <m.article className="post-card-clickable">
                     <header className='post-card-image-container'>
+                        <img className='post-card-img' alt='post card image' width='269px' height='144px' src={post.cover_image}/>
                         {
-                            hasCoverImage ? 
-                            <img className='post-card-img' alt='post card image' src={post.cover_image}/>
-                            : 
-                            <h1 className='post-card-cover-date'>{post.date}</h1>
+                            doenstHaveCoverImage ?
+                                <h1 className='post-card-cover-date'>{post.date}</h1> 
+                            : null 
                         }
                     </header>
 
@@ -96,7 +94,7 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                                 </div>
                             </span>
                             :
-                            <></>
+                            null
                         }
                     </div>
                 </div>

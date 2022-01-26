@@ -14,7 +14,7 @@ const CategoryTag: React.FC<tagProps> = (props: tagProps)=>{
     }
 
     return(
-        <button className="category-tag" style={buttonStyle} >
+        <button className="category-tag" style={buttonStyle} onClick={()=>console.log("a")}>
             <p className='category-tag-text' style={{color: category.textColor }}>{category.name}</p>
         </button>
     )
