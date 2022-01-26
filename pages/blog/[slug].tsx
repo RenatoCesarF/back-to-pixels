@@ -18,6 +18,7 @@ import getImageType from '../../utils/getImageType';
 import Category, { getCategories } from '../../classes/category';
 import { motion } from 'framer-motion';
 import {slideButtonDown, slideInUp } from '../../helpers/animations';
+import Link from 'next/link';
 
 interface IPost{post: Post};
 type Params = {slug: string};
@@ -109,6 +110,10 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                                         return <img alt='blog post inside image' className='img-fit' src={props.src}/>
                                     },
                                     a({node, className, children, ...props}){
+                                        console.log(children)
+                                        if(props.href?.startsWith('/')){
+                                            return <Link href={props.href} passHref>{children[0]}</Link>
+                                        }
                                         return <a target="_blank" rel="noopener noreferrer" href={props.href} >{children}</a>
                                     },
                                     code({node, inline, className, children, ...props}) {

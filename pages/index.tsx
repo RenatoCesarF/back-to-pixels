@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.css'
 import { motion} from 'framer-motion'
 import programmerLotie from '../public/lotties/programmer-lottie.json';
 import { slideInLeft } from '../helpers/animations'
-import UnderDevelopment from '../components/UnderDevelopment'
+import InDevelopment from '../components/InDevelopment'
 
 const Home: NextPage = () => {
   const defaultOptions = {
@@ -32,7 +32,7 @@ const Home: NextPage = () => {
         <motion.div variants={slideInLeft}>
           <h1>Home</h1>
         </motion.div>
-        <UnderDevelopment/>
+        <InDevelopment/>
       </div>
     </div>
   )

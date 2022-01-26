@@ -2,8 +2,10 @@ import css from 'styled-jsx/css'
 
 export default css.global`
   .post-section{
-    line-height: 1.8em;
     font-family: 'Roboto', sans-serif;
+  }
+  .post-section p{
+    line-height: 1.8em;
   }
   .post-section  li{
     line-height: 1.7em;
@@ -21,6 +23,10 @@ export default css.global`
     text-decoration: underline;
     font-weight: bold;
     color: var(--link-color);
+  }
+  .post-section h1{
+    font-size: 1.6em;
+    margin-top: 0.4rem;
   }
  
   /*============ IMAGE ===============*/

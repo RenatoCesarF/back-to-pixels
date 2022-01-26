@@ -3,7 +3,7 @@ import { slideInUp } from "../helpers/animations";
 import programmerLotie from '../public/lotties/programmer-lottie.json';
 import Lottie from 'react-lottie'
 
-export default function UnderDevelopment(){
+export default function InDevelopment(){
     const defaultOptions = {
         loop: true,
         autoplay: true,
@@ -15,7 +15,7 @@ export default function UnderDevelopment(){
     return(
         <motion.div  className="under-dev"variants={slideInUp}>
             <Lottie options={defaultOptions}/>
-            <h2 className="under-dev-title"> Under Development</h2>
+            <h2 className="under-dev-title"> In Development</h2>
         </motion.div>
     );
 }

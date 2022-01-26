@@ -2,7 +2,7 @@ import NextHead from 'next/head';
 import { m, motion } from 'framer-motion'
 
 import { slideInLeft } from '../../../helpers/animations';
-import UnderDevelopment from '../../../components/UnderDevelopment';
+import InDevelopment from '../../../components/InDevelopment';
 //TODO: make direct imports with @
 const TeamPage = () => {
 
@@ -21,7 +21,7 @@ const TeamPage = () => {
                 <motion.div  variants={slideInLeft}>
                   
                 </motion.div>
-                <UnderDevelopment/>
+                <InDevelopment/>
             </div>
         </>
     )
