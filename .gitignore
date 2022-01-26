@@ -14,8 +14,6 @@
 # next.js
 /.next/
 /out/
-/public/sitemap.xml
-/public/robots.txt
 /public/rss
 /public/rss/*
 

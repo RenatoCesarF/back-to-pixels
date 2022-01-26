@@ -1,6 +1,4 @@
-const siteUrl = 'https://codingideas.vercel.app'
-
 module.exports = {
-    siteUrl,
+    siteUrl: 'https://codingideas.vercel.app',
     generateRobotsTxt: true,
-};
+  }

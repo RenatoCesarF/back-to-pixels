@@ -38,7 +38,7 @@ const CustomButton: React.FC<ButtomProps> = (props: ButtomProps)=>{
                 whileTap={{scale: 0.9}}
             >
                 {geticon(props.icon)}
-                <h1 className="button-text">{props.text}</h1>
+                <p className="button-text">{props.text}</p>
             </motion.button>
         </>
     )
