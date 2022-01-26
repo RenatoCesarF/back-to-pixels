@@ -26,7 +26,6 @@ export default css.global`
   }
   .post-section h1{
     font-size: 1.6em;
-    margin-top: 0.4rem;
   }
  
   /*============ IMAGE ===============*/
