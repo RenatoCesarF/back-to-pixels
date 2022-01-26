@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://devblog-nine.vercel.app
+Host: https://codingideas.vercel.app
 
 # Sitemaps
-Sitemap: https://devblog-nine.vercel.app/sitemap.xml
+Sitemap: https://codingideas.vercel.app/sitemap.xml

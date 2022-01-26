@@ -16,13 +16,13 @@ type Post = {
 export default Post;
 
 export const getCoverImage = (slug: string, cover_image:string) =>{
-    var coverImage = `https://devblog-nine.vercel.app/images/posts/defaultImages/1.webp`;
+    var coverImage = `https://codingideas.vercel.app/images/posts/defaultImages/1.webp`;
 
     if(cover_image){
       if(cover_image.startsWith('https')){
         throw new Error("Cover image doens't need to be online, just past it in the images/post folder and declare it's name (without type) in the .md file");
       }
-      coverImage = `https://devblog-nine.vercel.app/images/posts/${slug}/${cover_image}.webp`;
+      coverImage = `https://codingideas.vercel.app/images/posts/${slug}/${cover_image}.webp`;
     } 
     return coverImage;
     

@@ -33,7 +33,7 @@ export default function BlogPage(posts:PostList){
                 <meta name="robots" content="follow"/>
                 <meta name="robots" content="index, follow"/>
                 <meta name="googlebot" content="index, follow"/>
-                <meta property="og:url" content="https://https://devblog-nine.vercel.app/blog"></meta>
+                <meta property="og:url" content="https://https://codingideas.vercel.app/blog"></meta>
                 <meta property="og:title" content="Coding Ideas Blog Page - Read our posts"></meta>
           </NextHead>
           <div className='page'>

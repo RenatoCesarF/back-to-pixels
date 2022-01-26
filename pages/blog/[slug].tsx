@@ -49,7 +49,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                 }
 
                 <meta property="og:type" content="blog"/>
-                <meta property="og:url" content={`https://devblog-nine.vercel.app/blog/${post.slug}`} />
+                <meta property="og:url" content={`https://codingideas.vercel.app/blog/${post.slug}`} />
                 <meta property="og:title" content={post.title}/>
                 <meta property="og:site_name" content={post.title}/>
                 <meta property="og:description" content={post.excerpt}/>
@@ -74,8 +74,8 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                 <meta name="twitter:title" content={post.title}/>
                 <meta name="twitter:description" content={post.excerpt}/>
                 <meta name="twitter:creator" content={post.author.twitter}/>
-                <meta property="twitter:url" content={`https://devblog-nine.vercel.app/blog/${post.slug}`}/>
-                <meta property="twitter:domain" content="devblog-nine.vercel.app"/>
+                <meta property="twitter:url" content={`https://codingideas.vercel.app/blog/${post.slug}`}/>
+                <meta property="twitter:domain" content="codingideas.vercel.app"/>
             </NextHead>
             <style jsx global>
                 {globalStyles}
@@ -110,7 +110,6 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                                         return <img alt='blog post inside image' className='img-fit' src={props.src}/>
                                     },
                                     a({node, className, children, ...props}){
-                                        console.log(children)
                                         if(props.href?.startsWith('/')){
                                             return <Link href={props.href} passHref>{children[0]}</Link>
                                         }

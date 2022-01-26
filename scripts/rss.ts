@@ -11,7 +11,7 @@ async function generateRssFeed() {
     return;
   }
   console.log("Creating RSS feeds");
-  const baseUrl= "https://devblog-nine.vercel.app";
+  const baseUrl= "https://codingideas.vercel.app";
   const date  = new Date();
   const author = {
       name: "Renato Cesar",
