@@ -24,7 +24,7 @@ export default css.global`
     font-weight: bold;
     color: var(--link-color);
   }
-  .post-section h1{
+  .post-content h1{
     font-size: 1.6em;
   }
  
@@ -38,6 +38,7 @@ export default css.global`
     margin-right: auto; 
   }
   .post-cover{
+    border-radius: 0.2rem;
     height: 100%;
     width:100%;
     object-fit: cover;
@@ -60,8 +61,8 @@ export default css.global`
     width: 100%;
     position: absolute;
     user-select: none;
-  
-    font-size: 1.8em;
+    
+    font-size: 2.5em;
     color: var(--main-font-color); 
    
   }
@@ -111,6 +112,11 @@ export default css.global`
     .post-container{
       margin-left: 5vw;
       margin-right: 5vw; 
+    }
+    .post-cover-date{
+      font-size: 2em;
+      margin-top: 29%;
+
     }
   }
 

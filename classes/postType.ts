@@ -1,3 +1,4 @@
+import { isNumber } from 'util';
 import Author from './authorType'
 import Category from './category'
 
@@ -18,12 +19,12 @@ export default Post;
 export const getCoverImage = (slug: string, image_path:string) =>{
   var coverImage;
   
-  if(!image_path){
-    var randomDefaultIndex = Math.floor(Math.random() * 4);
-    coverImage = `https://codingideas.vercel.app/images/posts/defaultImages/${randomDefaultIndex}.webp`;
-    console.log(coverImage)
+  if(!image_path || typeof(image_path) === "number"){
+    var defaultImageIndex = image_path || Math.floor(Math.random() * 5);
+    coverImage = `https://codingideas.vercel.app/images/posts/defaultImages/${defaultImageIndex}.webp`;
     return coverImage;
   }
+
   if(image_path.startsWith('https')){
     throw new Error("Cover image doens't need to be online, just past it in the images/post folder and declare it's name (without type) in the .md file");
   }
