@@ -31,11 +31,17 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
             onTouchCancel={()=>{setIsHovering(false)}}
             onTouchEndCapture={()=>{setIsHovering(true)}}
             onTouchCancelCapture={()=>{setIsHovering(false)}}
-        >
+            >
             <Link passHref href={`/blog/${post.slug}`}>
                 <m.article className="post-card-clickable">
                     <header className='post-card-image-container'>
-                        <img className='post-card-img' alt='post card image' width='269px' height='144px' src={post.cover_image}/>
+                        <img 
+                            src={post.cover_image}
+                            className='post-card-img' 
+                            alt='post card image' 
+                            width='269px' 
+                            height='144px' 
+                        />
                         {
                             doenstHaveCoverImage ?
                                 <h1 className='post-card-cover-date'>{post.date}</h1> 
