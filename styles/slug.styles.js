@@ -103,17 +103,8 @@ export default css.global`
     text-align: justify;
     font-style: italic;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
   }
-
-  /* @media only screen and (min-width:820px) and (max-width:960px){
-    .post-cover-date{
-      width: max-content;
-      margin-top: 9rem;
-      margin-left: 10rem;
-    }
-  } */
-
+ 
   @media only screen and (min-width:600px) and (max-width:960px){
     .post-container{
       margin-left: 14vw;

@@ -12,7 +12,7 @@ import { useRouter } from 'next/router';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 import {darcula,a11yDark,atomDark,dracula} from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
-import Post, { getCoverImage } from '../../classes/postType';
+import Post, { createPost, getCoverImage } from '../../classes/postType';
 import CustomButton, {ButtonIcon} from '../../components/CustomButton';
 import globalStyles from '../../styles/slug.styles';
 import getImageType from '../../utils/getImageType';
@@ -20,18 +20,17 @@ import Category, { getCategories } from '../../classes/category';
 import { motion } from 'framer-motion';
 import {slideButtonDown, slideInUp } from '../../helpers/animations';
 import Link from 'next/link';
+import Author from '../../classes/authorType';
 
 interface IPost{post: Post};
 type Params = {slug: string};
 type StaticResponse = {params: Params};
 
 
-
-
 const PostPage: React.FC<IPost> = ({post}: IPost) => {
     const router = useRouter()
     const doenstHaveCoverImage:boolean = post.cover_image.includes('/defaultImages')
-    const codeTheme: string = getCodeTheme(post.code_theme);
+    const codeTheme: string = post.code_theme != null ? getCodeTheme(post.code_theme) : darcula
     const imageType =  getImageType(post.cover_image)
 
     return(
@@ -89,7 +88,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                             
                     <motion.div variants={slideInUp} className='post-cover-div'>
 
-                            <img 
+                            <img
                                 width='536px'height='341px'
                                 alt='blog post cover' className='post-cover' 
                                 src={post.cover_image}/>
@@ -120,13 +119,12 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                                         return <a target="_blank" rel="noopener noreferrer" href={props.href} >{children}</a>
                                     },
                                     code({node, inline, className, children, ...props}) {
-                                        // console.log({props, inline, children})
                                         const match = /language-(\w+)/.exec(className || '')
                                         return !inline && match ? 
                                         
                                             <SyntaxHighlighter
                                                 style={codeTheme}
-                                                language='python'
+                                                language={post.code_language}
                                                 PreTag="div"
                                                 {...props}
                                             >
@@ -165,26 +163,8 @@ export async function getStaticPaths(){
 
 export async function getStaticProps(object: StaticResponse ){
     const slug: string = object.params.slug;
-    if(!slug || slug === null || slug === undefined){
-        throw new Error("Slug was not defined, define it inside the .md file");
-    }
-    const markdownWithMeta = fs.readFileSync(path.join('posts', slug + '.md'), 'utf-8');
-    const {data, content} = matter(markdownWithMeta);
-    const categories: Category[] = getCategories(data.categories);
+    const post: Post = createPost(`${slug}.md`);
 
-    const coverImage = getCoverImage(slug,data.cover_image)
-    
-    const post: Post = {
-        slug, 
-        content,
-        author: data.author ?? null,
-        cover_image: coverImage ?? null,
-        categories: categories ?? null,
-        date:data.date ?? null,
-        excerpt: data.excerpt ?? null, 
-        title: data.title ?? null,
-        code_theme: data.code_theme ?? null
-    };
     return {
         props:{ post } 
     };
@@ -199,7 +179,7 @@ const getCodeTheme = (name: string) => {
         case 'dracula': return dracula;
         case 'a11yDark': return a11yDark;
         case 'atomDark': return atomDark;
-        default: return dracula;
+        default: return darcula;
     }
 }
 export default PostPage;

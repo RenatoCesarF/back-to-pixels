@@ -16,7 +16,6 @@ export default css.global`
   width: 17rem;
   height: 17rem;
   
-  
   display: flex;
   flex-direction: column;
   
@@ -44,7 +43,9 @@ export default css.global`
   display: inline-flex; 
   position: relative;
   width: 100%;
+  width: 100%;
   overflow: hidden;
+  object-fit: cover;
 }
 .post-card-img{
   border-radius: 0.5rem 0.5rem 0px 0px;

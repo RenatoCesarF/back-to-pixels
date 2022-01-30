@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import {readdirSync} from 'fs';
+import {join} from 'path';
 import matter from 'gray-matter';
 import dynamic from 'next/dynamic'
 
@@ -8,15 +8,12 @@ import NextHead from 'next/head';
 
 
 import globalStyles from '../styles/blog.styles'
-import PostCard from '../components/PostCard';
-import Post, { getCoverImage } from '../classes/postType';
-import Author from '../classes/authorType';
+import Post, { createPost, getCoverImage } from '../classes/postType';
 import {sortByDate, sortByDateReverse} from '../utils/sort';
 
 import { slideInLeft } from '../helpers/animations';
-import Category, { getCategories } from '../classes/category';
 
-// const PostCard = dynamic(() => import("../components/PostCard"))
+const PostCard = dynamic(() => import("../components/PostCard"))
 
 interface PostList{
   posts: Post[]
@@ -61,42 +58,14 @@ export default function BlogPage(posts:PostList){
 }
 
 export async function getStaticProps(){
-    const files = fs.readdirSync(path.join('posts'));
+    const files = readdirSync(join('posts'));
   
     var posts: Post[] = files.map(filename => {
-      const slug: string = filename.replace('.md', '');
-      const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8');
-      const {data, content} = matter(markdownWithMeta);
-
-      // verifyPostValues(data);
- 
-      const postAuthor: Author = {name: data.author, about: "", email: "", image:"", instagram: "", twitter: "", role: ""}
-      const categories: Category[] = getCategories(data.categories);
-      const coverImage = getCoverImage(slug,data.cover_image)
-      
- 
-      const post: Post = {
-          slug,
-          content,
-          author: postAuthor ?? null,
-          cover_image: coverImage ?? null,
-          categories: categories ?? null,
-          date:data.date ?? null,
-          excerpt: data.excerpt ?? null, 
-          title: data.title ?? null,
-          code_theme: data.code_theme ?? null
-      }
-      return post;
-    })
+      return createPost(filename);
+    });
 
     return {
       props: {posts}
     };
-  
 }
 
-const verifyPostValues = (post:Post) =>{
-  if(!post.title || post.title.length < 5){
-    throw new Error("Title null or too short");
-  }
-}
