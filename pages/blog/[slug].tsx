@@ -3,6 +3,7 @@ import path from 'path';
 import matter  from 'gray-matter';
 import React from 'react';
 import NextHead from 'next/head';
+import Image from 'next/image';
 // import Image from 'react'
 import ReactMarkdown from 'react-markdown';
 import { useRouter } from 'next/router';
@@ -88,7 +89,10 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                             
                     <motion.div variants={slideInUp} className='post-cover-div'>
 
-                            <img width='536px'  height='341px' alt='blog post cover' className='post-cover' src={post.cover_image}/>
+                            <Image 
+                                width='536px'height='341px'
+                                alt='blog post cover' className='post-cover' 
+                                src={post.cover_image}/>
                             {
                                 doenstHaveCoverImage ? 
                                 

@@ -55,7 +55,7 @@ export default css.global`
   .post-cover-date{
     font-family: 'Open Sans', sans-serif;
     margin: auto;
-    margin-top: 30%;
+    margin-top: 27%;
     text-align: center;
     height: 100%;
     width: 100%;
@@ -101,6 +101,16 @@ export default css.global`
 
   }
 
+  @media only screen and (min-width:820px) and (max-width:960px){
+    .post-cover-date{
+      /* width: 70vw;       */
+      width: max-content;
+      margin-top: 9rem;
+      margin-left: 10rem;
+      color: green;
+    }
+  }
+
   @media only screen and (min-width:600px) and (max-width:960px){
     .post-container{
       margin-left: 14vw;
@@ -115,8 +125,7 @@ export default css.global`
     }
     .post-cover-date{
       font-size: 2em;
-      margin-top: 29%;
-
+      margin-top: 28%;
     }
   }
 

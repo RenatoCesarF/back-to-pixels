@@ -20,7 +20,7 @@ export const getCoverImage = (slug: string, image_path:string) =>{
   var coverImage;
   
   if(!image_path || typeof(image_path) === "number"){
-    var defaultImageIndex = image_path || Math.floor(Math.random() * 5);
+    var defaultImageIndex = image_path || Math.floor(Math.random() * 4);
     coverImage = `https://codingideas.vercel.app/images/posts/defaultImages/${defaultImageIndex}.webp`;
     return coverImage;
   }
