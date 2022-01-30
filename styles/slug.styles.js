@@ -61,6 +61,11 @@ export default css.global`
     width: 100%;
     position: absolute;
     user-select: none;
+
+    /* width: max-content;
+    margin-top: 9rem;
+    margin-left: 10rem;
+    color: red; */
     
     font-size: 2.5em;
     color: var(--main-font-color); 
@@ -101,15 +106,13 @@ export default css.global`
 
   }
 
-  @media only screen and (min-width:820px) and (max-width:960px){
+  /* @media only screen and (min-width:820px) and (max-width:960px){
     .post-cover-date{
-      /* width: 70vw;       */
       width: max-content;
       margin-top: 9rem;
       margin-left: 10rem;
-      color: green;
     }
-  }
+  } */
 
   @media only screen and (min-width:600px) and (max-width:960px){
     .post-container{

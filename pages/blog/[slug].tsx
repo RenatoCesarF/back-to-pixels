@@ -89,7 +89,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                             
                     <motion.div variants={slideInUp} className='post-cover-div'>
 
-                            <Image 
+                            <img 
                                 width='536px'height='341px'
                                 alt='blog post cover' className='post-cover' 
                                 src={post.cover_image}/>
