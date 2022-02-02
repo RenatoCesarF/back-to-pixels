@@ -223,29 +223,29 @@ export default css.global`
 @keyframes moveRight {
   0% {
     opacity: 1;
-    margin-right: 0rem;
+    /* margin-right: 0rem; */
   }
   
   90% {
-    margin-right: 2rem;
+    /* margin-right: 2rem; */
   }
   100%{
     opacity: 0;
     /* margin-right: 0px; */
-    margin-right: 2rem;
+    /* margin-right: 2rem; */
   }
 }
 @keyframes moveLeft {
   0% {
     opacity: 0;
-    margin-right: 2rem;
+    /* margin-right: 2rem; */
   }
 
   90% {
-    margin-right: 0rem;
+    /* margin-right: 0rem; */
   }
   100%{
-    margin-right: 0rem;
+    /* margin-right: 0rem; */
     opacity: 1;
   }
 }

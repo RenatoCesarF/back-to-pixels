@@ -6,10 +6,11 @@ cover_image: null
 excerpt: "How I made our first default images and How does this system work behind the beauty"
 code_language: 'javascript'
 categories: [BLOG, DESIGN, PROGRAMMING, ARCHITECTURE]
-
+code_theme: 'dracula'
 ---
-default-images-and-our-images-architecture
 I just finished the implementation of the default images that appear on posts that don't have a cover. It was something that wants to implement because those old flat colors were very ugly.
+
+![posts-exemple](posts-exemple.webp)
 
 The logic is to have those default images saved locally and just change the `cover_image` URL to a default one when the post doesn't have a `cover_image` defined. We can choose default cover images as well using **number**. 
 
