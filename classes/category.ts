@@ -18,10 +18,11 @@ export enum CategoryType {
   ART = 2,
   PROGRAMMING = 3,
   //Tools / languages
-  NEXTJS = 4,
+  ARCHITECTURE = 4,
+  NEXTJS = 5,
   //Projects
-  BLOG = 5,
-  RINGS = 6,
+  BLOG = 6,
+  RINGS = 7,
 }
 
 

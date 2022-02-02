@@ -1,5 +1,5 @@
 import matter from 'gray-matter';
-import {readFileSync} from 'fs';
+import {readdirSync, readFileSync} from 'fs';
 import {join} from 'path';
 import { isNumber } from 'util';
 import Author from './authorType'
@@ -20,19 +20,14 @@ type Post = {
 
 export default Post;
 
-export const getCoverImage = (slug: string, image_name:string) =>{
+export const getCoverImage = (slug: string, image_name:any) =>{
   var coverImage;
   
-  if(image_name === null || typeof(image_name) === "number"){
+  if(!isImageCoverValid(slug, image_name) || typeof(image_name) === "number"){
     var defaultImageIndex = image_name || Math.floor(Math.random() * 4) + 1;
     coverImage = `/images/posts/default-images/${defaultImageIndex}.webp`;
     return coverImage;
   }
-
-  if(image_name.startsWith('https')){
-    throw new Error("Cover image doens't need to be online, just past it in the images/post folder and declare it's name (without type) in the .md file");
-  }
-
   coverImage = `/images/posts/${slug}/${image_name}.webp`;   
   return coverImage; 
 }
@@ -63,8 +58,29 @@ export const createPost = (filename: string): Post => {
   return post;
 }
 
+
+
+
 const verifyPostValues = (post:Post) =>{
   if(!post.title || post.title.length < 5){
     throw new Error("Title null or too short");
   }
+}
+
+const isImageCoverValid = (slug: string, image_name: any) => {
+  const isImageTextValid: boolean = (typeof(image_name) === "string" && !image_name.toString().startsWith('https'))
+  if(image_name === null || !isImageTextValid ){
+    return false; 
+  }
+
+  var imageExistInFolder = false;    
+  const images: Array<string> = readdirSync(join(`public/images/posts/${slug}`));
+
+  for(let image of images) {
+    if(image.replace('.webp', '') === image_name){
+      imageExistInFolder = true;
+      break;
+    }
+  }
+  return imageExistInFolder;
 }

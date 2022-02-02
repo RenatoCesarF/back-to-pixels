@@ -26,6 +26,11 @@ export default css.global`
   }
   .post-content h1{
     font-size: 1.6em;
+    margin-top: 1rem;
+  }
+  .post-content h2{
+    font-size: 1.3em;
+    margin-top: 1rem;
   }
  
   /*============ IMAGE ===============*/
@@ -105,7 +110,7 @@ export default css.global`
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
  
-  @media only screen and (min-width:600px) and (max-width:960px){
+  @media only screen and (min-width:600px) and (max-width:990px){
     .post-container{
       margin-left: 14vw;
       margin-right: 20vw; 
