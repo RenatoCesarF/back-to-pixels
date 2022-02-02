@@ -29,7 +29,7 @@ type StaticResponse = {params: Params};
 
 const PostPage: React.FC<IPost> = ({post}: IPost) => {
     const router = useRouter()
-    const doenstHaveCoverImage:boolean = post.cover_image.includes('/defaultImages')
+    const doenstHaveCoverImage:boolean = post.cover_image.includes('/default-images')
     const codeTheme: string = post.code_theme != null ? getCodeTheme(post.code_theme) : darcula
     const imageType =  getImageType(post.cover_image)
 
@@ -110,7 +110,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                                 skipHtml={false}
                                 components={{
                                     img({node, className, children, ...props}){
-                                        return <img alt='blog post inside image' className='img-fit' src={props.src}/>
+                                        return <img alt={props.src} className='img-fit' src={`/images/posts/${post.slug}/${props.src}`}/>
                                     },
                                     a({node, className, children, ...props}){
                                         if(props.href?.startsWith('/')){

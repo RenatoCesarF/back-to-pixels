@@ -10,7 +10,7 @@ categories: [BLOG, NEXTJS, PROGRAMMING, DESIGN]
 
 From now on, if you share one of our posts on *social media* it will look something like that:
 
-![post-in-twitter](/images/posts/discovering-meta-tags-plus-website-uptades/post-in-twitter.webp)
+![post-in-twitter](post-in-twitter.webp)
 
 It also works in *instagram*, *whatsapp*, *facebook*, *Discord* and *LinkedIn*.
 
@@ -60,7 +60,7 @@ And more not so important tags, like height and width of images, etc.
 
 Just using this it's possible to implement the cool share card in social Media. Look how my post tags look like now:
 
-![post-meta-tags](/images/posts/discovering-meta-tags-plus-website-uptades/post-meta-tags.webp)
+![post-meta-tags](post-meta-tags.webp)
 
 The only thing that give me some problems was the Twitter postcard. I don't know why, but Twitter only accepts when you put the post image coming from the internet, and not local. I will make some new tests to see if this deduction is correct.
 
@@ -70,6 +70,6 @@ Since the last update ([reunion 0.1](/blog/reunion-0-1)) I made some new things 
 
 So yes, we finally added the Header, but the cool part is the animation that I, kind of, found. I was creating a *Media Query* for smartphones and then, when I was adding a transition of states, the VS code start to suggest some [Bézier curvs](https://en.wikipedia.org/wiki/B%C3%A9zier_curve) as animations transition parameters. I tested someones and liked this one that I'm using now. After this, I study some animations from [codepen](https://codepen.io/) and made this one. Look how the header is looking great:
 
-![header-animations](/images/posts/discovering-meta-tags-plus-website-uptades/header-animations.gif)
+![header-animations](header-animations.gif)
 
 I had some new animation ideas to implement in the future, so wait for it!

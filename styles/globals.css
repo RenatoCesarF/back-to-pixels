@@ -229,7 +229,6 @@ a{
 @media screen and (max-width: 500px) {
   .header{
     display: block;
-    /* height: 5rem; */
   }
   .logo{
     padding-top:0;
@@ -252,7 +251,7 @@ a{
   }
   .header-right {
     float: none;
-    margin-top: 20px;
+    margin-top:  0px;
     visibility: visible;
     background-color: var(--main-color);
     height: 150px;
@@ -260,8 +259,9 @@ a{
   }
   .closed{
     transition: height .5s cubic-bezier(0.175, 0.885, 0.32, 1.275), visibility .32s ;
-    height: 10px;
+    height: 0px;
     margin-top: 0px;
+    margin: 0px;
     float: none;
     display: block;
     overflow-y: hidden;
@@ -290,7 +290,7 @@ a{
     box-sizing: border-box;
     background-color: transparent;
     width: 3.3em;
-    height: 6.5em;
+    height: 5.8em;
     border: none;
     outline:0;
     display: block;

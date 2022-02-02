@@ -16,7 +16,7 @@ const maximumExcerptSize: number = 70;
 
 const PostCard: React.FC<IPost> = ({post}: IPost) => {
     const [isHovering, setIsHovering] = useState(false);
-    const doenstHaveCoverImage:boolean = post.cover_image.includes('/defaultImages')
+    const doenstHaveCoverImage:boolean = post.cover_image.includes('/default-images')
     const extendedCategories: boolean = post.categories.length > 2;
     const sortedCategories: Category[] = post.categories.sort(sortByCategoryImportance);
     var shortExcerpt: string = post.excerpt;

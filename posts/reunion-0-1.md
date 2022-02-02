@@ -32,19 +32,19 @@ It was a lot of fun and we are excited to improve each time more this website an
   
 Between the pallets tested we have these:
 
-![mouse-palette](/images/posts/reunion-0-1/mouse-palette.webp)
+![mouse-palette](mouse-palette.webp)
 
 ---
 
-![granito-palette](/images/posts/reunion-0-1/granito-palette.webp)
+![granito-palette](granito-palette.webp)
 
 ---
 
-![baleia-palette](/images/posts/reunion-0-1/baleia-palette.webp)
+![baleia-palette](baleia-palette.webp)
 
 ---
 
-![cimento-palette](/images/posts/reunion-0-1/cimento-palette.webp)
+![cimento-palette](cimento-palette.webp)
 
 ----
 
@@ -58,4 +58,4 @@ To improve the palette swap I created many variables to centralize the styles of
 
 And to document the moment, we decided to shoot some photos *(and I made some effects by hand)*:
 
-![painted-1](/images/posts/reunion-0-1/painted-us.webp)
+![painted-1](painted-us.webp)

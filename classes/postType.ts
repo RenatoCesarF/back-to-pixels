@@ -20,23 +20,20 @@ type Post = {
 
 export default Post;
 
-export const getCoverImage = (slug: string, image_path:string) =>{
+export const getCoverImage = (slug: string, image_name:string) =>{
   var coverImage;
   
-  if(image_path === null || typeof(image_path) === "number"){
-    var defaultImageIndex = image_path || Math.floor(Math.random() * 4) + 1;
-    console.log("-----------");
-    console.log(defaultImageIndex);
-    console.log("-----------");
-    coverImage = `https://codingideas.vercel.app/images/posts/defaultImages/${defaultImageIndex}.webp`;
+  if(image_name === null || typeof(image_name) === "number"){
+    var defaultImageIndex = image_name || Math.floor(Math.random() * 4) + 1;
+    coverImage = `/images/posts/default-images/${defaultImageIndex}.webp`;
     return coverImage;
   }
 
-  if(image_path.startsWith('https')){
+  if(image_name.startsWith('https')){
     throw new Error("Cover image doens't need to be online, just past it in the images/post folder and declare it's name (without type) in the .md file");
   }
 
-  coverImage = `https://codingideas.vercel.app/images/posts/${slug}/${image_path}.webp`;   
+  coverImage = `/images/posts/${slug}/${image_name}.webp`;   
   return coverImage; 
 }
 

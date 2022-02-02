@@ -17,14 +17,14 @@ So last day I visit [Bruno](/team/bruno), another teammate, and start to update 
 Today I "finish" the implementation, the Twitter share still with some problems, but everything else is working properly.
 
 Here's the blog page:
-![blog-page-provisional-logo](/images/posts/a-provisional-logo-and-name/new-blog-page.webp)
+![blog-page-provisional-logo](new-blog-page.webp)
 
 How it looks on share in Twitter and WhatsApp:
-![logo-in-twitter](/images/posts/a-provisional-logo-and-name/logo-in-twitter.webp)
+![logo-in-twitter](logo-in-twitter.webp)
 
 ---
 
-![logo-in-wpp](/images/posts/a-provisional-logo-and-name/logo-in-wpp.webp)
+![logo-in-wpp](logo-in-wpp.webp)
 
 ---
 
@@ -33,7 +33,7 @@ Given that I've been searching a lot about meta tags, SEO, and other web develop
 
 The implementation is very simple, but with a pretty good-looking result.
 
-![animations-gif](/images/posts/a-provisional-logo-and-name/animations-gif.gif)
+![animations-gif](animations-gif.gif)
 
 Basically, you change every `<div>` that you want to animate by a `<motion.div>` that comes from the package [**Framer Motion**](https://www.framer.com/) the base for the animations.
 
@@ -47,14 +47,14 @@ Talking about that, the performance is something that is still very important af
 Another cool thing that I added was a [Lottie](https://lottiefiles.com/what-is-lottie) gif of "in development" to use in the pages that don't have content yet. It was pretty easy but I enjoy the feeling of it
 
 
-![under-dev-gif](/images/posts/a-provisional-logo-and-name/in-development.gif)
+![under-dev-gif](in-development.gif)
 
 ## Tag system
 My main idea to filter the blog posts is to use a tag system, where each post can have many tags to make it easier for the user to find what he/she is looking for. In the future, you will be able to filter posts by any number of specific tags, searching its name and description or by author. 
 
 There will be multiple types of tags, for projects, languages, categories, etc. There is no filter yet, but you can already see the tags in each post. If the post has more than 2 tags, you can hover it to reveal the others. It's a very cute animation though.
 
-![tags-animation](/images/posts/a-provisional-logo-and-name/tags-animation.gif)
+![tags-animation](tags-animation.gif)
 
 # Last improvements
 In this last week I didn't add new features, just fix animations, performance issues, and other CSS things. But one thing made me smile:

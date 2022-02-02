@@ -4,7 +4,6 @@ date: '01/01/2022'
 author: 'renato'
 excerpt: 'Just documenting the first cool stuff, this blog'
 cover_image: 2
-code_theme: atomDark
 categories: [BLOG]
 ---
 
@@ -16,7 +15,7 @@ And everything was *almost* responsive, at least I tried to make it so.
 
 
 
-![first-version](/images/posts/first-version.gif)
+![first-version](first-version.gif)
 
 Another important thing, english is not my main language, so maybe I gonna write wrong some things.
 
