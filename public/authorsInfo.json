@@ -3,7 +3,7 @@
         "name": "Renato Cesar F",
         "email": "re.fbarcellos@hotmail.com",
         "role": "Programmer",
-        "image_directory": "/images/authors/renato.webp",
+        "image_path": "/images/authors/renato.webp",
         "about": "About renato",
         "twitter": "nerat0",
         "instagram": "eu_renato_"

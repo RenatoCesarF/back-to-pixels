@@ -1,9 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import matter  from 'gray-matter';
 import React from 'react';
 import NextHead from 'next/head';
-import Image from 'next/image';
 // import Image from 'react'
 import ReactMarkdown from 'react-markdown';
 import { useRouter } from 'next/router';
@@ -12,7 +10,7 @@ import { useRouter } from 'next/router';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 import {darcula,a11yDark,atomDark,dracula} from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
-import Post, { createPost, getCoverImage } from '../../classes/postType';
+import Post, { createPost } from '../../classes/postType';
 import CustomButton, {ButtonIcon} from '../../components/CustomButton';
 import globalStyles from '../../styles/slug.styles';
 import getImageType from '../../utils/getImageType';
@@ -20,7 +18,7 @@ import Category, { getCategories } from '../../classes/category';
 import { motion } from 'framer-motion';
 import {slideButtonDown, slideInUp } from '../../helpers/animations';
 import Link from 'next/link';
-import Author from '../../classes/authorType';
+
 
 interface IPost{post: Post};
 type Params = {slug: string};
@@ -29,10 +27,9 @@ type StaticResponse = {params: Params};
 
 const PostPage: React.FC<IPost> = ({post}: IPost) => {
     const router = useRouter()
-    const doenstHaveCoverImage:boolean = post.cover_image.includes('/default-images')
+    const doenstHaveCoverImage:boolean = post.cover_image.includes('/default-images/');
     const codeTheme: string = post.code_theme != null ? getCodeTheme(post.code_theme) : darcula
     const imageType =  getImageType(post.cover_image)
-
     return(
         <>
             <NextHead>

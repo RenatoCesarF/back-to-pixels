@@ -2,37 +2,39 @@ import Category from "../classes/category";
 import Post from "../classes/postType";
 
 
-export const verifyPostValues = (post: Post) =>{
-  // TITTLE   
+export const isPostValid = (post: Post) =>{
+  
+  // Date
+  if(!post.date || post.date === null){
+    throw new Error(`Post ${post.slug} | Post date is null or undefined`);
+  }
+  //verify if it's able to create a Date var 
+  
+  verifyTitle(post);
+  verifyExcerpt(post);
+  verifyCoverImage(post);
+  verifyPostCategories(post);
+  verifyPostAuthor(post);
+
+  return true;
+
+}
+const verifyTitle = (post: Post) =>{
   if(!post.title || post.title.length < 5){
     throw new Error(`Post ${post.slug} | Title null or too short`);
   }
   if(post.title.length >= 50){
     throw new Error(`Post ${post.slug} | Post tittle is too long`);
   }
-  // Description
+}
+
+const verifyExcerpt = (post: Post) =>{
   if(!post.excerpt || post.excerpt === null){
     throw new Error(`Post ${post.slug} | Post excerpt can not be null`);
   }
   if(post.excerpt.length <= 10){
     throw new Error(`Post ${post.slug} | Post excerpt is too short, at least 10 characters`);
   }
-
-  // Date
-  if(!post.date || post.date === null){
-    throw new Error(`Post ${post.slug} | Post date is null or undefined`);
-  }
-
-  verifyCoverImage(post);
-
-  verifyCategories(post);
-
-  // Author
-  // if(!post.author || post.author === null){
-  //   throw new Error("Post author cannnot be undefined or null");
-  // }
-  return true;
-
 }
 
 const verifyCoverImage = (post: Post) =>{
@@ -49,7 +51,7 @@ const verifyCoverImage = (post: Post) =>{
   // }
 }
 
-const verifyCategories = (post: Post) =>{
+const verifyPostCategories = (post: Post) =>{
   if(!post.categories || post.categories === null){
     throw new Error(`Post ${post.slug} | Post categories cannnot be undefined or null`);
   }
@@ -64,6 +66,8 @@ const verifyCategories = (post: Post) =>{
   });
 }
 
-const verifyAuthor = (post: Post) =>{
-  
+const verifyPostAuthor = (post: Post) =>{
+  if(!post.author || post.author === null || post.author === undefined){
+    throw new Error("Post author cannnot be undefined or null");
+  }
 }

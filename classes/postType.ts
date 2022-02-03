@@ -1,7 +1,7 @@
+import { readdirSync, readFileSync } from 'fs';
 import matter from 'gray-matter';
-import {readdirSync, readFileSync} from 'fs';
 import {join} from 'path';
-import Author from './authorType'
+import Author, { getAuthor } from './authorType'
 import Category, { getCategories } from './category'
 
 type Post = {
@@ -22,7 +22,7 @@ export default Post;
 export const getCoverImage = (slug: string, image_name:any) =>{
   var coverImage;
   
-  if(!isImageCoverValid(slug, image_name) || typeof(image_name) === "number"){
+  if(typeof(image_name) === "number" || !isImageCoverValid(slug, image_name)){
     var defaultImageIndex = image_name || Math.floor(Math.random() * 4) + 1;
     coverImage = `/images/posts/default-images/${defaultImageIndex}.webp`;
     return coverImage;
@@ -36,9 +36,7 @@ export const createPost = (filename: string): Post => {
   const markdownWithMeta = readFileSync(join('posts', filename), 'utf-8');
   const {data, content} = matter(markdownWithMeta);
 
-  // verifyPostValues(data);
-
-  const postAuthor: Author = {name: data.author, about: "", email: "", image:"", instagram: "", twitter: "", role: ""}
+  const postAuthor: Author = getAuthor(data.author);
   const categories: Category[] = getCategories(data.categories);
   const coverImage = getCoverImage(slug,data.cover_image);
   
@@ -61,7 +59,8 @@ export const createPost = (filename: string): Post => {
 const isImageCoverValid = (slug: string, image_name: any) => {
   const isImageTextValid: boolean = (typeof(image_name) === "string" && !image_name.toString().startsWith('https'))
   if(image_name === null || !isImageTextValid ){
-    return false; 
+    throw new Error(`cover_image from ${slug} is undefined/null os isn't valid`);
+    
   }
 
   var imageExistInFolder = false;    
@@ -75,3 +74,7 @@ const isImageCoverValid = (slug: string, image_name: any) => {
   }
   return imageExistInFolder;
 }
+
+// export const haveCoverImage = (cover_image: string):boolean =>{
+//   return cover_image.includes('/default-images/');
+// }

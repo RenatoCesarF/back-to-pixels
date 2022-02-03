@@ -1,12 +1,25 @@
+const authorsInfo = require('../public/authorsInfo.json');
 
 type Author ={
     name: string,
     email: string,
     role: string
-    image: string,
+    image_path: string,
     about: string,
     twitter: string,
     instagram: string,
 }
-export default Author
+
+export const getAuthor = (authorKey: string): Author => {
+    authorKey = authorKey.toString().toLowerCase();
+    var authorInfo: Author  = authorsInfo[authorKey];
+
+    if(!authorInfo || authorInfo === undefined || authorInfo === null){
+        throw new Error("Author is null, undefined or invalid");
+    }
   
+    const author: Author = authorInfo
+    return author;
+}
+
+export default Author;

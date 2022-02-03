@@ -31,7 +31,7 @@ export const getCategories = (categories: any[]) => {
   
     categories.forEach((category: Category) => {
       if(category === undefined || category === null){
-        throw new Error("Categories cannot be null or undefined ");
+        throw new Error("Category is null, undefined or invalid");
       }
       const tagkey: string = category.toString().toLowerCase();
       var tagInfo: Category  = categoriesInfo[tagkey];
