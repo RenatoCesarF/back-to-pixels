@@ -1,7 +1,6 @@
 import matter from 'gray-matter';
 import {readdirSync, readFileSync} from 'fs';
 import {join} from 'path';
-import { isNumber } from 'util';
 import Author from './authorType'
 import Category, { getCategories } from './category'
 
@@ -58,14 +57,6 @@ export const createPost = (filename: string): Post => {
   return post;
 }
 
-
-
-
-const verifyPostValues = (post:Post) =>{
-  if(!post.title || post.title.length < 5){
-    throw new Error("Title null or too short");
-  }
-}
 
 const isImageCoverValid = (slug: string, image_name: any) => {
   const isImageTextValid: boolean = (typeof(image_name) === "string" && !image_name.toString().startsWith('https'))

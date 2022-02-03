@@ -31,17 +31,12 @@ export const getCategories = (categories: any[]) => {
   
     categories.forEach((category: Category) => {
       if(category === undefined || category === null){
-        return;
+        throw new Error("Categories cannot be null or undefined ");
       }
       const tagkey: string = category.toString().toLowerCase();
       var tagInfo: Category  = categoriesInfo[tagkey];
-      
-
-      if(tagInfo.gradient && tagInfo.gradient.length < 2){
-          throw new Error("Gradiend need to be an array with 2 values ");
-      }
-      categoryList.push(tagInfo)
-      
+    
+      categoryList.push(tagInfo);  
     });
     return categoryList;
 }
