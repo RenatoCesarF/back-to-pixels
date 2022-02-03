@@ -14,7 +14,7 @@ const TeamPage = () => {
                 <meta name="robots" content="follow"/>
                 <meta name="robots" content="index, follow"/>
                 <meta name="googlebot" content="index, follow"/>
-                <meta property="og:url" content="https://https://codingideas.vercel.app/team"></meta>
+                <meta property="og:url" content="https://codingideas.vercel.app/team"></meta>
                 <meta property="og:title" content="Coding Ideas Blog Page - Read our posts"></meta>
             </NextHead>
                 <div className='page'>

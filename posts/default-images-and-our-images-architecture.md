@@ -2,7 +2,7 @@
 title: 'Default Images And Our images Architecture'
 date: '02/01/2022'
 author: 'renato'
-cover_image: 'store-images'
+cover_image: 'dobro'
 excerpt: "How I made our first default images and How does this system work behind the beauty"
 code_language: 'javascript'
 categories: [BLOG, DESIGN, PROGRAMMING, ARCHITECTURE]

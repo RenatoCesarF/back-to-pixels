@@ -4,4 +4,5 @@ module.exports = {
   images: {
     domains: ['codingideas.vercel.app'],
   },
+  basePath: 'https://codingideas.vercel.app',
 }

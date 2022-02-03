@@ -46,11 +46,11 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                 }
 
                 <meta property="og:type" content="blog"/>
-                <meta property="og:url" content={`https://codingideas.vercel.app/blog/${post.slug}`} />
+                <meta property="og:url" content={`${router.basePath}/${post.slug}`} />
                 <meta property="og:title" content={post.title}/>
                 <meta property="og:site_name" content={post.title}/>
                 <meta property="og:description" content={post.excerpt}/>
-                <meta property="og:image" content={`${post.cover_image}`}/>
+                <meta property="og:image" content={`${router.basePath}${post.cover_image}`}/>
                 <meta property="og:image:type" content={`image/${imageType}`} />
                 <meta property="og:image:width" content="300"/>
                 <meta property="og:image:height" content="300"/>
@@ -67,11 +67,11 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
 
                 <meta name="twitter:card" content="summary_large_image"/>
                 <meta name="twitter:website" content="@nerat0"/>
-                <meta name="twitter:image" content={post.cover_image}/>
+                <meta name="twitter:image" content={`${router.basePath}${post.cover_image}`}/>
                 <meta name="twitter:title" content={post.title}/>
                 <meta name="twitter:description" content={post.excerpt}/>
                 <meta name="twitter:creator" content={post.author.twitter}/>
-                <meta property="twitter:url" content={`https://codingideas.vercel.app/blog/${post.slug}`}/>
+                <meta property="twitter:url" content={`${router.basePath}/blog/${post.slug}`}/>
                 <meta property="twitter:domain" content="codingideas.vercel.app"/>
             </NextHead>
             <style jsx global>

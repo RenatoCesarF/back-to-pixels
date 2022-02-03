@@ -20,7 +20,7 @@ const Home: NextPage = () => {
     <div  className='page'>
       <NextHead>
           <meta name="description" content="Coding Ideas website Home page, Learn more about our work"/>
-          <meta property="og:url" content="https://https://codingideas.vercel.app"/>
+          <meta property="og:url" content="https://codingideas.vercel.app"/>
           <meta property="og:title" content="Coding Ideas Home Page - Learn more about us"/>
           <meta name="robots" content="follow"/>
           <meta name="robots" content="index, follow"/>
