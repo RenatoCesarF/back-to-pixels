@@ -27,7 +27,7 @@
   --main-font-color: #EEEEEE;
   --code-background-color: #747373;
   --code-color: rgb(255, 255, 255);
-  --link-color: #4B81AB;
+  --link-color: #4256c7;
 }
 ::selection {
   color:var(--main-font-color);

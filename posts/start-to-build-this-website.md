@@ -3,7 +3,7 @@ title: 'Start To Build This Website'
 date: '01/01/2022'
 author: 'renato'
 excerpt: 'Just documenting the first cool stuff, this blog'
-cover_image: 'right'
+cover_image: 2
 categories: [BLOG]
 ---
 
