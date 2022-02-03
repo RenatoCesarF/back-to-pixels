@@ -2,11 +2,11 @@
 title: 'Reunion 0.1'
 date: '01/06/2022'
 author: 'renato'
-cover_image: 'painted-us-cover'
+cover_image: 'test'
 excerpt: 'The progress made in our first company reunion. The colors we tested and documenting things'
 categories: [BLOG, DESIGN]
 ---
-
+painted-us-cover
 Yesterday (01/05/2022) we made our first reunion, sadly with only two of us personally and one via Google Meet. But even in this situation, we did a lot of progress.
 
 -   We choose a font: Robot for the body of every text (Maybe try Open Sans in the future).
