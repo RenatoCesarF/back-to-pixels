@@ -1,23 +1,24 @@
 import fs from 'fs';
 import path from 'path';
+
 import React from 'react';
 import NextHead from 'next/head';
-// import Image from 'react'
 import ReactMarkdown from 'react-markdown';
 import { useRouter } from 'next/router';
-// import reactImageSize  from 'react-image-size';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 import {darcula,a11yDark,atomDark,dracula} from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 import Post, { createPost } from '../../classes/postType';
 import CustomButton, {ButtonIcon} from '../../components/CustomButton';
+import ImageZoom from '../../components/ImageZoom';
 import globalStyles from '../../styles/slug.styles';
 import getImageType from '../../utils/getImageType';
 import Category, { getCategories } from '../../classes/category';
-import { motion } from 'framer-motion';
 import {slideButtonDown, slideInUp } from '../../helpers/animations';
-import Link from 'next/link';
+
 
 
 interface IPost{post: Post};
@@ -85,7 +86,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                             
                     <motion.div variants={slideInUp} className='post-cover-div'>
 
-                            <img
+                            <ImageZoom
                                 width='536px'height='341px'
                                 alt='blog post cover' className='post-cover' 
                                 src={post.cover_image}/>
@@ -107,7 +108,12 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                                 skipHtml={false}
                                 components={{
                                     img({node, className, children, ...props}){
-                                        return <img alt={props.src} className='img-fit' src={`/images/posts/${post.slug}/${props.src}`}/>
+                                        return <ImageZoom 
+                                                    src={`/images/posts/${post.slug}/${props.src}`} 
+                                                    alt={`${props.src}`}
+                                                    className='img-fit'
+                                                />
+                                        // return <img alt={props.src}  src={`/images/posts/${post.slug}/${props.src}`}/>
                                     },
                                     a({node, className, children, ...props}){
                                         if(props.href?.startsWith('/')){
