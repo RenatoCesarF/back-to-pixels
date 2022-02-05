@@ -4,11 +4,12 @@ import path from 'path'
 import { Feed ,Item} from "feed";
 import matter from 'gray-matter';
 import { getCoverImage } from '../classes/postType';
+import { sortByDate } from '../utils/sort';
 
 
 async function generateRssFeed() {
   if (process.env.NODE_ENV === 'development') {
-    return;
+    // return;
   }
   console.log("Creating RSS feeds");
   const baseUrl= "https://codingideas.vercel.app";
@@ -40,9 +41,9 @@ async function generateRssFeed() {
 
 
 
-  //Parsing posts to feed
+  //Create list o post items
   const files = fs.readdirSync(path.join('posts'));
-  files.map((filename) => {
+  const items: Item[] = files.map((filename) => {
     const slug = filename.replace('.md', '');
     const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8');
     const {data} = matter(markdownWithMeta);
@@ -55,16 +56,22 @@ async function generateRssFeed() {
       title: data.title,
       image: `${baseUrl}${getCoverImage(slug, data.cover_image)}`,
       link: url.toString(),
-      date: new Date(),
+      date: new Date(data.date),
       id: slug,
       description: data.excerpt,
       content:  data.content,
       author: data.author.toString(),
       contributor: [author],
     }
+    return item
+  });
+  //Sorting and adding posts
+  const sortedItems: Item[] = items.sort(sortByDate);
+  sortedItems.forEach((item: Item) =>{
     feed.addItem(item);
   });
-
+  
+  // Creating feed file
   fs.mkdirSync("./public/rss", { recursive: true });
   fs.writeFileSync("./public/rss/feed.xml", feed.rss2());
   fs.writeFileSync("./public/rss/feed.json", feed.json1());
