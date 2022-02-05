@@ -20,9 +20,14 @@ export default css.global`
 
   .post-section a{
     font-size: 1.0em;
-    text-decoration: underline;
+    border-bottom: 1px dashed var(--link-color);
+    text-decoration: none;
     font-weight: bold;
     color: var(--link-color);
+    transition: opacity 0.3s ease 0s;
+  }
+  .post-section a:hover{
+    opacity: 0.7;
   }
   .post-content h1{
     font-size: 1.6em;
@@ -43,7 +48,7 @@ export default css.global`
     margin-right: auto; 
   }
   .post-cover{
-    border-radius: 0.2rem;
+    border-radius: 0.15rem;
     height: 100%;
     width:100%;
     object-fit: cover;
@@ -109,6 +114,7 @@ export default css.global`
     font-style: italic;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
+  
  
   @media only screen and (min-width:600px) and (max-width:990px){
     .post-container{

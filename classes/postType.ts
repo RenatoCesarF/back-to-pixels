@@ -13,7 +13,6 @@ type Post = {
   excerpt: string,
   slug: string,
   code_theme: string, // need to create a type that store these values
-  code_language: string,
   title: string,
 }
 
@@ -50,7 +49,6 @@ export const createPost = (filename: string): Post => {
     excerpt: data.excerpt, 
     title: data.title,
     code_theme: data.code_theme ?? null,
-    code_language: data.code_language ?? "python",  
   }
   return post;
 }

@@ -22,7 +22,8 @@
     "react-lottie": "^1.2.3",
     "react-markdown": "^7.1.2",
     "react-medium-image-zoom": "^4.3.5",
-    "react-syntax-highlighter": "^15.4.5"
+    "react-syntax-highlighter": "^15.4.5",
+    "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.16.7",

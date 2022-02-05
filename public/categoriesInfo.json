@@ -49,6 +49,13 @@
         "about": "Articles with about software-architecture, how we manage to get to then, how it works and why choose them",
         "textColor": "#222222"
     },
+    "tutorial":{
+        "key": "tutorial",
+        "name": "Tutorial",
+        "color": "#247ba3",
+        "about": "Articles with about software-architecture, how we manage to get to then, how it works and why choose them",
+        "textColor": "#222222"
+    },
     "design":{
         "key": "design",
         "name": "Design",
