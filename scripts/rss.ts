@@ -51,7 +51,7 @@ async function generateRssFeed() {
     if(data.excerpt.length > maximumExcerptSize){
         data.excerpt = data.excerpt.substr(0, maximumExcerptSize) + '...';
     } 
-    const url = `${baseUrl}/${slug}`;
+    const url = `${baseUrl}/blog/${slug}`;
     const item: Item = {
       title: data.title,
       image: `${baseUrl}${getCoverImage(slug, data.cover_image)}`,
