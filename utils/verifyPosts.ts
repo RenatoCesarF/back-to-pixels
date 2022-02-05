@@ -1,7 +1,6 @@
 import Category from "../classes/category";
 import Post from "../classes/postType";
 
-
 export const isPostValid = (post: Post) =>{
   
   // Date
@@ -44,11 +43,7 @@ const verifyCoverImage = (post: Post) =>{
   if(!post.cover_image.includes('.webp')){
     throw new Error(`Post ${post.slug} | Post cover image is not in the right format. It needs to be .webp format`);
   }
-  // var img =  new Image();
-  // img.src = post.cover_image;
-  // if(img.width < 500 || img.height < 300){
-  //   throw new Error(`Post ${post.slug} | Post image file need to be at leas 500px of height and 300px of width`);
-  // }
+ 
 }
 
 const verifyPostCategories = (post: Post) =>{

@@ -43,13 +43,13 @@ export default function BlogPage(posts:PostList){
 
               <LazyMotion features={domAnimation}>
     
-              <m.div className='posts-grid'>
-                {
-                  sortedPosts.map((post: Post, index: number) =>{
-                    return <PostCard post={post} key={index}/>
-                  })
-                }
-               </m.div>
+                <m.div className='posts-grid'>
+                  {
+                    sortedPosts.map((post: Post, index: number) =>{
+                      return <PostCard post={post} key={index}/>
+                    })
+                  }
+                </m.div>
 
               </LazyMotion> 
           </div>

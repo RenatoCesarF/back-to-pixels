@@ -5,7 +5,7 @@ import Header from '../components/HeaderComponent'
 
 import NextHead from 'next/head';
 import Link from 'next/link'
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   function handleScrollToTop() {
@@ -76,14 +76,17 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
       </NextHead>
       <Header/>
       <AnimatePresence exitBeforeEnter onExitComplete={handleScrollToTop}>
-        <motion.div
-              key={router.route}
-              initial="exit"
-              animate="enter"
-              exit="exit"
-              transition={{ ease: [0.175, 0.85, 0.42, 0.96], duration: 0.2, staggerChildren: 0.1 }}>
-              <Component {...pageProps} />
-        </motion.div>
+        <MotionConfig reducedMotion='user'>
+          <motion.div
+                key={router.route}
+                initial="exit"
+                animate="enter"
+                exit="exit"
+                transition={{ ease: [0.175, 0.85, 0.42, 0.96], duration: 0.2, staggerChildren: 0.1 }}
+                >
+                <Component {...pageProps} />
+          </motion.div>
+        </MotionConfig>
       </AnimatePresence>
       <Footer/>
     </>

@@ -14,9 +14,10 @@ import {darcula,a11yDark,atomDark,dracula} from 'react-syntax-highlighter/dist/c
 import Post, { createPost } from '../../classes/postType';
 import CustomButton, {ButtonIcon} from '../../components/CustomButton';
 import ImageZoom from '../../components/ImageZoom';
+
 import globalStyles from '../../styles/slug.styles';
 import getImageType from '../../utils/getImageType';
-import Category, { getCategories } from '../../classes/category';
+import Category from '../../classes/category';
 import {slideButtonDown, slideInUp } from '../../helpers/animations';
 
 
@@ -164,8 +165,9 @@ export async function getStaticPaths(){
     return {paths, fallback: false};
 }
 
-export async function getStaticProps(object: StaticResponse ){
-    const slug: string = object.params.slug;
+export async function getStaticProps({params}: StaticResponse ){
+    const slug: string = params.slug;
+    console.log(params)
     const post: Post = createPost(`${slug}.md`);
 
     return {

@@ -1,6 +1,7 @@
 const authorsInfo = require('../public/authorsInfo.json');
 
 type Author ={
+    key: string,
     name: string,
     email: string,
     role: string
@@ -20,6 +21,11 @@ export const getAuthor = (authorKey: string): Author => {
   
     const author: Author = authorInfo
     return author;
+}
+
+export const getAuthorsList = () =>{
+    const authorsList = Object.entries(authorsInfo);
+    return authorsList;
 }
 
 export default Author;

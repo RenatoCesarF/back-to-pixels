@@ -16,7 +16,7 @@ const ImageZoom: React.FC<ImageZoomProps> = (props: ImageZoomProps)=>{
     return (
         <div className='image-zoom'>
 
-            <Zoom overlayBgColorEnd='rgb(0 0 0 / 81%)'>
+            <Zoom overlayBgColorEnd='rgb(0 0 0 / 81%)' scrollableEl={undefined}>
                 <img
                     className={props.className}
                     alt={props.alt}

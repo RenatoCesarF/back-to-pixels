@@ -1,6 +1,7 @@
 {
     "renato": {
-        "name": "Renato Cesar F",
+        "key": "renato",
+        "name": "Renato Cesar",
         "email": "re.fbarcellos@hotmail.com",
         "role": "Programmer",
         "image_path": "/images/authors/renato.webp",

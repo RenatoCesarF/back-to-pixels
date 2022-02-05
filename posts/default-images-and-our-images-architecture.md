@@ -1,9 +1,9 @@
 ---
-title: 'Default Images And Our images Architecture'
+title: 'Default Images And Our Images Architecture'
 date: '02/01/2022'
 author: 'renato'
 cover_image: 'dobro'
-excerpt: "How I made our first default images and How does this system work behind the beauty"
+excerpt: "How I made our first default images and How does this system work behind the beauty. I took the opportunity to explain how our posts architecture works and how we store images"
 code_language: 'javascript'
 categories: [BLOG, DESIGN, PROGRAMMING, ARCHITECTURE]
 code_theme: 'dracula'
@@ -45,13 +45,13 @@ The system is very simple. We just verify if the `cover_image` variable is a val
 
 Before understanding how the default images work, you need to understand how we store our post-images in the first place. All the website logic, programming, design was made by me ([Renato](/team/renato)). And I do not have sure that this is the best architecture option to store posts images, but is the one that most fits my case. Maybe in the future, it changes (I hope not). But for now, it is what it is.
 
-We have a **posts** folder in the root directory. inside this folder, there is every single post written in a `.md` format. The name of each post is its name in lower keys separated by a dash/trace `-`. For example, this post file name is `default-images-and-our-images-architecture`. This name serves as **slug**/ID for the post. Now inside our `public/images` folder, we have another **posts** folder, this one has one folder for each post written, the name of those subfolders are the same as the post that it belongs to. Inside those subfolders, we store all the images used in each post. 
+We have a **posts** folder in the root directory. inside this folder, there is every single post written in a `.md` format. The name of each post is its name in lower keys separated by a dash/trace '-'. For example, this post file name is `default-images-and-our-images-architecture`. This name serves as **slug**/ID for the post. Now inside our `public/images` folder, we have another **posts** folder, this one has one folder for each post written, the name of those subfolders are the same as the post that it belongs to. Inside those subfolders, we store all the images used in each post. 
 
 ![folder-organization](folder-organization.webp)
 
 I think this is a good approach to storing multiple blog images. It would be a terrible solution to just throw every single image inside the same folder, and not separate it by post. How would you find an old image inside it? How would you manage thousands and thousands of images when the website grows?
 
-Another thing is the dash/trace (`-`) nomenclature chosen. I know that CammelCase is good when you are coding, but it's good when you are using the code font, and not a file / OS font. It's terrible to read it in almost all common fonts. So the dash is a good choice. And why not an underscore (`_`)? To tell the truth, is simpler than it looks: it takes more work to type. Instead of using `shift + '-'` to write every simple space in the word, just use the dash. In the end, it's like a space-bar on the top of the keyboard :)
+Another thing is the dash/trace ('-') nomenclature chosen. I know that CammelCase is good when you are coding, but it's good when you are using the code font, and not a file / OS font. It's terrible to read it in almost all common fonts. So the dash is a good choice. And why not an underscore ('_')? To tell the truth, is simpler than it looks: it takes more work to type. Instead of using `shift + '-'` to write every simple space in the word, just use the dash. In the end, it's like a space-bar on the top of the keyboard :)
 
 ---
 
