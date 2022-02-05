@@ -10,7 +10,6 @@ async function generateRssFeed() {
   if (process.env.NODE_ENV === 'development') {
     return;
   }
-  return;
   console.log("Creating RSS feeds");
   const baseUrl= "https://codingideas.vercel.app";
   const date  = new Date();
@@ -21,8 +20,8 @@ async function generateRssFeed() {
   };
 
   const feed = new Feed({
-      title: `DevBlog`,
-      description: "Welcome to the blog containing all the articles and documentation about all the games and projects that I (Renato Cesar) produce with my team",
+      title: `Coding Ideas`,
+      description: "Welcome to the blog containing all the articles and documentation about all the games and projects we produce",
       id: baseUrl,
       link: baseUrl,
       language: "en",
@@ -40,8 +39,9 @@ async function generateRssFeed() {
   });
 
 
+
+  //Parsing posts to feed
   const files = fs.readdirSync(path.join('posts'));
-    
   files.map((filename) => {
     const slug = filename.replace('.md', '');
     const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8');
@@ -53,7 +53,7 @@ async function generateRssFeed() {
     const url = `${baseUrl}/${slug}`;
     const item: Item = {
       title: data.title,
-      image: getCoverImage(slug, data.cover_image),
+      image: `${baseUrl}${getCoverImage(slug, data.cover_image)}`,
       link: url.toString(),
       date: new Date(),
       id: slug,
@@ -65,13 +65,10 @@ async function generateRssFeed() {
     feed.addItem(item);
   });
 
-  feed.rss2
-  feed.atom1
-  feed.json1
   fs.mkdirSync("./public/rss", { recursive: true });
   fs.writeFileSync("./public/rss/feed.xml", feed.rss2());
   fs.writeFileSync("./public/rss/feed.json", feed.json1());
-  // fs.writeFileSync("./public/rss/atom.xml", feed.atom1());
+  fs.writeFileSync("./public/rss/atom.xml", feed.atom1());
   console.log("Finish RSS feeds")
 }
 
