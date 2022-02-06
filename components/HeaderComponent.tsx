@@ -11,7 +11,6 @@ enum HeaderOption{
     NONE
 };
 
-
 export default function Header() {
     const router = useRouter()
     const [isMenuOpened, setMenuState] = useState(false);
@@ -44,7 +43,7 @@ export default function Header() {
                 </div>
             </div>
 
-            <div className={`header-right ${checkMenuState()}`} >
+            <nav className={`header-right ${checkMenuState()}`} >
                 <Link href="/">
                     <a 
                         onClick={()=>changeToOption(HeaderOption.HOME)}
@@ -64,7 +63,7 @@ export default function Header() {
                         className={`menu-option ${isMenuActive(HeaderOption.TEAM)}` } >Team
                     </a>
                 </Link>
-            </div>
+            </nav>
         </div>
     )
 }
