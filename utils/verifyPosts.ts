@@ -1,4 +1,5 @@
 import Category from "../classes/category";
+const authorInfo = require('../public/authorsInfo.json');
 import Post from "../classes/postType";
 
 export const isPostValid = (post: Post) =>{

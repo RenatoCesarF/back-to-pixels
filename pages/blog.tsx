@@ -12,6 +12,7 @@ import Post, { createPost, getCoverImage } from '../classes/postType';
 import {sortByDate, sortByDateReverse} from '../utils/sort';
 
 import { slideInLeft } from '../helpers/animations';
+import RssLinks from '../components/RssLinks';
 
 const PostCard = dynamic(() => import("../components/PostCard"))
 
@@ -53,6 +54,7 @@ export default function BlogPage(posts:PostList){
 
               </LazyMotion> 
           </div>
+          <RssLinks/>
         </>
     );
 }

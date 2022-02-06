@@ -20,6 +20,7 @@ import globalStyles from '../../styles/slug.styles';
 import getImageType from '../../utils/getImageType';
 import Category from '../../classes/category';
 import {slideButtonDown, slideInUp } from '../../helpers/animations';
+import RssLinks from '../../components/RssLinks';
 
 
 
@@ -105,7 +106,6 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                         <div className='post-content'> 
                             <ReactMarkdown
                                 remarkPlugins={[remarkGfm]} 
-                                skipHtml={false}
                                 components={{
                                     input({node, className, children, ...props}){
                                         return (
@@ -161,6 +161,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                     </motion.div>
                 </div>
             </section>
+            <RssLinks/>
         </>
     )
 };
