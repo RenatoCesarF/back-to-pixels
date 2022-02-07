@@ -2,7 +2,6 @@ import fs from 'fs';
 import path from 'path';
 
 import React from 'react';
-import NextHead from 'next/head';
 import ReactMarkdown from 'react-markdown';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
@@ -17,8 +16,6 @@ import CustomButton, {ButtonIcon} from '../../components/CustomButton';
 import ImageZoom from '../../components/ImageZoom';
 
 import globalStyles from '../../styles/slug.styles';
-import getImageType from '../../utils/getImageType';
-import Category from '../../classes/category';
 import {slideButtonDown, slideInUp } from '../../helpers/animations';
 import RssLinks from '../../components/RssLinks';
 import HeadTag from '../../components/HeadTag';

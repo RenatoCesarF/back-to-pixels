@@ -19,10 +19,6 @@ const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
         .toLowerCase()
         .replaceAll(",", ", ");
 
-    if(props.author === undefined){
-        props.author = getAuthor('renato');
-    }
-
   
     return(
         <Head>
@@ -50,7 +46,7 @@ const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
 
             <meta name="description" content={props.description}/>
             <meta name="keywords" content={stringKeywords}/>
-            <meta name="author" content={props.author?.name}/>
+            <meta name="author" content={props.author ? props.author.name : "Renato Cesar"}/>
             <meta name="robots" content="index, follow"/>
             <meta name="googlebot" content="index, follow"/>
             
@@ -69,7 +65,7 @@ const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
             <meta property="og:image:alt" content="Post cover image"/> 
             
             <meta property="blog:title" content={props.title}/>
-            <meta property="blog:author" content={props.author? props.author.name : "renato"}/>
+            <meta property="blog:author" content={props.author ? props.author.name : "Renato Cesar"}/>
             <meta property="blog:published_time" content={props.date.toString()}/>
             <meta property="blog:tag" content={stringKeywords}/>
 
