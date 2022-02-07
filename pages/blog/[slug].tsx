@@ -21,6 +21,7 @@ import getImageType from '../../utils/getImageType';
 import Category from '../../classes/category';
 import {slideButtonDown, slideInUp } from '../../helpers/animations';
 import RssLinks from '../../components/RssLinks';
+import HeadTag from '../../components/HeadTag';
 
 
 
@@ -30,54 +31,27 @@ type StaticResponse = {params: Params};
 
 
 const PostPage: React.FC<IPost> = ({post}: IPost) => {
-    const router = useRouter()
+    const router = useRouter();
     const doenstHaveCoverImage:boolean = post.cover_image.includes('/default-images/');
-    const codeTheme: string = post.code_theme != null ? getCodeTheme(post.code_theme) : darcula
-    const imageType =  getImageType(post.cover_image)
+    const codeTheme: string = post.code_theme != null ? getCodeTheme(post.code_theme) : darcula;
+    const postDate = new Date(post.date.replace("/","-"))
+    
+    var keywordsList: string[] = [];
+    for(let i = 0; i< post.categories.length; i++){
+        keywordsList.push(post.categories[i].name);
+    }
+
     return(
         <>
-            <NextHead>
-                <title>{post.title}</title>
-                <meta name="description" content={post.excerpt}/>
-                <meta name="author" content={post.author.name}/>
-                <meta name="keywords" content="Indie Games, Development, Game, Indie, Developers, Blog"/>
-                <meta name="robots" content="index, follow"/>
-                <meta name="googlebot" content="index, follow"/>
-                {
-                    post.categories.map((name: Category, index:number) =>(
-                        <meta name="keywords" content={name.toString().toLowerCase()} key={index}/>
-                    ))
-                }
-
-                <meta property="og:type" content="blog"/>
-                <meta property="og:url" content={`https://codingideas.vercel.app/${post.slug}`} />
-                <meta property="og:title" content={post.title}/>
-                <meta property="og:site_name" content={post.title}/>
-                <meta property="og:description" content={post.excerpt}/>
-                <meta property="og:image" content={`https://codingideas.vercel.app${post.cover_image}`}/>
-                <meta property="og:image:type" content={`image/${imageType}`} />
-                <meta property="og:image:width" content="300"/>
-                <meta property="og:image:height" content="300"/>
-                <meta property="og:image:alt" content="Post cover image"/> 
-                
-                <meta property="blog:title" content={post.title}/>
-                <meta property="blog:author" content={post.author.name}/>
-                <meta property="blog:published_time" content={post.date}/>
-                {
-                    post.categories.map((name: Category, index: number) =>(
-                        <meta property="blog:tag" content={name.toString().toLowerCase()} key={index}/>
-                    ))
-                }
-
-                <meta name="twitter:card" content="summary_large_image"/>
-                <meta name="twitter:website" content="@nerat0"/>
-                <meta name="twitter:image" content={`https://codingideas.vercel.app${post.cover_image}`}/>
-                <meta name="twitter:title" content={post.title}/>
-                <meta name="twitter:description" content={post.excerpt}/>
-                <meta name="twitter:creator" content={post.author.twitter}/>
-                <meta property="twitter:url" content={`https://codingideas.vercel.app/blog/${post.slug}`}/>
-                <meta property="twitter:domain" content="codingideas.vercel.app"/>
-            </NextHead>
+            <HeadTag 
+                image={`https://codingideas.vercel.app${post.cover_image}`}
+                title={post.title} 
+                description={post.excerpt}
+                keywords={keywordsList}
+                date={postDate}
+                url={`https://codingideas.vercel.app/${post.slug}`}
+                author={post.author}
+            />
             <style jsx global>
                 {globalStyles}
             </style>

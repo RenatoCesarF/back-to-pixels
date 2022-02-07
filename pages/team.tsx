@@ -6,6 +6,7 @@ import InDevelopment from '../components/InDevelopment';
 import globalStyles from '../styles/teammate.styles';
 import Author, { getAuthor, getAuthorsList } from '../classes/authorType';
 import TeammateCard from '../components/TeammateCard';
+import HeadTag from '../components/HeadTag';
 
 
 interface authorsList{
@@ -19,15 +20,14 @@ const TeamPage = ({authors}: authorsList) => {
             <style jsx global>
                 {globalStyles}
             </style>
-            <NextHead>
-                <title>Coding Ideas Team</title>
-                <meta name="description" content="Team page - Read about our team"/>
-                <meta name="robots" content="follow"/>
-                <meta name="robots" content="index, follow"/>
-                <meta name="googlebot" content="index, follow"/>
-                <meta property="og:url" content="https://codingideas.vercel.app/team"></meta>
-                <meta property="og:title" content="Coding Ideas Blog Page - Read our posts"></meta>
-            </NextHead>
+            <HeadTag 
+              image="https://codingideas.vercel.app/images/logo.png" 
+              title="Coding Ideas Team" 
+              description="Coding IdeasTeam page - Read about our teammates"
+              keywords={['home page']} 
+              date={new Date()} 
+              url="https://codingideas.vercel.app/team"
+            />
             <div className='page'>
                 <motion.div  variants={slideInLeft}>
                     <h1>Teams page</h1>

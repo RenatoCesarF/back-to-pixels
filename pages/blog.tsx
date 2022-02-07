@@ -13,6 +13,7 @@ import {sortByDate, sortByDateReverse} from '../utils/sort';
 
 import { slideInLeft } from '../helpers/animations';
 import RssLinks from '../components/RssLinks';
+import HeadTag from '../components/HeadTag';
 
 const PostCard = dynamic(() => import("../components/PostCard"))
 
@@ -24,16 +25,15 @@ export default function BlogPage(posts:PostList){
     const sortedPosts = posts.posts.sort(sortByDate);
     return (
         <>
-          <NextHead>
-                <title>Coding Ideas – Blog</title>
-                <meta name="description" content="Blog Page - A list of all our articles and blog posts."/>
-                <meta name="author" content="Renato Cesar"></meta>
-                <meta name="robots" content="follow"/>
-                <meta name="robots" content="index, follow"/>
-                <meta name="googlebot" content="index, follow"/>
-                <meta property="og:url" content="https://https://codingideas.vercel.app/blog"></meta>
-                <meta property="og:title" content="Coding Ideas Blog Page - Read our posts"></meta>
-          </NextHead>
+          <HeadTag 
+              image="https://codingideas.vercel.app/images/logo.png" 
+              title="Coding Ideas – Blog" 
+              description="Coding Ideas Blog Page - A list of all our articles and blog posts."
+              keywords={[]} 
+              date={new Date()} 
+              url="https://codingideas.vercel.app/blog"
+          />
+
           <div className='page'>
               <style jsx global>
                   {globalStyles}

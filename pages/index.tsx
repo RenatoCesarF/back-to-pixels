@@ -6,6 +6,7 @@ import { motion} from 'framer-motion'
 import programmerLotie from '../public/lotties/programmer-lottie.json';
 import { slideInLeft } from '../helpers/animations'
 import InDevelopment from '../components/InDevelopment'
+import HeadTag from '../components/HeadTag';
 
 const Home: NextPage = () => {
   const defaultOptions = {
@@ -18,16 +19,14 @@ const Home: NextPage = () => {
   };
   return (
     <div  className='page'>
-      <NextHead>
-          <meta name="description" content="Coding Ideas website Home page, Learn more about our work"/>
-          <meta property="og:url" content="https://codingideas.vercel.app"/>
-          <meta property="og:title" content="Coding Ideas Home Page - Learn more about us"/>
-          <meta name="robots" content="follow"/>
-          <meta name="robots" content="index, follow"/>
-          <meta name="googlebot" content="index, follow"/>
-  
-          <title>Coding Ideas Home</title>
-      </NextHead>
+      <HeadTag 
+              image="https://codingideas.vercel.app/images/logo.png" 
+              title="Coding Ideas Home" 
+              description="Coding Ideas website Home page, Learn more about our work"
+              keywords={['home page']} 
+              date={new Date()} 
+              url="https://codingideas.vercel.app"
+        />
       <div className='page' >
         <motion.div variants={slideInLeft}>
           <h1>Home</h1>

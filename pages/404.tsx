@@ -5,7 +5,7 @@ import CustomButton, {ButtonIcon} from '../components/CustomButton';
 import { slideInDown, slideInUp } from '../helpers/animations';
 import lotie404 from '../public/lotties/404-lottie.json';
 import Lottie from 'react-lottie'
-import NextHead from 'next/head';
+import HeadTag from '../components/HeadTag';
 
 export default function Custom404() {
     const router = useRouter()
@@ -19,12 +19,14 @@ export default function Custom404() {
       };
     return (
         <div className="page">
-            <NextHead>
-                <meta name="description" content="Coding Ideas website Home page, Learn more about our work"/>
-                <meta property="og:title" content="Coding Ideas – 404 Not Found"/>
-        
-                <title>404 - Not Found</title>
-            </NextHead>
+            <HeadTag 
+                image="https://codingideas.vercel.app/images/logo.png" 
+                title="404 - Not Found" 
+                description="Coding Ideas website - Page not found"
+                keywords={[]} 
+                date={new Date()} 
+                url="https://codingideas.vercel.app/404"
+            />
 
             <div className='center-404'>
                 
