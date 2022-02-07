@@ -16,8 +16,7 @@ const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
     var keywords: string[] = [ ...defaultKeywords, ...props.keywords];
     var stringKeywords: string = keywords
         .join()
-        .toLowerCase()
-        .replaceAll(",", ", ");
+        .toLowerCase();
 
   
     return(

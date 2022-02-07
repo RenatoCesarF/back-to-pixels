@@ -10,7 +10,7 @@ interface teamMateProps {
 
 const TeammateCard: React.FC<teamMateProps> = ({author}:teamMateProps) =>{
     return(
-        <Link href={`/team/${author.key}`}>
+        <Link href={`/team/${author.key}`} passHref>
             <m.div className='teammate-card-div' variants={cardVariants}>
                 <p>{author.name}</p>
                 
