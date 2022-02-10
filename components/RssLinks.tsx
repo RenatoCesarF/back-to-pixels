@@ -1,10 +1,14 @@
-const RssLinks = () =>{
+import { useRouter } from 'next/router'
 
+const RssLinks = () =>{
+    const router = useRouter()
+    console.log(router);
+    const baseURL: string = "https://codingideas.vercel.app/rss" 
     return (
         <div className="rss-feed-container">
-            <a target="_blank" rel="noopener noreferrer" className="rss-feed-link" href='rss/atom.xml'>Atom Feed</a>
-            <a target="_blank" rel="noopener noreferrer" className="rss-feed-link" href='rss/feed.json'>Json Feed</a>
-            <a target="_blank" rel="noopener noreferrer" className="rss-feed-link" href='rss/feed.xml'>RSS Feed</a>
+            <a target="_blank" rel="noopener noreferrer" className="rss-feed-link" href={`${baseURL}/atom.xml`} >Atom Feed</a>
+            <a target="_blank" rel="noopener noreferrer" className="rss-feed-link" href={`${baseURL}/feed.json`} >Json Feed</a>
+            <a target="_blank" rel="noopener noreferrer" className="rss-feed-link" href={`${baseURL}/feed.xml`} >RSS Feed</a>
         </div>
     )
 }
