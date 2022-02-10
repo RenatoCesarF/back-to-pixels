@@ -34,7 +34,6 @@ export const createPost = (filename: string): Post => {
   const slug: string = filename.replace('.md', '');
   const markdownWithMeta = readFileSync(join('posts', filename), 'utf-8');
   const {data, content} = matter(markdownWithMeta);
-
   const postAuthor: Author = getAuthor(data.author);
   const categories: Category[] = getCategories(data.categories);
   const coverImage = getCoverImage(slug,data.cover_image);
