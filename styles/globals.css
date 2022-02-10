@@ -176,8 +176,10 @@ a{
 blockquote {
   color: var(--postColor);
   border-left: 0.3rem solid var(--secondary-color);
-  padding: 0px 1.3rem;
+  padding: 0.1rem 1.3rem;
   margin: 3.125rem auto;
+  background-color: #2d2d2d0f;
+  border-radius: 0.1rem;
 }
 
 .page{

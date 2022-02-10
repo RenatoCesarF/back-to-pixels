@@ -1,8 +1,5 @@
-import { useRouter } from 'next/router'
-
 const RssLinks = () =>{
-    const router = useRouter()
-    console.log(router);
+
     const baseURL: string = "https://codingideas.vercel.app/rss" 
     return (
         <div className="rss-feed-container">
