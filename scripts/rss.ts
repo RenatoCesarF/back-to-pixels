@@ -9,7 +9,7 @@ import { sortByDate } from '../utils/sort';
 
 async function generateRssFeed() {
   if (process.env.NODE_ENV === 'development') {
-    // return;
+    return;
   }
   console.log("Creating RSS feeds");
   const baseUrl= "https://codingideas.vercel.app";

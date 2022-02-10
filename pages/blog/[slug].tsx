@@ -93,9 +93,10 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                                                     alt={`${props.src}`}
                                                     className='img-fit'
                                                 />
-                                        // return <img alt={props.src}  src={`/images/posts/${post.slug}/${props.src}`}/>
                                     },
                                     a({node, className, children, ...props}){
+                                        const linkElement = <a target="_blank" rel="noopener noreferrer" href={props.href} >{children}</a>
+
                                         if(props.href?.startsWith('/') || props.href?.startsWith('#')){
                                             return (
                                                 <Link href={props.href} passHref={true}> 
@@ -103,7 +104,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                                                 </Link>
                                             )
                                         }
-                                        return <a target="_blank" rel="noopener noreferrer" href={props.href} >{children}</a>
+                                        return linkElement
                                     },
                                     code({node, inline, className, children, ...props}) {
                                         const match = /language-(\w+)/.exec(className || '')
