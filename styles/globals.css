@@ -25,8 +25,8 @@
   --button-color: #485188;
   --shadow-color: #333333c4;
   --main-font-color: #EEEEEE;
-  --code-background-color: #747373;
-  --code-color: rgb(255, 255, 255);
+  --code-background-color:#485188; /* ;*/
+  --code-color: rgb(245, 244, 244);
   --link-color: #4f5dad;
   /* --link-hover-color:#334088; */
   --link-hover-color:#5366cc;
@@ -101,10 +101,10 @@ code {
   content: "";
   position: absolute;
   display: none;
-  left: 0.4rem;
-  top: 0.15rem;
+  left: 0.2rem;
+  top: 0.01rem;
   width: 5px;
-  height: 10px;
+  height: 8px;
   border: solid var(--main-font-color);
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
@@ -114,11 +114,11 @@ code {
 }
 .checkmark {
   position: absolute;
-  top: -0.1rem;
+  top: 0.05rem;
   bottom: 0.2rem;
   left: 0.2rem;
-  height: 1.4rem;
-  width: 1.4rem;
+  height: 1rem;
+  width: 1rem;
   border-radius: 2px;
   background-color: #ccc;
   border: 1px solid #2d2d2d62;
@@ -127,7 +127,7 @@ code {
   background-color: var(--secondary-color)
 }
 .cb-content{
-  margin-left: 0.8rem;
+  margin-left: 0.4rem;
 }
 /*============ ==============*/
 
