@@ -1,5 +1,4 @@
 import Category, { CategoryType } from '../classes/category'
-// import categoriesInfo from '../helpers/categoriesInfo'
 
 interface tagProps{
     category: Category

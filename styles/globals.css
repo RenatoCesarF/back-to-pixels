@@ -6,31 +6,100 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap');
 
 
-/*--------DARK BLUE-----------*/
 
-:root{
+/*=================== THEMES ============*/
+body.light{
   --button-font: '';
+  --line-color: #acacac;
+  --rss-link-color: #2d2d2dad;
+  --background-quote-color: #2d2d2d0f;
+  --scrollbar-background-color: #B5B5B5;
+
+  
   --card-border-color: #485188; 
   --card-text-color: #2d2d2d;
   --card-color: #EEEEEE ;
+  --card-date-color: #636363;
+  --card-shadow-color: rgba(58, 58, 58, 0.69);
+  
   --background-color: #EEEEEE;
   --main-color: #382F60;
   --secondary-color: #485188;
+  
   --header-option-activated: #485188;
   --header-option-hover: #48518896;
   --header-text-option-activated: white;
+  --header-option-text: white;
   --open-menu-icon-color: #EEEEEE;
   --page-title-color: #2d2d2d;
   --button-text-color: #fff;
   --button-color: #485188;
   --shadow-color: #333333c4;
   --main-font-color: #EEEEEE;
-  --code-background-color:#485188; /* ;*/
+
+  --post-text-color: #292929;
+  --post-h1-color:  rgba(41, 41, 41, 1);
+  --post-resume-color:#575757;
+
+  
+  --code-background-color:#485188;
   --code-color: rgb(245, 244, 244);
+  
   --link-color: #4f5dad;
-  /* --link-hover-color:#334088; */
   --link-hover-color:#5366cc;
+
+  --table-row-even: #f2f2f2;
+  --table-row-odd: #dddddd;
+  --table-row-hover: #2d2d2d36;
+  --table-line-color: #2d2d2d48;
 }
+
+
+body.dark{
+  --button-font: '';
+  --line-color: #818181;
+  --rss-link-color: #c1c1c1ad;
+  --background-quote-color: #a3a3a30f;
+  --scrollbar-background-color: #292828;
+
+  --card-border-color: #382F60; 
+  --card-text-color: #cfcfcfee;
+  --card-color: #1F1D36 ;
+  --card-date-color: #919191;
+  
+  --background-color:  #121212; 
+  --main-color: #382F60;
+  --secondary-color: #485188;
+  
+  --header-option-activated: #485188;
+  --header-option-hover: #48518896;
+  --header-text-option-activated: white;
+  --header-option-text: white;
+  --open-menu-icon-color: #EEEEEE;
+  --page-title-color: #2d2d2d;
+  --button-text-color: #fff;
+  --button-color: #485188;
+  --shadow-color: #333333c4;
+  --main-font-color: rgb(214, 212, 212);
+  
+  --post-text-color: #cfcfcfee;
+  --post-h1-color: #eeee;
+  --post-resume-color:rgb(165, 165, 165); 
+  
+  --code-background-color:#382F60;
+  --code-color: rgb(245, 244, 244);
+  
+  --link-color: #6f7abd;
+  --link-hover-color:#485188;
+
+  --table-row-even: #474747;
+  --table-row-odd: #3a3a3a;
+  --table-row-hover: #2d2d2d36;
+  --table-line-color: #adadad48;
+  
+} 
+
+
 ::selection {
   color:var(--main-font-color);
   border-radius: 200px;
@@ -38,20 +107,24 @@
 }
 
 *{
+  /* transition: color .5s  cubic-bezier(0.175, 0.885, 0.32, 1.275); */
+  /* transition: color 2s  ease-in-out; */
   box-sizing: border-box;
   margin: 0;
 }
 html,
 body {
+  transition: all .4s;
   padding: 0;
   background-color: var(--background-color);
   font-family: 'Roboto', sans-serif;
+
 }
 .page-title{
   margin-top: 1rem;
   margin-left: 1.6rem;
   padding-left: 0.6rem;
-  color: var(--page-title-color);
+  color: var(--card-text-color);
   border-bottom: solid  7px;
   border-left: solid 7px;
   width: 7rem;
@@ -121,7 +194,6 @@ code {
   width: 1rem;
   border-radius: 2px;
   background-color: #ccc;
-  border: 1px solid #2d2d2d62;
 }
 .cb-container input:checked ~ .checkmark{
   background-color: var(--secondary-color)
@@ -136,7 +208,7 @@ h1{
   line-height: 1.12;
   font-style: normal;
   font-weight: 700;
-  color: rgba(41, 41, 41, 1);
+  color: var(--post-h1-color);
   margin: 0;
  
 }
@@ -152,13 +224,13 @@ h3{
 
 }
 hr{
-  border: 1px solid #acacac;
+  border: 1px solid var(--line-color)
 }
 
 p{
   line-height: 28px;
   word-break: break-word;
-  color: rgba(41, 41, 41, 1);
+  color: var(--post-text-color);
   display: block;
   font-family: 'Roboto', sans-serif;
   line-height: 1.4em;
@@ -178,7 +250,7 @@ blockquote {
   border-left: 0.3rem solid var(--secondary-color);
   padding: 0.1rem 1.3rem;
   margin: 3.125rem auto;
-  background-color: #2d2d2d0f;
+  background-color: var(--background-quote-color);
   border-radius: 0.1rem;
 }
 
@@ -232,7 +304,7 @@ blockquote {
 }
 .header a {
   float: left;
-  color: white;
+  color: var(--header-option-text);
   font-weight: 700;
   text-align: center;
 
@@ -249,10 +321,9 @@ blockquote {
 }
 .header a:hover {
   background-color: var(--header-option-hover);
-  color: white;
 }
 .header a.active {
-  background-color:var(--secondary-color);
+  background-color:var(--header-option-activated);
   color: var(--header-text-option-activated);
 
 }
@@ -416,6 +487,7 @@ blockquote {
   font-family: "Source Code Pro", sans-serif;
   word-spacing: 2px;
   font-size: 1.5em;
+  color: var(--post-text-color);
   margin: 0;
   padding: 0;
   margin-top: -3rem;
@@ -456,16 +528,18 @@ table {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  color: var(--post-text-color)
 }
 
 table td, table th {
-  border: 1px solid #2d2d2d48;
+  border: 1px solid var(--table-line-color);
   padding: 8px;
 }
 
-table tr:nth-child(even){background-color: #f2f2f2;}
+table tr:nth-child(even){background-color: var(--table-row-even);}
+table tr:nth-child(odd){background-color: var(--table-row-odd);}
 
-table tr:hover {background-color: #ddd;}
+table tr:hover {background-color:var(--table-row-hover);}
 
 table th {
   padding-top: 12px;
@@ -479,11 +553,11 @@ table th {
 /*=============== SCROLL BAR ===============*/
 
 body::-webkit-scrollbar-track {
-  background-color: #B5B5B5;
+  background-color: var(--scrollbar-background-color);
 }
 body::-webkit-scrollbar {
   width: 0.812rem;
-  background:#9583A2;
+  background: #9583A2;
 }
 body::-webkit-scrollbar-thumb {
   background: var(--secondary-color);
@@ -494,7 +568,7 @@ body::-webkit-scrollbar-thumb:hover {
 
 .rss-feed-link{
   text-decoration: none;
-  color: #2d2d2dad;
+  color: var(--rss-link-color);
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   transition: color .2s ease-in;

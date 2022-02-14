@@ -7,10 +7,10 @@ export default css.global`
   .post-section p{
     line-height: 1.8em;
   }
-  .post-section  li{
+  .post-section li{
     line-height: 1.7em;
     font-size: 1.0em;
-    color: rgba(41, 41, 41, 1);
+    color: var(--post-text-color);
   }
   .post-section em{
     /* color: var(--main-color); */
@@ -31,9 +31,10 @@ export default css.global`
   }
   .post-content h1{
     font-size: 1.6em;
-    margin-top: 1rem;
+    margin-top: 2rem;
   }
   .post-content h2{
+    color: var(--post-h1-color);
     font-size: 1.3em;
     margin-top: 1rem;
   }
@@ -72,10 +73,6 @@ export default css.global`
     position: absolute;
     user-select: none;
 
-    /* width: max-content;
-    margin-top: 9rem;
-    margin-left: 10rem;
-    color: red; */
     
     font-size: 2.5em;
     color: var(--main-font-color); 
@@ -102,7 +99,7 @@ export default css.global`
   }
   .post-section .post-resume {
     line-height: 1.2rem;
-    color: #575757;
+    color: var(--post-resume-color);
     font-size: 1rem;
 
     margin-left: 5%;

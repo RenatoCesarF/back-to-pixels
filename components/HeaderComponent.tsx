@@ -2,6 +2,8 @@ import { useRouter } from 'next/router'
 import Link from "next/link";
 import React, { useState } from "react";
 
+import ThemeSwitch from './ThemeSwich';
+
 import MenuIcon from './MenuIcon';
 
 enum HeaderOption{
@@ -42,7 +44,7 @@ export default function Header() {
                     <MenuIcon/>
                 </div>
             </div>
-
+            <ThemeSwitch/>
             <nav className={`header-right ${checkMenuState()}`} >
                 <Link href="/">
                     <a 

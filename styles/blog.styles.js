@@ -25,11 +25,11 @@ export default css.global`
   border-radius: 0.7rem;
   margin: 0.5rem;
   user-select:none;
-  transition: height 0.69s cubic-bezier(.65,-0.53,.24,1.12);
+  // transition: height 0.69s cubic-bezier(.65,-0.53,.24,1.12);
   
-  -webkit-box-shadow:  9px 9px 10px -6px rgba(58, 58, 58, 0.69);
-  -moz-box-shadow:  9px 9px 10px -6px rgba(58, 58, 58, 0.69);
-  box-shadow: 9px 9px 10px -6px rgba(58, 58, 58, 0.69); 
+  -webkit-box-shadow:  9px 9px 10px -6px var(--card-shadow-color);
+  -moz-box-shadow:  9px 9px 10px -6px var(--card-shadow-color);
+  box-shadow: 9px 9px 10px -6px var(--card-shadow-color); 
 }
 .post-card-clickable{
   cursor: pointer;
@@ -120,8 +120,6 @@ export default css.global`
   text-size-adjust: 20%;
   
   color: var(--card-text-color);
-
-  transition: all .7s cubic-bezier(.165,.84,.44,1);
 }
 
 /*------------FOOOTER--------------*/
@@ -252,13 +250,13 @@ export default css.global`
 /*========== */
 
 #card-date-icon{
-  color: #636363;
+  color: var(--card-date-color);
   margin-top: 0.95rem;
   margin-right: 0.14rem;
 }
 
 .post-card-date{
-  color: #636363;
+  color: var(--card-date-color);
   font-size: 0.9em;
   margin-bottom: 0.45rem;
   vertical-align: bottom;
