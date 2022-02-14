@@ -1,38 +1,66 @@
 import { useEffect,useState } from 'react'
 import {RiMoonClearFill, RiSunFill } from 'react-icons/ri'
-
-
+import { IconContext } from "react-icons";
+import {setCookie, parseCookies} from 'nookies'
 const lightTheme = 'light'
 const darkTheme = 'dark'
+const cookiesConfig = {path: '/', maxAge: 86400 * 30}
+
 
 const ThemeSwitch = () => {
-    const [theme,setTheme] = useState('light');
-
+    const cookies = parseCookies() 
+    const [loaded, setLoaded] = useState(false);
+    const [theme, setTheme] = useState(cookies.THEME);
     const switchTheme = () => {
         if(theme === darkTheme){
             setTheme(lightTheme);
-            localStorage.setItem("theme", lightTheme);
-            return;
+            setCookie(null, "THEME", lightTheme, cookiesConfig);
         }
-        setTheme(darkTheme);
-        localStorage.setItem("theme", darkTheme);
+        else{
+            setTheme(darkTheme);
+            setCookie(null, "THEME", darkTheme, cookiesConfig);
+        }
     }
 
     useEffect(() => {
+        setLoaded(true);
         document.body.className = theme;
     });
-    return(
+
+    // in the JSX
+        <IconContext.Provider value={{className: "switch-theme-icon" }}>
         <div onClick={() => switchTheme()}>
-            {
-                theme === 'light'
+            {   process.browser ?
+                theme === darkTheme
                 ?
-                <RiMoonClearFill  className='switch-theme-icon'/>
+                <RiSunFill />
                 : 
-                <RiSunFill className='switch-theme-icon'/>
+                <RiMoonClearFill />
+                :
+                <RiMoonClearFill />
             }
+        </div>
+        </IconContext.Provider>
+    
+    return(
+        <div>
+        {
+            loaded? 
+                <IconContext.Provider value={{className: "switch-theme-icon" }}>
+                <div onClick={() => switchTheme()}>
+                    {  
+                        theme === darkTheme
+                        ?
+                        <RiSunFill />
+                        : 
+                        <RiMoonClearFill />
+                    }
+                </div>
+                </IconContext.Provider>
+            : <></>
+        }
         </div>
     )
 }
-
 
 export default ThemeSwitch;

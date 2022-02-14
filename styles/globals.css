@@ -10,7 +10,7 @@
 /*=================== THEMES ============*/
 body.light{
   --button-font: '';
-  --switch-icon-color: #e1dfff;
+  --switch-icon-color: #EEEEEE;
   --line-color: #acacac;
   --rss-link-color: #2d2d2dad;
   --background-quote-color: #2d2d2d0f;
@@ -346,7 +346,11 @@ blockquote {
 
 
 @media screen and (max-width: 500px) {
-  .desktop-switcher{display: none;}
+  .theme-switcher{
+    position: absolute;
+    top: 1.2rem;
+    right: 4.5rem;
+  }
   .header{
     display: block;
   }
@@ -356,7 +360,7 @@ blockquote {
     margin-bottom: 0;
   }
   .header .logo-menu-line{
-    margin-top: 1vh;
+    margin-top: 0.3rem;
 }
   #home-option{
     margin-top: 20px;
@@ -388,7 +392,7 @@ blockquote {
     float: none;
     display: block;
     overflow-y: hidden;
-    visibility: hidden;
+    /* visibility: hidden; */
   }
   /*-------MENU----------*/
   .menu-icon{
@@ -600,4 +604,5 @@ body::-webkit-scrollbar-thumb:hover {
   width: 1.5rem;
   height: 1.5rem;
   margin: 0.5rem;
+  margin-top: 0.6rem;
 }

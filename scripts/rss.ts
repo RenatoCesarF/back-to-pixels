@@ -11,7 +11,7 @@ const baseUrl= "https://codingideas.vercel.app";
 
 async function generateRssFeed() {
   if (process.env.NODE_ENV === 'development') {
-    // return;
+    return;
   }
   console.log("Creating RSS feeds...");
   const date  = new Date();
