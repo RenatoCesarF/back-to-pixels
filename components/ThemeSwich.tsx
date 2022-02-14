@@ -1,9 +1,9 @@
-import Next from 'next'
 import { useEffect,useState } from 'react'
+import {RiMoonClearFill, RiSunFill } from 'react-icons/ri'
+
+
 const lightTheme = 'light'
 const darkTheme = 'dark'
-
-
 
 const ThemeSwitch = () => {
     const [theme,setTheme] = useState('light');
@@ -22,11 +22,14 @@ const ThemeSwitch = () => {
         document.body.className = theme;
     });
     return(
-        <div>
-
-            <button onClick={() => switchTheme()}>
-                Togle theme
-            </button>
+        <div onClick={() => switchTheme()}>
+            {
+                theme === 'light'
+                ?
+                <RiMoonClearFill  className='switch-theme-icon'/>
+                : 
+                <RiSunFill className='switch-theme-icon'/>
+            }
         </div>
     )
 }
