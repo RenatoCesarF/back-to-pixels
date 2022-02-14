@@ -30,7 +30,7 @@ type StaticResponse = {params: Params};
 const PostPage: React.FC<IPost> = ({post}: IPost) => {
     const router = useRouter();
     const doenstHaveCoverImage:boolean = post.cover_image.includes('/default-images/');
-    const codeTheme: string = post.code_theme != null ? getCodeTheme(post.code_theme) : darcula;
+    const codeTheme: string = getCodeTheme(post.code_theme);
     const postDate = new Date(post.date.replace("/","-"))
     
     var keywordsList: string[] = [];
@@ -158,7 +158,7 @@ export async function getStaticProps({params}: StaticResponse ){
     };
 }
 
-const getCodeTheme = (name: string) => {
+const getCodeTheme = (name: string = 'dracula') => {
     if(name === null || name === undefined){
         return dracula;
     }
@@ -167,7 +167,7 @@ const getCodeTheme = (name: string) => {
         case 'dracula': return dracula;
         case 'a11yDark': return a11yDark;
         case 'atomDark': return atomDark;
-        default: return darcula;
+        default: return dracula;
     }
 }
 export default PostPage;

@@ -5,7 +5,6 @@ author: 'renato'
 cover_image: 'dobro'
 excerpt: "How I made our first default images and How does this system work behind the beauty. I took the opportunity to explain how our posts architecture works and how we store images"
 categories: [BLOG, DESIGN, PROGRAMMING, ARCHITECTURE]
-code_theme: 'dracula'
 ---
 
 

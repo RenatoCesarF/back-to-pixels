@@ -8,10 +8,10 @@ export default css.global`
     display: grid;
     grid-template-columns: repeat(auto-fit, 20rem);
     justify-content: center;
-    row-gap: 2em;
+    row-gap: 1.3em;
 }
   
-  /*----------POST CARD------*/
+/*----------POST CARD------*/
 
 .post-card-div{
   width: 17rem;
@@ -27,6 +27,7 @@ export default css.global`
   margin: 0.5rem;
   user-select:none;
   transition: height 0.69s cubic-bezier(.65,-0.53,.24,1.12);
+  transition-delay: 0.1s;
   
   -webkit-box-shadow:  9px 9px 10px -6px var(--card-shadow-color);
   -moz-box-shadow:  9px 9px 10px -6px var(--card-shadow-color);
