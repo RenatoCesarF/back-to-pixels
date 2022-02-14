@@ -42,7 +42,6 @@ export default function Header() {
                 </Link>
                 
                 <div className='menu-icon-div'>
-                    {/* <ThemeSwitch/> */}
                     <div onClick={(toggleMenuIcon)}>
                         <MenuIcon/>
                     </div>

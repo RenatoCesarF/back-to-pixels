@@ -39,6 +39,8 @@ body.light{
   --card-color: #EEEEEE ;
   --card-date-color: #636363;
   --card-shadow-color: rgba(58, 58, 58, 0.69);
+
+  --header-background-color: #382F60;
   
   --background-color: #f5f5f5;
 
@@ -71,9 +73,11 @@ body.dark{
   --card-resume-text-color: #e9e7e7c2;
   --card-color: #241E3E;
   --card-date-color: #b5b5b5;
+
+  --header-background-color: #38393B;
+  --header-background-color: #2D2D2D;
   
-  --background-color:  #161616; 
-  --background-color: #181818;
+  --background-color: #1f1f1f;
   
   --font-contrast-color: rgb(214, 212, 212);
   
@@ -83,7 +87,7 @@ body.dark{
   
   --code-background-color:#382F60;
 
-  --link-color: #727cbd;
+  --link-color: #7f8ad3;
   --link-hover-color:#485188;
 
   --table-row-even: #383838;
@@ -250,7 +254,7 @@ blockquote {
 
 /*--------------------FOOTER------------*/
 .page-footer{
-  background: var(--main-color);
+  background: var(--header-background-color);
   text-align: center;
   bottom: 0px;
   height: 3rem; /* height of footer */
@@ -274,7 +278,7 @@ blockquote {
 .header {
   overflow: hidden;
   z-index: 1;
-  background-color: var(--main-color);
+  background-color: var(--header-background-color);
   display: flex;
   justify-content: space-between;
   
@@ -367,7 +371,6 @@ blockquote {
     margin-top:  0px;
     margin-right: 0px;
     visibility: visible;
-    background-color: var(--main-color);
     height: 150px;
     transition: height .5s  cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
