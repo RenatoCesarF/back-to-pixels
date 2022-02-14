@@ -123,7 +123,7 @@ export default css.global`
   
   transition: all .7s cubic-bezier(.165,.84,.44,1);
 
-  color: var(--card-text-color);
+  color: var(--card-resume-text-color);
 }
 
 /*------------FOOOTER--------------*/
