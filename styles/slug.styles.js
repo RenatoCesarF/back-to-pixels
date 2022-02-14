@@ -75,7 +75,7 @@ export default css.global`
 
     
     font-size: 2.5em;
-    color: var(--main-font-color); 
+    color: var(--font-contrast-color); 
    
   }
   /*============= CONTENT =============*/

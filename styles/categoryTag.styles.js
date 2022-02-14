@@ -17,7 +17,7 @@ export default css.global`
   }
   .category-tag-text{
     font-size: 1em;
-    color: var(--main-font-color);
+    color: var(--font-contrast-color);
     font-family: "Open Sans", sans-serif;
     font-weight: bolder;
     margin: 0;

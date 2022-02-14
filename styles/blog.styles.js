@@ -8,6 +8,7 @@ export default css.global`
     display: grid;
     grid-template-columns: repeat(auto-fit, 20rem);
     justify-content: center;
+    row-gap: 2em;
 }
   
   /*----------POST CARD------*/
@@ -25,7 +26,7 @@ export default css.global`
   border-radius: 0.7rem;
   margin: 0.5rem;
   user-select:none;
-  // transition: height 0.69s cubic-bezier(.65,-0.53,.24,1.12);
+  transition: height 0.69s cubic-bezier(.65,-0.53,.24,1.12);
   
   -webkit-box-shadow:  9px 9px 10px -6px var(--card-shadow-color);
   -moz-box-shadow:  9px 9px 10px -6px var(--card-shadow-color);
@@ -67,7 +68,7 @@ export default css.global`
   position: absolute;
 
   font-size: 1.8em;
-  color: var(--main-font-color); 
+  color: var(--font-contrast-color); 
  
   transition: transform 1.3s cubic-bezier(.165,.84,.44,1);
 }
@@ -119,6 +120,8 @@ export default css.global`
   font-size: 0.80rem;
   text-size-adjust: 20%;
   
+  transition: all .7s cubic-bezier(.165,.84,.44,1);
+
   color: var(--card-text-color);
 }
 
@@ -158,7 +161,7 @@ export default css.global`
 
   width: 50px;
   height: 20px;
-  /* background-color: var(--main-font-color); */
+  /* background-color: var(--font-contrast-color); */
   background-color:var(--main-color);
   text-align: center;
   padding: 8px 2px;

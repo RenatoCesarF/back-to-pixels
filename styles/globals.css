@@ -8,25 +8,11 @@
 
 
 /*=================== THEMES ============*/
-body.light{
+:root{
   --button-font: '';
-  --switch-icon-color: #EEEEEE;
-  --line-color: #acacac;
-  --rss-link-color: #2d2d2dad;
-  --background-quote-color: #2d2d2d0f;
-  --scrollbar-background-color: #B5B5B5;
-
-  
-  --card-border-color: #485188; 
-  --card-text-color: #2d2d2d;
-  --card-color: #EEEEEE ;
-  --card-date-color: #636363;
-  --card-shadow-color: rgba(58, 58, 58, 0.69);
-  
-  --background-color: #EEEEEE;
   --main-color: #382F60;
   --secondary-color: #485188;
-  
+
   --header-option-activated: #485188;
   --header-option-hover: #48518896;
   --header-text-option-activated: white;
@@ -36,15 +22,32 @@ body.light{
   --button-text-color: #fff;
   --button-color: #485188;
   --shadow-color: #333333c4;
-  --main-font-color: #EEEEEE;
+
+  --code-color: rgb(245, 244, 244);
+}
+
+body.light{
+  --switch-icon-color: #EEEEEE;
+  --line-color: #acacac;
+  --rss-link-color: #2d2d2dad;
+  --background-quote-color: #2d2d2d0f;
+  --scrollbar-background-color: #B5B5B5;
+
+  --card-border-color: #485188; 
+  --card-text-color: #2d2d2d;
+  --card-color: #EEEEEE ;
+  --card-date-color: #636363;
+  --card-shadow-color: rgba(58, 58, 58, 0.69);
+  
+  --background-color: #EEEEEE;
+
+  --font-contrast-color: #EEEEEE;
 
   --post-text-color: #292929;
   --post-h1-color:  rgba(41, 41, 41, 1);
   --post-resume-color:#575757;
 
-  
   --code-background-color:#485188;
-  --code-color: rgb(245, 244, 244);
   
   --link-color: #4f5dad;
   --link-hover-color:#5366cc;
@@ -55,9 +58,7 @@ body.light{
   --table-line-color: #2d2d2d48;
 }
 
-
 body.dark{
-  --button-font: '';
   --switch-icon-color: rgb(255, 243, 71);
   --line-color: #818181;
   --rss-link-color: #c1c1c1ad;
@@ -70,27 +71,15 @@ body.dark{
   --card-date-color: #919191;
   
   --background-color:  #121212; 
-  --main-color: #382F60;
-  --secondary-color: #485188;
   
-  --header-option-activated: #485188;
-  --header-option-hover: #48518896;
-  --header-text-option-activated: white;
-  --header-option-text: white;
-  --open-menu-icon-color: #EEEEEE;
-  --page-title-color: #2d2d2d;
-  --button-text-color: #fff;
-  --button-color: #485188;
-  --shadow-color: #333333c4;
-  --main-font-color: rgb(214, 212, 212);
+  --font-contrast-color: rgb(214, 212, 212);
   
   --post-text-color: #cfcfcfee;
   --post-h1-color: #eeee;
   --post-resume-color:rgb(165, 165, 165); 
   
   --code-background-color:#382F60;
-  --code-color: rgb(245, 244, 244);
-  
+
   --link-color: #6f7abd;
   --link-hover-color:#485188;
 
@@ -98,30 +87,26 @@ body.dark{
   --table-row-odd: #3a3a3a;
   --table-row-hover: #2d2d2d36;
   --table-line-color: #adadad48;
-  
 } 
 
 
 ::selection {
-  color:var(--main-font-color);
+  color:var(--font-contrast-color);
   border-radius: 200px;
   background: var(--main-color);
 }
 
 *{
-  /* transition: color .5s  cubic-bezier(0.175, 0.885, 0.32, 1.275); */
-  /* transition: color 2s  ease-in-out; */
   box-sizing: border-box;
   margin: 0;
 }
 html,
 body {
-  transition: all .4s;
   padding: 0;
   background-color: var(--background-color);
   font-family: 'Roboto', sans-serif;
-
 }
+body{transition: all .4s;}
 .page-title{
   margin-top: 1rem;
   margin-left: 1.6rem;
@@ -180,7 +165,7 @@ code {
   top: 0.01rem;
   width: 5px;
   height: 8px;
-  border: solid var(--main-font-color);
+  border: solid var(--font-contrast-color);
   border-width: 0 3px 3px 0;
   transform: rotate(45deg);
 }
@@ -276,7 +261,7 @@ blockquote {
   bottom: 0; 
 }
 .page-footer p{
-  color: var(--main-font-color);
+  color: var(--font-contrast-color);
   margin: 0;
   font-size: 0.8em;
   padding-top: 0.9rem;
@@ -470,7 +455,7 @@ blockquote {
 }
 .category-tag-text{
   font-size: 1em;
-  color: var(--main-font-color);
+  color: var(--font-contrast-color);
   font-family: "Open Sans", sans-serif;
   font-weight: bolder;
   margin: 0;
@@ -556,7 +541,7 @@ table th {
   padding-bottom: 12px;
   text-align: left;
   background-color: var(--main-color);
-  color: var(--main-font-color)
+  color: var(--font-contrast-color)
 }
 
 
