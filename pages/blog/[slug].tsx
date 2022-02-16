@@ -2,24 +2,17 @@ import fs from 'fs';
 import path from 'path';
 
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
 import { useRouter } from 'next/router';
-import Link from 'next/link';
-import { motion } from 'framer-motion';
-
-import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
-import {darcula,a11yDark,atomDark,dracula} from 'react-syntax-highlighter/dist/cjs/styles/prism';
-import remarkGfm from 'remark-gfm';
+import { domAnimation, LazyMotion, m} from 'framer-motion';
 
 import Post, { createPost } from '../../classes/postType';
 import CustomButton, {ButtonIcon} from '../../components/CustomButton';
-import ImageZoom from '../../components/ImageZoom';
 
 import globalStyles from '../../styles/slug.styles';
 import {slideButtonDown, slideInUp } from '../../helpers/animations';
 import RssLinks from '../../components/RssLinks';
 import HeadTag from '../../components/HeadTag';
-
+import TranscribedPost from '../../components/TranscribedPost';
 
 
 interface IPost{post: Post};
@@ -30,7 +23,7 @@ type StaticResponse = {params: Params};
 const PostPage: React.FC<IPost> = ({post}: IPost) => {
     const router = useRouter();
     const doenstHaveCoverImage:boolean = post.cover_image.includes('/default-images/');
-    const codeTheme: string = getCodeTheme(post.code_theme);
+
     const postDate = new Date(post.date.replace("/","-"))
     
     var keywordsList: string[] = [];
@@ -52,87 +45,40 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
             <style jsx global>
                 {globalStyles}
             </style>
-            <section className='post-section'>
-                <div className='post-container'>
-                    <motion.div variants={slideButtonDown}>
-                        <CustomButton description='Return to Blog list' text='' icon={ButtonIcon.arrowBack} onClick={() => {router.push("/blog")}}/>
-                    </motion.div>
-                            
-                    <motion.div variants={slideInUp} className='post-cover-div'>
-                            <img
-                                width='536px'height='341px'
-                                alt='blog post cover' className='post-cover' 
-                                src={post.cover_image}/>
-                            {
-                                doenstHaveCoverImage ? 
-                                <h1 className='post-cover-date'>{post.date}</h1>
-                                : null
-                            }   
-                    </motion.div >
+            <main role="main" className='post-section'>
+                <article itemScope itemType='http://schema.org/Article' about={post.excerpt} className='post-container'>
+                    <meta itemProp='datePublished' content={post.date.replaceAll('/','-') + "11:30:00 -0700 -0700"}/>
+                    <meta itemProp='publisher' content="Coding Ideas"/>
+                    <meta itemProp='image' content={post.cover_image}/>
 
-                    <motion.div variants={slideInUp}>
-                        <h1 className='post-title'>{post.title}</h1>
-                        <p className='post-resume'>{post.excerpt}</p>
-                        <br/>
-                        <div className='post-content'> 
-                            <ReactMarkdown
-                                remarkPlugins={[remarkGfm]} 
-                                components={{
-                                    input({node, className, children, ...props}){
-                                        return (
-                                            <label className='cb-container'>
-                                                <span className='cb-content'>{children}</span>
-                                                <input  {...props}></input>
-                                                <span className='checkmark'></span>
-                                            </label>
-                                        ) 
-                                    },
-                                    img({node, className, children, ...props}){
-                                        return <ImageZoom 
-                                                    src={`/images/posts/${post.slug}/${props.src}`} 
-                                                    alt={`${props.src}`}
-                                                    className='img-fit'
-                                                />
-                                    },
-                                    a({node, className, children, ...props}){
-                                        const linkElement = <a target="_blank" rel="noopener noreferrer" href={props.href} >{children}</a>
+                    <LazyMotion features={domAnimation}>
+                        <m.div variants={slideButtonDown}>
+                            <CustomButton description='Return to Blog list' text='' icon={ButtonIcon.arrowBack} onClick={() => {router.push("/blog")}}/>
+                        </m.div>
+                                
+                        <m.div variants={slideInUp} className='post-cover-div'>
+                                <img
+                                    width='536px'height='341px'
+                                    alt='blog post cover' className='post-cover' 
+                                    src={post.cover_image}/>
+                                {
+                                    doenstHaveCoverImage ? 
+                                    <h1 className='post-cover-date'>{post.date}</h1>
+                                    : null
+                                }   
+                        </m.div >
 
-                                        if(props.href?.startsWith('/') || props.href?.startsWith('#')){
-                                            return (
-                                                <Link href={props.href} passHref={true}> 
-                                                    <a style={{"border": "none"}}>{children}</a>
-                                                </Link>
-                                            )
-                                        }
-                                        return linkElement
-                                    },
-                                    code({node, inline, className, children, ...props}) {
-                                        const match = /language-(\w+)/.exec(className || '')
-                                        return !inline && match ? 
-                                        
-                                            <SyntaxHighlighter
-                                                style={codeTheme}
-                                                language={match[1]}
-                                                PreTag="div"
-                                                {...props}
-                                            >
-                                                {String(children).replace(/\n$/, '')}
-                                            </SyntaxHighlighter>
-                                         
-                                        :
-                                            <code className='simple-code' {...props}>
-                                                {children}
-                                            </code>
-                                           
-                                        }
-                                    }}
-                                    >
-                                {post.content}
-                            </ReactMarkdown>
-                        </div>
-                    </motion.div>
-                </div>
-            </section>
+                        <m.section variants={slideInUp} itemProp="articleBody">
+                            <h1 itemProp='name' className='post-title'>{post.title}</h1>
+                            <p className='post-resume'>{post.excerpt}</p>
+                            <br/>
+                            <div className='post-content'> 
+                                <TranscribedPost post={post}/>
+                            </div>
+                        </m.section>
+                    </LazyMotion>
+                </article>
+            </main>
             <RssLinks/>
         </>
     )
@@ -158,16 +104,5 @@ export async function getStaticProps({params}: StaticResponse ){
     };
 }
 
-const getCodeTheme = (name: string = 'dracula') => {
-    if(name === null || name === undefined){
-        return dracula;
-    }
-    switch (name) {
-        case 'darcula': return darcula;
-        case 'dracula': return dracula;
-        case 'a11yDark': return a11yDark;
-        case 'atomDark': return atomDark;
-        default: return dracula;
-    }
-}
+
 export default PostPage;

@@ -26,6 +26,8 @@
   --shadow-color: #333333c4;
 
   --code-color: rgb(245, 244, 244);
+
+  
 }
 
 body.light{
@@ -55,12 +57,13 @@ body.light{
   --code-background-color:#485188;
   
   --link-color: #4f5dad;
-  --link-hover-color:#5366cc;
+  --link-hover-color:#ebebeb;
 
   --table-row-even: #f2f2f2;
   --table-row-odd: #dddddd;
   --table-row-hover: #2d2d2d36;
   --table-line-color: #2d2d2d48;
+
 }
 
 body.dark{
@@ -88,10 +91,10 @@ body.dark{
   --post-h1-color: #ffff;
   --post-resume-color:rgb(165, 165, 165); 
   
-  --code-background-color:#382F60;
+  --code-background-color:#485188;
 
   --link-color: #7f8ad3;
-  --link-hover-color:#485188;
+  --link-hover-color:#2d2d2d;
 
   --table-row-even: #383838;
   --table-row-odd: #272727;

@@ -24,10 +24,16 @@ export default css.global`
     text-decoration: none;
     font-weight: bold;
     color: var(--link-color);
-    transition: opacity 0.3s ease 0s;
+    padding-left: 5px;
+    padding-right: 5px;
+    transition: color .4s ease-in-out, box-shadow .4s ease-in-out;
+    box-shadow: inset 0 0 0 0 var(--link-color);
   }
   .post-section a:hover{
-    opacity: 0.7;
+    border-bottom: none;
+    font-weight: 500;
+    box-shadow: inset 200px 0 0 0 var(--link-color);
+    color: var(--link-hover-color);
   }
   .post-content h1{
     font-size: 1.6em;

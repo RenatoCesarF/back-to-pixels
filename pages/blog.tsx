@@ -28,7 +28,7 @@ export default function BlogPage(posts:PostList){
           <HeadTag 
               image="https://codingideas.vercel.app/images/logo.png" 
               title="Coding Ideas – Blog" 
-              description="Coding Ideas Blog Page - A list of all our articles and blog posts."
+              description="Coding Ideas Blog Page - A list of all our articles and blog posts. Here we document the process of the development of all our projects and games"
               keywords={[]} 
               date={new Date()} 
               url="https://codingideas.vercel.app/blog"
