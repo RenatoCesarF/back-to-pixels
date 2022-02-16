@@ -47,7 +47,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
             </style>
             <main role="main" className='post-section'>
                 <article itemScope itemType='http://schema.org/Article' about={post.excerpt} className='post-container'>
-                    <meta itemProp='datePublished' content={post.date.replaceAll('/','-') + "11:30:00 -0700 -0700"}/>
+                    <meta itemProp='datePublished' content={`${post.date.replaceAll('/','-')} 11:30:00 -0700 -0700`}/>
                     <meta itemProp='publisher' content="Coding Ideas"/>
                     <meta itemProp='image' content={post.cover_image}/>
 
