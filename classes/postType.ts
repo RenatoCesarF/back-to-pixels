@@ -2,7 +2,7 @@ import { readdirSync, readFileSync } from 'fs';
 import matter from 'gray-matter';
 import {join} from 'path';
 import Author, { getAuthor } from './authorType'
-import Category, { getCategories } from './category'
+import Category, { getPostCategories } from './category'
 
 type Post = {
   author: Author,
@@ -35,7 +35,7 @@ export const createPost = (filename: string): Post => {
   const markdownWithMeta = readFileSync(join('posts', filename), 'utf-8');
   const {data, content} = matter(markdownWithMeta);
   const postAuthor: Author = getAuthor(data.author);
-  const categories: Category[] = getCategories(data.categories);
+  const categories: Category[] = getPostCategories(data.categories);
   const coverImage = getCoverImage(slug,data.cover_image);
   
   const post: Post = {

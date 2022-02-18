@@ -27,7 +27,7 @@ export enum CategoryType {
 }
 
 
-export const getCategories = (categories: any[]) => {
+export const getPostCategories = (categories: any[]): Category[] => {
     var categoryList: Category[] = [];
   
     categories.forEach((category: Category) => {
@@ -35,11 +35,29 @@ export const getCategories = (categories: any[]) => {
         throw new Error("Category is null, undefined or invalid");
       }
       const tagkey: string = category.toString().toLowerCase();
-      var tagInfo: Category  = categoriesInfo[tagkey];
-    
-      categoryList.push(tagInfo);  
+      categoryList.push(getCategoryInfo(tagkey));  
     });
     return categoryList;
+}
+
+export const getAllCategories = (): Category[] =>{
+  const listOfCategories = Object.entries(categoriesInfo);
+  
+  const categoriesList: Category[] = listOfCategories.map((element) => {
+    let tagKey = element[0];
+    return getCategoryInfo(tagKey);
+  })
+
+  return categoriesList;
+}
+
+export const getCategoryInfo = (categoryName: string): Category =>{
+  var tagInfo: Category  = categoriesInfo[categoryName];
+
+  if(tagInfo === undefined || tagInfo === null){
+    throw `CategoryName not find or undefined (${categoryName})`
+  }
+  return tagInfo;
 }
 
 export default Category

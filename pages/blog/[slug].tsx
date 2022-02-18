@@ -92,7 +92,7 @@ export async function getStaticPaths(){
             slug: filename.replace('.md', '')
         }
     }));
-
+    console.log(paths);
     return {paths, fallback: false};
 }
 

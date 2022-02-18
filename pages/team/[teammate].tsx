@@ -19,17 +19,8 @@ const Teammate: React.FC<IAuthor> = ({author}: IAuthor) => {
 } 
 
 
-export async function getStaticProps({params}: StaticResponse ){
-    const author: Author = getAuthor(params.teammate);
-
-    return {
-        props:{ author } 
-    };
-}
-
 export async function getStaticPaths(){
     const authorsList = getAuthorsList();
-
     const paths = authorsList.map(authorKey => ({
         params: {
             teammate: authorKey[0]
@@ -38,5 +29,15 @@ export async function getStaticPaths(){
 
     return {paths, fallback: false};
 }
+
+export async function getStaticProps({params}: StaticResponse ){
+    const author: Author = getAuthor(params.teammate);
+
+    return {
+        props:{ author } 
+    };
+}
+
+
 
 export default Teammate;

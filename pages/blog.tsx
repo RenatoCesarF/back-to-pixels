@@ -22,12 +22,12 @@ interface PostList{
 };
 
 
-export default function BlogPage(posts:PostList){
-    const sortedPosts = posts.posts.sort(sortByDate);
+export default function BlogPage({posts}:PostList){
+    // console.log(posts)
     return (
         <>
           <HeadTag 
-              image="/images/logo.png" 
+              image="/images/logo.png"  //use generator here
               title="Coding Ideas – Blog" 
               description="Coding Ideas Blog Page - A list of all our articles and blog posts. Here we document the process of the development of all our projects and games"
               keywords={[]} 
@@ -47,7 +47,7 @@ export default function BlogPage(posts:PostList){
     
                 <m.div className='posts-grid'>
                   {
-                    sortedPosts.map((post: Post, index: number) =>{
+                    posts.map((post: Post, index: number) =>{
                       return <PostCard post={post} key={index}/>
                     })
                   }
@@ -66,7 +66,8 @@ export async function getStaticProps(){
     var posts: Post[] = files.map(filename => {
       return createPost(filename);
     });
-
+    
+    posts = posts.sort(sortByDate);
     return {
       props: {posts}
     };
