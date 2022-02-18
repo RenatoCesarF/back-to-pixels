@@ -11,14 +11,13 @@ interface HeadProps{
     author?: Author,
 }
 const defaultKeywords: string[] = ["indie", "Indie Games", "NextJS", "Developers", "Company", "games", "development", "developers", "blog", "documentation"]
+const siteURL: string = "https://codingideas.vercel.app";
+
 
 const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
     var keywords: string[] = [ ...defaultKeywords, ...props.keywords];
-    var stringKeywords: string = keywords
-        .join()
-        .toLowerCase();
+    var stringKeywords: string = keywords.join().toLowerCase();
 
-  
     return(
         <Head>
             <link rel="shortcut icon" href="/favicon.ico" />
@@ -49,15 +48,13 @@ const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
             <meta name="robots" content="index, follow"/>
             <meta name="googlebot" content="index, follow"/>
             
-            
-
             <meta property="og:locale" content="en_US"/>
             <meta property="og:type" content="blog"/>
-            <meta property="og:url" content={props.url} />
+            <meta property="og:url" content={siteURL + props.url} />
             <meta property="og:title" content={props.title}/>
             <meta property="og:site_name" content="Coding Ideas"/>
             <meta property="og:description" content={props.description}/>
-            <meta property="og:image" content={props.image}/>
+            <meta property="og:image" content={siteURL + props.image}/>
             <meta property="og:image:type" content={`image/webp`} />
             <meta property="og:image:width" content="300"/>
             <meta property="og:image:height" content="300"/>
@@ -70,11 +67,11 @@ const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
 
             <meta name="twitter:card" content="summary_large_image"/>
             <meta name="twitter:website" content="@nerat0"/>
-            <meta name="twitter:image" content={props.image}/>
+            <meta name="twitter:image" content={siteURL + props.image}/>
             <meta name="twitter:title" content={props.title}/>
             <meta name="twitter:description" content={props.description}/>
             <meta name="twitter:creator" content={props.author?.twitter}/>
-            <meta property="twitter:url" content={props.url}/>
+            <meta property="twitter:url" content={siteURL + props.url}/>
             <meta property="twitter:domain" content="codingideas.vercel.app"/>
         </Head>
     )

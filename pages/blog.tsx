@@ -21,17 +21,18 @@ interface PostList{
   posts: Post[]
 };
 
+
 export default function BlogPage(posts:PostList){
     const sortedPosts = posts.posts.sort(sortByDate);
     return (
         <>
           <HeadTag 
-              image="https://codingideas.vercel.app/images/logo.png" 
+              image="/images/logo.png" 
               title="Coding Ideas – Blog" 
               description="Coding Ideas Blog Page - A list of all our articles and blog posts. Here we document the process of the development of all our projects and games"
               keywords={[]} 
               date={new Date()} 
-              url="https://codingideas.vercel.app/blog"
+              url="/blog"
           />
 
           <div className='page'>

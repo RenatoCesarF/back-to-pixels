@@ -20,12 +20,12 @@ const Home: NextPage = () => {
   return (
     <div  className='page'>
       <HeadTag 
-              image="https://codingideas.vercel.app/images/logo.png" 
+              image="/images/logo.png" 
               title="Coding Ideas Home" 
               description="Coding Ideas website Home page, Learn more about our work"
               keywords={['home page']} 
               date={new Date()} 
-              url="https://codingideas.vercel.app"
+              url=""
         />
       <div className='page' >
         <motion.div variants={slideInLeft}>

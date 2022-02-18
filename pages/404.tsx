@@ -7,6 +7,7 @@ import lotie404 from '../public/lotties/404-lottie.json';
 import Lottie from 'react-lottie'
 import HeadTag from '../components/HeadTag';
 
+
 export default function Custom404() {
     const router = useRouter()
     const defaultOptions = {
@@ -20,12 +21,12 @@ export default function Custom404() {
     return (
         <div className="page">
             <HeadTag 
-                image="https://codingideas.vercel.app/images/logo.png" 
+                image="/images/logo.png"
                 title="404 - Not Found" 
                 description="Coding Ideas website - Page not found"
                 keywords={[]} 
                 date={new Date()} 
-                url="https://codingideas.vercel.app/404"
+                url="/404"
             />
 
             <div className='center-404'>

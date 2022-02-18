@@ -21,12 +21,12 @@ const TeamPage = ({authors}: authorsList) => {
                 {globalStyles}
             </style>
             <HeadTag 
-              image="https://codingideas.vercel.app/images/logo.png" 
+              image="/images/logo.png" 
               title="Coding Ideas Team" 
               description="Coding IdeasTeam page - Read about our teammates"
               keywords={['home page']} 
               date={new Date()} 
-              url="https://codingideas.vercel.app/team"
+              url="/team"
             />
             <div className='page'>
                 <motion.div  variants={slideInLeft}>

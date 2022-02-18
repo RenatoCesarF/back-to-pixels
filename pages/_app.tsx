@@ -6,6 +6,7 @@ import Header from '../components/HeaderComponent'
 import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
 import HeadTag from '../components/HeadTag';
 
+
 const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   function handleScrollToTop() {
     window.scrollTo({
@@ -16,12 +17,12 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   return(
     <>
       <HeadTag 
-        image="https://codingideas.vercel.app/images/logo.png" 
+        image="/images/logo.png"
         title="Coding Ideas" 
         description="Coding Ideas official website. Follow our journey creating our projects and Games"
         keywords={[]} 
         date={new Date()} 
-        url="https://codingideas.vercel.app"
+        url=""
       />
 
       <Header/>
