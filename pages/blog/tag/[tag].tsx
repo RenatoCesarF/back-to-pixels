@@ -3,20 +3,20 @@ import { m, motion } from 'framer-motion'
 
 import { slideInLeft } from '../../../helpers/animations';
 import InDevelopment from '../../../components/InDevelopment';
-//TODO: make direct imports with @
+import HeadTag from '../../../components/HeadTag';
+
+type Params = {tagName: string};
+type StaticResponse = {params: Params};
+
+
 const TeamPage = () => {
 
     return(
         <>
-            <NextHead>
-                <title>Coding Ideas - Tag tag</title>
-                {/* <meta name="description" content="Team page - Read about our team"/>
-                <meta name="robots" content="follow"/>
-                <meta name="robots" content="index, follow"/>
-                <meta name="googlebot" content="index, follow"/>
-                <meta property="og:url" content="https://codingideas.vercel.app/team"></meta>
-                <meta property="og:title" content="Coding Ideas Blog Page - Read our posts"></meta> */}
-            </NextHead>
+            {/* <HeadTag
+            date={new Date()}
+            description
+            /> */}
                 <div className='page'>
                 <motion.div  variants={slideInLeft}>
                   
@@ -26,6 +26,27 @@ const TeamPage = () => {
         </>
     )
 
+}
+
+export async function getStaticPaths(){
+    // transformar os objetos do arquivo json de categorias e transformar em uma lista
+    //passar por cada objeto e retornar o nome da tag como sendo o [tag] de cada pagina
+      // const paths = files.map(filename => ({
+    //     params: {
+    //         slug: filename.replace('.md', '')
+    //     }
+    // }));
+
+    // return {paths, fallback: false};
+  
+}
+
+export async function getStaticProps({params}: StaticResponse ){
+    // procurar no arquivo json de categorias onde a categoria 
+    // é igual ao parametro, e então retornar as informações dessa categoria
+    return {
+        props:{ "category" } 
+    };
 }
 
 export default TeamPage
