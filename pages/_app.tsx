@@ -5,6 +5,7 @@ import Header from '../components/HeaderComponent'
 
 import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
 import HeadTag from '../components/HeadTag';
+import webSiteInfo from '../utils/webSiteInfo';
 
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
@@ -18,8 +19,8 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
     <>
       <HeadTag 
         image="/images/logo.png"
-        title="Coding Ideas" 
-        description="Coding Ideas official website. Follow our journey creating our projects and Games"
+        title={`${webSiteInfo.name}`}
+        description={`${webSiteInfo.name} official website. Follow our journey creating our projects and Games`}
         keywords={[]} 
         date={new Date()} 
         url=""

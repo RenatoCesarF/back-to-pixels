@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import Author, { getAuthor } from '../classes/authorType';
+import webSiteInfo from '../utils/webSiteInfo';
 
 interface HeadProps{
     image: string,
@@ -9,21 +10,22 @@ interface HeadProps{
     date: Date,
     url: string,
     author?: Author,
-}
+};
 const defaultKeywords: string[] = ["indie", "Indie Games", "NextJS", "Developers", "Company", "games", "development", "developers", "blog", "documentation"]
-const siteURL: string = "https://codingideas.vercel.app";
+const siteURL: string = webSiteInfo.defaultURL;
 
 
 const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
     var keywords: string[] = [ ...defaultKeywords, ...props.keywords];
     var stringKeywords: string = keywords.join().toLowerCase();
+    const twitterDomain = webSiteInfo.defaultURL.slice(8);
 
     return(
         <Head>
             <link rel="shortcut icon" href="/favicon.ico" />
             <title>{props.title}</title>
 
-            <meta name="apple-mobile-web-app-title" content="Coding Ideas"/>
+            <meta name="apple-mobile-web-app-title" content={webSiteInfo.name}/>
             <link rel="apple-touch-icon" sizes="180x180" href="/images/icon/apple-touch-icon.png"/>
             <link key="apple-touch-icon" rel="apple-touch-icon" sizes="180x180" href="/images/icon/apple-touch-icon.png"/>
 
@@ -52,7 +54,7 @@ const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
             <meta property="og:type" content="blog"/>
             <meta property="og:url" content={siteURL + props.url} />
             <meta property="og:title" content={props.title}/>
-            <meta property="og:site_name" content="Coding Ideas"/>
+            <meta property="og:site_name" content={webSiteInfo.name}/>
             <meta property="og:description" content={props.description}/>
             <meta property="og:image" content={siteURL + props.image}/>
             <meta property="og:image:type" content={`image/webp`} />
@@ -72,7 +74,7 @@ const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
             <meta name="twitter:description" content={props.description}/>
             <meta name="twitter:creator" content={props.author?.twitter}/>
             <meta property="twitter:url" content={siteURL + props.url}/>
-            <meta property="twitter:domain" content="codingideas.vercel.app"/>
+            <meta property="twitter:domain" content={twitterDomain}/>
         </Head>
     )
 }

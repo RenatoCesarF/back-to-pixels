@@ -1,4 +1,6 @@
+const url = require('./utils/webSiteInfo.ts')
+
 module.exports = {
-    siteUrl: 'https://codingideas.vercel.app',
+    siteUrl: url.defaultURL,
     generateRobotsTxt: true,
 }

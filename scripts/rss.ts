@@ -7,7 +7,8 @@ import { getCoverImage } from '../classes/postType';
 import { sortByDate } from '../utils/sort';
 import { getAuthor } from '../classes/authorType';
 
-const baseUrl= "https://codingideas.vercel.app";
+import webSiteInfo from '../utils/webSiteInfo';
+
 
 async function generateRssFeed() {
   if (process.env.NODE_ENV === 'development') {
@@ -22,21 +23,21 @@ async function generateRssFeed() {
   };
 
   const feed = new Feed({
-      title: `Coding Ideas`,
+      title: webSiteInfo.name,
       description: "Welcome to the blog containing all the articles and documentation about all the games and projects we produce",
-      id: baseUrl,
-      link: baseUrl,
+      id: webSiteInfo.defaultURL,
+      link: webSiteInfo.defaultURL,
       language: "en",
-      image: `${baseUrl}/images/logo.png`,
-      favicon: `${baseUrl}/favicon.ico`,
+      image: `${webSiteInfo.defaultURL}/images/logo.png`,
+      favicon: `${webSiteInfo.defaultURL}/favicon.ico`,
       copyright: `All rights reserved ${date.getFullYear()}, Renato Cesar`,
       updated: date,
       author: author,
       generator: "Next.js using Feed for Node.js",
       feedLinks: {
-        rss2: `${baseUrl}/rss/feed.xml`,
-        json: `${baseUrl}/rss/feed.json`,
-        atom: `${baseUrl}/rss/atom.xml`,
+        rss2: `${webSiteInfo.defaultURL}/rss/feed.xml`,
+        json: `${webSiteInfo.defaultURL}/rss/feed.json`,
+        atom: `${webSiteInfo.defaultURL}/rss/atom.xml`,
       }
   });
 
@@ -71,13 +72,13 @@ const  createPostItemToFeed = (filename: string): Item => {
 
   const htmlContent = new MarkdownIt().render(content);
   const postAuthor = getAuthor(data.author);
-  const url = `${baseUrl}/blog/${slug}`;
+  const url = `${webSiteInfo.defaultURL}/blog/${slug}`;
   var feedCategories: any[] = [];
   data.categories.forEach((element: string) => feedCategories.push({name: element.toLowerCase()}));
   
   const item: Item = {
     title: data.title,
-    image: `${baseUrl}${getCoverImage(slug, data.cover_image)}`,
+    image: `${webSiteInfo.defaultURL}${getCoverImage(slug, data.cover_image)}`,
     link: url,
     date: new Date(data.date),
     id: slug,

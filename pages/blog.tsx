@@ -1,21 +1,21 @@
 import {readdirSync} from 'fs';
 import {join} from 'path';
-import matter from 'gray-matter';
 import dynamic from 'next/dynamic'
 
 import { domAnimation, LazyMotion, m, motion } from 'framer-motion';
-import NextHead from 'next/head';
 
 
 import globalStyles from '../styles/blog.styles'
-import Post, { createPost, getCoverImage } from '../classes/postType';
+import Post, { createPost } from '../classes/postType';
 import {sortByDate, sortByDateReverse} from '../utils/sort';
 
 import { slideInLeft } from '../helpers/animations';
-import RssLinks from '../components/RssLinks';
 import HeadTag from '../components/HeadTag';
+import webSiteInfo from '../utils/webSiteInfo';
 
-const PostCard = dynamic(() => import("../components/PostCard"))
+
+const RssLinks = dynamic(() => import('../components/RssLinks'))
+const PostCard = dynamic(() => import('../components/PostCard'))
 
 interface PostList{
   posts: Post[]
@@ -23,13 +23,12 @@ interface PostList{
 
 
 export default function BlogPage({posts}:PostList){
-    // console.log(posts)
     return (
         <>
           <HeadTag 
               image="/images/logo.png"  //use generator here
-              title="Coding Ideas – Blog" 
-              description="Coding Ideas Blog Page - A list of all our articles and blog posts. Here we document the process of the development of all our projects and games"
+              title={`${webSiteInfo.name} – Blog`}
+              description={`${webSiteInfo.name} Blog Page - A list of all our articles and blog posts. Here we document the process of the development of all our projects and games`}
               keywords={[]} 
               date={new Date()} 
               url="/blog"
@@ -66,7 +65,7 @@ export async function getStaticProps(){
     var posts: Post[] = files.map(filename => {
       return createPost(filename);
     });
-    
+
     posts = posts.sort(sortByDate);
     return {
       props: {posts}
