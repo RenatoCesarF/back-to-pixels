@@ -13,7 +13,7 @@ import {slideButtonDown, slideInUp } from '../../helpers/animations';
 import RssLinks from '../../components/RssLinks';
 import HeadTag from '../../components/HeadTag';
 import TranscribedPost from '../../components/TranscribedPost';
-import webSiteInfo from '../../utils/webSiteInfo';
+import WEB_SITE_INFO from '../../utils/webSiteInfo';
 
 
 interface IPost{post: Post};
@@ -36,7 +36,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
         <>
             <HeadTag 
                 image={`/${post.cover_image}`}
-                title={`${post.title} - ${webSiteInfo.name}`} 
+                title={`${post.title} - ${WEB_SITE_INFO.NAME}`} 
                 description={post.excerpt}
                 keywords={keywordsList}
                 date={postDate}
@@ -49,7 +49,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
             <main role="main" className='post-section'>
                 <article itemScope itemType='http://schema.org/Article' about={post.excerpt} className='post-container'>
                     <meta itemProp='datePublished' content={`${post.date} 11:30:00 -0700 -0700`}/>
-                    <meta itemProp='publisher' content={webSiteInfo.name}/>
+                    <meta itemProp='publisher' content={WEB_SITE_INFO.NAME}/>
                     <meta itemProp='image' content={post.cover_image}/>
 
                     <LazyMotion features={domAnimation}>

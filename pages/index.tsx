@@ -2,31 +2,22 @@ import type { NextPage } from 'next'
 import generateRssFeed from '../scripts/rss'
 
 import { motion} from 'framer-motion'
-import programmerLotie from '../public/lotties/programmer-lottie.json';
 import { slideInLeft } from '../helpers/animations'
 import InDevelopment from '../components/InDevelopment'
 import HeadTag from '../components/HeadTag';
-import webSiteInfo from '../utils/webSiteInfo';
+import WEB_SITE_INFO from '../utils/webSiteInfo';
 
 const Home: NextPage = () => {
-  const defaultOptions = {
-    loop: true,
-    autoplay: true,
-    animationData: programmerLotie,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice"
-    }
-  };
   return (
     <div  className='page'>
       <HeadTag 
-              image="/images/logo.png" 
-              title={`${webSiteInfo.name} Home`} 
-              description={`${webSiteInfo.name} website Home page, Learn more about our work`}
-              keywords={['home page']} 
-              date={new Date()} 
-              url=""
-        />
+          image="/images/logo.png" 
+          title={`${WEB_SITE_INFO.NAME} Home`} 
+          description={`${WEB_SITE_INFO.NAME} website Home page, Learn more about our work`}
+          keywords={['home page', 'home']} 
+          date={new Date()} 
+          url=""
+      />
       <div className='page' >
         <motion.div variants={slideInLeft}>
           <h1>Home</h1>

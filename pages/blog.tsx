@@ -11,7 +11,7 @@ import {sortByDate, sortByDateReverse} from '../utils/sort';
 
 import { slideInLeft } from '../helpers/animations';
 import HeadTag from '../components/HeadTag';
-import webSiteInfo from '../utils/webSiteInfo';
+import WEB_SITE_INFO from '../utils/webSiteInfo';
 
 
 const RssLinks = dynamic(() => import('../components/RssLinks'))
@@ -27,8 +27,8 @@ export default function BlogPage({posts}:PostList){
         <>
           <HeadTag 
               image="/images/logo.png"  //use generator here
-              title={`${webSiteInfo.name} – Blog`}
-              description={`${webSiteInfo.name} Blog Page - A list of all our articles and blog posts. Here we document the process of the development of all our projects and games`}
+              title={`${WEB_SITE_INFO.NAME} – Blog`}
+              description={`${WEB_SITE_INFO.NAME} Blog Page - A list of all our articles and blog posts. Here we document the process of the development of all our projects and games`}
               keywords={[]} 
               date={new Date()} 
               url="/blog"

@@ -1,11 +1,11 @@
 interface WebSiteInfo{
-   name: string
-   defaultURL: string
+    NAME: string
+    DEFAULT_URL: string
 }
 
-const webSiteInfo: WebSiteInfo ={
-    name: "Coding Ideas",
-    defaultURL: "https://codingideas.vercel.app"
+const WEB_SITE_INFO: WebSiteInfo ={
+    NAME: "Coding Ideas",
+    DEFAULT_URL: "https://codingideas.vercel.app"
 }
 
-export default webSiteInfo;
+export default WEB_SITE_INFO;

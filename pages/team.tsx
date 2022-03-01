@@ -7,7 +7,7 @@ import globalStyles from '../styles/teammate.styles';
 import Author, { getAuthor, getAuthorsList } from '../classes/authorType';
 import TeammateCard from '../components/TeammateCard';
 import HeadTag from '../components/HeadTag';
-import webSiteInfo from '../utils/webSiteInfo';
+import WEB_SITE_INFO from '../utils/webSiteInfo';
 
 
 interface authorsList{
@@ -23,8 +23,8 @@ const TeamPage = ({authors}: authorsList) => {
             </style>
             <HeadTag 
               image="/images/logo.png" 
-              title={`${webSiteInfo.name} Team`} 
-              description={`${webSiteInfo.name} Team page - Read about our teammates`}
+              title={`${WEB_SITE_INFO.NAME} Team`} 
+              description={`${WEB_SITE_INFO.NAME} Team page - Read about our teammates`}
               keywords={['home page']} 
               date={new Date()} 
               url="/team"

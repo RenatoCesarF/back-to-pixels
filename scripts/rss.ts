@@ -7,7 +7,7 @@ import { getCoverImage } from '../classes/postType';
 import { sortByDate } from '../utils/sort';
 import { getAuthor } from '../classes/authorType';
 
-import webSiteInfo from '../utils/webSiteInfo';
+import WEB_SITE_INFO from '../utils/webSiteInfo';
 
 
 async function generateRssFeed() {
@@ -23,21 +23,21 @@ async function generateRssFeed() {
   };
 
   const feed = new Feed({
-      title: webSiteInfo.name,
+      title: WEB_SITE_INFO.NAME,
       description: "Welcome to the blog containing all the articles and documentation about all the games and projects we produce",
-      id: webSiteInfo.defaultURL,
-      link: webSiteInfo.defaultURL,
+      id: WEB_SITE_INFO.DEFAULT_URL,
+      link: WEB_SITE_INFO.DEFAULT_URL,
       language: "en",
-      image: `${webSiteInfo.defaultURL}/images/logo.png`,
-      favicon: `${webSiteInfo.defaultURL}/favicon.ico`,
+      image: `${WEB_SITE_INFO.DEFAULT_URL}/images/logo.png`,
+      favicon: `${WEB_SITE_INFO.DEFAULT_URL}/favicon.ico`,
       copyright: `All rights reserved ${date.getFullYear()}, Renato Cesar`,
       updated: date,
       author: author,
       generator: "Next.js using Feed for Node.js",
       feedLinks: {
-        rss2: `${webSiteInfo.defaultURL}/rss/feed.xml`,
-        json: `${webSiteInfo.defaultURL}/rss/feed.json`,
-        atom: `${webSiteInfo.defaultURL}/rss/atom.xml`,
+        rss2: `${WEB_SITE_INFO.DEFAULT_URL}/rss/feed.xml`,
+        json: `${WEB_SITE_INFO.DEFAULT_URL}/rss/feed.json`,
+        atom: `${WEB_SITE_INFO.DEFAULT_URL}/rss/atom.xml`,
       }
   });
 
@@ -72,13 +72,13 @@ const  createPostItemToFeed = (filename: string): Item => {
 
   const htmlContent = new MarkdownIt().render(content);
   const postAuthor = getAuthor(data.author);
-  const url = `${webSiteInfo.defaultURL}/blog/${slug}`;
+  const url = `${WEB_SITE_INFO.DEFAULT_URL}/blog/${slug}`;
   var feedCategories: any[] = [];
   data.categories.forEach((element: string) => feedCategories.push({name: element.toLowerCase()}));
   
   const item: Item = {
     title: data.title,
-    image: `${webSiteInfo.defaultURL}${getCoverImage(slug, data.cover_image)}`,
+    image: `${WEB_SITE_INFO.DEFAULT_URL}${getCoverImage(slug, data.cover_image)}`,
     link: url,
     date: new Date(data.date),
     id: slug,

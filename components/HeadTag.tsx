@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import Author, { getAuthor } from '../classes/authorType';
-import webSiteInfo from '../utils/webSiteInfo';
+import Author from '../classes/authorType';
+import WEB_SITE_INFO from '../utils/webSiteInfo';
 
 interface HeadProps{
     image: string,
@@ -12,20 +12,19 @@ interface HeadProps{
     author?: Author,
 };
 const defaultKeywords: string[] = ["indie", "Indie Games", "NextJS", "Developers", "Company", "games", "development", "developers", "blog", "documentation"]
-const siteURL: string = webSiteInfo.defaultURL;
 
 
 const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
     var keywords: string[] = [ ...defaultKeywords, ...props.keywords];
     var stringKeywords: string = keywords.join().toLowerCase();
-    const twitterDomain = webSiteInfo.defaultURL.slice(8);
+    const twitterDomain = WEB_SITE_INFO.DEFAULT_URL.slice(8);
 
     return(
         <Head>
             <link rel="shortcut icon" href="/favicon.ico" />
             <title>{props.title}</title>
 
-            <meta name="apple-mobile-web-app-title" content={webSiteInfo.name}/>
+            <meta name="apple-mobile-web-app-title" content={WEB_SITE_INFO.NAME}/>
             <link rel="apple-touch-icon" sizes="180x180" href="/images/icon/apple-touch-icon.png"/>
             <link key="apple-touch-icon" rel="apple-touch-icon" sizes="180x180" href="/images/icon/apple-touch-icon.png"/>
 
@@ -52,11 +51,11 @@ const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
             
             <meta property="og:locale" content="en_US"/>
             <meta property="og:type" content="blog"/>
-            <meta property="og:url" content={siteURL + props.url} />
+            <meta property="og:url" content={WEB_SITE_INFO.DEFAULT_URL + props.url} />
             <meta property="og:title" content={props.title}/>
-            <meta property="og:site_name" content={webSiteInfo.name}/>
+            <meta property="og:site_name" content={WEB_SITE_INFO.NAME}/>
             <meta property="og:description" content={props.description}/>
-            <meta property="og:image" content={siteURL + props.image}/>
+            <meta property="og:image" content={WEB_SITE_INFO.DEFAULT_URL + props.image}/>
             <meta property="og:image:type" content={`image/webp`} />
             <meta property="og:image:width" content="300"/>
             <meta property="og:image:height" content="300"/>
@@ -69,11 +68,11 @@ const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
 
             <meta name="twitter:card" content="summary_large_image"/>
             <meta name="twitter:website" content="@nerat0"/>
-            <meta name="twitter:image" content={siteURL + props.image}/>
+            <meta name="twitter:image" content={WEB_SITE_INFO.DEFAULT_URL + props.image}/>
             <meta name="twitter:title" content={props.title}/>
             <meta name="twitter:description" content={props.description}/>
             <meta name="twitter:creator" content={props.author?.twitter}/>
-            <meta property="twitter:url" content={siteURL + props.url}/>
+            <meta property="twitter:url" content={WEB_SITE_INFO.DEFAULT_URL + props.url}/>
             <meta property="twitter:domain" content={twitterDomain}/>
         </Head>
     )

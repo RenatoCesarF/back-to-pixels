@@ -5,7 +5,7 @@ import { slideInLeft } from '../../../helpers/animations';
 import InDevelopment from '../../../components/InDevelopment';
 import HeadTag from '../../../components/HeadTag';
 import Category, { getAllCategories, getCategoryInfo } from '../../../classes/category';
-import webSiteInfo from '../../../utils/webSiteInfo';
+import WEB_SITE_INFO from '../../../utils/webSiteInfo';
 import { getAuthor } from '../../../classes/authorType';
 import CategoryTag from '../../../components/CategoryTag';
 
@@ -20,8 +20,8 @@ const TagInfo: React.FC<TagInfoProps> = ({category}: TagInfoProps) => {
                 date={new Date()}
                 description={category.about}
                 keywords={[category.key.toString()]}
-                title={`Category ${category.name} Posts - ${webSiteInfo.name}`}
-                url={`${webSiteInfo.defaultURL}/blog/tag/${category.key}`}
+                title={`Category ${category.name} Posts - ${WEB_SITE_INFO.NAME}`}
+                url={`${WEB_SITE_INFO.DEFAULT_URL}/blog/tag/${category.key}`}
                 author={getAuthor('renato')}
                 image={"/images/logo.png"} //use generator here
             />

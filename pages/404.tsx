@@ -6,7 +6,7 @@ import { slideInDown, slideInUp } from '../helpers/animations';
 import lotie404 from '../public/lotties/404-lottie.json';
 import Lottie from 'react-lottie'
 import HeadTag from '../components/HeadTag';
-import webSiteInfo from '../utils/webSiteInfo';
+import WEB_SITE_INFO from '../utils/webSiteInfo';
 
 
 export default function Custom404() {
@@ -24,7 +24,7 @@ export default function Custom404() {
             <HeadTag 
                 image="/images/logo.png"
                 title="404 - Not Found" 
-                description={`${webSiteInfo.name} website - Page not found`}
+                description={`${WEB_SITE_INFO.NAME} website - Page not found`}
                 keywords={[]} 
                 date={new Date()} 
                 url="/404"
