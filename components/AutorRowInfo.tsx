@@ -8,7 +8,7 @@ const AuthorRowInfo: React.FC<AuthorRowInfoProps> = (props: AuthorRowInfoProps) 
     const author: Author = getAuthor(props.authorName)
     return (
     <>
-        <img className="img-fit" src={author.image_path}></img>
+        <img  style={{clipPath: "circle(50% at 50% 50%"}}className="img-fit" src={author.image_path}></img>
 
     </>)
 }

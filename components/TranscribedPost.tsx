@@ -54,7 +54,7 @@ const TranscribedPost = ({post}: TranscribedPostProps) =>{
                     return (
                         <Link href={props.href} passHref={true}> 
                             {isAuthor ?
-                                <div style={{ display: "contents"}}>
+                                <div style={{ display: "contents", position: "relative"}}>
                                     <BaseHoverInfo displayedText={children[0].toString()}>
                                         <AuthorRowInfo authorName={children[0].toString()}/>
                                     </BaseHoverInfo>
