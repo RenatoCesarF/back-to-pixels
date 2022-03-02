@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { ReactNode } from "react"
-import useWindowDimensions from "./getWindowDimentions";
 
 const tooltipLeftPosition: string = "-61px"
 const tooltipRightPosition: string = "-2px"
@@ -14,8 +13,6 @@ interface BaseHoverInfoProps{
 
 const BaseHoverInfo = (props: BaseHoverInfoProps) =>{
     const [isElementRight, setIsElementRight] = useState(false);
-    const { width } = useWindowDimensions();
-
 
     return (
         <div className="tooltip-expand">
@@ -26,8 +23,7 @@ const BaseHoverInfo = (props: BaseHoverInfoProps) =>{
             <div className="expanded-tooltip-div" 
                 ref={el => {
                     if(!el) return;
-                    const left = el.getBoundingClientRect().left;
-                    if(left >= width/2){
+                    if(el.getBoundingClientRect().left >= window.innerWidth/2){
                         setIsElementRight(true);
                         return;
                     } 

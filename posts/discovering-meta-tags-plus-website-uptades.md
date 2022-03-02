@@ -11,6 +11,7 @@ categories: [BLOG, NEXTJS, PROGRAMMING, DESIGN]
 From now on, if you share one of our posts on *social media* it will look something like that:
 
 ![post-in-twitter](post-in-twitter.webp)
+You can read the post of the image [here](/blog/reunion-0-1).
 
 It also works in *instagram*, *whatsapp*, *facebook*, *Discord* and *LinkedIn*.
 
