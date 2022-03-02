@@ -16,7 +16,7 @@ export const getAuthor = (authorKey: string): Author => {
     var authorInfo: Author  = authorsInfo[authorKey];
 
     if(!authorInfo || authorInfo === undefined || authorInfo === null){
-        throw new Error("Author is null, undefined or invalid");
+        throw new Error(`Author [${authorKey}] is null, undefined or invalid`);
     }
   
     const author: Author = authorInfo
@@ -26,6 +26,17 @@ export const getAuthor = (authorKey: string): Author => {
 export const getAuthorsList = () =>{
     const authorsList = Object.entries(authorsInfo);
     return authorsList;
+}
+
+export const getAuthorsKeyList = () => {
+    const authorsList = getAuthorsList();
+
+    var authorsKeys: Array<string> = [];
+    authorsList.map((author: any) => {
+        authorsKeys.push(author[0]);
+    });
+
+    return authorsKeys;
 }
 
 export default Author;

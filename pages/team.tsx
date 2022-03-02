@@ -2,12 +2,13 @@ import NextHead from 'next/head';
 import { domAnimation, LazyMotion, m, motion } from 'framer-motion'
 
 import { slideInLeft } from '../helpers/animations';
-import InDevelopment from '../components/InDevelopment';
 import globalStyles from '../styles/teammate.styles';
 import Author, { getAuthor, getAuthorsList } from '../classes/authorType';
-import TeammateCard from '../components/TeammateCard';
-import HeadTag from '../components/HeadTag';
 import WEB_SITE_INFO from '../utils/webSiteInfo';
+
+import TeammateCard from '../components/TeammateCard';
+import InDevelopment from '../components/InDevelopment';
+import HeadTag from '../components/HeadTag';
 
 
 interface authorsList{

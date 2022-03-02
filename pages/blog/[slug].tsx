@@ -3,17 +3,19 @@ import path from 'path';
 
 import React from 'react';
 import { useRouter } from 'next/router';
-import { domAnimation, LazyMotion, m} from 'framer-motion';
+import { domAnimation, LazyMotion, m } from 'framer-motion';
+import dynamic from 'next/dynamic';
 
 import Post, { createPost } from '../../classes/postType';
-import CustomButton, {ButtonIcon} from '../../components/CustomButton';
-
 import globalStyles from '../../styles/slug.styles';
 import {slideButtonDown, slideInUp } from '../../helpers/animations';
-import RssLinks from '../../components/RssLinks';
-import HeadTag from '../../components/HeadTag';
-import TranscribedPost from '../../components/TranscribedPost';
 import WEB_SITE_INFO from '../../utils/webSiteInfo';
+
+import CustomButton, {ButtonIcon} from '../../components/CustomButton';
+
+const RssLinks = dynamic(() => import('../../components/RssLinks'))
+const HeadTag = dynamic(() => import('../../components/HeadTag'))
+const TranscribedPost = dynamic(() => import('../../components/TranscribedPost'))
 
 
 interface IPost{post: Post};
@@ -24,7 +26,6 @@ type StaticResponse = {params: Params};
 const PostPage: React.FC<IPost> = ({post}: IPost) => {
     const router = useRouter();
     const doenstHaveCoverImage:boolean = post.cover_image.includes('/default-images/');
-
     const postDate = new Date(post.date.replace("/","-"))
     
     var keywordsList: string[] = [];
@@ -85,6 +86,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
     )
 };
 
+
 export async function getStaticPaths(){
     const files = fs.readdirSync(path.join('posts'));
     const paths = files.map(filename => ({
@@ -92,7 +94,7 @@ export async function getStaticPaths(){
             slug: filename.replace('.md', '')
         }
     }));
-    console.log(paths);
+
     return {paths, fallback: false};
 }
 
@@ -105,5 +107,8 @@ export async function getStaticProps({params}: StaticResponse ){
     };
 }
 
-
 export default PostPage;
+
+
+
+

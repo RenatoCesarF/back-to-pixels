@@ -13,18 +13,21 @@ def convert_to_webp(source):
 
 
 def main():
-    pathsPngs = Path("public/images/posts").glob("**/*.png" )
-    pathsJpgs = Path("public/images/posts").glob("**/*.jpg")
+    postDirectory = "public/images/posts"
+    authorsDirectory = "public/images/authors"
 
-    print("Started...")
-    for path in pathsJpgs:
-        print(path)
-        webp_path = convert_to_webp(path)
-    for path in pathsPngs:
-        print(path)
-        webp_path = convert_to_webp(path)
-    print("Finished")
+    postsPathsPngs = Path(postDirectory).glob("**/*.png" )
+    postsPathsJpgs = Path(postDirectory).glob("**/*.jpg")
+    authorsPathPngs = Path(authorsDirectory).glob("**/*.png")
+    authorsPathJpgs = Path(authorsDirectory).glob("**/*.jpg")
 
+    images_path = [ postsPathsPngs, postsPathsJpgs, authorsPathPngs, authorsPathJpgs]
+    
+    
+    for directory in images_path:
+        for path in directory:
+            print(path)
+            convert_to_webp(path)
 
 
 main()

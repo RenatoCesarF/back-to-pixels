@@ -24,8 +24,8 @@ export default css.global`
     text-decoration: none;
     font-weight: bold;
     color: var(--link-color);
-    padding-left: 5px;
-    padding-right: 5px;
+    padding-left: 3px;
+    padding-right: 3px;
     transition: color .4s ease-in-out, box-shadow .4s ease-in-out;
     box-shadow: inset 0 0 0 0 var(--link-color);
   }

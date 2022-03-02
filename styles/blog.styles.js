@@ -33,6 +33,7 @@ export default css.global`
   -moz-box-shadow:  9px 9px 10px -6px var(--card-shadow-color);
   box-shadow: 9px 9px 10px -6px var(--card-shadow-color); 
 }
+
 .post-card-clickable{
   cursor: pointer;
   user-select:none;
@@ -144,7 +145,6 @@ export default css.global`
 }
 .post-card-categories-row{
   padding-top: 0.7rem;
-  /* margin-top: auto; */
   padding-bottom: 0.3rem;
   padding-right: 0.5rem;
 }
@@ -162,7 +162,6 @@ export default css.global`
 
   width: 50px;
   height: 20px;
-  /* background-color: var(--font-contrast-color); */
   background-color:var(--main-color);
   text-align: center;
   padding: 8px 2px;

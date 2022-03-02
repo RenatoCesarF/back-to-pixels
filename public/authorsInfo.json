@@ -8,5 +8,25 @@
         "about": "About renato",
         "twitter": "nerat0",
         "instagram": "eu_renato_"
+    },
+    "tayna": {
+        "key": "tayna",
+        "name": "Tayna Vitória",
+        "email": "@",
+        "role": "Designer/Artist",
+        "image_path": "/images/authors/tayna.webp",
+        "about": "About tayna",
+        "twitter": "",
+        "instagram": ""
+    },
+    "bruno":{
+        "key":"bruno",
+        "name": "Bruno Costa",
+        "email": "@",
+        "role": "Designer/Artist",
+        "image_path": "/images/authors/renato.webp",
+        "about": "About tayna",
+        "twitter": "",
+        "instagram": ""
     }
 }

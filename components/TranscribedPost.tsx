@@ -1,16 +1,26 @@
-import Link from "next/link"
-import ReactMarkdown from "react-markdown"
-import SyntaxHighlighter from "react-syntax-highlighter"
-import remarkGfm from "remark-gfm"
-import {darcula,a11yDark,atomDark,dracula} from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import fs from 'fs';
+import path from 'path';
 
-import Post from "../classes/postType"
-import ImageZoom from "./ImageZoom"
+import React from 'react';
+import ReactMarkdown from 'react-markdown';
+import Link from 'next/link';
+import dynamic from 'next/dynamic';
+
+import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
+import {darcula,a11yDark,atomDark,dracula} from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import remarkGfm from 'remark-gfm';
+
+import { getAuthorsKeyList } from '../classes/authorType';
+import Post from '../classes/postType';
+
+const ImageZoom = dynamic(() => import('../components/ImageZoom'))
+const BaseHoverInfo = dynamic(() => import('./BaseHoverInfo'))
+const AuthorRowInfo = dynamic(() => import('./AutorRowInfo'))
 
 
 interface TranscribedPostProps{post: Post}
 
-const TranscribedPost: React.FC<TranscribedPostProps> = ({post}: TranscribedPostProps): JSX.Element =>{
+const TranscribedPost = ({post}: TranscribedPostProps) =>{
     const codeTheme: string = getCodeTheme(post.code_theme);
     return(
         <ReactMarkdown
@@ -35,34 +45,47 @@ const TranscribedPost: React.FC<TranscribedPostProps> = ({post}: TranscribedPost
                 a({node, className, children, ...props}){
                     const linkElement = <a target="_blank" rel="noopener noreferrer" href={props.href} >{children}</a>
 
-                    if(props.href?.startsWith('/') || props.href?.startsWith('#')){
-                        return (
-                            <Link href={props.href} passHref={true}> 
-                                <a style={{"border": "none"}}>{children}</a>
-                            </Link>
-                        )
+                    if(!children[0] || !props.href?.startsWith('/')){
+                        return linkElement;
                     }
-                    return linkElement
+                    const isAuthor = getAuthorsKeyList().includes(children[0].toString().toLowerCase())
+
+                 
+                    return (
+                        <Link href={props.href} passHref={true}> 
+                            {isAuthor ?
+                                <div style={{ display: "contents"}}>
+                                    <BaseHoverInfo displayedText={children[0].toString()}>
+                                        <AuthorRowInfo authorName={children[0].toString()}/>
+                                    </BaseHoverInfo>
+                                </div>    
+                                :
+                                <a style={{"border": "none"}}>{children}</a>
+                            }
+                        </Link>
+                    )
                 },
                 code({node, inline, className, children, ...props}) {
                     const match = /language-(\w+)/.exec(className || '')
                     return !inline && match ? 
                     
                         <SyntaxHighlighter
-                            style={codeTheme}
+                            style={dracula}
                             language={match[1]}
                             PreTag="div"
                             {...props}
                         >
                             {String(children).replace(/\n$/, '')}
                         </SyntaxHighlighter>
+                    
                     :
                         <code className='simple-code' {...props}>
                             {children}
                         </code>
+                    
                     }
-            }}
-        >
+                }}
+                >
             {post.content}
         </ReactMarkdown>
     )

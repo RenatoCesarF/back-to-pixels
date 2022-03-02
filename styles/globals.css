@@ -227,13 +227,14 @@ hr{
 }
 
 p{
-  line-height: 28px;
   word-break: break-word;
   color: var(--post-text-color);
   display: block;
   font-family: 'Roboto', sans-serif;
+
   line-height: 1.4em;
   font-size: 1.1em;
+
   margin-top: 1.56em;
   margin-bottom: -0.46em;
   margin-block-start: 1em;
@@ -602,3 +603,4 @@ body::-webkit-scrollbar-thumb:hover {
   margin: 0.5rem;
   margin-top: 0.6rem;
 }
+

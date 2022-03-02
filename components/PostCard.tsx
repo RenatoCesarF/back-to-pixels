@@ -77,7 +77,6 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                                     return <CategoryTag category={category} key={index}/>
                                 })
                             }
-                            {/* {extendedCategories ? "..." : ""} */}
                             {extendedCategories ? <CategoryTagTransparent category={sortedCategories[2]}/> : <></>}
                         </div>
                         {

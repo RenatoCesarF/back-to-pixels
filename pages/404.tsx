@@ -7,6 +7,7 @@ import lotie404 from '../public/lotties/404-lottie.json';
 import Lottie from 'react-lottie'
 import HeadTag from '../components/HeadTag';
 import WEB_SITE_INFO from '../utils/webSiteInfo';
+import BaseHoverInfo from '../components/BaseHoverInfo';
 
 
 export default function Custom404() {
@@ -31,7 +32,6 @@ export default function Custom404() {
             />
 
             <div className='center-404'>
-                
                 <motion.div variants={slideInDown}>
                     <h1> Page Not Found</h1>
                     <Lottie options={defaultOptions}/>

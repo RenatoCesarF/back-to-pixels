@@ -10,10 +10,10 @@ import Post, { createPost } from '../classes/postType';
 import {sortByDate, sortByDateReverse} from '../utils/sort';
 
 import { slideInLeft } from '../helpers/animations';
-import HeadTag from '../components/HeadTag';
 import WEB_SITE_INFO from '../utils/webSiteInfo';
 
 
+const HeadTag = dynamic(() => import('../components/HeadTag'))
 const RssLinks = dynamic(() => import('../components/RssLinks'))
 const PostCard = dynamic(() => import('../components/PostCard'))
 
