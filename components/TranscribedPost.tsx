@@ -44,26 +44,28 @@ const TranscribedPost = ({post}: TranscribedPostProps) =>{
                 },
                 a({node, className, children, ...props}){
                     const linkElement = <a target="_blank" rel="noopener noreferrer" href={props.href} >{children}</a>
+                    const isInternLink = props.href?.startsWith('#') || props.href?.startsWith('/')
 
-                    if(!children[0] || !props.href?.startsWith('/')){
+                    if(!children[0] || !isInternLink){
                         return linkElement;
                     }
-                    const isAuthor = getAuthorsKeyList().includes(children[0].toString().toLowerCase())
+                
+                    const isAuthor = getAuthorsKeyList().includes(children[0].toString().toLowerCase());
+                    return(
+                        <Link href={props.href || "/blog"} passHref={true}> 
+                        {
+                            isAuthor?
 
-                 
-                    return (
-                        <Link href={props.href} passHref={true}> 
-                            {isAuthor ?
                                 <div style={{ display: "contents", position: "relative"}}>
                                     <BaseHoverInfo displayedText={children[0].toString()}>
                                         <AuthorRowInfo authorName={children[0].toString()}/>
                                     </BaseHoverInfo>
                                 </div>    
-                                :
+                            :
                                 <a style={{"border": "none"}}>{children}</a>
-                            }
+                        }
                         </Link>
-                    )
+                    ) 
                 },
                 code({node, inline, className, children, ...props}) {
                     const match = /language-(\w+)/.exec(className || '')

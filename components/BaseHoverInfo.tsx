@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ReactNode } from "react"
 
 const tooltipLeftPosition: string = "-61px"
@@ -13,6 +13,9 @@ interface BaseHoverInfoProps{
 
 const BaseHoverInfo = (props: BaseHoverInfoProps) =>{
     const [isElementRight, setIsElementRight] = useState(false);
+    const [windowWidth, setWindowWidth] = useState(0);
+
+    useEffect(() => {setWindowWidth(window.innerWidth);}, [])
 
     return (
         <div className="tooltip-expand">
@@ -20,6 +23,7 @@ const BaseHoverInfo = (props: BaseHoverInfoProps) =>{
             <span>
                 {props.displayedText}
             </span>
+
             <div className="expanded-tooltip-div" 
                 ref={el => {
                     if(!el) return;
@@ -36,7 +40,7 @@ const BaseHoverInfo = (props: BaseHoverInfoProps) =>{
             </div>
             <style jsx global>
                 {`
-               .tooltip-expand{
+            .tooltip-expand{
                 font-size: 1.0em;
                 text-decoration: none;
                 font-weight: bold;
@@ -45,9 +49,9 @@ const BaseHoverInfo = (props: BaseHoverInfoProps) =>{
                 user-select: none;
                 position: relative;
                 display: inline-block;
-              }
-              
-              .expanded-tooltip-div{
+            }
+            
+            .expanded-tooltip-div{
                 clip-path: circle(0% at 7% 110%);
                 color: rgb(245, 244, 244);
                 white-space: nowrap;
@@ -60,17 +64,17 @@ const BaseHoverInfo = (props: BaseHoverInfoProps) =>{
                 
                 height: fit-content;
                 width: fit-content;
-              
+            
                 min-width: 100px;
                 min-height: 100px;
-              
+            
                 top: -104px;
                 left: ${isElementRight ?  tooltipLeftPosition : tooltipRightPosition};
                 padding: 8px 5px;
                 
                 transition: all 0.6s cubic-bezier(.65,-0.53,.24,1.12);
-              }
-              .expanded-tooltip-div::after {
+            }
+            .expanded-tooltip-div::after {
                 content: "";
                 position: absolute;
                 top: 98%;
@@ -80,10 +84,11 @@ const BaseHoverInfo = (props: BaseHoverInfoProps) =>{
                 border-style: solid;
                 border-color:var(--secondary-color) transparent transparent transparent;
                 transition: all 0.6s cubic-bezier(.65,-0.53,.24,1.12);
-              }
-              .tooltip-expand:hover .expanded-tooltip-div{
+            }
+            .tooltip-expand:hover .expanded-tooltip-div{
                 clip-path: circle(100%);
-              }
+            }
+
                 `}
             </style>
         </div >
