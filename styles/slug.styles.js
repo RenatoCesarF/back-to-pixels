@@ -137,4 +137,18 @@ export default css.global`
     }
   }
 
+.author-tooltip-role{
+    padding-left: 10px;
+    margin: auto;
+    line-height: 60px;
+    height: max-content;
+}
+.author-tooltip-role p{ 
+    margin: 0;
+    color: var(--font-contrast-color);
+    /* display: inline-block; */
+    vertical-align: middle;
+    line-height: normal;
+}
+
 `

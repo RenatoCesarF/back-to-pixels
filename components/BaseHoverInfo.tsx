@@ -52,6 +52,8 @@ const BaseHoverInfo = (props: BaseHoverInfoProps) =>{
             }
             
             .expanded-tooltip-div{
+                // -webkit-box-shadow:  -6px 10px 13px 1px rgb(0 0 0 / 53%); 
+                // box-shadow:  -6px 10px 13px 1px rgb(0 0 0 / 53%);
                 clip-path: circle(0% at 7% 110%);
                 color: rgb(245, 244, 244);
                 white-space: nowrap;
@@ -63,14 +65,14 @@ const BaseHoverInfo = (props: BaseHoverInfoProps) =>{
                 z-index: 2;
                 
                 height: fit-content;
-                width: fit-content;
+                width: max-content;//fit-content;
             
                 min-width: 100px;
-                min-height: 100px;
+                min-height: 70px;
             
-                top: -104px;
+                top: -90px;
                 left: ${isElementRight ?  tooltipLeftPosition : tooltipRightPosition};
-                padding: 8px 5px;
+                padding: 8px 8px 0px 5px;
                 
                 transition: all 0.6s cubic-bezier(.65,-0.53,.24,1.12);
             }

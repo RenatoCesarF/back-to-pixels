@@ -1,7 +1,4 @@
-import fs from 'fs';
-import path from 'path';
 
-import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
@@ -9,13 +6,14 @@ import dynamic from 'next/dynamic';
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 import {darcula,a11yDark,atomDark,dracula} from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 
 import { getAuthorsKeyList } from '../classes/authorType';
 import Post from '../classes/postType';
 
-const ImageZoom = dynamic(() => import('../components/ImageZoom'))
-const BaseHoverInfo = dynamic(() => import('./BaseHoverInfo'))
-const AuthorRowInfo = dynamic(() => import('./AutorRowInfo'))
+const ImageZoom = dynamic(() => import('../components/ImageZoom'));
+const BaseHoverInfo = dynamic(() => import('./BaseHoverInfo'));
+const AuthorRowInfo = dynamic(() => import('./AuthorRowInfo'));
 
 
 interface TranscribedPostProps{post: Post}
@@ -25,6 +23,7 @@ const TranscribedPost = ({post}: TranscribedPostProps) =>{
     return(
         <ReactMarkdown
             remarkPlugins={[remarkGfm]} 
+            rehypePlugins={[rehypeRaw]} 
             components={{
                 input({node, className, children, ...props}){
                     return (
@@ -33,7 +32,7 @@ const TranscribedPost = ({post}: TranscribedPostProps) =>{
                             <input  {...props}></input>
                             <span className='checkmark'></span>
                         </label>
-                    ) 
+                    );
                 },
                 img({node, className, children, ...props}){
                     return <ImageZoom 
@@ -44,7 +43,7 @@ const TranscribedPost = ({post}: TranscribedPostProps) =>{
                 },
                 a({node, className, children, ...props}){
                     const linkElement = <a target="_blank" rel="noopener noreferrer" href={props.href} >{children}</a>
-                    const isInternLink = props.href?.startsWith('#') || props.href?.startsWith('/')
+                    const isInternLink = props.href?.startsWith('#') || props.href?.startsWith('/');
 
                     if(!children[0] || !isInternLink){
                         return linkElement;
@@ -65,14 +64,14 @@ const TranscribedPost = ({post}: TranscribedPostProps) =>{
                                 <a style={{"border": "none"}}>{children}</a>
                         }
                         </Link>
-                    ) 
+                    );
                 },
                 code({node, inline, className, children, ...props}) {
                     const match = /language-(\w+)/.exec(className || '')
                     return !inline && match ? 
                     
                         <SyntaxHighlighter
-                            style={dracula}
+                            style={codeTheme}
                             language={match[1]}
                             PreTag="div"
                             {...props}
@@ -102,7 +101,6 @@ const getCodeTheme = (name: string = 'dracula') => {
         case 'dracula': return dracula;
         case 'a11yDark': return a11yDark;
         case 'atomDark': return atomDark;
-        default: return dracula;
     }
 }
 

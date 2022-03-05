@@ -4,7 +4,7 @@ type Author ={
     key: string,
     name: string,
     email: string,
-    role: string
+    roles: Array<string>
     image_path: string,
     about: string,
     twitter: string,
@@ -14,13 +14,11 @@ type Author ={
 export const getAuthor = (authorKey: string): Author => {
     authorKey = authorKey.toString().toLowerCase();
     var authorInfo: Author  = authorsInfo[authorKey];
-
     if(!authorInfo || authorInfo === undefined || authorInfo === null){
         throw new Error(`Author [${authorKey}] is null, undefined or invalid`);
     }
   
-    const author: Author = authorInfo
-    return author;
+    return authorInfo;
 }
 
 export const getAuthorsList = () =>{
