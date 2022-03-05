@@ -19,8 +19,8 @@ const AuthorRowInfo: React.FC<AuthorRowInfoProps> = (props: AuthorRowInfoProps) 
             </img>
             <div className="author-tooltip-role">
                 {
-                    author.roles.map((name: string) =>{
-                        return <p >{name}<br/></p>
+                    author.roles.map((name: string, index: number) =>{
+                        return <p key={index} >{name}<br/></p>
                     })
                 }
             </div>

@@ -136,19 +136,66 @@ export default css.global`
       margin-top: 28%;
     }
   }
+  .tooltip-expand{
+    font-size: 1.0em;
+    text-decoration: none;
+    font-weight: bold;
+    color: var(--link-color);
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    display: inline-block;
+  }
+  /*===================TOOLTIP BALLON ===========*/
+  .expanded-tooltip-div{
+      /* -webkit-box-shadow:  -6px 10px 13px 1px rgb(0 0 0 / 53%); 
+      box-shadow:  -6px 10px 13px 1px rgb(0 0 0 / 53%); */
+      
+      color: rgb(245, 244, 244);
+      white-space: nowrap;
+      
+      background-color:var(--secondary-color);
+      border-radius: 0.5rem;
+      
+      position: absolute;
+      z-index: 2;
+      
+      height: fit-content;
+      width: max-content;
+      min-width: 100px;
+      min-height: 70px;
 
-.author-tooltip-role{
-    padding-left: 10px;
-    margin: auto;
-    line-height: 60px;
-    height: max-content;
-}
-.author-tooltip-role p{ 
-    margin: 0;
-    color: var(--font-contrast-color);
-    /* display: inline-block; */
-    vertical-align: middle;
-    line-height: normal;
-}
-
+      top: -90px;
+      
+      padding: 8px 8px 0px 5px;
+      
+      transition: all 0.6s cubic-bezier(.65,-0.53,.24,1.12);
+  }
+  .expanded-tooltip-div::after {
+      content: "";
+      position: absolute;
+      top: 98%;
+    
+      margin-left: -9px;
+      border-width: 9px;
+      border-style: solid;
+      border-color:var(--secondary-color) transparent transparent transparent;
+      transition: all 0.6s cubic-bezier(.65,-0.53,.24,1.12);
+  }
+  .tooltip-expand:hover .expanded-tooltip-div{
+      clip-path: circle(100%);
+  }
+  .author-tooltip-role{
+      padding-left: 10px;
+      margin: auto;
+      line-height: 60px;
+      height: max-content;
+  }
+  .author-tooltip-role p{ 
+      margin: 0;
+      color: var(--font-contrast-color);
+      vertical-align: middle;
+      line-height: normal;
+      font-size: 17px;
+  }
 `
