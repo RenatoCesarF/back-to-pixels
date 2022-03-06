@@ -5,7 +5,7 @@ import Post from '../classes/postType';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import { m, motion } from 'framer-motion';
 import { cardVariants, slideInUp } from '../helpers/animations';
-import Category, { CategoryType } from '../classes/category';
+import Category from '../classes/category';
 import CategoryTag, { CategoryTagTransparent } from './CategoryTag';
 import { sortByCategoryImportance } from '../utils/sort';
 

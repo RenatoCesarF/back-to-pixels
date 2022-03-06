@@ -12,6 +12,7 @@ import {slideButtonDown, slideInUp } from '../../helpers/animations';
 import WEB_SITE_INFO from '../../utils/webSiteInfo';
 
 import CustomButton, {ButtonIcon} from '../../components/CustomButton';
+import InternPostInformation from '../../components/InternPostInformation';
 
 const RssLinks = dynamic(() => import('../../components/RssLinks'))
 const HeadTag = dynamic(() => import('../../components/HeadTag'))
@@ -55,7 +56,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
 
                     <LazyMotion features={domAnimation}>
                         <m.div variants={slideButtonDown}>
-                            <CustomButton description='Return to Blog list' text='' icon={ButtonIcon.arrowBack} onClick={() => {router.push("/blog")}}/>
+                            <CustomButton description='Return to Blog page' text='' icon={ButtonIcon.arrowBack} onClick={() => {router.back()}}/>
                         </m.div>
                                 
                         <m.div variants={slideInUp} className='post-cover-div'>
@@ -70,6 +71,14 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                                 }   
                         </m.div >
 
+                        <InternPostInformation 
+                            categories={post.categories}
+                            author={post.author} 
+                            publishDate={post.date} 
+                            postSlug={post.slug}
+                        />
+                        <hr style={{marginTop: "2rem"}}/>
+                        
                         <m.section variants={slideInUp} itemProp="articleBody">
                             <h1 itemProp='name' className='post-title'>{post.title}</h1>
                             <p className='post-resume'>{post.excerpt}</p>

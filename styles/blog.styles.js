@@ -259,11 +259,11 @@ export default css.global`
 }
 
 .post-card-date{
-  color: var(--card-date-color);
   font-size: 0.9em;
   margin-bottom: 0.45rem;
   vertical-align: bottom;
-  font-family: sohne,"Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--card-date-color);
+  font-family: var(--date-font)
 }
 
 /*--------Animations and hover -------------*/

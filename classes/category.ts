@@ -59,5 +59,5 @@ export const getCategoryInfo = (categoryName: string): Category =>{
   }
   return tagInfo;
 }
-
+ 
 export default Category

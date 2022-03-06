@@ -2,9 +2,9 @@ import css from 'styled-jsx/css'
 
 export default css.global`
   .post-section{
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--main-font);
   }
-  .post-section p{
+  .post-content p{
     line-height: 1.8em;
   }
   .post-section li{
@@ -168,7 +168,7 @@ export default css.global`
       top: -90px;
       
       padding: 8px 8px 0px 5px;
-      
+
       transition: all 0.6s cubic-bezier(.65,-0.53,.24,1.12);
   }
   .expanded-tooltip-div::after {
@@ -185,17 +185,56 @@ export default css.global`
   .tooltip-expand:hover .expanded-tooltip-div{
       clip-path: circle(100%);
   }
-  .author-tooltip-role{
-      padding-left: 10px;
-      margin: auto;
-      line-height: 60px;
-      height: max-content;
+  .author-tooltip-img{
+    border-radius: 100%;
   }
+  .author-tooltip-role{
+    padding-left: 10px;
+    margin: auto;
+    line-height: 60px;
+    height: max-content;
+  }
+  
   .author-tooltip-role p{ 
-      margin: 0;
-      color: var(--font-contrast-color);
-      vertical-align: middle;
-      line-height: normal;
-      font-size: 17px;
+    margin: 0;
+    color: var(--font-contrast-color);
+    vertical-align: middle;
+    line-height: normal;
+    font-size: 1rem;
+  }
+
+  /*================ POST INTERN INFO =================*/
+  .post-author-info{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 1rem 0.5rem;
+  }
+  .post-info-author-image{
+    clip-path: circle(50% at 50% 50%);
+    margin-right: 0.6rem;
+    cursor: pointer;
+  }
+  .post-author-info p{
+    line-height:normal;
+    font-family: var(--main-font)
+  }
+  .post-info-author-name{
+    margin:0 0 0.5rem 0;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.15em;
+  }
+  .post-info-publish-date{
+    margin:0;
+    color: var(--card-date-color);
+    font-family:var(--date-font);
+    font-size: 0.9rem;
+    font-weight: 400;
+    object-fit: cover;
+  }
+  .post-info-buttons{
+    margin-top: 0.5rem;
+    display: flex;
   }
 `

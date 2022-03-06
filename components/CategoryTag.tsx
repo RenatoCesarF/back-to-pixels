@@ -1,4 +1,4 @@
-import Category, { CategoryType } from '../classes/category'
+import Category from '../classes/category'
 
 interface tagProps{
     category: Category

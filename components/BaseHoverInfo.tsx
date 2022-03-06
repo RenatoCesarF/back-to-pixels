@@ -20,20 +20,22 @@ const BaseHoverInfo = (props: BaseHoverInfoProps) =>{
     return (
         <div className="tooltip-expand">
     
-            <span>
-                {props.displayedText}
-            </span>
-
-            <div className="expanded-tooltip-div"
-                style={{}} 
+            <span
                 ref={el => {
                     if(!el) return;
-                    if(el.getBoundingClientRect().left >= window.innerWidth/2){
+                    if(el.getBoundingClientRect().left >= (window.innerWidth/2) - 20){
                         setIsElementRight(true);
                         return;
                     } 
                     setIsElementRight(false);
                 }}
+            >
+                {props.displayedText}
+            </span>
+
+            <div className="expanded-tooltip-div"
+                style={{}} 
+            
             >
                 <div className="expanded-tooltip-content">
                     {props.children}

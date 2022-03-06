@@ -43,7 +43,6 @@ export default function BlogPage({posts}:PostList){
               </motion.div>
 
               <LazyMotion features={domAnimation}>
-    
                 <m.div className='posts-grid'>
                   {
                     posts.map((post: Post, index: number) =>{
@@ -51,8 +50,8 @@ export default function BlogPage({posts}:PostList){
                     })
                   }
                 </m.div>
-
               </LazyMotion> 
+              
           </div>
           <RssLinks/>
         </>
