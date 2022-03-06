@@ -24,6 +24,7 @@ const Home: NextPage = () => {
         </motion.div>
         <InDevelopment/>
       </div>
+      
     </div>
   )
 }

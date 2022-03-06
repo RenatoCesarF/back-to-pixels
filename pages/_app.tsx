@@ -6,6 +6,19 @@ import Header from '../components/HeaderComponent'
 import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
 import HeadTag from '../components/HeadTag';
 import WEB_SITE_INFO from '../utils/webSiteInfo';
+import { Toaster } from 'react-hot-toast';
+
+const bubbleOptions = {className: 'toaster',
+success:{
+  style:{
+    background: "#485188"
+  }
+},
+error: {
+  style: {
+    background: 'red',
+  },
+},}
 
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
@@ -40,6 +53,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
           </motion.div>
         </MotionConfig>
       </AnimatePresence>
+      <Toaster position='bottom-center' toastOptions={bubbleOptions}/>
       <Footer/>
     </>
 

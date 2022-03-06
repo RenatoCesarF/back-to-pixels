@@ -1,25 +1,35 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
-import Author from "../classes/authorType";
-import Category from "../classes/category";
+import { useEffect, useState } from "react";
+import Post from "../classes/postType";
 import { formateDate } from "../utils/formateDate";
 import ActionIconButton, { ActionButtonIcon } from "./ActionIconButton";
 import ListOfCategories from "./ListCategories";
+import WEB_SITE_INFO from '../utils/webSiteInfo';
+import { m } from "framer-motion";
+import copyToClipboard from "../utils/copyToClipBoard";
 
 const authorImageSize: string ="4.3em";
 const instagramURL: string = "https://www.instagram.com";
 const twitterURL: string = "https://www.twitter.com";
 
-interface IPost{author: Author, publishDate: string, postSlug: string, categories: Array<Category>}
+interface InternPostInformationProps{post: Post}
 
 
-const InternPostInformation: React.FC<IPost> = (postInfo: IPost) =>{
+const InternPostInformation: React.FC<InternPostInformationProps> = ({post}:InternPostInformationProps) =>{    
+    const [isShareApiAvailable, setIsShareApiAvailable] = useState(false);
+    const shareURL = `${WEB_SITE_INFO.DEFAULT_URL}/blog/${post.slug}`
+    const autorRedirectLink: string = `/team/${post.author.key}`;
+    const formatedDate: string = formateDate(post.date);
 
-    const redirectToInstagram = () => window.open(`${instagramURL}/${postInfo.author.instagram}/`);
-    const redirectToTwitter = () => window.open(`${twitterURL}/${postInfo.author.twitter}/`);
-    
-    const autorRedirectLink: string = `/team/${postInfo.author.key}`;
-    const formatedDate: string = formateDate(postInfo.publishDate);
+    const redirectToInstagram = () => window.open(`${instagramURL}/${post.author.instagram}/`);
+    const redirectToTwitter = () => window.open(`${twitterURL}/${post.author.twitter}/`);
+    const openShareWindow = () => window.navigator.share({title:post.title,text: post.excerpt,url:shareURL});
+    const copyPostLink = () => copyToClipboard(shareURL);
+
+
+    useEffect(() => {
+        setIsShareApiAvailable(!!window.navigator.share);
+    }, []);
 
     return(
         <>
@@ -33,15 +43,15 @@ const InternPostInformation: React.FC<IPost> = (postInfo: IPost) =>{
                                 width={authorImageSize}
                                 height={authorImageSize}
                                 style={{height: authorImageSize, width: authorImageSize}}
-                                alt={`${postInfo.author.name} image`}  
-                                src={postInfo.author.image_path}>
+                                alt={`${post.author.name} image`}  
+                                src={post.author.image_path}>
                             </img>
                         </Link>
                     </div>
                     {/* NAME AND PUBLISH DATE */}
                     <div className="author-name-and-date">
                         <Link href={autorRedirectLink}>
-                            <p className="post-info-author-name">{postInfo.author.name}</p>
+                            <p className="post-info-author-name">{post.author.name}</p>
                         </Link>
                         <p className="post-info-publish-date">{formatedDate}</p>
                     </div>
@@ -49,13 +59,19 @@ const InternPostInformation: React.FC<IPost> = (postInfo: IPost) =>{
                 <div className="post-info-buttons">
                     <ActionIconButton icon={ActionButtonIcon.Instagram} onClick={redirectToInstagram}/>
                     <ActionIconButton icon={ActionButtonIcon.Twitter} onClick={redirectToTwitter}/>
+                    {isShareApiAvailable ? 
+                        <ActionIconButton icon={ActionButtonIcon.Share} onClick={openShareWindow}/> 
+                        : null
+                    }
+                    <ActionIconButton icon={ActionButtonIcon.Copy} onClick={copyPostLink}/>
                 </div>
             </div>
             <div className="post-categories-info">
-                <ListOfCategories categories={postInfo.categories}/>    
+                <ListOfCategories categories={post.categories}/>    
             </div>
         </>
     );
 }
+
 
 export default InternPostInformation;

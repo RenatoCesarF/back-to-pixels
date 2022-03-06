@@ -71,13 +71,8 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                                 }   
                         </m.div >
 
-                        <InternPostInformation 
-                            categories={post.categories}
-                            author={post.author} 
-                            publishDate={post.date} 
-                            postSlug={post.slug}
-                        />
-                        <hr style={{marginTop: "2rem"}}/>
+                        <InternPostInformation post={post}/>
+                        <hr style={{marginTop: "1.4rem"}}/>
                         
                         <m.section variants={slideInUp} itemProp="articleBody">
                             <h1 itemProp='name' className='post-title'>{post.title}</h1>

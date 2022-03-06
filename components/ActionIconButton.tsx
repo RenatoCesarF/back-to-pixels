@@ -35,7 +35,7 @@ const ActionIconButton: React.FC<ActionIconButtonProps> = (props:ActionIconButto
         <div 
             onClick={() => props.onClick()}
             className="action-button-div" 
-            style={{ height: divSize, width: divSize}}>
+            style={{ height: divSize, width: divSize, padding: "5px"}}>
             {getActionIcon(props.icon)}
         </div>
     );

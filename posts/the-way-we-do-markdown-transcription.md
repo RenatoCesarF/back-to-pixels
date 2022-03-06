@@ -1,6 +1,6 @@
 ---
 title: 'The Way We Do MarkDown Transcriptions'
-date: '09/02/2022'
+date: '02/09/2022'
 author: 'renato'
 cover_image: 'cover'
 excerpt: "Explaining how our .md to HTML works and the new features I just implement"
