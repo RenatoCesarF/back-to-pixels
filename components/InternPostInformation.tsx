@@ -5,7 +5,6 @@ import { formateDate } from "../utils/formateDate";
 import ActionIconButton, { ActionButtonIcon } from "./ActionIconButton";
 import ListOfCategories from "./ListCategories";
 import WEB_SITE_INFO from '../utils/webSiteInfo';
-import { m } from "framer-motion";
 import copyToClipboard from "../utils/copyToClipBoard";
 
 const authorImageSize: string ="4.3em";
@@ -17,13 +16,14 @@ interface InternPostInformationProps{post: Post}
 
 const InternPostInformation: React.FC<InternPostInformationProps> = ({post}:InternPostInformationProps) =>{    
     const [isShareApiAvailable, setIsShareApiAvailable] = useState(false);
-    const shareURL = `${WEB_SITE_INFO.DEFAULT_URL}/blog/${post.slug}`
+    const shareURL: string = `${WEB_SITE_INFO.DEFAULT_URL}/blog/${post.slug}`;
+    const shareText: string = `A ${WEB_SITE_INFO.NAME} Blog post by ${post.author.name} - ${post.title}`;
     const autorRedirectLink: string = `/team/${post.author.key}`;
     const formatedDate: string = formateDate(post.date);
 
     const redirectToInstagram = () => window.open(`${instagramURL}/${post.author.instagram}/`);
     const redirectToTwitter = () => window.open(`${twitterURL}/${post.author.twitter}/`);
-    const openShareWindow = () => window.navigator.share({title:post.title,text: post.excerpt,url:shareURL});
+    const openShareWindow = () => window.navigator.share({title:post.title,text: shareText,url:shareURL});
     const copyPostLink = () => copyToClipboard(shareURL);
 
 

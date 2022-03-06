@@ -42,7 +42,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                 description={post.excerpt}
                 keywords={keywordsList}
                 date={postDate}
-                url={`/${post.slug}`}
+                url={post.slug}
                 author={post.author}
             />
             <style jsx global>
