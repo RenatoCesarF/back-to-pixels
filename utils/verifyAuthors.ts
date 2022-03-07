@@ -1,4 +1,4 @@
-const authorsInfo = require('../public/authorsInfo.json');
+const authorsInfo = require('../authorsInfo.json');
 import Author, {getAuthor} from "../classes/authorType";
 import isValid from "./isValid";
 

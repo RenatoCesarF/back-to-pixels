@@ -1,5 +1,4 @@
 import Category from "../classes/category";
-const authorInfo = require('../public/authorsInfo.json');
 import Post from "../classes/postType";
 
 export const isPostValid = (post: Post) =>{
@@ -15,11 +14,13 @@ export const isPostValid = (post: Post) =>{
   verifyCoverImage(post);
   verifyPostCategories(post);
   verifyPostAuthor(post);
+  verifyPostDate(post);
 
   return true;
 
 }
-const verifyTitle = (post: Post) =>{
+
+const verifyTitle = (post: Post) => {
   if(!post.title || post.title.length < 5){
     throw new Error(`Post ${post.slug} | Title null or too short`);
   }
@@ -28,7 +29,7 @@ const verifyTitle = (post: Post) =>{
   }
 }
 
-const verifyExcerpt = (post: Post) =>{
+const verifyExcerpt = (post: Post) => {
   if(!post.excerpt || post.excerpt === null){
     throw new Error(`Post ${post.slug} | Post excerpt can not be null`);
   }
@@ -37,7 +38,7 @@ const verifyExcerpt = (post: Post) =>{
   }
 }
 
-const verifyCoverImage = (post: Post) =>{
+const verifyCoverImage = (post: Post) => {
   if(!post.cover_image || post.cover_image === null){
     throw new Error(`Post ${post.slug} | Post cover_image can not be null. Choose a number or a image inside the post folder`); 
   }
@@ -47,7 +48,7 @@ const verifyCoverImage = (post: Post) =>{
  
 }
 
-const verifyPostCategories = (post: Post) =>{
+const verifyPostCategories = (post: Post) => {
   if(!post.categories || post.categories === null){
     throw new Error(`Post ${post.slug} | Post categories cannnot be undefined or null`);
   }
@@ -62,8 +63,25 @@ const verifyPostCategories = (post: Post) =>{
   });
 }
 
-const verifyPostAuthor = (post: Post) =>{
+const verifyPostAuthor = (post: Post) => {
   if(!post.author || post.author === null || post.author === undefined){
     throw new Error("Post author cannnot be undefined or null");
+  }
+}
+
+const verifyPostDate = (post: Post) => {
+  const splitedDate: Array<string> = post.date.split("/");
+  const month: number = parseInt(splitedDate[0]);
+  const day: number = parseInt(splitedDate[1]);
+  const year: number = parseInt(splitedDate[2]);
+  
+  if(month <= 0 || month >= 13){
+    throw new Error(`The month [${month}] is not valid`);
+  }
+  if(day <= 0 || day >=32){
+    throw new Error(`The day [${day}] is not valid`);
+  }
+  if(year <= 2019 || year > 2030){
+    throw new Error(`The year ${year} is invalid, or I worked too much in this website`);
   }
 }

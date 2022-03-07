@@ -42,7 +42,8 @@ export default css.global`
   .post-content h2{
     color: var(--post-h1-color);
     font-size: 1.3em;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+    margin-bottom: -0.5rem;
   }
  
   /*============ IMAGE ===============*/

@@ -20,6 +20,7 @@ const InternPostInformation: React.FC<InternPostInformationProps> = ({post}:Inte
     const shareText: string = `A ${WEB_SITE_INFO.NAME} Blog post by ${post.author.name} - ${post.title}`;
     const autorRedirectLink: string = `/team/${post.author.key}`;
     const formatedDate: string = formateDate(post.date);
+    const hasntTwitter: boolean = post.author.twitter != null || post.author.twitter == ""
 
     const redirectToInstagram = () => window.open(`${instagramURL}/${post.author.instagram}/`);
     const redirectToTwitter = () => window.open(`${twitterURL}/${post.author.twitter}/`);
@@ -58,7 +59,7 @@ const InternPostInformation: React.FC<InternPostInformationProps> = ({post}:Inte
                 </div>
                 <div className="post-info-buttons">
                     <ActionIconButton icon={ActionButtonIcon.Instagram} onClick={redirectToInstagram}/>
-                    <ActionIconButton icon={ActionButtonIcon.Twitter} onClick={redirectToTwitter}/>
+                    {hasntTwitter ? <ActionIconButton icon={ActionButtonIcon.Twitter} onClick={redirectToTwitter}/> : null} 
                     {isShareApiAvailable ? 
                         <ActionIconButton icon={ActionButtonIcon.Share} onClick={openShareWindow}/> 
                         : null

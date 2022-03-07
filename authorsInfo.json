@@ -12,21 +12,22 @@
     "tayna": {
         "key": "tayna",
         "name": "Tayna Vitória",
-        "email": "@",
+        "email": "taynavit.lima@gmail.com",
         "roles": ["Designer","Artist"],
         "image_path": "/images/authors/tayna.webp",
         "about": "About tayna",
         "twitter": "",
-        "instagram": ""
+        "instagram": "arttayna_"
     },
     "bruno":{
         "key":"bruno",
         "name": "Bruno Costa",
-        "email": "@",
+        "email": "@.com",
         "roles": ["Programmer"],
         "image_path": "/images/authors/bruno.webp",
         "about": "About tayna",
         "twitter": "",
         "instagram": ""
     }
+
 }
