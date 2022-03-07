@@ -18,7 +18,7 @@ const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
     var keywords: string[] = [ ...defaultKeywords, ...props.keywords];
     var stringKeywords: string = keywords.join().toLowerCase();
     const twitterDomain = WEB_SITE_INFO.DEFAULT_URL.slice(8);
-
+    const imageURL = `${WEB_SITE_INFO.DEFAULT_URL}/${props.image}`;
     return(
         <Head>
             <link rel="shortcut icon" href="/favicon.ico" />
@@ -55,7 +55,7 @@ const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
             <meta property="og:title" content={props.title}/>
             <meta property="og:site_name" content={WEB_SITE_INFO.NAME}/>
             <meta property="og:description" content={props.description}/>
-            <meta property="og:image" content={WEB_SITE_INFO.DEFAULT_URL + props.image}/>
+            <meta property="og:image" content={imageURL}/>
             <meta property="og:image:type" content={`image/webp`} />
             <meta property="og:image:width" content="300"/>
             <meta property="og:image:height" content="300"/>
@@ -68,11 +68,11 @@ const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
 
             <meta name="twitter:card" content="summary_large_image"/>
             <meta name="twitter:website" content="@nerat0"/>
-            <meta name="twitter:image" content={WEB_SITE_INFO.DEFAULT_URL + props.image}/>
+            <meta name="twitter:image" content={imageURL}/>
             <meta name="twitter:title" content={props.title}/>
             <meta name="twitter:description" content={props.description}/>
             <meta name="twitter:creator" content={props.author?.twitter}/>
-            <meta property="twitter:url" content={WEB_SITE_INFO.DEFAULT_URL + props.url}/>
+            <meta property="twitter:url" content={imageURL}/>
             <meta property="twitter:domain" content={twitterDomain}/>
         </Head>
     )

@@ -30,15 +30,6 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   }
   return(
     <>
-      <HeadTag 
-        image="/images/logo.png"
-        title={`${WEB_SITE_INFO.NAME}`}
-        description={`${WEB_SITE_INFO.NAME} official website. Follow our journey creating our projects and Games`}
-        keywords={[]} 
-        date={new Date()} 
-        url=""
-      />
-
       <Header/>
       <AnimatePresence exitBeforeEnter onExitComplete={handleScrollToTop}>
         <MotionConfig reducedMotion='user'>
