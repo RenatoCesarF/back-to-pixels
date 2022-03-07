@@ -37,12 +37,12 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
     return(
         <>
             <HeadTag 
-                image={`/${post.cover_image}`}
+                image={post.cover_image}
                 title={`${post.title} - ${WEB_SITE_INFO.NAME}`} 
                 description={post.excerpt}
                 keywords={keywordsList}
                 date={postDate}
-                url={post.slug}
+                url={`/blog/${post.slug}`}
                 author={post.author}
             />
             <style jsx global>
