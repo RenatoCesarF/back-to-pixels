@@ -1,5 +1,16 @@
 export const easing = [0.175, 0.85, 0.42, 0.96];
 
+
+export const opacityChange = {
+  exit: {
+    opacity: 0,
+    transition: { duration: 0.2, ease: easing }
+  },
+  enter: {
+    opacity: 1,
+    transition: {duration: 0.5, ease: easing }
+  }
+}
 export const slideInUp = {
     exit: {
       y: 100,

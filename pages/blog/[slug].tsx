@@ -12,8 +12,8 @@ import {slideButtonDown, slideInUp } from '@helpers/animations';
 import WEB_SITE_INFO from '@utils/webSiteInfo';
 
 import CustomButton, {ButtonIcon} from '@components/CustomButton';
-import InternPostInformation from '@components/InternPostInformation';
 
+const InternPostInformation = dynamic(() => import('@components/InternPostInformation'));
 const RssLinks = dynamic(() => import('@components/RssLinks'));
 const HeadTag = dynamic(() => import('@components/HeadTag'));
 const TranscribedPost = dynamic(() => import('@components/TranscribedPost'));

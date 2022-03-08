@@ -68,6 +68,7 @@ export default css.global`
   .post-cover-div{
     display: flex;
     position: relative;
+    background-color: #2d2d2d
   }
 
   .post-cover-date{

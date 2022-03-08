@@ -1,9 +1,11 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { m } from "framer-motion";
 
 import Post from "@classes/postType";
 import ActionIconButton, { ActionButtonIcon } from "@components/ActionIconButton";
-import ListOfCategories from "./ListCategories";
+import ListOfCategories from "@components/ListCategories";
+import { opacityChange } from "@helpers/animations";
 import WEB_SITE_INFO from '@utils/webSiteInfo';
 import { formateDate } from "@utils/formateDate";
 import copyToClipboard from "@utils/copyToClipBoard";
@@ -34,7 +36,7 @@ const InternPostInformation: React.FC<InternPostInformationProps> = ({post}:Inte
     }, []);
 
     return(
-        <>
+        <m.div variants={opacityChange}>
             <div className="post-author-info" >
             <div style={{display: "flex", alignItems: "center"}}>
                     {/* IMAGE */}
@@ -71,7 +73,7 @@ const InternPostInformation: React.FC<InternPostInformationProps> = ({post}:Inte
             <div className="post-categories-info">
                 <ListOfCategories categories={post.categories}/>    
             </div>
-        </>
+        </m.div>
     );
 }
 

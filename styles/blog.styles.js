@@ -8,14 +8,15 @@ export default css.global`
     display: grid;
     grid-template-columns: repeat(auto-fit, 20rem);
     justify-content: center;
-    row-gap: 1.3em;
+    /* row-gap: 1.3em; */
+    row-gap: 0;
 }
   
 /*----------POST CARD------*/
 
 .post-card-div{
-  width: 17rem;
-  height: 17rem;
+  width: 17em;
+  height: 17em;
   
   display: flex;
   flex-direction: column;
