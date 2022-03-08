@@ -1,11 +1,12 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Post from "../classes/postType";
-import { formateDate } from "../utils/formateDate";
-import ActionIconButton, { ActionButtonIcon } from "./ActionIconButton";
+
+import Post from "@classes/postType";
+import ActionIconButton, { ActionButtonIcon } from "@components/ActionIconButton";
 import ListOfCategories from "./ListCategories";
-import WEB_SITE_INFO from '../utils/webSiteInfo';
-import copyToClipboard from "../utils/copyToClipBoard";
+import WEB_SITE_INFO from '@utils/webSiteInfo';
+import { formateDate } from "@utils/formateDate";
+import copyToClipboard from "@utils/copyToClipBoard";
 
 const authorImageSize: string ="4.3em";
 const instagramURL: string = "https://www.instagram.com";

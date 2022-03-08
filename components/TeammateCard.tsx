@@ -1,7 +1,7 @@
 import { m } from "framer-motion"
 import Link from "next/link"
-import Author from "../classes/authorType"
-import { cardVariants } from "../helpers/animations"
+import Author from "@classes/authorType"
+import { cardVariants } from "@helpers/animations"
 
 
 interface teamMateProps {

@@ -2,10 +2,9 @@ import { useRouter } from 'next/router'
 import Link from "next/link";
 import React, { useState } from "react";
 
-import ThemeSwitch from './ThemeSwich';
+import ThemeSwitch from '@components/ThemeSwich';
+import MenuIcon from '@components/MenuIcon';
 
-import MenuIcon from './MenuIcon';
-import { parseCookies } from 'nookies';
 
 enum HeaderOption{
     HOME,

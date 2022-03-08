@@ -1,5 +1,5 @@
-import Author, { getAuthor, getAuthorsList } from "../../classes/authorType";
-import InDevelopment from "../../components/InDevelopment";
+import Author, { getAuthor, getAuthorsList } from "@classes/authorType";
+import InDevelopment from "@components/InDevelopment";
 
 
 interface IAuthor{author: Author};

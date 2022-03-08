@@ -1,14 +1,12 @@
 import { motion } from 'framer-motion';
 import 'next';
 import { useRouter } from 'next/router'
-import CustomButton, {ButtonIcon} from '../components/CustomButton';
-import { slideInDown, slideInUp } from '../helpers/animations';
-import lotie404 from '../public/lotties/404-lottie.json';
+import CustomButton, {ButtonIcon} from '@components/CustomButton';
+import { slideInDown, slideInUp } from '@helpers/animations';
+import lotie404 from '@public/lotties/404-lottie.json';
 import Lottie from 'react-lottie'
-import HeadTag from '../components/HeadTag';
-import WEB_SITE_INFO from '../utils/webSiteInfo';
-import BaseHoverInfo from '../components/BaseHoverInfo';
-
+import HeadTag from '@components/HeadTag';
+import WEB_SITE_INFO from '@utils/webSiteInfo';
 
 export default function Custom404() {
     const router = useRouter()
@@ -19,7 +17,8 @@ export default function Custom404() {
         // rendererSettings: {
         //   preserveAspectRatio: "xMidYMid slice"
         // }
-      };
+    };
+    
     return (
         <div className="page">
             <HeadTag 

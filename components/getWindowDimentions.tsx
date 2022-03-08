@@ -1,5 +1,4 @@
 import { useState,useEffect } from "react";
-import { FaRegCaretSquareDown } from "react-icons/fa";
 
 
 const getWindowDimensions = ()=> {

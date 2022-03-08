@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
-import { slideInUp } from "../helpers/animations";
-import programmerLotie from '../public/lotties/programmer-lottie.json';
 import Lottie from 'react-lottie'
+
+import programmerLotie from '@public/lotties/programmer-lottie.json';
+import { slideInUp } from "@helpers/animations";
 
 export default function InDevelopment(){
     const defaultOptions = {

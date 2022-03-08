@@ -6,17 +6,17 @@ import { useRouter } from 'next/router';
 import { domAnimation, LazyMotion, m } from 'framer-motion';
 import dynamic from 'next/dynamic';
 
-import Post, { createPost } from '../../classes/postType';
-import globalStyles from '../../styles/slug.styles';
-import {slideButtonDown, slideInUp } from '../../helpers/animations';
-import WEB_SITE_INFO from '../../utils/webSiteInfo';
+import Post, { createPost } from '@classes/postType';
+import globalStyles from '@styles/slug.styles';
+import {slideButtonDown, slideInUp } from '@helpers/animations';
+import WEB_SITE_INFO from '@utils/webSiteInfo';
 
-import CustomButton, {ButtonIcon} from '../../components/CustomButton';
-import InternPostInformation from '../../components/InternPostInformation';
+import CustomButton, {ButtonIcon} from '@components/CustomButton';
+import InternPostInformation from '@components/InternPostInformation';
 
-const RssLinks = dynamic(() => import('../../components/RssLinks'))
-const HeadTag = dynamic(() => import('../../components/HeadTag'))
-const TranscribedPost = dynamic(() => import('../../components/TranscribedPost'))
+const RssLinks = dynamic(() => import('@components/RssLinks'));
+const HeadTag = dynamic(() => import('@components/HeadTag'));
+const TranscribedPost = dynamic(() => import('@components/TranscribedPost'));
 
 
 interface IPost{post: Post};
@@ -27,7 +27,7 @@ type StaticResponse = {params: Params};
 const PostPage: React.FC<IPost> = ({post}: IPost) => {
     const router = useRouter();
     const doenstHaveCoverImage:boolean = post.cover_image.includes('/default-images/');
-    const postDate = new Date(post.date.replace("/","-"))
+    const postDate = new Date(post.date.replace("/","-"));
     
     var keywordsList: string[] = [];
     for(let i = 0; i< post.categories.length; i++){
@@ -87,7 +87,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
             </main>
             <RssLinks/>
         </>
-    )
+    );
 };
 
 

@@ -1,11 +1,11 @@
 import type { NextPage } from 'next'
-import generateRssFeed from '../scripts/rss'
+import generateRssFeed from '@scripts/rss'
 
 import { motion} from 'framer-motion'
-import { slideInLeft } from '../helpers/animations'
-import InDevelopment from '../components/InDevelopment'
-import HeadTag from '../components/HeadTag';
-import WEB_SITE_INFO from '../utils/webSiteInfo';
+import { slideInLeft } from '@helpers/animations'
+import InDevelopment from '@components/InDevelopment'
+import HeadTag from '@components/HeadTag';
+import WEB_SITE_INFO from '@utils/webSiteInfo';
 
 const Home: NextPage = () => {
   return (

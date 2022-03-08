@@ -1,11 +1,9 @@
-import '../styles/globals.css'
+import '@styles/globals.css'
 import type { AppProps } from 'next/app'
-import Footer from '../components/Footer'
-import Header from '../components/HeaderComponent'
+import Footer from '@components/Footer'
+import Header from '@components/HeaderComponent'
 
 import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
-import HeadTag from '../components/HeadTag';
-import WEB_SITE_INFO from '../utils/webSiteInfo';
 import { Toaster } from 'react-hot-toast';
 
 const bubbleOptions = {className: 'toaster',

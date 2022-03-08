@@ -1,13 +1,12 @@
-import NextHead from 'next/head';
-import { m, motion } from 'framer-motion'
+import { m } from 'framer-motion'
 
-import { slideInLeft } from '../../../helpers/animations';
-import InDevelopment from '../../../components/InDevelopment';
-import HeadTag from '../../../components/HeadTag';
-import Category, { getAllCategories, getCategoryInfo } from '../../../classes/category';
-import WEB_SITE_INFO from '../../../utils/webSiteInfo';
-import { getAuthor } from '../../../classes/authorType';
-import CategoryTag from '../../../components/CategoryTag';
+import { slideInLeft } from '@helpers/animations';
+import InDevelopment from '@components/InDevelopment';
+import HeadTag from '@components/HeadTag';
+import Category, { getAllCategories, getCategoryInfo } from '@classes/category';
+import WEB_SITE_INFO from '@utils/webSiteInfo';
+import { getAuthor } from '@classes/authorType';
+import CategoryTag from '@components/CategoryTag';
 
 interface Params {tag: string};
 interface StaticResponse {params: Params};
@@ -28,9 +27,9 @@ const TagInfo: React.FC<TagInfoProps> = ({category}: TagInfoProps) => {
             <div className='page'>
                 <h1>X Posts in the category <CategoryTag category={category}/></h1>
                 <p>{category.about}</p>
-                <motion.div  variants={slideInLeft}>
+                <m.div  variants={slideInLeft}>
                   
-                </motion.div>
+                </m.div>
                 <InDevelopment/>
             </div>
         </>

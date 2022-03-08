@@ -8,12 +8,12 @@ import {darcula,a11yDark,atomDark,dracula} from 'react-syntax-highlighter/dist/c
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 
-import { getAuthorsKeyList } from '../classes/authorType';
-import Post from '../classes/postType';
+import { getAuthorsKeyList } from '@classes/authorType';
+import Post from '@classes/postType';
 
-const ImageZoom = dynamic(() => import('../components/ImageZoom'));
-const BaseHoverInfo = dynamic(() => import('./BaseHoverInfo'));
-const AuthorRowInfo = dynamic(() => import('./AuthorRowInfo'));
+const ImageZoom = dynamic(() => import('@components/ImageZoom'));
+const BaseHoverInfo = dynamic(() => import('@components/BaseHoverInfo'));
+const AuthorRowInfo = dynamic(() => import('@components/AuthorRowInfo'));
 
 
 interface TranscribedPostProps{post: Post}

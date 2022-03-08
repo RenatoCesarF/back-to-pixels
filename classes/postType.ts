@@ -1,8 +1,8 @@
 import { readdirSync, readFileSync } from 'fs';
 import matter from 'gray-matter';
 import {join} from 'path';
-import Author, { getAuthor } from './authorType'
-import Category, { getPostCategories } from './category'
+import Author, { getAuthor } from '@classes/authorType'
+import Category, { getPostCategories } from '@classes/category'
 
 type Post = {
   author: Author,

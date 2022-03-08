@@ -1,5 +1,5 @@
 
-import WEB_SITE_INFO from '../utils/webSiteInfo';
+import WEB_SITE_INFO from '@utils/webSiteInfo';
 
 
 const RssLinks = () =>{

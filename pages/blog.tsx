@@ -4,18 +4,16 @@ import dynamic from 'next/dynamic'
 
 import { domAnimation, LazyMotion, m, motion } from 'framer-motion';
 
+import globalStyles from '@styles/blog.styles'
+import Post, { createPost } from '@classes/postType';
+import {sortByDate, sortByDateReverse} from '@utils/sort';
 
-import globalStyles from '../styles/blog.styles'
-import Post, { createPost } from '../classes/postType';
-import {sortByDate, sortByDateReverse} from '../utils/sort';
+import { slideInLeft } from '@helpers/animations';
+import WEB_SITE_INFO from '@utils/webSiteInfo';
 
-import { slideInLeft } from '../helpers/animations';
-import WEB_SITE_INFO from '../utils/webSiteInfo';
-
-
-const HeadTag = dynamic(() => import('../components/HeadTag'))
-const RssLinks = dynamic(() => import('../components/RssLinks'))
-const PostCard = dynamic(() => import('../components/PostCard'))
+const HeadTag = dynamic(() => import('@components/HeadTag'));
+const RssLinks = dynamic(() => import('@components/RssLinks'));
+const PostCard = dynamic(() => import('@components/PostCard'));
 
 interface PostList{
   posts: Post[]

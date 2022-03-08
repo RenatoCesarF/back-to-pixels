@@ -1,8 +1,8 @@
 import React from "react";
-import { getStaticProps } from "../pages/blog";
-import globalStyles from '../styles/CustomButton.styles.js'
 import { BiLeftArrowAlt } from 'react-icons/bi';
 import { motion } from "framer-motion";
+
+import globalStyles from '@styles/CustomButton.styles.js'
 
 interface ButtomProps{
     text: string;

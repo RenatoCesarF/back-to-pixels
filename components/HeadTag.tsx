@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import Author from '../classes/authorType';
-import WEB_SITE_INFO from '../utils/webSiteInfo';
+import Author from '@classes/authorType';
+import WEB_SITE_INFO from '@utils/webSiteInfo';
 
 interface HeadProps{
     image: string,
@@ -19,7 +19,7 @@ const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
     var stringKeywords: string = keywords.join().toLowerCase();
     const twitterDomain = WEB_SITE_INFO.DEFAULT_URL.slice(8);
     const imageURL = `${WEB_SITE_INFO.DEFAULT_URL}${props.image}`;
-    console.log(imageURL);
+
     return(
         <Head>
             <link rel="shortcut icon" href="/favicon.ico" />

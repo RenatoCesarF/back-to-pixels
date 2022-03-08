@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
-import Link from 'next/link';
-
-import Post from '../classes/postType';
+import { useState } from 'react';
 import { FaRegCalendarAlt } from 'react-icons/fa';
-import { m, motion } from 'framer-motion';
-import { cardVariants, slideInUp } from '../helpers/animations';
-import Category from '../classes/category';
-import CategoryTag, { CategoryTagTransparent } from './CategoryTag';
-import { sortByCategoryImportance } from '../utils/sort';
+import Link from 'next/link';
+import { m } from 'framer-motion';
+
+import CategoryTag, { CategoryTagTransparent } from '@components/CategoryTag';
+import Post from '@classes/postType';
+import Category from '@classes/category';
+import { cardVariants } from '@helpers/animations';
+import { sortByCategoryImportance } from '@utils/sort';
 
 interface IPost{
     post: Post
