@@ -24,10 +24,10 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
     if(post.excerpt.length > maximumExcerptSize){
         shortExcerpt = post.excerpt.substring( 0, maximumExcerptSize) + "...";
     }
-
+   
     return(
-        <m.div style={{height: "20.6em", width: "fit-content"}}>
-            <m.div className='post-card-div'  variants={cardVariants} 
+        <m.div variants={cardVariants}  className='post-card-expanded-external'>
+            <m.div className='post-card-div'  
                 onMouseOver={()=>{setIsHovering(true)}}
                 onMouseLeave={()=>{setIsHovering(false)}}
                 onTouchCancel={()=>{setIsHovering(false)}}

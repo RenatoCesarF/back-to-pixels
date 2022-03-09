@@ -1,21 +1,18 @@
 import { domAnimation, LazyMotion, m, motion } from 'framer-motion'
 
 import { slideInLeft } from '@helpers/animations';
-import globalStyles from '@styles/teammate.styles';
+import globalStyles from '@styles/team.styles';
 import Author, { getAuthor, getAuthorsList } from '@classes/authorType';
 import WEB_SITE_INFO from '@utils/webSiteInfo';
-
 import TeammateCard from '@components/TeammateCard';
 import InDevelopment from '@components/InDevelopment';
 import HeadTag from '@components/HeadTag';
-
 
 interface authorsList{
     authors: Author[]
 }
 
 const TeamPage = ({authors}: authorsList) => {
-
     return(
         <>
             <style jsx global>
@@ -34,7 +31,7 @@ const TeamPage = ({authors}: authorsList) => {
                     <h1>Teams page</h1>
                 </motion.div>
                 <LazyMotion features={domAnimation}>
-                    <m.div className='posts-grid'>
+                    <m.div className='teammate-cards-grid'>
                         {
                             authors.map((teammate: Author, index: number) =>{
                                 return <TeammateCard author={teammate} key={index}/>
@@ -60,4 +57,4 @@ export async function getStaticProps(){
     };
 }
 
-export default TeamPage
+export default TeamPage;

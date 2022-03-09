@@ -21,6 +21,19 @@ export const getAuthor = (authorKey: string): Author => {
     return authorInfo;
 }
 
+export const getAuthorRoleIndex = (role: string) =>{
+    switch (role) {
+        case 'Programmer':
+            return 0;                
+        case 'Artist':
+            return 1;                
+        case 'Designer':
+            return 2;                
+        default:
+            return 0;
+    }
+}
+
 export const getAuthorsList = () =>{
     const authorsList = Object.entries(authorsInfo);
     return authorsList;

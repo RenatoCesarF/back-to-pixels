@@ -8,12 +8,14 @@ export default css.global`
     display: grid;
     grid-template-columns: repeat(auto-fit, 20rem);
     justify-content: center;
-    /* row-gap: 1.3em; */
     row-gap: 0;
 }
   
 /*----------POST CARD------*/
-
+.post-card-expanded-external{
+  height: 19.6em;
+  width: fit-content;
+}
 .post-card-div{
   width: 17em;
   height: 17em;
@@ -27,8 +29,10 @@ export default css.global`
   border-radius: 0.7rem;
   margin: 0.5rem;
   user-select:none;
-  transition: height 0.69s cubic-bezier(.65,-0.53,.24,1.12);
-  transition-delay: 0.1s;
+  /* transition: height 0.69s cubic-bezier(.65,-0.53,.24,1.12); */
+  transition: height .6s cubic-bezier(0.215, 0.610, 0.355, 1);
+  /* transition-delay: 0.1s; */
+
   
   -webkit-box-shadow:  9px 9px 10px -6px var(--card-shadow-color);
   -moz-box-shadow:  9px 9px 10px -6px var(--card-shadow-color);
@@ -77,6 +81,7 @@ export default css.global`
 }
 
 @media screen and (max-width: 640px) {
+  .post-card-expanded-external{height: fit-content;}
   .post-card-div{width: 90vw;}
   .post-card-clickable{cursor: none;}
   .posts-grid{
@@ -269,7 +274,7 @@ export default css.global`
 
 /*--------Animations and hover -------------*/
 .post-card-div:hover, .post-card-div:active, .post-card-div:focus {
-  height: 20em;
+  height: 19em;
   overflow:hidden;
 }
 /*on hover, change image and text*/
