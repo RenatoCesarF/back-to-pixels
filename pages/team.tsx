@@ -45,7 +45,6 @@ const TeamPage = ({authors}: authorsList) => {
     );
 }
 
-
 export async function getStaticProps(){
     const authorsList = getAuthorsList()
     var authors: Author[] = authorsList.map(authorKey => {

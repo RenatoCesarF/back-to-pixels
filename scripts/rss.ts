@@ -3,11 +3,11 @@ import path from 'path'
 import MarkdownIt from 'markdown-it';
 import { Feed ,Item} from "feed";
 import matter from 'gray-matter';
-import { getCoverImage } from '../classes/postType';
-import { sortByDate } from '../utils/sort';
-import { getAuthor } from '../classes/authorType';
+import { getCoverImage } from '@classes/postType';
+import { sortByDate } from '@utils/sort';
+import { getAuthor } from '@classes/authorType';
 
-import WEB_SITE_INFO from '../utils/webSiteInfo';
+import WEB_SITE_INFO from '@utils/webSiteInfo';
 
 
 async function generateRssFeed() {

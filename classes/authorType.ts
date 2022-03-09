@@ -1,4 +1,4 @@
-const authorsInfo = require('../authorsInfo.json');
+const authorsInfo = require('@helpers/authorsInfo.json');
 
 type Author ={
     key: string,

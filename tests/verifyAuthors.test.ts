@@ -1,5 +1,5 @@
-import isAuthorValid from '../utils/verifyAuthors';
-const authorsInfo = require('../authorsInfo.json');
+import isAuthorValid from '@utils/verifyAuthors';
+const authorsInfo = require('@helpers/authorsInfo.json');
 
 
 describe('Testing every Author ', () => {

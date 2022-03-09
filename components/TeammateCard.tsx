@@ -22,8 +22,8 @@ const TeammateCard: React.FC<teammateProps> = ({author}:teammateProps) =>{
                 <span className='teammate-card-name'>{author.name}</span>
                 <div className="teammate-card-foter" style={{display: "flex", justifyContent: "space-between"}}>
                     <div style={{display: "flex", alignItems: "flex-end"}}>
-                        {author.roles.map((roll) => {
-                            return <p className="teammate-card-author-role">{roll}<br/></p>
+                        {author.roles.map((roll: string, index: number) => {
+                            return <p key={index} className="teammate-card-author-role">{roll}<br/></p>
                         })}
                     </div>
                 <img className="img-fit"src={author.image_path} height={teammateCardImageSize} width={teammateCardImageSize} />

@@ -26,7 +26,7 @@ const ThemeSwitch = () => {
     useEffect(() => {
         setLoaded(true);
         document.body.className = theme;
-    });
+    }, [theme]);
 
     return(
         <div>

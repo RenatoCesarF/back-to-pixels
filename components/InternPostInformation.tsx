@@ -41,7 +41,7 @@ const InternPostInformation: React.FC<InternPostInformationProps> = ({post}:Inte
             <div style={{display: "flex", alignItems: "center"}}>
                     {/* IMAGE */}
                     <div>
-                        <Link href={autorRedirectLink}>
+                        <Link passHref href={autorRedirectLink}>
                             <img 
                                 className="post-info-author-image"
                                 width={authorImageSize}
@@ -54,7 +54,7 @@ const InternPostInformation: React.FC<InternPostInformationProps> = ({post}:Inte
                     </div>
                     {/* NAME AND PUBLISH DATE */}
                     <div className="author-name-and-date">
-                        <Link href={autorRedirectLink}>
+                        <Link href={autorRedirectLink} passHref>
                             <p className="post-info-author-name">{post.author.name}</p>
                         </Link>
                         <p className="post-info-publish-date">{formatedDate}</p>

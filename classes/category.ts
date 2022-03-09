@@ -1,5 +1,5 @@
 
-const categoriesInfo = require('../categoriesInfo.json');
+const categoriesInfo = require('@helpers/categoriesInfo.json');
 
 
 interface Category{
