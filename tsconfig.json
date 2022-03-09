@@ -1,15 +1,15 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
       "@components/*": ["components/*"],
       "@helpers/*": ["helpers/*"],
-      "@public/*": ["public/*"],
+      "@public/*": ["../public/*"],
       "@scripts/*": ["scripts/*"],
-      "@utils/*": ["utils/*"],
+      "@utils/*": ["src/utils/*"],
       "@styles/*": ["styles/*"],
-      "@classes/*": ["classes/*"],
-      "@root/*": ["./*"]
+      "@classes/*": ["src/classes/*"],
+      "@root/*": ["../*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -26,7 +26,7 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "utils/verifyPosts.jf", "tests/verifyPosts.test.ts", "utils/sim.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/utils/verifyPosts.jf", "tests/verifyPosts.test.ts", "src/utils/sim.js"],
   "exclude": ["node_modules"],
   
 }
