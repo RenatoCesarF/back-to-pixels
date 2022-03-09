@@ -26,7 +26,7 @@ const TeammateCard: React.FC<teammateProps> = ({author}:teammateProps) =>{
                             return <p key={index} className="teammate-card-author-role">{roll}<br/></p>
                         })}
                     </div>
-                <img className="img-fit"src={author.image_path} height={teammateCardImageSize} width={teammateCardImageSize} />
+                <img alt={`${author.name} image`} className="img-fit"src={author.image_path} height={teammateCardImageSize} width={teammateCardImageSize} />
                 </div>
             </m.div>
         </Link>

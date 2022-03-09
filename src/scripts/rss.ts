@@ -9,6 +9,7 @@ import { getAuthor } from '@root/src/classes/authorType';
 
 import WEB_SITE_INFO from '@root/src/utils/webSiteInfo';
 
+const postsFolderPath = 'src/posts'
 
 async function generateRssFeed() {
   if (process.env.NODE_ENV === 'development') {
@@ -57,7 +58,7 @@ async function generateRssFeed() {
 }
 
 const createListWithAllPosts = (): Item[] => {
-  const files = fs.readdirSync(path.join('posts'));
+  const files = fs.readdirSync(path.join(postsFolderPath));
   
   const items: Item[] = files.map((filename) => {
     return createPostItemToFeed(filename)
@@ -67,7 +68,7 @@ const createListWithAllPosts = (): Item[] => {
 
 const  createPostItemToFeed = (filename: string): Item => {
   const slug = filename.replace('.md', '');
-  const markdownWithMeta = fs.readFileSync(path.join('posts', filename), 'utf-8');
+  const markdownWithMeta = fs.readFileSync(path.join(postsFolderPath, filename), 'utf-8');
   const {data, content} = matter(markdownWithMeta);
 
   const htmlContent = new MarkdownIt().render(content);
@@ -92,10 +93,10 @@ const  createPostItemToFeed = (filename: string): Item => {
 }
 
 const exportFeedIntoFiles = (feed: Feed) => {
-  fs.mkdirSync("@public/rss", { recursive: true });
-  fs.writeFileSync("@public/rss/feed.xml", feed.rss2());
-  fs.writeFileSync("@public/rss/feed.json", feed.json1());
-  fs.writeFileSync("@public/rss/atom.xml", feed.atom1());
+  fs.mkdirSync("public/rss", { recursive: true });
+  fs.writeFileSync("public/rss/feed.xml", feed.rss2());
+  fs.writeFileSync("public/rss/feed.json", feed.json1());
+  fs.writeFileSync("public/rss/atom.xml", feed.atom1());
 }
 
 export default generateRssFeed;
