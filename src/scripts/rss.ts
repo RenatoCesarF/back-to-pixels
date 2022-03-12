@@ -1,15 +1,13 @@
 import fs from 'fs'
-import path from 'path'
 import MarkdownIt from 'markdown-it';
 import { Feed ,Item} from "feed";
 import matter from 'gray-matter';
-import { getCoverImage } from '@root/src/classes/postType';
-import { sortByDate } from '@root/src/utils/sort';
+import { getAllPostsData, getCoverImage, getSinglePostData } from '@root/src/classes/postType';
+import { sortByDate } from '@utils/sort';
 import { getAuthor } from '@root/src/classes/authorType';
 
-import WEB_SITE_INFO from '@root/src/utils/webSiteInfo';
+import WEBSITE_INFO from '@root/src/utils/webSiteInfo';
 
-const postsFolderPath = 'src/posts'
 
 async function generateRssFeed() {
   if (process.env.NODE_ENV === 'development') {
@@ -24,21 +22,21 @@ async function generateRssFeed() {
   };
 
   const feed = new Feed({
-      title: WEB_SITE_INFO.NAME,
+      title: WEBSITE_INFO.NAME,
       description: "Welcome to the blog containing all the articles and documentation about all the games and projects we produce",
-      id: WEB_SITE_INFO.DEFAULT_URL,
-      link: WEB_SITE_INFO.DEFAULT_URL,
+      id: WEBSITE_INFO.DEFAULT_URL,
+      link: WEBSITE_INFO.DEFAULT_URL,
       language: "en",
-      image: `${WEB_SITE_INFO.DEFAULT_URL}/images/logo.png`,
-      favicon: `${WEB_SITE_INFO.DEFAULT_URL}/favicon.ico`,
+      image: `${WEBSITE_INFO.DEFAULT_URL}/images/logo.png`,
+      favicon: `${WEBSITE_INFO.DEFAULT_URL}/favicon.ico`,
       copyright: `All rights reserved ${date.getFullYear()}, Renato Cesar`,
       updated: date,
       author: author,
       generator: "Next.js using Feed for Node.js",
       feedLinks: {
-        rss2: `${WEB_SITE_INFO.DEFAULT_URL}/rss/feed.xml`,
-        json: `${WEB_SITE_INFO.DEFAULT_URL}/rss/feed.json`,
-        atom: `${WEB_SITE_INFO.DEFAULT_URL}/rss/atom.xml`,
+        rss2: `${WEBSITE_INFO.DEFAULT_URL}/rss/feed.xml`,
+        json: `${WEBSITE_INFO.DEFAULT_URL}/rss/feed.json`,
+        atom: `${WEBSITE_INFO.DEFAULT_URL}/rss/atom.xml`,
       }
   });
 
@@ -58,7 +56,7 @@ async function generateRssFeed() {
 }
 
 const createListWithAllPosts = (): Item[] => {
-  const files = fs.readdirSync(path.join(postsFolderPath));
+  const files = getAllPostsData();
   
   const items: Item[] = files.map((filename) => {
     return createPostItemToFeed(filename)
@@ -68,18 +66,18 @@ const createListWithAllPosts = (): Item[] => {
 
 const  createPostItemToFeed = (filename: string): Item => {
   const slug = filename.replace('.md', '');
-  const markdownWithMeta = fs.readFileSync(path.join(postsFolderPath, filename), 'utf-8');
+  const markdownWithMeta = getSinglePostData(filename);
   const {data, content} = matter(markdownWithMeta);
 
   const htmlContent = new MarkdownIt().render(content);
   const postAuthor = getAuthor(data.author);
-  const url = `${WEB_SITE_INFO.DEFAULT_URL}/blog/${slug}`;
+  const url = `${WEBSITE_INFO.DEFAULT_URL}/blog/${slug}`;
   var feedCategories: any[] = [];
   data.categories.forEach((element: string) => feedCategories.push({name: element.toLowerCase()}));
   
   const item: Item = {
     title: data.title,
-    image: `${WEB_SITE_INFO.DEFAULT_URL}${getCoverImage(slug, data.cover_image)}`,
+    image: `${WEBSITE_INFO.DEFAULT_URL}${getCoverImage(slug, data.cover_image)}`,
     link: url,
     date: new Date(data.date),
     id: slug,

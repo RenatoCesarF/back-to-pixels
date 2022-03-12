@@ -4,6 +4,8 @@ import {join} from 'path';
 import Author, { getAuthor } from '@root/src/classes/authorType'
 import Category, { getPostCategories } from '@root/src/classes/category'
 
+const postsFolderPath: string = 'src/posts';
+
 type Post = {
   author: Author,
   content: string,
@@ -15,8 +17,6 @@ type Post = {
   code_theme: string, // need to create a type that store these values
   title: string,
 }
-
-export default Post;
 
 export const getCoverImage = (slug: string, image_name:any) =>{
   var coverImage;
@@ -32,7 +32,7 @@ export const getCoverImage = (slug: string, image_name:any) =>{
 
 export const createPost = (filename: string): Post => {
   const slug: string = filename.replace('.md', '');
-  const markdownWithMeta = readFileSync(join('src/posts', filename), 'utf-8');
+  const markdownWithMeta = getSinglePostData(filename);
   const {data, content} = matter(markdownWithMeta);
   const postAuthor: Author = getAuthor(data.author);
   const categories: Category[] = getPostCategories(data.categories);
@@ -51,7 +51,6 @@ export const createPost = (filename: string): Post => {
   }
   return post;
 }
-
 
 const isImageCoverValid = (slug: string, image_name: any) => {
   const isImageTextValid: boolean = (typeof(image_name) === "string" && !image_name.toString().startsWith('https'))
@@ -72,6 +71,18 @@ const isImageCoverValid = (slug: string, image_name: any) => {
   return imageExistInFolder;
 }
 
+export const getAllPostsData = ( ): Array<string> =>{
+  const files: Array<string> = readdirSync(postsFolderPath);
+  return files;
+}
+
+export const getSinglePostData = (filename:string) => {
+  const postData = readFileSync(join(postsFolderPath, filename), 'utf-8');
+  return postData;
+}
+
 // export const haveCoverImage = (cover_image: string):boolean =>{
-//   return cover_image.includes('/default-images/');
-// }
+// //   return cover_image.includes('/default-images/');
+// // }
+
+export default Post;

@@ -6,10 +6,10 @@ import { useRouter } from 'next/router';
 import { domAnimation, LazyMotion, m } from 'framer-motion';
 import dynamic from 'next/dynamic';
 
-import Post, { createPost } from '@root/src/classes/postType';
+import Post, { createPost, getAllPostsData } from '@root/src/classes/postType';
 import globalStyles from '@styles/slug.styles';
 import {slideButtonDown, slideInUp } from '@helpers/animations';
-import WEB_SITE_INFO from '@root/src/utils/webSiteInfo';
+import WEBSITE_INFO from '@root/src/utils/webSiteInfo';
 
 import CustomButton, {ButtonIcon} from '@components/CustomButton';
 
@@ -38,7 +38,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
         <>
             <HeadTag 
                 image={post.cover_image}
-                title={`${post.title} - ${WEB_SITE_INFO.NAME}`} 
+                title={`${post.title} - ${WEBSITE_INFO.NAME}`} 
                 description={post.excerpt}
                 keywords={keywordsList}
                 date={postDate}
@@ -51,7 +51,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
             <main role="main" className='post-section'>
                 <article itemScope itemType='http://schema.org/Article' about={post.excerpt} className='post-container'>
                     <meta itemProp='datePublished' content={`${post.date} 11:30:00 -0700 -0700`}/>
-                    <meta itemProp='publisher' content={WEB_SITE_INFO.NAME}/>
+                    <meta itemProp='publisher' content={WEBSITE_INFO.NAME}/>
                     <meta itemProp='image' content={post.cover_image}/>
 
                     <LazyMotion features={domAnimation}>
@@ -92,7 +92,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
 
 
 export async function getStaticPaths(){
-    const files = fs.readdirSync(path.join('src/posts'));
+    const files = getAllPostsData();
     const paths = files.map(filename => ({
         params: {
             slug: filename.replace('.md', '')

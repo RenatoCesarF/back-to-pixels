@@ -22,7 +22,7 @@ export default css.global`
     }
     .teammate-card-name{
         font-size: 20px;
-        margin-top: 10px;
+        margin-top: 15px;
         margin-left: 15px;
         font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         font-weight: bold;

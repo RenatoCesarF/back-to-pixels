@@ -1,9 +1,9 @@
 
-import WEB_SITE_INFO from '@root/src/utils/webSiteInfo';
+import WEBSITE_INFO from '@root/src/utils/webSiteInfo';
 
 
 const RssLinks = () =>{
-    const baseURL: string = `${WEB_SITE_INFO.DEFAULT_URL}/rss`
+    const baseURL: string = `${WEBSITE_INFO.DEFAULT_URL}/rss`
     return (
         <div className="rss-feed-container">
             <a target="_blank" rel="noopener noreferrer" className="rss-feed-link" href={`${baseURL}/atom.xml`}>Atom Feed</a>

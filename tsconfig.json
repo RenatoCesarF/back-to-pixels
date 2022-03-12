@@ -6,9 +6,9 @@
       "@helpers/*": ["helpers/*"],
       "@public/*": ["../public/*"],
       "@scripts/*": ["scripts/*"],
-      "@utils/*": ["src/utils/*"],
+      "@utils/*": ["utils/*"],
       "@styles/*": ["styles/*"],
-      "@classes/*": ["src/classes/*"],
+      "@classes/*": ["classes/*"],
       "@root/*": ["../*"]
     },
     "target": "es5",

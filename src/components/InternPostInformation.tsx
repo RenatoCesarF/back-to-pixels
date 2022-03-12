@@ -6,7 +6,7 @@ import Post from "@root/src/classes/postType";
 import ActionIconButton, { ActionButtonIcon } from "@components/ActionIconButton";
 import ListOfCategories from "@components/ListCategories";
 import { opacityChange } from "@helpers/animations";
-import WEB_SITE_INFO from '@root/src/utils/webSiteInfo';
+import WEBSITE_INFO from '@root/src/utils/webSiteInfo';
 import { formateDate } from "@root/src/utils/formateDate";
 import copyToClipboard from "@root/src/utils/copyToClipBoard";
 
@@ -19,8 +19,8 @@ interface InternPostInformationProps{post: Post}
 
 const InternPostInformation: React.FC<InternPostInformationProps> = ({post}:InternPostInformationProps) =>{    
     const [isShareApiAvailable, setIsShareApiAvailable] = useState(false);
-    const shareURL: string = `${WEB_SITE_INFO.DEFAULT_URL}/blog/${post.slug}`;
-    const shareText: string = `A ${WEB_SITE_INFO.NAME} Blog post by ${post.author.name} - ${post.title}`;
+    const shareURL: string = `${WEBSITE_INFO.DEFAULT_URL}/blog/${post.slug}`;
+    const shareText: string = `A ${WEBSITE_INFO.NAME} Blog post by ${post.author.name} - ${post.title}`;
     const autorRedirectLink: string = `/team/${post.author.key}`;
     const formatedDate: string = formateDate(post.date);
     const hasntTwitter: boolean = post.author.twitter != null || post.author.twitter == ""

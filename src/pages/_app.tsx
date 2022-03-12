@@ -6,19 +6,20 @@ import Header from '@components/HeaderComponent'
 import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
 import { Toaster } from 'react-hot-toast';
 
-const bubbleOptions = {className: 'toaster',
-success:{
-  style:{
-    background: "#485188"
-  }
-},
-error: {
-  style: {
-    background: 'red',
+const bubbleOptions = {
+  className: 'toaster',
+  success:{
+    style:{
+      background: "#485188"
+    }
   },
+  error: {
+    style: {
+      background: 'red',
+    },
 },}
 
-
+// reducedMotion='user'
 const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   function handleScrollToTop() {
     window.scrollTo({
@@ -29,8 +30,8 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   return(
     <>
       <Header/>
-      <AnimatePresence exitBeforeEnter onExitComplete={handleScrollToTop}>
-        <MotionConfig reducedMotion='user'>
+      <AnimatePresence exitBeforeEnter >
+        <MotionConfig >
           <motion.div
                 key={router.route}
                 initial="exit"

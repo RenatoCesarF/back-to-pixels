@@ -171,6 +171,7 @@ code {
   font-weight: normal;
   color:  var(--code-color);
 }
+
 /*============ Check box ==============*/
 .cb-container{
   position: relative;
@@ -623,3 +624,8 @@ body::-webkit-scrollbar-thumb:hover {
   margin: 0 0.2rem;
 }
 
+.role-tag-div{
+  background-color: #b3aaaa ;
+  width: fit-content;
+  padding: 0.1rem 0.3rem;
+}

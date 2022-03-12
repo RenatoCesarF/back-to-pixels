@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Author from '@root/src/classes/authorType';
-import WEB_SITE_INFO from '@root/src/utils/webSiteInfo';
+import WEBSITE_INFO from '@root/src/utils/webSiteInfo';
 
 interface HeadProps{
     image: string,
@@ -17,15 +17,15 @@ const defaultKeywords: string[] = ["indie", "Indie Games", "NextJS", "Developers
 const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
     var keywords: string[] = [ ...defaultKeywords, ...props.keywords];
     var stringKeywords: string = keywords.join().toLowerCase();
-    const twitterDomain = WEB_SITE_INFO.DEFAULT_URL.slice(8);
-    const imageURL = `${WEB_SITE_INFO.DEFAULT_URL}${props.image}`;
+    const twitterDomain = WEBSITE_INFO.DEFAULT_URL.slice(8);
+    const imageURL = `${WEBSITE_INFO.DEFAULT_URL}${props.image}`;
 
     return(
         <Head>
             <link rel="shortcut icon" href="/favicon.ico" />
             <title>{props.title}</title>
 
-            <meta name="apple-mobile-web-app-title" content={WEB_SITE_INFO.NAME}/>
+            <meta name="apple-mobile-web-app-title" content={WEBSITE_INFO.NAME}/>
             <link rel="apple-touch-icon" sizes="180x180" href="/images/icon/apple-touch-icon.png"/>
             <link key="apple-touch-icon" rel="apple-touch-icon" sizes="180x180" href="/images/icon/apple-touch-icon.png"/>
 
@@ -52,9 +52,9 @@ const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
             
             <meta property="og:locale" content="en_US"/>
             <meta property="og:type" content="blog"/>
-            <meta property="og:url" content={WEB_SITE_INFO.DEFAULT_URL + props.url} />
+            <meta property="og:url" content={WEBSITE_INFO.DEFAULT_URL + props.url} />
             <meta property="og:title" content={props.title}/>
-            <meta property="og:site_name" content={WEB_SITE_INFO.NAME}/>
+            <meta property="og:site_name" content={WEBSITE_INFO.NAME}/>
             <meta property="og:description" content={props.description}/>
             <meta property="og:image" content={imageURL}/>
             <meta property="og:image:type" content={`image/webp`} />

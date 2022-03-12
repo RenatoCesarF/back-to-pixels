@@ -3,7 +3,7 @@ import { domAnimation, LazyMotion, m, motion } from 'framer-motion'
 import { slideInLeft } from '@helpers/animations';
 import globalStyles from '@styles/team.styles';
 import Author, { getAuthor, getAuthorsList } from '@root/src/classes/authorType';
-import WEB_SITE_INFO from '@root/src/utils/webSiteInfo';
+import WEBSITE_INFO from '@root/src/utils/webSiteInfo';
 import TeammateCard from '@components/TeammateCard';
 import InDevelopment from '@components/InDevelopment';
 import HeadTag from '@components/HeadTag';
@@ -20,8 +20,8 @@ const TeamPage = ({authors}: authorsList) => {
             </style>
             <HeadTag 
               image="/images/logo.png" 
-              title={`${WEB_SITE_INFO.NAME} Team`} 
-              description={`${WEB_SITE_INFO.NAME} Team page - Read about our teammates`}
+              title={`${WEBSITE_INFO.NAME} Team`} 
+              description={`${WEBSITE_INFO.NAME} Team page - Read about our teammates`}
               keywords={['home page']} 
               date={new Date()} 
               url="/team"
