@@ -50,7 +50,7 @@ const TeamPage = ({allTeammates}: authorsList) => {
                         }
                     </m.div>
                 </LazyMotion>
-                
+
                 <InDevelopment/>
             </div>
         </>

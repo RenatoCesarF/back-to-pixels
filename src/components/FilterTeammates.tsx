@@ -23,11 +23,12 @@ const FilterTeammates = ({allTeammates, setFilteredTeammates, activeRoleFilter, 
     return (
         <>  
             {
-                roleButtonsOptions.map((role: Array<string>) =>{
+                roleButtonsOptions.map((role: Array<string>, index: number) =>{
                     return (
                         <button 
                             className={activeRoleFilter == roleFromString(role[0]) ?  "active" : ""}
                             onClick={()=> setActiveRoleFilter(role[0])}
+                            key={index}
                         >
                             {role[0]}{role[0] != Role.Everyone? "s" : ""}
                         </button>
