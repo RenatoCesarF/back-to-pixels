@@ -38,4 +38,32 @@ export default css.global`
         margin-bottom: 10px;
         color: var(--code-color);
     }
+
+
+    /*======================== TEAM FILTERS ================*/
+    .teammates-filters{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-content: space-between;
+        align-items: center;
+        justify-content: center;
+
+        margin-top: 3rem;
+    }
+    .teammates-filters button{
+        cursor: pointer;
+        border: none;
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+        padding: 0 0.6rem;
+        font-weight: bold;
+        font-size: clamp(1rem, 1rem, 4vw);
+        background-color: transparent;
+        color: var(--post-text-color);
+
+    }
+    .teammates-filters .active{
+        border-bottom: 0.2rem solid var(--secondary-color);
+    }
 `

@@ -1,24 +1,20 @@
-import { m } from "framer-motion"
+import { m, motion } from "framer-motion"
 import Link from "next/link"
-import Author, { getAuthorRoleIndex } from "@root/src/classes/authorType"
-import { cardVariants } from "@helpers/animations"
+import Author, { roleFromString, Role } from "@classes/authorType"
+import { cardVariants, slideInUp } from "@helpers/animations"
 
 const teammateCardImageSize ="120px"
 
 interface teammateProps {
     author: Author
 }
-enum teammateRole{
-    programmer = 0,
-    artist = 1,
-    designer = 2,
-}
+
 
 const TeammateCard: React.FC<teammateProps> = ({author}:teammateProps) =>{
-    const backgroundColor: string = getBackgroundColor(getAuthorRoleIndex(author.roles[0]));
+    const backgroundColor: string = getBackgroundColor(Role[roleFromString(author.roles[0])]);
     return(
         <Link href={`/team/${author.key}`} passHref>
-            <m.div className='teammate-card-div' variants={cardVariants} style={{backgroundColor: backgroundColor}}>
+            <motion.div className='teammate-card-div' variants={cardVariants} layout style={{backgroundColor: backgroundColor}}>
                 <span className='teammate-card-name'>{author.name}</span>
                 <div className="teammate-card-foter" style={{display: "flex", justifyContent: "space-between"}}>
                     <div style={{display: "flex", alignItems: "flex-end"}}>
@@ -28,18 +24,18 @@ const TeammateCard: React.FC<teammateProps> = ({author}:teammateProps) =>{
                     </div>
                 <img alt={`${author.name} image`} className="img-fit"src={author.image_path} height={teammateCardImageSize} width={teammateCardImageSize} />
                 </div>
-            </m.div>
+            </motion.div>
         </Link>
     );
 }
 
-const getBackgroundColor = (role: teammateRole): string =>{
+const getBackgroundColor = (role: Role): string =>{
     switch (role) {
-        case 0:
+        case Role.Developer:
             return "var(--main-color)";
-        case 1:
+        case Role.Designer:
             return "var(--secondary-color)";
-        case 2:
+        case Role.Artist:
             return "var(--tertiary-color)";
     
         default:

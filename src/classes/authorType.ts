@@ -1,5 +1,11 @@
 const authorsInfo = require('@helpers/authorsInfo.json');
 
+export enum Role {
+    Everyone = "Everyone",
+    Developer = "Developer",
+    Designer = "Designer",
+    Artist = "Artist"
+}
 
 
 type Author ={
@@ -23,16 +29,20 @@ export const getAuthor = (authorKey: string): Author => {
     return authorInfo;
 }
 
-export const getAuthorRoleIndex = (role: string) =>{
+export const roleFromString = (role: string): Role =>{
     switch (role) {
-        case 'Programmer':
-            return 0;                
+        case 'Developer':
+            return Role.Developer;                
         case 'Artist':
-            return 1;                
+            return Role.Artist;                
         case 'Designer':
-            return 2;                
+            return Role.Designer
+        case 'Everyone':
+            return Role.Everyone;                
+        
         default:
-            return 0;
+            throw new Error(`Undefined or invalid role ${role}`);
+            
     }
 }
 

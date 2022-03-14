@@ -8,8 +8,8 @@ import {darcula,a11yDark,atomDark,dracula} from 'react-syntax-highlighter/dist/c
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 
-import { getAuthorsKeyList } from '@root/src/classes/authorType';
-import Post from '@root/src/classes/postType';
+import { getAuthorsKeyList } from '@classes/authorType';
+import Post from '@classes/postType';
 
 const ImageZoom = dynamic(() => import('@components/ImageZoom'));
 const BaseHoverInfo = dynamic(() => import('@components/BaseHoverInfo'));

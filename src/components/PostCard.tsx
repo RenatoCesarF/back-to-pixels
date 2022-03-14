@@ -26,7 +26,7 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
     }
    
     return(
-        <m.div variants={cardVariants}  className='post-card-expanded-external'>
+        <m.div variants={cardVariants}  layout className='post-card-expanded-external'>
             <m.div className='post-card-div'  
                 onMouseOver={()=>{setIsHovering(true)}}
                 onMouseLeave={()=>{setIsHovering(false)}}

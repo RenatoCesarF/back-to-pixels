@@ -38,16 +38,16 @@ const Teammate: React.FC<IAuthor> = ({author}: IAuthor) => {
             </style>
             <LazyMotion features={domAnimation}>
                 <div className="page">
-                    <div className="teammate-page">
+                    <main className="teammate-page">
                         <m.div variants={slideButtonDown}>
                             <CustomButton description='Return to Blog page' text='' icon={ButtonIcon.arrowBack} onClick={() => {router.back()}}/>
                         </m.div>
-                        <m.div variants={slideInUp} className="teammate-page-author-info-row" > 
+                        <m.article itemProp="author" itemScope  itemType='https://schema.org/author' variants={slideInUp} className="teammate-page-author-info-row" > 
                             <div style={{alignItems: "center", display: 'flex',flexDirection: 'column'}}>
                                 <img src={author.image_path} className="teammate-page-author-image"/>
                             </div>
                             <div>
-                                <h1>{author.name}</h1>
+                                <h1 itemProp='name'>{author.name}</h1>
                                 <div className="author-roles">
                                     {
                                         author.roles.map((roll: string, index: number) => {
@@ -58,9 +58,12 @@ const Teammate: React.FC<IAuthor> = ({author}: IAuthor) => {
                                 <p>{author.about}</p>
                             </div>
 
-                        </m.div>
+                        </m.article>
 
-                    </div>
+                    </main>
+                    <section>
+                        {/* author posts */}
+                    </section>
                 </div>
 
             </LazyMotion>

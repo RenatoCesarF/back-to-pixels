@@ -1,17 +1,18 @@
 import dynamic from 'next/dynamic'
 
-import { domAnimation, LazyMotion, m, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import globalStyles from '@styles/blog.styles'
-import Post, { createPost, getAllPostsData } from '@root/src/classes/postType';
-import {sortByDate, sortByDateReverse} from '@root/src/utils/sort';
+import Post, { createPost, getAllPostsData } from '@classes/postType';
+import {sortByDate, sortByDateReverse} from '@utils/sort';
 
 import { slideInLeft } from '@helpers/animations';
-import WEBSITE_INFO from '@root/src/utils/webSiteInfo';
+import WEBSITE_INFO from '@utils/webSiteInfo';
+import PostGrid from '@components/PostsGrid';
 
 const HeadTag = dynamic(() => import('@components/HeadTag'));
 const RssLinks = dynamic(() => import('@components/RssLinks'));
-const PostCard = dynamic(() => import('@components/PostCard'));
+
 
 interface PostList{
   posts: Post[]
@@ -38,15 +39,7 @@ export default function BlogPage({posts}:PostList){
                 <h1 className="page-title">Posts</h1>
               </motion.div>
 
-              <LazyMotion features={domAnimation}>
-                <m.div className='posts-grid'>
-                  {
-                    posts.map((post: Post, index: number) =>{
-                      return <PostCard post={post} key={index}/>
-                    })
-                  }
-                </m.div>
-              </LazyMotion> 
+              <PostGrid posts={posts}/>
               
           </div>
           <RssLinks/>

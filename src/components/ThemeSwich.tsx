@@ -29,7 +29,7 @@ const ThemeSwitch = () => {
     }, [theme]);
 
     return(
-        <div>
+        <button style={{border:"none", backgroundColor:"transparent"}}>
         {
             loaded? 
                 <div onClick={() => switchTheme()}>
@@ -43,7 +43,7 @@ const ThemeSwitch = () => {
                 </div>
             : <></>
         }
-        </div>
+        </button>
     )
 }
 
