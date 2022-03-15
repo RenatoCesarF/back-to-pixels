@@ -10,7 +10,6 @@ export default css.global`
     }
     /*============= TEAMMATE CARD ===========*/
     .teammate-card-div{
-        background-color: red;
         cursor: pointer;
         color: var(--code-color);
 
@@ -19,7 +18,16 @@ export default css.global`
         
         display:flex;
         justify-content: space-between;
+        border-radius: 10px;
+        position: relative;
+        flex-direction: row-reverse;
     }
+
+    .teammatecard-div:hover .teammate-card-background-image{
+        height: 50%;
+        width: 50%;
+    }
+
     .teammate-card-name{
         font-size: 20px;
         margin-top: 15px;
@@ -39,6 +47,28 @@ export default css.global`
         color: var(--code-color);
     }
 
+    .teammate-image-container{
+        width: 50%;
+        height: 100%;
+        /* border-radius: 10px; */
+    }
+    .teammate-card-background-image{
+        background-size:cover;
+        object-fit: cover;
+        margin-left: auto;
+        margin-right: auto; 
+        height:100%;
+        width: 100%;
+        align-self: end;
+        border-radius: 10px;
+    }
+    .teammate-card-gradient{
+        position:absolute;
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        display: grid;
+    }
 
     /*======================== TEAM FILTERS ================*/
     .teammates-filters{
