@@ -1,9 +1,8 @@
-import { m, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import Link from "next/link"
 import Author, { roleFromString, Role } from "@classes/authorType"
-import { cardVariants, slideInUp } from "@helpers/animations"
+import { slideInUp } from "@helpers/animations"
 
-const teammateCardImageSize ="120px"
 
 interface teammateProps {
     author: Author
@@ -42,7 +41,7 @@ const getBackgroundColor = (role: Role): string =>{
         case Role.Developer:
             return "var(--secondary-color)";
         case Role.Designer:
-            return "#612F5F";//"var(--secondary-color)";
+            return "#582F60";//"var(--secondary-color)";
         case Role.Artist:
             return "var(--tertiary-color)";
     

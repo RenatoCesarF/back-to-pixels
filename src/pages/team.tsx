@@ -24,7 +24,7 @@ const TeamPage = ({allTeammates}: authorsList) => {
                 {globalStyles}
             </style>
             <HeadTag 
-              image="/images/logo.png" 
+              image="/images/logo.webp" 
               title={`${WEBSITE_INFO.NAME} Team`} 
               description={`${WEBSITE_INFO.NAME} Team page - Read about our teammates`}
               keywords={['home page']} 
@@ -50,8 +50,6 @@ const TeamPage = ({allTeammates}: authorsList) => {
                         }
                     </m.div>
                 </LazyMotion>
-
-                <InDevelopment/>
             </div>
         </>
     );

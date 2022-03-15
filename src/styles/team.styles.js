@@ -4,28 +4,38 @@ export default css.global`
     /*============= TEAM PAGE ===============*/
     .teammate-cards-grid{
         display: grid;
-        grid-template-columns: repeat(auto-fit, 20rem);
+    
+        grid-template-columns: repeat(auto-fit, 18rem); 
         justify-content: center;
-        row-gap: 0;
+        row-gap: 0; 
     }
+     
+    @media only screen and (min-width:4px) and (max-width:577px){
+        .teammate-card-div{ width: 11rem;}        
+        .teammate-cards-grid{
+          grid-template-columns: repeat(auto-fit, 12rem);
+        }
+    }
+    @media only screen and (max-width: 383px) {
+        .teammate-card-div{ width: 90vw; }        
+        .teammate-cards-grid{
+          grid-template-columns:max-content;
+        }
+    }
+ 
     /*============= TEAMMATE CARD ===========*/
     .teammate-card-div{
         cursor: pointer;
+        position: relative;
         color: var(--code-color);
 
-        width: 300px;
-        min-width: fit-content;
-        
+        height: clamp(7rem, 27vmin, 10rem ); 
+        width: clamp(fit-content, 18.5rem, 90vw);
+
         display:flex;
         justify-content: space-between;
-        border-radius: 10px;
-        position: relative;
         flex-direction: row-reverse;
-    }
-
-    .teammatecard-div:hover .teammate-card-background-image{
-        height: 50%;
-        width: 50%;
+        border-radius: 10px;
     }
 
     .teammate-card-name{
@@ -34,7 +44,9 @@ export default css.global`
         margin-left: 15px;
         font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         font-weight: bold;
-        
+        display: flex;
+        flex-wrap: wrap;
+
     }
     .teammate-card-author-role{
         padding:0;
@@ -50,7 +62,6 @@ export default css.global`
     .teammate-image-container{
         width: 50%;
         height: 100%;
-        /* border-radius: 10px; */
     }
     .teammate-card-background-image{
         background-size:cover;

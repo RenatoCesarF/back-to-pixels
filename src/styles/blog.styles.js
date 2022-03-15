@@ -83,7 +83,6 @@ export default css.global`
 @media screen and (max-width: 640px) {
   .post-card-expanded-external{height: fit-content;}
   .post-card-div{width: 90vw;}
-  .post-card-clickable{cursor: none;}
   .posts-grid{
     display: grid;
     grid-template-columns:max-content;
