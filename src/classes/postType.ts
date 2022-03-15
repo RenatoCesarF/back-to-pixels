@@ -1,8 +1,8 @@
 import { readdirSync, readFileSync } from 'fs';
 import matter from 'gray-matter';
 import {join} from 'path';
-import Author, { getAuthor } from '@root/src/classes/authorType'
-import Category, { getPostCategories } from '@root/src/classes/category'
+import Author, { getAuthor } from '@classes/authorType'
+import Category, { getPostCategories } from '@classes/category'
 
 const postsFolderPath: string = 'src/posts';
 

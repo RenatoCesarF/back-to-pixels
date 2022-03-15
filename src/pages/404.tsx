@@ -6,7 +6,7 @@ import { slideInDown, slideInUp } from '@helpers/animations';
 import lotie404 from '@public/lotties/404-lottie.json';
 import Lottie from 'react-lottie'
 import HeadTag from '@components/HeadTag';
-import WEBSITE_INFO from '@root/src/utils/webSiteInfo';
+import WEBSITE_INFO from '@helpers/webSiteInfo';
 
 export default function Custom404() {
     const router = useRouter()

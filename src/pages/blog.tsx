@@ -7,7 +7,7 @@ import Post, { createPost, getAllPostsData } from '@classes/postType';
 import {sortByDate, sortByDateReverse} from '@utils/sort';
 
 import { slideInLeft } from '@helpers/animations';
-import WEBSITE_INFO from '@utils/webSiteInfo';
+import WEBSITE_INFO from '@helpers/webSiteInfo';
 import PostGrid from '@components/PostsGrid';
 
 const HeadTag = dynamic(() => import('@components/HeadTag'));

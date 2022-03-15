@@ -2,13 +2,13 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { m } from "framer-motion";
 
-import Post from "@root/src/classes/postType";
+import Post from "@classes/postType";
 import ActionIconButton, { ActionButtonIcon } from "@components/ActionIconButton";
 import ListOfCategories from "@components/ListCategories";
 import { opacityChange } from "@helpers/animations";
-import WEBSITE_INFO from '@root/src/utils/webSiteInfo';
-import { formateDate } from "@root/src/utils/formateDate";
-import copyToClipboard from "@root/src/utils/copyToClipBoard";
+import WEBSITE_INFO from '@helpers/webSiteInfo';
+import { formateDate } from "@utils/formateDate";
+import copyToClipboard from "@utils/copyToClipBoard";
 
 const authorImageSize: string ="4.3em";
 const instagramURL: string = "https://www.instagram.com";

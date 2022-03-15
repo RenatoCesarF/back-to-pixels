@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 
-import Category from "@root/src/classes/category";
-import { sortByCategoryImportance } from "@root/src/utils/sort";
+import Category from "@classes/category";
+import { sortByCategoryImportance } from "@utils/sort";
 import CategoryTag from "@components/CategoryTag";
 
 interface ListOfCategoriesProps{categories: Array<Category>}

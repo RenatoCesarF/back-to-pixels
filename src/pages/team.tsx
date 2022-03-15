@@ -3,9 +3,8 @@ import { domAnimation, LazyMotion, m, motion } from 'framer-motion'
 import { slideInDown } from '@helpers/animations';
 import globalStyles from '@styles/team.styles';
 import Author, { getAuthor, getAuthorsList, Role } from '@classes/authorType';
-import WEBSITE_INFO from '@utils/webSiteInfo';
+import WEBSITE_INFO from '@helpers/webSiteInfo';
 import TeammateCard from '@components/TeammateCard';
-import InDevelopment from '@components/InDevelopment';
 import HeadTag from '@components/HeadTag';
 import { useState } from 'react';
 import FilterTeammates from '@components/FilterTeammates';

@@ -1,4 +1,4 @@
-import isAuthorValid from '@root/src/utils/verifyAuthors';
+import isAuthorValid from '@utils/verifyAuthors';
 const authorsInfo = require('@helpers/authorsInfo.json');
 
 

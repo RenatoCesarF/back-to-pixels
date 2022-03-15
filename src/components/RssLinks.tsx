@@ -1,6 +1,4 @@
-
-import WEBSITE_INFO from '@root/src/utils/webSiteInfo';
-
+import WEBSITE_INFO from '@helpers/webSiteInfo';
 
 const RssLinks = () =>{
     const baseURL: string = `${WEBSITE_INFO.DEFAULT_URL}/rss`

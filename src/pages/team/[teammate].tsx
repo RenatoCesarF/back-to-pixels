@@ -6,7 +6,7 @@ import Author, { getAuthor, getAuthorsList } from "@classes/authorType";
 import { slideButtonDown, slideInUp } from "@helpers/animations";
 import globalStyles from '@styles/teammate.styles';
 import RoleTag from "@components/RoleTag";
-import WEBSITE_INFO from "utils/webSiteInfo";
+import WEBSITE_INFO from '@helpers/webSiteInfo';
 import HeadTag from "@components/HeadTag";
 import dynamic from "next/dynamic";
 

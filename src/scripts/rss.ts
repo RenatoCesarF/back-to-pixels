@@ -2,11 +2,12 @@ import fs from 'fs'
 import MarkdownIt from 'markdown-it';
 import { Feed ,Item} from "feed";
 import matter from 'gray-matter';
-import { getAllPostsData, getCoverImage, getSinglePostData } from '@root/src/classes/postType';
-import { sortByDate } from '@utils/sort';
-import { getAuthor } from '@root/src/classes/authorType';
 
-import WEBSITE_INFO from '@root/src/utils/webSiteInfo';
+import { getAllPostsData, getCoverImage, getSinglePostData } from '@classes/postType';
+import { sortByDate } from '@utils/sort';
+import { getAuthor } from '@classes/authorType';
+import WEBSITE_INFO from '@helpers/webSiteInfo';
+
 
 
 async function generateRssFeed() {

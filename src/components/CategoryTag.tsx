@@ -1,4 +1,4 @@
-import Category from '@root/src/classes/category'
+import Category from '@classes/category'
 
 interface tagProps{
     category: Category

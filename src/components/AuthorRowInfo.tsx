@@ -1,4 +1,4 @@
-import Author, { getAuthor } from "@root/src/classes/authorType"
+import Author, { getAuthor } from "@classes/authorType"
 
 interface AuthorRowInfoProps{
     authorName: string

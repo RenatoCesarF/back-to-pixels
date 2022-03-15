@@ -3,9 +3,9 @@ import { m } from 'framer-motion'
 import { slideInLeft } from '@helpers/animations';
 import InDevelopment from '@components/InDevelopment';
 import HeadTag from '@components/HeadTag';
-import Category, { getAllCategories, getCategoryInfo } from '@root/src/classes/category';
-import WEBSITE_INFO from '@root/src/utils/webSiteInfo';
-import { getAuthor } from '@root/src/classes/authorType';
+import Category, { getAllCategories, getCategoryInfo } from '@classes/category';
+import WEBSITE_INFO from '@helpers/webSiteInfo';
+import { getAuthor } from '@classes/authorType';
 import CategoryTag from '@components/CategoryTag';
 
 interface Params {tag: string};

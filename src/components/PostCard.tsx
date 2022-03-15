@@ -4,10 +4,10 @@ import Link from 'next/link';
 import { m } from 'framer-motion';
 
 import CategoryTag, { CategoryTagTransparent } from '@components/CategoryTag';
-import Post from '@root/src/classes/postType';
-import Category from '@root/src/classes/category';
+import Post from '@classes/postType';
+import Category from '@classes/category';
 import { cardVariants } from '@helpers/animations';
-import { sortByCategoryImportance } from '@root/src/utils/sort';
+import { sortByCategoryImportance } from '@utils/sort';
 
 interface IPost{
     post: Post

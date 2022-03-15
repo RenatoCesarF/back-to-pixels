@@ -1,4 +1,4 @@
-import { CategoryType } from "@root/src/classes/category";
+import { CategoryType } from "@classes/category";
 
 export const sortByDate = (a: any, b: any) =>{
     const dateA: Date = new Date(a.date);

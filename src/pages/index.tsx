@@ -5,7 +5,7 @@ import { motion} from 'framer-motion'
 import { slideInLeft } from '@helpers/animations'
 import InDevelopment from '@components/InDevelopment'
 import HeadTag from '@components/HeadTag';
-import WEBSITE_INFO from '@root/src/utils/webSiteInfo';
+import WEBSITE_INFO from '@helpers/webSiteInfo';
 
 const Home: NextPage = () => {
   return (

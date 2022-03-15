@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import Author from '@root/src/classes/authorType';
-import WEBSITE_INFO from '@root/src/utils/webSiteInfo';
+import Author from '@classes/authorType';
+import WEBSITE_INFO from '@helpers/webSiteInfo';
 
 interface HeadProps{
     image: string,
