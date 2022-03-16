@@ -31,7 +31,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
     <>
       <Header/>
       <AnimatePresence exitBeforeEnter >
-        <MotionConfig >
+        <MotionConfig reducedMotion='user'>
           <motion.div
                 key={router.route}
                 initial="exit"

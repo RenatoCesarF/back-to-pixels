@@ -7,9 +7,11 @@ import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 import {darcula,a11yDark,atomDark,dracula} from 'react-syntax-highlighter/dist/cjs/styles/prism';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
+import remarkSlug from 'remark-slug';
 
 import { getAuthorsKeyList } from '@classes/authorType';
 import Post from '@classes/postType';
+import React from 'react';
 
 const ImageZoom = dynamic(() => import('@components/ImageZoom'));
 const BaseHoverInfo = dynamic(() => import('@components/BaseHoverInfo'));
@@ -18,12 +20,14 @@ const AuthorRowInfo = dynamic(() => import('@components/AuthorRowInfo'));
 
 interface TranscribedPostProps{post: Post}
 
+
 const TranscribedPost = ({post}: TranscribedPostProps) =>{
     const codeTheme: string = getCodeTheme(post.code_theme);
     return(
         <ReactMarkdown
-            remarkPlugins={[remarkGfm]} 
+            remarkPlugins={[remarkGfm, remarkSlug]} 
             rehypePlugins={[rehypeRaw]} 
+            skipHtml={false}
             components={{
                 input({node, className, children, ...props}){
                     return (

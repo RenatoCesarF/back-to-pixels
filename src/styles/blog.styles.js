@@ -26,7 +26,7 @@ export default css.global`
   background-color: var(--card-color);
   border-left:   0.2rem solid var(--card-border-color);
   border-bottom: 0.15rem solid var(--card-border-color);
-  border-radius: 0.7rem;
+  border-radius: 0.5rem;
   margin: 0.5rem;
   user-select:none;
   /* transition: height 0.69s cubic-bezier(.65,-0.53,.24,1.12); */
@@ -46,7 +46,7 @@ export default css.global`
 /*----------IMAGE------------*/
 .post-card-image-container{
   background-color: var(--main-color);
-  border-radius: 0.5rem 0.5rem 0px 0px;
+  border-radius: 0.35rem 0.35rem 0px 0px;
   height: 9rem;
   display: inline-flex; 
   position: relative;
@@ -56,7 +56,7 @@ export default css.global`
   object-fit: cover;
 }
 .post-card-img{
-  border-radius: 0.5rem 0.5rem 0px 0px;
+  border-radius: 0.35rem 0.35rem 0px 0px;
   width: 100%;
   height: 9rem;
   object-fit: cover;
@@ -138,7 +138,7 @@ export default css.global`
   margin-top: auto;
   display: flex;
   background-color: var(--card-color);
-  border-radius: 0px 0px 0.7rem 0.7rem;
+  border-radius: 0px 0px 0.4rem 0.4rem;
   height: auto;
   justify-content: space-between;
   
@@ -151,7 +151,7 @@ export default css.global`
 .post-card-categories-row{
   padding-top: 0.7rem;
   padding-bottom: 0.3rem;
-  padding-right: 0.5rem;
+  padding-right: 0.4rem;
 }
 
 /*========= TOOLTIP ========= */
@@ -171,7 +171,7 @@ export default css.global`
   text-align: center;
   padding: 8px 2px;
   visibility: hidden;
-  border-radius: 0.7rem;
+  border-radius: 0.5rem;
 
   /* Position the tooltip text */
   position: absolute;

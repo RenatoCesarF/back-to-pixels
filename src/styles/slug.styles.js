@@ -30,9 +30,6 @@ export default css.global`
     box-shadow: inset 0 0 0 0 var(--link-color);
   }
   .post-section a:hover{
-    border-bottom: none;
-    font-weight: 500;
-    box-shadow: inset 200px 0 0 0 var(--link-color);
     color: var(--link-hover-color);
   }
   .post-content h1{

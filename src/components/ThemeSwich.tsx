@@ -5,6 +5,7 @@ import {setCookie, parseCookies} from 'nookies'
 const lightTheme = 'light'
 const darkTheme = 'dark'
 const cookiesConfig = {path: '/', maxAge: 86400 * 30}
+const buttonName = "theme switcher button"
 
 const ThemeSwitch = () => {
     const cookies = parseCookies();
@@ -29,7 +30,7 @@ const ThemeSwitch = () => {
     }, [theme]);
 
     return(
-        <button name='theme switcher button'  style={{border:"none", backgroundColor:"transparent"}}>
+        <button aria-label={buttonName} name={buttonName} style={{border:"none", backgroundColor:"transparent"}}>
         {
             loaded? 
                 <div onClick={() => switchTheme()}>

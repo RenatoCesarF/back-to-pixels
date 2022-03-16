@@ -9,7 +9,7 @@ categories: [BLOG, DESIGN, PROGRAMMING, ARCHITECTURE, TUTORIAL]
 
 In this post, which is kind of a tutorial, I will show you how I [Renato](/team/renato) implemented this blog's dark theme system, how to implement it on your own with CSS only. How CSS variables work and why use CSS only for it instead of a simples package.
 
-## Understanding CSS Variables
+# Understanding CSS Variables
 Like in any real programming language you can declare variables and use them, even not been a programming language you can declare variables in CSS as well. 
 
 A CSS variable is declared using double-dash `--name` plus a semicoma and then the value of this variable:  `--example: blue;`.

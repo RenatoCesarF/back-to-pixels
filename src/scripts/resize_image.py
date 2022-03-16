@@ -1,6 +1,19 @@
 from PIL import Image
 
 
+def create_resized_logos():
+    logo_sizes = [128, 144, 152, 192, 384, 512, 72, 96]
+
+    save_path = './public/images/logo/sizes/'
+
+    img = Image.open('./public/images/logo/sizes/logo-512-512.png')
+
+    for size in logo_sizes:
+        name_to_save = f'logo-{size}-{size}.png'
+        resized_image = resize_image(img, size, size)
+
+        save_image(resized_image, save_path, name_to_save)
+
 def resize_image(image: Image, width: int, height: int) -> Image:
     return image.resize((width, height),Image.ANTIALIAS)
 
@@ -16,18 +29,3 @@ def save_image(image: Image, folder: str, name: str):
     background.save(folder + name)
     print(f"Saved image {name} into {folder}")
 
-
-
-
-if __name__ == '__main__':
-    logo_sizes = [128, 144, 152, 192, 384, 512, 72, 96]
-
-    save_path = './public/images/logo/sizes/'
-
-    img = Image.open('./public/images/logo/sizes/logo-512-512.png')
-
-    for size in logo_sizes:
-        name_to_save = f'logo-{size}-{size}.png'
-        resized_image = resize_image(img, size, size)
-
-        save_image(resized_image, save_path, name_to_save)

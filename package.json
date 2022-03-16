@@ -28,7 +28,8 @@
     "react-medium-image-zoom": "^4.3.5",
     "react-syntax-highlighter": "^15.4.5",
     "rehype-raw": "^6.1.1",
-    "remark-gfm": "^3.0.1"
+    "remark-gfm": "^3.0.1",
+    "remark-slug": "^7.0.1"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.16.7",

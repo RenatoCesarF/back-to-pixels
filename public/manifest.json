@@ -3,7 +3,7 @@
     "short_name": "Coding Ideas",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#382F60",
+    "background_color": "#FFFFFF",
     "theme_color": "#382F60",
     "orientation": "portrait-primary",
     "Scope": "/",
@@ -12,7 +12,8 @@
       {
         "src": "/images/icon/android-chrome-192x192.png",
         "sizes": "192x192",
-        "type": "image/png"
+        "type": "image/png",
+        "purpose": "maskable"
       },
       {
         "src": "/images/icon/android-chrome-512x512.png",
