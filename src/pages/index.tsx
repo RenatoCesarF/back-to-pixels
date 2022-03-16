@@ -11,7 +11,7 @@ const Home: NextPage = () => {
   return (
     <div  className='page'>
       <HeadTag 
-          image="/images/logo.png" 
+          image={WEBSITE_INFO.LOGO_PATH}
           title={`${WEBSITE_INFO.NAME} Home`} 
           description={`${WEBSITE_INFO.NAME} website Home page, Learn more about our work`}
           keywords={['home page', 'home']} 

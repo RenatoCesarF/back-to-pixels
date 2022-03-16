@@ -22,7 +22,7 @@ export default function Custom404() {
     return (
         <div className="page">
             <HeadTag 
-                image="/images/logo.webp"
+                image={WEBSITE_INFO.LOGO_PATH}
                 title="404 - Not Found" 
                 description={`${WEBSITE_INFO.NAME} website - Page not found`}
                 keywords={[]} 

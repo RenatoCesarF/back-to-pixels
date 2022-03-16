@@ -12,13 +12,13 @@ interface HeadProps{
     author?: Author,
 };
 const defaultKeywords: string[] = ["indie", "Indie Games", "NextJS", "Developers", "Company", "games", "development", "developers", "blog", "documentation"]
-
+const defaultIconPath: string = "/images/icon";
 
 const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
     var keywords: string[] = [ ...defaultKeywords, ...props.keywords];
     var stringKeywords: string = keywords.join().toLowerCase();
-    const twitterDomain = WEBSITE_INFO.DEFAULT_URL.slice(8);
-    const imageURL = `${WEBSITE_INFO.DEFAULT_URL}${props.image}`;
+    const twitterDomain = WEBSITE_INFO.URL.slice(8);
+    const imageURL = `${WEBSITE_INFO.URL}${props.image}`;
 
     return(
         <Head>
@@ -26,14 +26,14 @@ const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
             <title>{props.title}</title>
 
             <meta name="apple-mobile-web-app-title" content={WEBSITE_INFO.NAME}/>
-            <link rel="apple-touch-icon" sizes="180x180" href="/images/icon/apple-touch-icon.png"/>
-            <link key="apple-touch-icon" rel="apple-touch-icon" sizes="180x180" href="/images/icon/apple-touch-icon.png"/>
+            <link rel="apple-touch-icon" sizes="180x180" href={`${defaultIconPath}/apple-touch-icon.png`}/>
+            <link key="apple-touch-icon" rel="apple-touch-icon" sizes="180x180" href={`${defaultIconPath}/apple-touch-icon.png`}/>
 
             {/* MICROSOFT */}
             <meta  key="msapplication-TileColor" name="msapplication-TileColor" content="#382F60"/>
-            <link key="icon32" rel="icon" type="image/png" sizes="32x32" href="/images/icon/favicon-32x32.png"/>
-            <link key="icon16" rel="icon" type="image/png" sizes="16x16" href="/images/icon/favicon-16x16.png" />
-            <link key="manifest" rel="manifest" href="/images/icon/site.webmanifest" />
+            <link key="icon32" rel="icon" type="image/png" sizes="32x32" href={`${defaultIconPath}/favicon-32x32.png`}/>
+            <link key="icon16" rel="icon" type="image/png" sizes="16x16" href={`${defaultIconPath}/favicon-16x16.png"`}/>
+            <link key="manifest" rel="manifest" href={`${defaultIconPath}/site.webmanifest"`}/>
 
             <meta charSet='utf-8' />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -52,7 +52,7 @@ const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
             
             <meta property="og:locale" content="en_US"/>
             <meta property="og:type" content="blog"/>
-            <meta property="og:url" content={WEBSITE_INFO.DEFAULT_URL + props.url} />
+            <meta property="og:url" content={WEBSITE_INFO.URL + props.url} />
             <meta property="og:title" content={props.title}/>
             <meta property="og:site_name" content={WEBSITE_INFO.NAME}/>
             <meta property="og:description" content={props.description}/>

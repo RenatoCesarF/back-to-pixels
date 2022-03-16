@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 import ThemeSwitch from '@components/ThemeSwich';
 import MenuIcon from '@components/MenuIcon';
+import WEBSITE_INFO from '@helpers/webSiteInfo';
 
 
 enum HeaderOption{
@@ -37,7 +38,7 @@ export default function Header() {
         <div className="header">
             <div className='logo-menu-line'>
                 <Link passHref href="/">
-                    <img src='/images/logo-little.webp' height="56px" width="129px" className='logo' alt='Logo Image'/>
+                    <img src={WEBSITE_INFO.LOGO_SMALL_PATH} height="56px" width="129px" className='logo' alt='Logo Image'/>
                 </Link>
                 
                 <div className='menu-icon-div'>

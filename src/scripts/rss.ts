@@ -25,24 +25,23 @@ async function generateRssFeed() {
   const feed = new Feed({
       title: WEBSITE_INFO.NAME,
       description: "Welcome to the blog containing all the articles and documentation about all the games and projects we produce",
-      id: WEBSITE_INFO.DEFAULT_URL,
-      link: WEBSITE_INFO.DEFAULT_URL,
+      id: WEBSITE_INFO.URL,
+      link: WEBSITE_INFO.URL,
       language: "en",
-      image: `${WEBSITE_INFO.DEFAULT_URL}/images/logo.png`,
-      favicon: `${WEBSITE_INFO.DEFAULT_URL}/favicon.ico`,
+      image: `${WEBSITE_INFO.URL}${WEBSITE_INFO.LOGO_PATH}`,
+      favicon: `${WEBSITE_INFO.URL}/favicon.ico`,
       copyright: `All rights reserved ${date.getFullYear()}, Renato Cesar`,
       updated: date,
       author: author,
       generator: "Next.js using Feed for Node.js",
       feedLinks: {
-        rss2: `${WEBSITE_INFO.DEFAULT_URL}/rss/feed.xml`,
-        json: `${WEBSITE_INFO.DEFAULT_URL}/rss/feed.json`,
-        atom: `${WEBSITE_INFO.DEFAULT_URL}/rss/atom.xml`,
+        rss2: `${WEBSITE_INFO.URL}/rss/feed.xml`,
+        json: `${WEBSITE_INFO.URL}/rss/feed.json`,
+        atom: `${WEBSITE_INFO.URL}/rss/atom.xml`,
       }
   });
 
 
-  //Create list o post items
   const postItems: Item[] = createListWithAllPosts();
 
   //Sorting and adding posts
@@ -53,7 +52,7 @@ async function generateRssFeed() {
 
   exportFeedIntoFiles(feed);
 
-  console.log("Finish RSS feeds")
+  console.log("Finish RSS feeds");
 }
 
 const createListWithAllPosts = (): Item[] => {
@@ -72,13 +71,13 @@ const  createPostItemToFeed = (filename: string): Item => {
 
   const htmlContent = new MarkdownIt().render(content);
   const postAuthor = getAuthor(data.author);
-  const url = `${WEBSITE_INFO.DEFAULT_URL}/blog/${slug}`;
+  const url = `${WEBSITE_INFO.URL}/blog/${slug}`;
   var feedCategories: any[] = [];
   data.categories.forEach((element: string) => feedCategories.push({name: element.toLowerCase()}));
   
   const item: Item = {
     title: data.title,
-    image: `${WEBSITE_INFO.DEFAULT_URL}${getCoverImage(slug, data.cover_image)}`,
+    image: `${WEBSITE_INFO.URL}${getCoverImage(slug, data.cover_image)}`,
     link: url,
     date: new Date(data.date),
     id: slug,

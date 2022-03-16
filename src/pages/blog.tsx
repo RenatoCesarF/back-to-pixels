@@ -23,7 +23,7 @@ export default function BlogPage({posts}:PostList){
     return (
         <>
           <HeadTag 
-              image="/images/logo.webp"  //use generator here
+              image={WEBSITE_INFO.LOGO_PATH}  //use generator here
               title={`${WEBSITE_INFO.NAME} – Blog`}
               description={`${WEBSITE_INFO.NAME} Blog Page - A list of all our articles and blog posts. Here we document the process of the development of all our projects and games`}
               keywords={[]} 

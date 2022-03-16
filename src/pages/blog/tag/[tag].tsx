@@ -16,13 +16,13 @@ const TagInfo: React.FC<TagInfoProps> = ({category}: TagInfoProps) => {
     return(
         <>
             <HeadTag
+                image={WEBSITE_INFO.LOGO_PATH}
                 date={new Date()}
                 description={category.about}
                 keywords={[category.key.toString()]}
                 title={`Category ${category.name} Posts - ${WEBSITE_INFO.NAME}`}
-                url={`${WEBSITE_INFO.DEFAULT_URL}/blog/tag/${category.key}`}
+                url={`${WEBSITE_INFO.URL}/blog/tag/${category.key}`}
                 author={getAuthor('renato')}
-                image={"/images/logo.png"} //use generator here
             />
             <div className='page'>
                 <h1>X Posts in the category <CategoryTag category={category}/></h1>
