@@ -13,6 +13,7 @@ interface HeadProps{
 };
 const defaultKeywords: string[] = ["indie", "Indie Games", "NextJS", "Developers", "Company", "games", "development", "developers", "blog", "documentation"]
 const defaultIconPath: string = "/images/icon";
+const mainColor: string = "#382F60"
 
 const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
     var keywords: string[] = [ ...defaultKeywords, ...props.keywords];
@@ -23,21 +24,23 @@ const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
     return(
         <Head>
             <link rel="shortcut icon" href="/favicon.ico" />
+            <link rel="manifest" href="/manifest.json" />
             <title>{props.title}</title>
 
             <meta name="apple-mobile-web-app-title" content={WEBSITE_INFO.NAME}/>
+            <meta name="apple-mobile-web-app-status-bar" content={mainColor} />
             <link rel="apple-touch-icon" sizes="180x180" href={`${defaultIconPath}/apple-touch-icon.png`}/>
             <link key="apple-touch-icon" rel="apple-touch-icon" sizes="180x180" href={`${defaultIconPath}/apple-touch-icon.png`}/>
+            <link rel="apple-touch-icon" href={`/images/logo/sizes/logo-96x96.png`} />
 
             {/* MICROSOFT */}
-            <meta  key="msapplication-TileColor" name="msapplication-TileColor" content="#382F60"/>
+            <meta  key="msapplication-TileColor" name="msapplication-TileColor" content={mainColor}/>
             <link key="icon32" rel="icon" type="image/png" sizes="32x32" href={`${defaultIconPath}/favicon-32x32.png`}/>
             <link key="icon16" rel="icon" type="image/png" sizes="16x16" href={`${defaultIconPath}/favicon-16x16.png"`}/>
-            <link key="manifest" rel="manifest" href={`${defaultIconPath}/site.webmanifest"`}/>
 
             <meta charSet='utf-8' />
             <meta name="viewport" content="width=device-width, initial-scale=1" />
-            <meta name="theme-color" content="#382F60" />
+            <meta name="theme-color" content={mainColor} />
             <meta name="copyright" content="© 2022 Renato Cesar" />
             <meta name="creator" content="Renato Cesar"/>
             <meta name="author" content="Renato Cesar"/>

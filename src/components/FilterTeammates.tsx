@@ -29,6 +29,7 @@ const FilterTeammates = ({allTeammates, setFilteredTeammates, activeRoleFilter, 
                             className={activeRoleFilter == roleFromString(role[0]) ?  "active" : ""}
                             onClick={()=> setActiveRoleFilter(role[0])}
                             key={index}
+                            name={`filter by ${role} button`} 
                         >
                             {role[0]}{role[0] != Role.Everyone? "s" : ""}
                         </button>

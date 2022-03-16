@@ -53,6 +53,7 @@ export default function Header() {
                     <a 
                         onClick={()=>changeToOption(HeaderOption.HOME)}
                         id='home-option'
+                        
                         className={`menu-option ${isMenuActive(HeaderOption.HOME)}`}>Home 
                     </a>
                 </Link>

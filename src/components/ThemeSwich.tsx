@@ -29,7 +29,7 @@ const ThemeSwitch = () => {
     }, [theme]);
 
     return(
-        <button style={{border:"none", backgroundColor:"transparent"}}>
+        <button name='theme switcher button'  style={{border:"none", backgroundColor:"transparent"}}>
         {
             loaded? 
                 <div onClick={() => switchTheme()}>

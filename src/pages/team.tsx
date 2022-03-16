@@ -1,13 +1,16 @@
+import dynamic from 'next/dynamic';
 import { domAnimation, LazyMotion, m, motion } from 'framer-motion'
+import { useState } from 'react';
 
 import { slideInDown } from '@helpers/animations';
 import globalStyles from '@styles/team.styles';
 import Author, { getAuthor, getAuthorsList, Role } from '@classes/authorType';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
-import TeammateCard from '@components/TeammateCard';
 import HeadTag from '@components/HeadTag';
-import { useState } from 'react';
-import FilterTeammates from '@components/FilterTeammates';
+
+const FilterTeammates = dynamic(() => import('@components/FilterTeammates'));
+const TeammateCard = dynamic(() => import('@components/TeammateCard'));
+
 
 interface authorsList{
     allTeammates: Author[]

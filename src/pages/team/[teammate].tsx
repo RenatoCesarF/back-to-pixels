@@ -1,14 +1,15 @@
 import { domAnimation, LazyMotion, m } from "framer-motion";
 import { useRouter } from "next/router";
 
+import dynamic from "next/dynamic";
+
 import CustomButton, { ButtonIcon } from "@components/CustomButton";
+import RoleTag from "@components/RoleTag";
+import HeadTag from "@components/HeadTag";
 import Author, { getAuthor, getAuthorsList } from "@classes/authorType";
 import { slideButtonDown, slideInUp } from "@helpers/animations";
-import globalStyles from '@styles/teammate.styles';
-import RoleTag from "@components/RoleTag";
 import WEBSITE_INFO from '@helpers/webSiteInfo';
-import HeadTag from "@components/HeadTag";
-import dynamic from "next/dynamic";
+import globalStyles from '@styles/teammate.styles';
 
 const PostCard = dynamic(() => import('@components/PostCard'))
 
@@ -44,7 +45,7 @@ const Teammate: React.FC<IAuthor> = ({author}: IAuthor) => {
                         </m.div>
                         <m.article itemProp="author" itemScope  itemType='https://schema.org/author' variants={slideInUp} className="teammate-page-author-info-row" > 
                             <div style={{alignItems: "center", display: 'flex',flexDirection: 'column'}}>
-                                <img src={author.image_path} className="teammate-page-author-image"/>
+                                <img src={author.image_path} alt={`${author.name} image`} className="teammate-page-author-image"/>
                             </div>
                             <div>
                                 <h1 itemProp='name'>{author.name}</h1>

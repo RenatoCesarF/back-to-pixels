@@ -1,0 +1,63 @@
+{
+    "name": "Coding Ideas",
+    "short_name": "Coding Ideas",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#382F60",
+    "theme_color": "#382F60",
+    "orientation": "portrait-primary",
+    "Scope": "/",
+    "id": "/",
+    "icons": [
+      {
+        "src": "/images/icon/android-chrome-192x192.png",
+        "sizes": "192x192",
+        "type": "image/png"
+      },
+      {
+        "src": "/images/icon/android-chrome-512x512.png",
+        "sizes": "512x512",
+        "type": "image/png"
+      },
+      {
+        "src": "/images/logo/sizes/logo-72-72.png",
+        "type": "image/png",
+        "sizes": "72x72"
+      },
+      {
+        "src": "/images/logo/sizes/logo-96-96.png",
+        "type": "image/png",
+        "sizes": "96x96"
+      },
+      {
+        "src": "/images/logo/sizes/logo-128-128.png",
+        "type": "image/png",
+        "sizes": "128x128"
+      },
+      {
+        "src": "/images/logo/sizes/logo-144-144.png",
+        "type": "image/png",
+        "sizes": "144x144"
+      },
+      {
+        "src": "/images/logo/sizes/logo-152-152.png",
+        "type": "image/png",
+        "sizes": "152x152"
+      },
+      {
+        "src": "/images/logo/sizes/logo-192-192.png",
+        "type": "image/png",
+        "sizes": "192x192"
+      },
+      {
+        "src": "/images/logo/sizes/logo-384-384.png",
+        "type": "image/png",
+        "sizes": "384x384"
+      },
+      {
+        "src": "/images/logo/sizes/logo-512-512.png",
+        "type": "image/png",
+        "sizes": "512x512"
+      }
+    ]
+  }
