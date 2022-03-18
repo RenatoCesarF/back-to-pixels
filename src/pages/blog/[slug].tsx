@@ -6,15 +6,15 @@ import { useRouter } from 'next/router';
 import { domAnimation, LazyMotion, m } from 'framer-motion';
 import dynamic from 'next/dynamic';
 
-import Post, { createPost, getAllPostsData } from '@classes/postType';
+import Post, { createPost, getPostsFileName } from '@classes/postType';
 import globalStyles from '@styles/slug.styles';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import {slideButtonDown, slideInUp } from '@helpers/animations';
 
-import CustomButton, {ButtonIcon} from '@components/CustomButton';
+import CustomButton, {ButtonIcon} from '@components/CustomButton/CustomButton';
 
 const PostInternInformation = dynamic(() => import('@components/PostInternInformation'));
-const RssLinks = dynamic(() => import('@components/RssLinks'));
+const RssLinks = dynamic(() => import('@components/RssLinks/RssLinks'));
 const HeadTag = dynamic(() => import('@components/HeadTag'));
 // const TranscribedPost = dynamic(() => import('@components/TranscribedPost'));
 import TranscribedPost from "@components/TranscribedPost"
@@ -37,6 +37,9 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
 
     return(
         <>
+            <style jsx global>
+                {globalStyles}
+            </style>
             <HeadTag 
                 image={post.cover_image}
                 title={`${post.title} - ${WEBSITE_INFO.NAME}`} 
@@ -46,9 +49,6 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                 url={`/blog/${post.slug}`}
                 author={post.author}
             />
-            <style jsx global>
-                {globalStyles}
-            </style>
             <main role="main" className='post-section'>
                 <article itemScope itemType='http://schema.org/Article' about={post.excerpt} className='post-container'>
                     <meta itemProp='datePublished' content={`${post.date} 11:30:00 -0700 -0700`}/>
@@ -93,7 +93,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
 
 
 export async function getStaticPaths(){
-    const files = getAllPostsData();
+    const files = getPostsFileName();
     const paths = files.map(filename => ({
         params: {
             slug: filename.replace('.md', '')

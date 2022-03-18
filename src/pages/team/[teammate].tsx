@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 
 import dynamic from "next/dynamic";
 
-import CustomButton, { ButtonIcon } from "@components/CustomButton";
+import CustomButton, { ButtonIcon } from "@components/CustomButton/CustomButton";
 import RoleTag from "@components/RoleTag";
 import HeadTag from "@components/HeadTag";
 import Author, { getAuthor, getAuthorsList } from "@classes/authorType";
@@ -29,6 +29,9 @@ const Teammate: React.FC<TeammatePageProps> = ({author, authorPosts}: TeammatePa
 
     return (
         <div> 
+            <style jsx global>
+                {globalStyles}
+            </style>
             <HeadTag 
               image={author.image_path}
               title={`${WEBSITE_INFO.NAME} Teammate – ${author.name}`}
@@ -37,9 +40,6 @@ const Teammate: React.FC<TeammatePageProps> = ({author, authorPosts}: TeammatePa
               date={new Date()} 
               url={`/team/${author.key}`} 
             />
-            <style jsx global>
-                {globalStyles}
-            </style>
             <LazyMotion features={domAnimation}>
                 <div className="page">
                     <main className="teammate-page">
@@ -67,9 +67,7 @@ const Teammate: React.FC<TeammatePageProps> = ({author, authorPosts}: TeammatePa
                     </main>
                     <section className="teammate-page-posts-section">
                         <PostGrid posts={authorPosts}/>
-                        
                     </section>
-                    
                 </div>
             </LazyMotion>
         </div>

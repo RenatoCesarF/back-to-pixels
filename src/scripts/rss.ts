@@ -3,7 +3,7 @@ import MarkdownIt from 'markdown-it';
 import { Feed ,Item} from "feed";
 import matter from 'gray-matter';
 
-import { getAllPostsData, getCoverImage, getSinglePostData } from '@classes/postType';
+import { getPostsFileName, getCoverImage, getSinglePostData } from '@classes/postType';
 import { sortByDate } from '@utils/sort';
 import { getAuthor } from '@classes/authorType';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
@@ -56,7 +56,7 @@ async function generateRssFeed() {
 }
 
 const createListWithAllPosts = (): Item[] => {
-  const files = getAllPostsData();
+  const files = getPostsFileName();
   
   const items: Item[] = files.map((filename) => {
     return createPostItemToFeed(filename)

@@ -7,18 +7,19 @@ import Category, { getAllCategories, getCategoryInfo } from '@classes/category';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import { getAuthor } from '@classes/authorType';
 import CategoryTag from '@components/CategoryTag/CategoryTag';
+import Post from '@classes/postType';
 
 interface Params {tag: string};
 interface StaticResponse {params: Params};
-interface TagInfoProps {category: Category}
+interface TagInfoProps {category: Category, posts: Array<Post>}
 
-const TagInfo: React.FC<TagInfoProps> = ({category}: TagInfoProps) => {
+const TagInfo: React.FC<TagInfoProps> = ({category, posts}: TagInfoProps) => {
     return(
         <>
             <HeadTag
                 image={WEBSITE_INFO.LOGO_PATH}
                 date={new Date()}
-                description={category.about}
+                description={`Posts with category ${category.name} - ${category.about}`}
                 keywords={[category.key.toString()]}
                 title={`Category ${category.name} Posts - ${WEBSITE_INFO.NAME}`}
                 url={`${WEBSITE_INFO.URL}/blog/tag/${category.key}`}
@@ -51,8 +52,9 @@ export async function getStaticPaths(){
 
 export async function getStaticProps({params}: StaticResponse ){
     const category: Category = getCategoryInfo(params.tag);
+    const posts: Array<Post> = [];
     return {
-        props:{ category } 
+        props:{ category, posts } 
     };
 }
 

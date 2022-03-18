@@ -36,7 +36,6 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
             <style jsx global>
                 {globalStyles}
             </style>
-     
             <m.div variants={cardVariants}  layout className='post-card-expanded-external'>
                 <m.div className='post-card-div'  
                     onMouseOver={()=>{setIsHovering(true)}}
@@ -54,6 +53,7 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                                     layout="fill" 
                                     loading='lazy'
                                     placeholder='blur'
+                                    lazyBoundary='50px'
                                     blurDataURL={rgbDataURL(56, 47, 96)}   
                                     className='post-card-img'
                                 />

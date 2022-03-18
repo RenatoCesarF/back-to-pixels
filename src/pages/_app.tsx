@@ -1,7 +1,7 @@
 import '@styles/globals.css'
 import type { AppProps } from 'next/app'
 import Footer from '@components/Footer/Footer'
-import Header from '@components/HeaderComponent'
+import Header from '@components/HeaderComponent/HeaderComponent'
 
 import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
 import { Toaster } from 'react-hot-toast';

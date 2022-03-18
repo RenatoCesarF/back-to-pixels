@@ -1,4 +1,3 @@
-
 const categoriesInfo = require('@helpers/categoriesInfo.json');
 
 
@@ -8,7 +7,6 @@ interface Category{
     about: string;
     color: string;
     textColor: string;
-    gradient: Array<string> | null;
 }
 
 export enum CategoryType {
@@ -25,7 +23,6 @@ export enum CategoryType {
   BLOG = 7,
   RINGS = 8,
 }
-
 
 export const getPostCategories = (categories: any[]): Category[] => {
     var categoryList: Category[] = [];

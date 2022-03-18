@@ -2,7 +2,7 @@ import React from "react";
 import { BiLeftArrowAlt } from 'react-icons/bi';
 import { motion } from "framer-motion";
 
-import globalStyles from '@styles/CustomButton.styles.js'
+import globalStyles from './CustomButton.styles'
 
 interface ButtomProps{
     text: string;

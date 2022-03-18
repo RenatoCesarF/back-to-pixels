@@ -6,19 +6,16 @@ interface tagProps{
 
 const CategoryTag: React.FC<tagProps> = (props: tagProps)=>{
     const category = props.category
-    const buttonStyle = {
-        backgroundColor: category.color,
-        backgroundImage: category.gradient ? `linear-gradient(90deg, ${category.gradient[0]}, ${category.gradient[1]})` : "none"
-    }
+    const buttonStyle = { backgroundColor: category.color }
 
     return(
         <>
-        <style jsx global>
-            {globalStyles}
-        </style>
-        <button name={`${props.category.name} button`}  className="category-tag" style={buttonStyle} onClick={() => {}}>
-            <span className='category-tag-text' style={{color: category.textColor }}>{category.name}</span>
-        </button>
+            <style jsx global>
+                {globalStyles}
+            </style>
+            <button name={`${props.category.name} button`}  className="category-tag" style={buttonStyle} onClick={() => {}}>
+                <span className='category-tag-text' style={{color: category.textColor }}>{category.name}</span>
+            </button>
         </>
     )
 }

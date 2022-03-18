@@ -3,7 +3,7 @@
         "key": "rings",
         "name": "Rings",
         "color": "#000000",
-        "gradient": ["#727A9A", "#D8DBE9"],
+        "gradient": "#727A9A",
         "about": "Development process and documentation about the project Rings",
         "textColor": "#000000"
     },

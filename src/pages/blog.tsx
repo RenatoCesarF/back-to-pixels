@@ -3,7 +3,7 @@ import dynamic from 'next/dynamic'
 import { motion } from 'framer-motion';
 
 import globalStyles from '@styles/blog.styles'
-import Post, { createPost, getAllPostsData } from '@classes/postType';
+import Post, { createPost, getPostsFileName } from '@classes/postType';
 import {sortByDate, sortByDateReverse} from '@utils/sort';
 
 import { slideInLeft } from '@helpers/animations';
@@ -11,7 +11,7 @@ import WEBSITE_INFO from '@helpers/webSiteInfo';
 import PostGrid from '@components/PostGrid/PostsGrid';
 
 const HeadTag = dynamic(() => import('@components/HeadTag'));
-const RssLinks = dynamic(() => import('@components/RssLinks'));
+const RssLinks = dynamic(() => import('@components/RssLinks/RssLinks'));
 
 
 interface PostList{
@@ -22,6 +22,9 @@ interface PostList{
 export default function BlogPage({posts}:PostList){
     return (
         <>
+          <style jsx global>
+              {globalStyles}
+          </style>
           <HeadTag 
               image={WEBSITE_INFO.LOGO_PATH}  //use generator here
               title={`${WEBSITE_INFO.NAME} – Blog`}
@@ -32,9 +35,6 @@ export default function BlogPage({posts}:PostList){
           />
 
           <div className='page'>
-              <style jsx global>
-                  {globalStyles}
-              </style>
               <motion.div variants={slideInLeft}>
                 <h1 className="page-title">Posts</h1>
               </motion.div>
@@ -48,7 +48,7 @@ export default function BlogPage({posts}:PostList){
 }
 
 export async function getStaticProps(){
-    const files = getAllPostsData();
+    const files = getPostsFileName();
   
     var posts: Post[] = files.map(filename => {
       return createPost(filename);

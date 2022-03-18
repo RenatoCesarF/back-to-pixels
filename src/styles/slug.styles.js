@@ -255,4 +255,41 @@ export default css.global`
     margin-top: 0.5rem;
     display: flex;
   }
+
+  /*============ Check box ==============*/
+.cb-container{
+  position: relative;
+}
+.cb-container .checkmark:after{
+  content: "";
+  position: absolute;
+  display: none;
+  left: 0.2rem;
+  top: 0.01rem;
+  width: 5px;
+  height: 8px;
+  border: solid var(--font-contrast-color);
+  border-width: 0 3px 3px 0;
+  transform: rotate(45deg);
+}
+.cb-container input:checked ~.checkmark:after{
+  display: block;
+}
+.checkmark {
+  position: absolute;
+  top: 0.05rem;
+  bottom: 0.2rem;
+  left: 0.2rem;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 2px;
+  background-color: #ccc;
+}
+.cb-container input:checked ~ .checkmark{
+  background-color: var(--secondary-color)
+}
+.cb-content{
+  margin-left: 0.4rem;
+}
+/*============ ==============*/
 `

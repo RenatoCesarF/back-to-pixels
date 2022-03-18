@@ -1,8 +1,8 @@
-import { createPost, getAllPostsData } from '@classes/postType';
+import { createPost, getPostsFileName } from '@classes/postType';
 import { isPostValid } from '@utils/verifyPosts';
 
 describe('TESTING POSTS', () => {
-  const postsFiles = getAllPostsData();
+  const postsFiles = getPostsFileName();
 
   postsFiles.forEach((filename) =>{
     const createdPost = createPost(filename);

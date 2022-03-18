@@ -3,7 +3,7 @@ import globalStyles from './Footer.styles'
 export default function Footer(){
     return(
         <>
-            <style jsx global>
+            <style>
                 {globalStyles}
             </style>
             <footer className="page-footer">

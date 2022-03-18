@@ -71,7 +71,7 @@ const isImageCoverValid = (slug: string, image_name: any) => {
   return imageExistInFolder;
 }
 
-export const getAllPostsData = ( ): Array<string> =>{
+export const getPostsFileName = ( ): Array<string> =>{
   const files: Array<string> = readdirSync(postsFolderPath);
   return files;
 }
@@ -82,7 +82,7 @@ export const getSinglePostData = (filename:string) => {
 }
 
 export const getFilteredPosts = (category?: Array<Category>, author?: Author): Array<Post> =>{
-  const allPostsFileNames = getAllPostsData();
+  const allPostsFileNames = getPostsFileName();
   const filteredPosts: Array<Post> = [];
 
   allPostsFileNames.map((postFile:any, index:number) =>{

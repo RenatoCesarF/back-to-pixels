@@ -1,12 +1,14 @@
 import { motion } from 'framer-motion';
 import 'next';
 import { useRouter } from 'next/router'
-import CustomButton, {ButtonIcon} from '@components/CustomButton';
+import CustomButton, {ButtonIcon} from '@components/CustomButton/CustomButton';
 import { slideInDown, slideInUp } from '@helpers/animations';
 import lotie404 from '@public/lotties/404-lottie.json';
 import Lottie from 'react-lottie'
 import HeadTag from '@components/HeadTag';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
+
+import styles from '@styles/404.styles'
 
 export default function Custom404() {
     const router = useRouter()
@@ -21,6 +23,9 @@ export default function Custom404() {
     
     return (
         <div className="page">
+            <style>
+                {styles}
+            </style>
             <HeadTag 
                 image={WEBSITE_INFO.LOGO_PATH}
                 title="404 - Not Found" 
