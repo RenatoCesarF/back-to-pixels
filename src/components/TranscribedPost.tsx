@@ -2,6 +2,9 @@
 import ReactMarkdown from 'react-markdown';
 import Link from 'next/link';
 import dynamic from 'next/dynamic';
+import NextImage  from 'next/image';
+import React from 'react';
+import { useRef } from 'react';
 
 import {Prism as SyntaxHighlighter} from 'react-syntax-highlighter';
 import {darcula,a11yDark,atomDark,dracula} from 'react-syntax-highlighter/dist/cjs/styles/prism';
@@ -11,15 +14,16 @@ import remarkSlug from 'remark-slug';
 
 import { getAuthorsKeyList } from '@classes/authorType';
 import Post from '@classes/postType';
-import React from 'react';
 
-const ImageZoom = dynamic(() => import('@components/ImageZoom'));
+import ImageZoom from '@components/ImageZoom';
+import AuthorRowInfo from '@components/AuthorRowInfo'
+
 const BaseHoverInfo = dynamic(() => import('@components/BaseHoverInfo'));
-const AuthorRowInfo = dynamic(() => import('@components/AuthorRowInfo'));
+
+
 
 
 interface TranscribedPostProps{post: Post}
-
 
 const TranscribedPost = ({post}: TranscribedPostProps) =>{
     const codeTheme: string = getCodeTheme(post.code_theme);
@@ -42,7 +46,6 @@ const TranscribedPost = ({post}: TranscribedPostProps) =>{
                     return <ImageZoom 
                                 src={`/images/posts/${post.slug}/${props.src}`} 
                                 alt={`${props.src}`}
-                                className='img-fit'
                             />
                 },
                 a({node, className, children, ...props}){

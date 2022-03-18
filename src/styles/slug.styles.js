@@ -52,6 +52,25 @@ export default css.global`
     margin-left: auto;
     margin-right: auto; 
   }
+  
+  .image-container {
+    width: max-content;
+    max-width: 100%;
+
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .image-container > span{
+    position: unset !important;
+
+  }
+  
+  .image-container .next-image {
+    object-fit: contain;
+    position: relative !important;
+    height: unset !important;
+    width: 100% !important;
+  } 
   .post-cover{
     border-radius: 0.15rem;
     height: 100%;

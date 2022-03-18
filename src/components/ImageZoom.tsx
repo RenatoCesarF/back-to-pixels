@@ -1,7 +1,10 @@
 
+import { rgbDataURL } from '@utils/rgbDataURL'
 import React from 'react'
+import NextImage from 'next/image'
 import Zoom from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css'
+
 
 interface ImageZoomProps{
     src: string
@@ -14,17 +17,26 @@ interface ImageZoomProps{
 
 const ImageZoom: React.FC<ImageZoomProps> = (props: ImageZoomProps)=>{
     return (
-        <div className='image-zoom'>
-            <Zoom overlayBgColorEnd='rgb(0 0 0 / 81%)' scrollableEl={undefined}>
-                <img
-                    className={props.className}
-                    alt={props.alt}
-                    src={props.src}
-                    height={props.height}
-                    width={props.width}
+        // <div className='image-zoom'>
+            <Zoom 
+                wrapStyle={{display:"flex", alignContent:"center", justifyContent:"center"}}
+                overlayBgColorEnd='rgb(0 0 0 / 81%)'
+                scrollableEl={undefined}>
+                <div className="image-container">
+                    <NextImage 
+                        src={props.src} 
+                        alt={props.alt}
+                        className='next-image'
+                        layout="fill"
+                        placeholder='blur'
+                        loading='lazy'
+                        blurDataURL={rgbDataURL(56, 47, 96)} 
+                        quality={100}  
+                        unoptimized={true}
                     />
-            </Zoom>
-        </div>
+                </div>
+            </Zoom> 
+        // </div>
     )
 }
 export default ImageZoom

@@ -3,7 +3,6 @@ import Link from "next/link"
 import Author, { roleFromString, Role } from "@classes/authorType"
 import { slideInUp } from "@helpers/animations"
 
-
 interface teammateProps {
     author: Author
 }
@@ -24,7 +23,7 @@ export const TeammateCard: React.FC<teammateProps> = ({author}:teammateProps) =>
                 <div className="teammate-card-gradient" style={{backgroundImage: `linear-gradient(to right, ${backgroundColor} 50% , transparent 75%)`}}>
                     <span className='teammate-card-name'>{author.name}</span>
                     <div className="teammate-card-foter" style={{display: "flex", justifyContent: "space-between"}}>
-                        <div style={{display: "flex", alignItems: "flex-end"}}>
+                        <div className="teammate-card-roles-div">
                             {author.roles.map((roll: string, index: number) => {
                                 return <p key={index} className="teammate-card-author-role">{roll}<br/></p>
                             })}

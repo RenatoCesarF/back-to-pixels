@@ -2,6 +2,8 @@ import { domAnimation, LazyMotion, m } from "framer-motion";
 import { useRouter } from "next/router";
 
 import dynamic from "next/dynamic";
+import NextImage from 'next/image';
+import Image from 'next/image';
 
 import CustomButton, { ButtonIcon } from "@components/CustomButton";
 import RoleTag from "@components/RoleTag";
@@ -10,6 +12,7 @@ import Author, { getAuthor, getAuthorsList } from "@classes/authorType";
 import { slideButtonDown, slideInUp } from "@helpers/animations";
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import globalStyles from '@styles/teammate.styles';
+import { rgbDataURL } from "@utils/rgbDataURL";
 
 const PostCard = dynamic(() => import('@components/PostCard'))
 
@@ -44,7 +47,7 @@ const Teammate: React.FC<IAuthor> = ({author}: IAuthor) => {
                             <CustomButton description='Return to Blog page' text='' icon={ButtonIcon.arrowBack} onClick={() => {router.back()}}/>
                         </m.div>
                         <m.article itemProp="author" itemScope  itemType='https://schema.org/author' variants={slideInUp} className="teammate-page-author-info-row" > 
-                            <div style={{alignItems: "center", display: 'flex',flexDirection: 'column'}}>
+                            <div style={{ alignItems: "center", display: 'flex',flexDirection: 'column'}}>
                                 <img src={author.image_path} alt={`${author.name} image`} className="teammate-page-author-image"/>
                             </div>
                             <div>
@@ -56,7 +59,7 @@ const Teammate: React.FC<IAuthor> = ({author}: IAuthor) => {
                                         })
                                     }
                                 </div>
-                                <p>{author.about}</p>
+                                <p sty>{author.about}</p>
                             </div>
 
                         </m.article>

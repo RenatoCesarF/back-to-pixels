@@ -39,14 +39,19 @@ export default css.global`
     }
 
     .teammate-card-name{
-        font-size: 20px;
+        font-size: 1.2em;
         margin-top: 15px;
         margin-left: 15px;
+        margin-right: 4rem;
         font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         font-weight: bold;
         display: flex;
         flex-wrap: wrap;
-
+    }
+    .teammate-card-roles-div{
+        display: flex;
+        align-items: flex-end;
+        flex-wrap: wrap;
     }
     .teammate-card-author-role{
         padding:0;
@@ -54,7 +59,7 @@ export default css.global`
         font-weight: 100;
         font-family: monospace;
         margin:0;
-        margin-left: 10px;
+        margin-left: 20px;
         margin-bottom: 10px;
         color: var(--code-color);
     }

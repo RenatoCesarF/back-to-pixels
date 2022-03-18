@@ -6,6 +6,10 @@ export default css.global`
     justify-content: center;
     margin: 0 10vw 10vh 15vw;
 }
+.teammate-page p{
+    line-height: 1.85rem;
+    font-size: 1.1em;
+}
 .teammate-page-author-info-row{
     display: flex;
 }

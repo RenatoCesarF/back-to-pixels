@@ -1,18 +1,22 @@
 import { useState } from 'react';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import Link from 'next/link';
+import NextImage from 'next/image'
 import { m } from 'framer-motion';
+
 
 import CategoryTag, { CategoryTagTransparent } from '@components/CategoryTag';
 import Post from '@classes/postType';
 import Category from '@classes/category';
 import { cardVariants } from '@helpers/animations';
 import { sortByCategoryImportance } from '@utils/sort';
+import { rgbDataURL } from '@utils/rgbDataURL';
 
 interface IPost{
     post: Post
 }
 const maximumExcerptSize: number = 70;
+
 
 const PostCard: React.FC<IPost> = ({post}: IPost) => {
     const [isHovering, setIsHovering] = useState(false);
@@ -24,7 +28,7 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
     if(post.excerpt.length > maximumExcerptSize){
         shortExcerpt = post.excerpt.substring( 0, maximumExcerptSize) + "...";
     }
-   
+
     return(
         <m.div variants={cardVariants}  layout className='post-card-expanded-external'>
             <m.div className='post-card-div'  
@@ -37,13 +41,15 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                 <Link passHref href={`/blog/${post.slug}`}>
                     <m.article className="post-card-clickable">
                         <header className='post-card-image-container'>
-                            <img 
-                                src={post.cover_image}
-                                className='post-card-img' 
+                            <NextImage 
+                                src={post.cover_image} 
                                 alt='post card image' 
-                                width='269px' 
-                                height='144px' 
-                            />
+                                layout="fill" 
+                                loading='lazy'
+                                placeholder='blur'
+                                blurDataURL={rgbDataURL(56, 47, 96)}   
+                                className='post-card-img'
+                             />
                             {
                                 doenstHaveCoverImage ?
                                     <h1 className='post-card-cover-date'>{post.date}</h1> 

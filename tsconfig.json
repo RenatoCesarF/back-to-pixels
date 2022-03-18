@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "baseUrl": "./src",
-    
     "paths": {
       "@components/*": ["components/*"],
       "@helpers/*": ["helpers/*"],
@@ -27,8 +26,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/utils/verifyPosts.jf", "tests/verifyPosts.test.ts", "src/utils/sim.js"],
-  "exclude": ["node_modules"],
-  "moduleDirectories": ["node_modules", "./src"],
-  
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/utils/verifyPosts.jf", "tests/verifyPosts.test.ts", "src/utils/sim.js", "src/pages/test.jsx"],
+  "exclude": ["node_modules"]
 }

@@ -16,7 +16,8 @@ import CustomButton, {ButtonIcon} from '@components/CustomButton';
 const InternPostInformation = dynamic(() => import('@components/InternPostInformation'));
 const RssLinks = dynamic(() => import('@components/RssLinks'));
 const HeadTag = dynamic(() => import('@components/HeadTag'));
-const TranscribedPost = dynamic(() => import('@components/TranscribedPost'));
+// const TranscribedPost = dynamic(() => import('@components/TranscribedPost'));
+import TranscribedPost from "@components/TranscribedPost"
 
 
 interface IPost{post: Post};
