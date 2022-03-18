@@ -1,6 +1,6 @@
 import { motion } from "framer-motion"
 import Link from "next/link"
-import Author, { roleFromString, Role } from "@classes/authorType"
+import Author, { roleFromString, Role } from "@classes/Author"
 import { slideInUp } from "@helpers/animations"
 
 interface teammateProps {

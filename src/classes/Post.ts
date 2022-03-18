@@ -1,7 +1,7 @@
 import { readdirSync, readFileSync } from 'fs';
 import matter from 'gray-matter';
 import {join} from 'path';
-import Author, { getAuthor } from '@classes/authorType'
+import Author, { getAuthor } from '@classes/Author'
 import Category, { getPostCategories } from '@classes/category'
 
 const postsFolderPath: string = 'src/posts';
@@ -85,22 +85,40 @@ export const getFilteredPosts = (category?: Array<Category>, author?: Author): A
   const allPostsFileNames = getPostsFileName();
   const filteredPosts: Array<Post> = [];
 
+  //filter by category
+  // filter by author
+  return filteredPosts;
+}
+
+export const filterPostsByCategory = (categories: Array<Category>): Array<Post> =>{
+  const allPostsFileNames = getPostsFileName();
+  const filteredPosts: Array<Post> = [];
+
   allPostsFileNames.map((postFile:any, index:number) =>{
     const generatedPost: Post = createPost(postFile);
-    // if(category){
-    //   filterByCategory(category, generatedPost)
-    // }
-    if(author && generatedPost.author === author){
+
+    categories.map((category: Category) => {
+      if(!generatedPost.categories.includes(category)) return;
+
       filteredPosts.push(generatedPost);
-    }
+    })
+
   });
   return filteredPosts;
 }
 
-// const filterByCategory = (category: Array<Category>, post: Post ) =>{
-//   post.categories.includes[category[0]]
-// }
-// export const haveCoverImage = (cover_image: string):boolean =>{
-// //   return cover_image.includes('/default-images/');
-// // }
+export const filterPostsByAuthor = (author: Author): Array<Post> =>{
+  const allPostsFileNames = getPostsFileName();
+  const filteredPosts: Array<Post> = [];
+
+  allPostsFileNames.map((postFile:any, index:number) =>{
+    const generatedPost: Post = createPost(postFile);
+    if(author && generatedPost.author === author){
+      filteredPosts.push(generatedPost);
+    }
+  });
+  
+  return filteredPosts;
+}
+
 export default Post;

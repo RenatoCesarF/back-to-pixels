@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import { domAnimation, LazyMotion, m } from 'framer-motion';
 import dynamic from 'next/dynamic';
 
-import Post, { createPost, getPostsFileName } from '@classes/postType';
+import Post, { createPost, getPostsFileName } from '@classes/Post';
 import globalStyles from '@styles/slug.styles';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import {slideButtonDown, slideInUp } from '@helpers/animations';

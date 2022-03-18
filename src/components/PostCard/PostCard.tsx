@@ -6,7 +6,7 @@ import { m, motion } from 'framer-motion';
 
 
 import CategoryTag, { CategoryTagTransparent } from '@components/CategoryTag/CategoryTag';
-import Post from '@classes/postType';
+import Post from '@classes/Post';
 import Category from '@classes/category';
 import { cardVariants } from '@helpers/animations';
 import { sortByCategoryImportance } from '@utils/sort';

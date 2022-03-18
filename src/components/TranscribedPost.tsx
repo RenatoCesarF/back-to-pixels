@@ -12,8 +12,8 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import remarkSlug from 'remark-slug';
 
-import { getAuthorsKeyList } from '@classes/authorType';
-import Post from '@classes/postType';
+import { getAuthorsKeyList } from '@classes/Author';
+import Post from '@classes/Post';
 
 import ImageZoom from '@components/ImageZoom';
 import AuthorRowInfo from '@components/AuthorRowInfo'

@@ -1,5 +1,5 @@
 import Category from "@classes/category";
-import Post from "@classes/postType";
+import Post from "@classes/Post";
 
 export const isPostValid = (post: Post) =>{
   

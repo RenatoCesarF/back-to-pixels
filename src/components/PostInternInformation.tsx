@@ -1,16 +1,18 @@
 import Link from "next/link";
+import NextImage from 'next/image';
 import { useEffect, useState } from "react";
 import { m } from "framer-motion";
 
-import Post from "@classes/postType";
+import Post from "@classes/Post";
 import ActionIconButton, { ActionButtonIcon } from "@components/ActionIconButton";
 import ListOfCategories from "@components/ListCategories";
 import { opacityChange } from "@helpers/animations";
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import { formateDate } from "@utils/formateDate";
 import copyToClipboard from "@utils/copyToClipBoard";
+import { rgbDataURL } from "@utils/rgbDataURL";
 
-const authorImageSize: string ="4.3em";
+
 const instagramURL: string = "https://www.instagram.com";
 const twitterURL: string = "https://www.twitter.com";
 
@@ -33,22 +35,27 @@ const PostInternInformation: React.FC<PostInternInformationProps> = ({post}:Post
     useEffect(() => {
         setIsShareApiAvailable(!!window.navigator.share);
     }, []);
-
+    const authorImageSize: string ="69";
     return(
         <m.div variants={opacityChange}>
             <div className="post-author-info" >
             <div style={{display: "flex", alignItems: "center"}}>
                     {/* IMAGE */}
-                    <div>
+                    <div style={{marginRight: "0.6rem"}}>
                         <Link passHref href={autorRedirectLink}>
-                            <img 
+                            <NextImage
                                 className="post-info-author-image"
+                                layout="fixed"
                                 width={authorImageSize}
                                 height={authorImageSize}
-                                style={{height: authorImageSize, width: authorImageSize}}
                                 alt={`${post.author.name} image`}  
-                                src={post.author.image_path}>
-                            </img>
+                                src={post.author.image_path}
+                                placeholder='blur'
+                                loading='lazy'
+                                blurDataURL={rgbDataURL(56, 47, 96)} 
+                                quality={100}  
+                                unoptimized={true}
+                            />
                         </Link>
                     </div>
                     {/* NAME AND PUBLISH DATE */}

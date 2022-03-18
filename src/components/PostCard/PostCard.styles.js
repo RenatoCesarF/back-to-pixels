@@ -202,11 +202,11 @@ export default css.global`
     animation: moveRight 0.4s 1 cubic-bezier(.65,-0.53,.24,1.12);
     animation-fill-mode: forwards;
     animation-delay: 0.2s;
+    pointer-events: none;
   }
   .post-card-categories-row:hover .categories-row button{
     user-select: none;
     cursor: default;
-    pointer-events: none;
   }
   .post-card-categories-row:hover .extended-categories{
     opacity: 1;

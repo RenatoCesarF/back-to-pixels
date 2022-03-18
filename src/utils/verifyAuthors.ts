@@ -1,4 +1,4 @@
-import Author, {getAuthor} from "@classes/authorType";
+import Author, {getAuthor} from "@classes/Author";
 import isValid from "./isValid";
 
 

@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Author from '@classes/authorType';
+import Author from '@classes/Author';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 
 interface HeadProps{

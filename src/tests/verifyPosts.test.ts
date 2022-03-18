@@ -1,4 +1,4 @@
-import { createPost, getPostsFileName } from '@classes/postType';
+import { createPost, getPostsFileName } from '@classes/Post';
 import { isPostValid } from '@utils/verifyPosts';
 
 describe('TESTING POSTS', () => {

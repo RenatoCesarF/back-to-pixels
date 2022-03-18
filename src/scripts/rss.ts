@@ -3,9 +3,9 @@ import MarkdownIt from 'markdown-it';
 import { Feed ,Item} from "feed";
 import matter from 'gray-matter';
 
-import { getPostsFileName, getCoverImage, getSinglePostData } from '@classes/postType';
+import { getPostsFileName, getCoverImage, getSinglePostData } from '@classes/Post';
 import { sortByDate } from '@utils/sort';
-import { getAuthor } from '@classes/authorType';
+import { getAuthor } from '@classes/Author';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 
 

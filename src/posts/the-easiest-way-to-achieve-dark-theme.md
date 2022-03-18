@@ -4,7 +4,7 @@ date: '02/19/2022'
 author: 'renato'
 cover_image: 'cover'
 excerpt: "How CSS variables works and an explanation about how we made our Dark-theme without reloading or packages, with CSS Only."
-categories: [BLOG, DESIGN, PROGRAMMING, ARCHITECTURE, TUTORIAL]
+categories: [BLOG, DESIGN, PROGRAMMING, TUTORIAL, NEXTJS]
 ---
 
 In this post, which is kind of a tutorial, I will show you how I [Renato](/team/renato) implemented this blog's dark theme system, how to implement it on your own with CSS only. How CSS variables work and why use CSS only for it instead of a simples package.

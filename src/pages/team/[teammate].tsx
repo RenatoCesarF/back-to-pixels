@@ -6,11 +6,11 @@ import dynamic from "next/dynamic";
 import CustomButton, { ButtonIcon } from "@components/CustomButton/CustomButton";
 import RoleTag from "@components/RoleTag";
 import HeadTag from "@components/HeadTag";
-import Author, { getAuthor, getAuthorsList } from "@classes/authorType";
+import Author, { getAuthor, getAuthorsList } from "@classes/Author";
 import { slideButtonDown, slideInUp } from "@helpers/animations";
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import globalStyles from '@styles/teammate.styles';
-import Post, { getFilteredPosts } from "@classes/postType";
+import Post, { filterPostsByAuthor } from "@classes/Post";
 
 import PostGrid from '@components/PostGrid/PostsGrid';
 import PostCard from "@components/PostCard/PostCard";
@@ -88,7 +88,7 @@ export async function getStaticPaths(){
 
 export async function getStaticProps({params}: StaticResponse ){
     const author: Author = getAuthor(params.teammate);
-    const authorPosts: Array<Post> = getFilteredPosts(undefined, author);
+    const authorPosts: Array<Post> = filterPostsByAuthor(author);
     return {
         props:{ author, authorPosts } 
     };

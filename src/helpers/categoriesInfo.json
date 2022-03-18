@@ -2,31 +2,23 @@
     "rings": {
         "key": "rings",
         "name": "Rings",
-        "color": "#000000",
-        "gradient": "#727A9A",
-        "about": "Development process and documentation about the project Rings",
-        "textColor": "#000000"
+        "color": "#727A9A",
+        "about": "Development process and documentation about the project Rings. A Python package to game delopment. Developed using pygame",
+        "textColor": "#eeeeee"
     },
     "nextjs": {
         "key": "nextjs",
-        "name": "Next JS",
+        "name": "Next.JS",
         "color": "#000000",
-        "about": "Articles about projects or matters that envolves the Next.JS framework",
+        "about": "Articles about projects or matters that envolves the Next.JS framework, that was used to build this website. The posts with the tag Next.JS are mainlly focused in some features implemented in the blog, like Dark-Theme, How we do our .MD transcriptions to HTML and etc.",
         "textColor": "#EEEEEE"
     },
     "blog":{
         "key": "blog",
         "name": "Blog",
         "color": "#FE5722",
-        "about": "Articles about the creation or documentation around the blog it self",
+        "about": "Articles about the creation or documentation around the blog it self. You can find the source code in Renato's GitHub (RenatoCesarF)",
         "textColor": "#2a2a2a"
-    },
-    "transparent":{
-        "key": "transparent",
-        "name": " ",
-        "color": "#2d2d22",
-        "about": "",
-        "textColor": "#2d2d22"
     },
     "art":{
         "key": "art",
@@ -39,7 +31,7 @@
         "key": "programming",
         "name": "Programming",
         "color": "#7f4596",
-        "about": "Articles with about programming, tutorials, examples, explanations and etc",
+        "about": "Articles with about programming, examples, explanations and etc. Not all the posts are about programming, thus we have artists in the Team as well. But all programming content will be found in the programming tag.",
         "textColor": "#EEEEEE"
     },
     "architecture":{
@@ -60,7 +52,7 @@
         "key": "design",
         "name": "Design",
         "color": "#85BC3C",
-        "about": "Articles with about web side design, character design and etc",
+        "about": "Articles with about web-design and things that we changed in the blog website that envolves the design of the blog itself. Like dart-theme, positioning and visuals of some element or page. ",
         "textColor": "#2a2a2a"
     }
 }

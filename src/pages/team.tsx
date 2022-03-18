@@ -4,9 +4,10 @@ import { useState } from 'react';
 
 import { slideInDown } from '@helpers/animations';
 import globalStyles from '@styles/team.styles';
-import Author, { getAuthor, getAuthorsList, Role } from '@classes/authorType';
+import Author, { getAuthor, getAuthorsList, Role } from '@classes/Author';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import HeadTag from '@components/HeadTag';
+
 
 const FilterTeammates = dynamic(() => import('@components/FilterTeammates'));
 const TeammateCard = dynamic(() => import('@components/TeammateCard'));

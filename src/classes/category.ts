@@ -10,7 +10,6 @@ interface Category{
 }
 
 export enum CategoryType {
-  TRANSPARENT = 0,
   //Categories
   DESIGN = 1,
   ART = 2,

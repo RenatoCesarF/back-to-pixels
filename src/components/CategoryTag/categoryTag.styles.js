@@ -14,13 +14,14 @@ export default css.global`
     margin-left: 0.2rem;
     margin-right: 0.2rem;
     max-width: 100vw;
-  }
+}
 .category-tag-text{
     font-size: 1em;
     color: var(--font-contrast-color);
     font-family: "Open Sans", sans-serif;
     font-weight: bolder;
   }
+
 .transparent-tag{
   background-color:transparent;
   background-image: linear-gradient(90deg, grey 5px, #00000000 10px);
@@ -29,6 +30,14 @@ export default css.global`
 }
 .transparent-tag span{
   margin: 0;
+}
+
+.big{
+  font-size: .8em;
+  padding: 0.4rem;
+  margin: 0.3rem;
+}
+.big span{
 
 }
 `

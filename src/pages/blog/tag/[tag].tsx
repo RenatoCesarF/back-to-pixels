@@ -1,21 +1,30 @@
-import { m } from 'framer-motion'
+import { motion } from 'framer-motion'
 
-import { slideInLeft } from '@helpers/animations';
-import InDevelopment from '@components/InDevelopment';
+import { slideInUp, slideButtonDown } from '@helpers/animations';
 import HeadTag from '@components/HeadTag';
 import Category, { getAllCategories, getCategoryInfo } from '@classes/category';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
-import { getAuthor } from '@classes/authorType';
+import { getAuthor } from '@classes/Author';
 import CategoryTag from '@components/CategoryTag/CategoryTag';
-import Post from '@classes/postType';
+import Post, { filterPostsByCategory } from '@classes/Post';
+
+import styles from '@styles/tag.styles.js';
+import CustomButton, { ButtonIcon } from '@components/CustomButton/CustomButton';
+import { useRouter } from 'next/router';
+import PostGrid from '@components/PostGrid/PostsGrid';
+import { sortByDate } from '@utils/sort';
 
 interface Params {tag: string};
 interface StaticResponse {params: Params};
 interface TagInfoProps {category: Category, posts: Array<Post>}
 
 const TagInfo: React.FC<TagInfoProps> = ({category, posts}: TagInfoProps) => {
+    const router = useRouter();
     return(
         <>
+            <style>
+                {styles}
+            </style>
             <HeadTag
                 image={WEBSITE_INFO.LOGO_PATH}
                 date={new Date()}
@@ -25,14 +34,22 @@ const TagInfo: React.FC<TagInfoProps> = ({category, posts}: TagInfoProps) => {
                 url={`${WEBSITE_INFO.URL}/blog/tag/${category.key}`}
                 author={getAuthor('renato')}
             />
-            <div className='page'>
-                <h1>X Posts in the category <CategoryTag category={category}/></h1>
-                <p>{category.about}</p>
-                <m.div  variants={slideInLeft}>
-                  
-                </m.div>
-                <InDevelopment/>
-            </div>
+            {/* <div className='page'> */}
+                <main className='tag-especific-page'>
+                    <motion.div variants={slideButtonDown}>
+                            <CustomButton description='Return to Blog page' text='' icon={ButtonIcon.arrowBack} onClick={() => {router.back()}}/>
+                    </motion.div>
+                    <motion.div variants={slideInUp} className="tag-page-description">
+                        <h1>{posts.length}</h1>
+                        <h2>Posts in the category <CategoryTag isBig category={category}/></h2>
+                    </motion.div>
+
+                    <p>{category.about}</p>
+                </main>
+                <section className='tag-page-posts-section'>
+                    <PostGrid posts={posts}/>
+                </section>
+            {/* </div> */}
         </>
     )
 
@@ -52,7 +69,7 @@ export async function getStaticPaths(){
 
 export async function getStaticProps({params}: StaticResponse ){
     const category: Category = getCategoryInfo(params.tag);
-    const posts: Array<Post> = [];
+    const posts: Array<Post> = filterPostsByCategory([category]).sort(sortByDate);
     return {
         props:{ category, posts } 
     };

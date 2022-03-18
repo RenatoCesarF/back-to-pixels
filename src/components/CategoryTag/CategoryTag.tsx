@@ -1,26 +1,34 @@
 import Category from '@classes/category'
-import globalStyles from './categoryTag.styles'
-interface tagProps{
+import Link from 'next/link'
+import globalStyles from './categoryTag.styles';
+interface CategoryTagProps{
     category: Category
+    isBig?: boolean
 }
 
-const CategoryTag: React.FC<tagProps> = (props: tagProps)=>{
+const CategoryTag: React.FC<CategoryTagProps> = (props: CategoryTagProps)=>{
+    const tagPageURL: string = `/blog/tag/${props.category.key}`
     const category = props.category
     const buttonStyle = { backgroundColor: category.color }
-
     return(
         <>
             <style jsx global>
                 {globalStyles}
             </style>
-            <button name={`${props.category.name} button`}  className="category-tag" style={buttonStyle} onClick={() => {}}>
-                <span className='category-tag-text' style={{color: category.textColor }}>{category.name}</span>
-            </button>
+            <Link href={tagPageURL} passHref>
+                    <button
+                        name={`${props.category.name} button`}
+                        className={`category-tag ${props.isBig ? "big" : " "}`}
+                        style={buttonStyle} onClick={() => { } }
+                    >
+                        <span className='category-tag-text' style={{ color: category.textColor }}>{category.name}</span>
+                    </button>
+            </Link>
         </>
     )
 }
 
-export const CategoryTagTransparent: React.FC<tagProps> = (props: tagProps) => {
+export const CategoryTagTransparent: React.FC<CategoryTagProps> = (props: CategoryTagProps) => {
     const category = props.category
     const gradientColor:string  = category.color;
     const style = {backgroundImage: `linear-gradient(90deg, ${gradientColor} 7px, transparent 17px)`}
