@@ -8,7 +8,7 @@ import {sortByDate, sortByDateReverse} from '@utils/sort';
 
 import { slideInLeft } from '@helpers/animations';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
-import PostGrid from '@components/PostsGrid';
+import PostGrid from '@components/PostGrid/PostsGrid';
 
 const HeadTag = dynamic(() => import('@components/HeadTag'));
 const RssLinks = dynamic(() => import('@components/RssLinks'));

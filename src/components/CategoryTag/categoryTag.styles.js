@@ -15,18 +15,20 @@ export default css.global`
     margin-right: 0.2rem;
     max-width: 100vw;
   }
-  .category-tag-text{
+.category-tag-text{
     font-size: 1em;
     color: var(--font-contrast-color);
     font-family: "Open Sans", sans-serif;
     font-weight: bolder;
-    margin: 0;
   }
-  .transparent-tag{
-    margin:0;
-    background-color:transparent;
-    background-image: linear-gradient(90deg, grey 5px, #00000000 10px);
-    margin-right: 0px;
-    padding-right: 0px;
-  }
+.transparent-tag{
+  background-color:transparent;
+  background-image: linear-gradient(90deg, grey 5px, #00000000 10px);
+  margin-right: 0px;
+  padding-right: 0px;
+}
+.transparent-tag span{
+  margin: 0;
+
+}
 `

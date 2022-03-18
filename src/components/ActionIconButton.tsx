@@ -17,7 +17,7 @@ const getActionIcon = (iconEnum: ActionButtonIcon) =>{
         case 0:
             return <FiInstagram size={iconSize} color={iconColor}/>;
         case 1:
-            return <div style={{marginLeft: "2px", marginTop: "5px"}}> <FiTwitter size={iconSize} color={iconColor}/> </div>;
+            return <div style={{marginLeft: "1px", marginTop: "5px"}}> <FiTwitter size={iconSize} color={iconColor}/> </div>;
         case 2:
             return <FiCopy size={iconSize} color={iconColor}/>;
         case 3:

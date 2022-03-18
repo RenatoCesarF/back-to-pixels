@@ -14,10 +14,9 @@ const authorImageSize: string ="4.3em";
 const instagramURL: string = "https://www.instagram.com";
 const twitterURL: string = "https://www.twitter.com";
 
-interface InternPostInformationProps{post: Post}
+interface PostInternInformationProps{post: Post}
 
-
-const InternPostInformation: React.FC<InternPostInformationProps> = ({post}:InternPostInformationProps) =>{    
+const PostInternInformation: React.FC<PostInternInformationProps> = ({post}:PostInternInformationProps) =>{    
     const [isShareApiAvailable, setIsShareApiAvailable] = useState(false);
     const shareURL: string = `${WEBSITE_INFO.URL}/blog/${post.slug}`;
     const shareText: string = `A ${WEBSITE_INFO.NAME} Blog post by ${post.author.name} - ${post.title}`;
@@ -78,4 +77,4 @@ const InternPostInformation: React.FC<InternPostInformationProps> = ({post}:Inte
 }
 
 
-export default InternPostInformation;
+export default PostInternInformation;

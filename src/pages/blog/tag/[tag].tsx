@@ -6,7 +6,7 @@ import HeadTag from '@components/HeadTag';
 import Category, { getAllCategories, getCategoryInfo } from '@classes/category';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import { getAuthor } from '@classes/authorType';
-import CategoryTag from '@components/CategoryTag';
+import CategoryTag from '@components/CategoryTag/CategoryTag';
 
 interface Params {tag: string};
 interface StaticResponse {params: Params};

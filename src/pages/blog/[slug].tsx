@@ -13,7 +13,7 @@ import {slideButtonDown, slideInUp } from '@helpers/animations';
 
 import CustomButton, {ButtonIcon} from '@components/CustomButton';
 
-const InternPostInformation = dynamic(() => import('@components/InternPostInformation'));
+const PostInternInformation = dynamic(() => import('@components/PostInternInformation'));
 const RssLinks = dynamic(() => import('@components/RssLinks'));
 const HeadTag = dynamic(() => import('@components/HeadTag'));
 // const TranscribedPost = dynamic(() => import('@components/TranscribedPost'));
@@ -72,7 +72,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                                 }   
                         </m.div >
 
-                        <InternPostInformation post={post}/>
+                        <PostInternInformation post={post}/>
                         <hr style={{marginTop: "1.4rem"}}/>
                         
                         <m.section variants={slideInUp} itemProp="articleBody">

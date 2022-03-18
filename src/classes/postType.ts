@@ -81,8 +81,26 @@ export const getSinglePostData = (filename:string) => {
   return postData;
 }
 
+export const getFilteredPosts = (category?: Array<Category>, author?: Author): Array<Post> =>{
+  const allPostsFileNames = getAllPostsData();
+  const filteredPosts: Array<Post> = [];
+
+  allPostsFileNames.map((postFile:any, index:number) =>{
+    const generatedPost: Post = createPost(postFile);
+    // if(category){
+    //   filterByCategory(category, generatedPost)
+    // }
+    if(author && generatedPost.author === author){
+      filteredPosts.push(generatedPost);
+    }
+  });
+  return filteredPosts;
+}
+
+// const filterByCategory = (category: Array<Category>, post: Post ) =>{
+//   post.categories.includes[category[0]]
+// }
 // export const haveCoverImage = (cover_image: string):boolean =>{
 // //   return cover_image.includes('/default-images/');
 // // }
-
 export default Post;

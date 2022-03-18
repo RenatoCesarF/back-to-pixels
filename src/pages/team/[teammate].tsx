@@ -1,9 +1,7 @@
-import { domAnimation, LazyMotion, m } from "framer-motion";
+import { domAnimation, LazyMotion, m, motion } from "framer-motion";
 import { useRouter } from "next/router";
 
 import dynamic from "next/dynamic";
-import NextImage from 'next/image';
-import Image from 'next/image';
 
 import CustomButton, { ButtonIcon } from "@components/CustomButton";
 import RoleTag from "@components/RoleTag";
@@ -12,17 +10,19 @@ import Author, { getAuthor, getAuthorsList } from "@classes/authorType";
 import { slideButtonDown, slideInUp } from "@helpers/animations";
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import globalStyles from '@styles/teammate.styles';
-import { rgbDataURL } from "@utils/rgbDataURL";
+import Post, { getFilteredPosts } from "@classes/postType";
 
-const PostCard = dynamic(() => import('@components/PostCard'))
+import PostGrid from '@components/PostGrid/PostsGrid';
+import PostCard from "@components/PostCard/PostCard";
 
-interface IAuthor{author: Author};
+interface TeammatePageProps{author: Author, authorPosts: Array<Post>};
+
 type Params = {teammate: string};
 type StaticResponse = {params: Params};
 
 var authorPageKeywords = ['Author', 'Writter', 'Blogger', 'Teammate', WEBSITE_INFO.NAME];
 
-const Teammate: React.FC<IAuthor> = ({author}: IAuthor) => {
+const Teammate: React.FC<TeammatePageProps> = ({author, authorPosts}: TeammatePageProps) => {
     const router = useRouter();
     authorPageKeywords.push(author.name,author.instagram, author.twitter);
     author.roles.map((val) => authorPageKeywords.push(val));
@@ -43,10 +43,10 @@ const Teammate: React.FC<IAuthor> = ({author}: IAuthor) => {
             <LazyMotion features={domAnimation}>
                 <div className="page">
                     <main className="teammate-page">
-                        <m.div variants={slideButtonDown}>
+                        <motion.div variants={slideButtonDown}>
                             <CustomButton description='Return to Blog page' text='' icon={ButtonIcon.arrowBack} onClick={() => {router.back()}}/>
-                        </m.div>
-                        <m.article itemProp="author" itemScope  itemType='https://schema.org/author' variants={slideInUp} className="teammate-page-author-info-row" > 
+                        </motion.div>
+                        <motion.article itemProp="author" itemScope  itemType='https://schema.org/author' variants={slideInUp} className="teammate-page-author-info-row" > 
                             <div style={{ alignItems: "center", display: 'flex',flexDirection: 'column'}}>
                                 <img src={author.image_path} alt={`${author.name} image`} className="teammate-page-author-image"/>
                             </div>
@@ -62,16 +62,16 @@ const Teammate: React.FC<IAuthor> = ({author}: IAuthor) => {
                                 <p>{author.about}</p>
                             </div>
 
-                        </m.article>
+                        </motion.article>
 
                     </main>
-                    <section>
-                        {/* author posts */}
+                    <section className="teammate-page-posts-section">
+                        <PostGrid posts={authorPosts}/>
+                        
                     </section>
+                    
                 </div>
-
             </LazyMotion>
-
         </div>
     )
 } 
@@ -90,9 +90,9 @@ export async function getStaticPaths(){
 
 export async function getStaticProps({params}: StaticResponse ){
     const author: Author = getAuthor(params.teammate);
-
+    const authorPosts: Array<Post> = getFilteredPosts(undefined, author);
     return {
-        props:{ author } 
+        props:{ author, authorPosts } 
     };
 }
 

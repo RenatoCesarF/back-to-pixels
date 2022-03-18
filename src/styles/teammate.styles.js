@@ -19,12 +19,8 @@ export default css.global`
 }
 
 @media screen and (max-width: 860px){
-    .teammate-page{
-        margin: 0 5vw;
-    }
-    .teammate-page-author-info-row{
-        flex-direction: column;
-    }
+    .teammate-page{margin: 0 5vw;}
+    .teammate-page-author-info-row{flex-direction: column;}
     .teammate-page-author-image{
         /* height: 70vw; */
         height: 24rem;
@@ -35,14 +31,19 @@ export default css.global`
     }
 }
 
-
-
 .author-roles{
     display: flex;
 }
 .author-roles > * {
     display: block;
     margin: 0.1rem 0.3rem;
+}
+
+.teammate-page-posts-section{
+    background-color: var(--constrated-brackground-color);
+    height: max-content;
+    min-height: max-content;
+    padding: 3rem 0 3rem 0;
 }
 
 `

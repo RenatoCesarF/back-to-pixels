@@ -9,6 +9,23 @@ export default css.global`
         justify-content: center;
         row-gap: 0; 
     }
+    
+    .teammate-card-div{
+        background-color: var(--secondary-color);
+        width: 17rem;
+        height: 10rem;
+        
+        display: flex;
+        flex-direction: column;
+        
+    
+        border-radius: 0.2rem;
+        margin: 0.5rem;
+        user-select:none;
+        transition: height 0.69s cubic-bezier(.65,-0.53,.24,1.12);
+    
+    }
+  
      
     @media only screen and (min-width:4px) and (max-width:577px){
         .teammate-card-div{ width: 11rem;}        
