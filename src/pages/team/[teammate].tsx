@@ -59,7 +59,7 @@ const Teammate: React.FC<IAuthor> = ({author}: IAuthor) => {
                                         })
                                     }
                                 </div>
-                                <p sty>{author.about}</p>
+                                <p>{author.about}</p>
                             </div>
 
                         </m.article>
