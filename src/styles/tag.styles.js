@@ -10,12 +10,14 @@ export default css.global`
 
 .tag-page-description{
     display: flex;
+    justify-content: center;
 }
 .tag-especific-page h2{
     margin: 0;
     margin-left: clamp(0.3rem,1rem, 3vw);
 }
 .tag-especific-page h1{
+    font-family: 'Source Code Pro', serif;
     margin-left: clamp(0.2rem,2rem, 4vw);
     margin-top: 0.35vh;
 }

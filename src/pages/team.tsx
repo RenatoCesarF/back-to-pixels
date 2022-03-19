@@ -10,8 +10,8 @@ import HeadTag from '@components/HeadTag';
 
 
 const FilterTeammates = dynamic(() => import('@components/FilterTeammates'));
-const TeammateCard = dynamic(() => import('@components/TeammateCard'));
-
+// const TeammateCard = dynamic(() => import('@components/TeammateCard'));
+import TeammateCard from '@components/TeammateCard';
 
 interface authorsList{
     allTeammates: Author[]

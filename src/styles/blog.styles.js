@@ -21,8 +21,10 @@ export default css.global`
 
 .post-count-text{
     line-height: 2;
+    font-family:'Source Code Pro', serif;
 }
 .post-count{
+    font-family:'Source Code Pro', serif;
     font-size: 1.5em;
     font-weight: 900;
     margin: 0 0.5rem 0 0.5rem;

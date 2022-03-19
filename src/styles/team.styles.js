@@ -56,6 +56,7 @@ export default css.global`
     }
 
     .teammate-card-name{
+        color: #f5f5f5;
         font-size: 1.2em;
         margin-top: 15px;
         margin-left: 15px;

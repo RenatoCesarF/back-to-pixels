@@ -30,7 +30,7 @@ const TagInfo: React.FC<TagInfoProps> = ({category, posts}: TagInfoProps) => {
                 date={new Date()}
                 description={`Posts with category ${category.name} - ${category.about}`}
                 keywords={[category.key.toString()]}
-                title={`Category ${category.name} Posts - ${WEBSITE_INFO.NAME}`}
+                title={`Posts In ${category.name} Category - ${WEBSITE_INFO.NAME}`}
                 url={`${WEBSITE_INFO.URL}/blog/tag/${category.key}`}
                 author={getAuthor('renato')}
             />
@@ -39,7 +39,7 @@ const TagInfo: React.FC<TagInfoProps> = ({category, posts}: TagInfoProps) => {
                     <motion.div variants={slideButtonDown}>
                             <CustomButton description='Return to Blog page' text='' icon={ButtonIcon.arrowBack} onClick={() => {router.back()}}/>
                     </motion.div>
-                    <motion.div variants={slideInUp} className="tag-page-description">
+                    <motion.div variants={slideButtonDown} className="tag-page-description">
                         <h1>{posts.length}</h1>
                         <h2>Posts in the category <CategoryTag isBig category={category}/></h2>
                     </motion.div>
