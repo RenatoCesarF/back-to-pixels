@@ -15,7 +15,7 @@ module.exports = withBundleAnalyzer(withPWA(
     images: {
       domains: ['codingideas.vercel.app'],
     },
-    staticPageGenerationTimeout: 1000,
+    // staticPageGenerationTimeout: 1000,
   }
 ));
 

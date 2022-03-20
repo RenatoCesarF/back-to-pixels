@@ -5,6 +5,7 @@ import Author, { getAuthor } from '@classes/Author'
 import Category, { getPostCategories, isCategoriesInCategories } from '@classes/category'
 import { FaLess } from 'react-icons/fa';
 import { sortByCategoryAmount, sortByDate } from '@utils/sort';
+import { MdConfirmationNumber } from 'react-icons/md';
 
 const postsFolderPath: string = 'src/posts';
 
@@ -91,14 +92,13 @@ export const getPostRecomendations = (mainPost: Post) =>{
   var comparedCategories: Category[] = [... mainPost.categories];
   let postsWithSameCategories: Post[] = [];
 
-  for(let i:number = 0; postsWithSameCategories.length < 3 || i === 5; i +=1){
+  for(let i: number = 0;postsWithSameCategories.length < 3 || i < 5; i+=1){
     allCreatedPosts.map((post: Post) => {
       if(post.slug === mainPost.slug) return;
+      if(isPostInArray(post, postsWithSameCategories)) return;
+      if(!isCategoriesInCategories(comparedCategories, post.categories)) return;
 
-      const isCategoriesSimilar: boolean = isCategoriesInCategories(comparedCategories, post.categories);
-      if(!isPostInArray(post, postsWithSameCategories) && isCategoriesSimilar) return;
-
-      postsWithSameCategories.push(post);
+      postsWithSameCategories.push(post);        
     });
     
     comparedCategories.pop();
