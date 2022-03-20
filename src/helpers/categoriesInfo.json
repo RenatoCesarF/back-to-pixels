@@ -17,7 +17,7 @@
         "key": "blog",
         "name": "Blog",
         "color": "#FE5722",
-        "about": "Articles about the creation or documentation around the blog it self. You can find the source code in Renato's GitHub (RenatoCesarF)",
+        "about": "Articles about the creation and documentation around the blog it self. You can find the source code in Renato's GitHub (RenatoCesarF)",
         "textColor": "#2a2a2a"
     },
     "art":{
@@ -46,7 +46,7 @@
         "name": "Tutorial",
         "color": "#247ba3",
         "about": "Articles with about software-architecture, how we manage to get to then, how it works and why choose them",
-        "textColor": "#000000"
+        "textColor": "#EEEEEE"
     },
     "design":{
         "key": "design",

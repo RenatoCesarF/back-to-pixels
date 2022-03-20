@@ -1,10 +1,12 @@
 import '@styles/globals.css'
+import { Toaster } from 'react-hot-toast';
+import dynamic from 'next/dynamic';
 import type { AppProps } from 'next/app'
-import Footer from '@components/Footer/Footer'
+
 import Header from '@components/HeaderComponent'
+const Footer = dynamic(() => import('@components/Footer/Footer'));
 
 import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
-import { Toaster } from 'react-hot-toast';
 
 const bubbleOptions = {
   className: 'toaster',

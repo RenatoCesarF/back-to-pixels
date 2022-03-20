@@ -7,7 +7,7 @@ import PostCard from "@components/PostCard/PostCard";
 import globalStyles from './PostGrid.styles.js'
 
 interface PostGridProps{
-    posts: Array<Post>
+    posts: Post[]
 }
 
 const PostGrid = ({posts}: PostGridProps) =>{

@@ -104,7 +104,7 @@ const isImageCoverValid = (slug: string, image_name: any) => {
 	}
 
 	var imageExistInFolder = false; 
-	const images: Array<string> = readdirSync(join(`public/images/posts/${slug}`));
+	const images: string[] = readdirSync(join(`public/images/posts/${slug}`));
 
 	for(let image of images) {
 		 if(image.replace('.webp', '') === image_name){

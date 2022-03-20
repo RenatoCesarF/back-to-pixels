@@ -70,7 +70,7 @@ const verifyPostAuthor = (post: Post) => {
 }
 
 const verifyPostDate = (post: Post) => {
-  const splitedDate: Array<string> = post.date.split("/");
+  const splitedDate: string[] = post.date.split("/");
   const month: number = parseInt(splitedDate[0]);
   const day: number = parseInt(splitedDate[1]);
   const year: number = parseInt(splitedDate[2]);

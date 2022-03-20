@@ -14,7 +14,7 @@ import Post, { filterPostsByAuthor } from "@classes/Post";
 import PostGrid from '@components/PostGrid/PostsGrid';
 import AuthorSocialLinks from "@components/AuthorSocialLinks";
 
-interface TeammatePageProps{author: Author, authorPosts: Array<Post>};
+interface TeammatePageProps{author: Author, authorPosts: Post[]};
 
 type Params = {teammate: string};
 type StaticResponse = {params: Params};
@@ -89,7 +89,7 @@ export async function getStaticPaths(){
 
 export async function getStaticProps({params}: StaticResponse ){
     const author: Author = getAuthor(params.teammate);
-    const authorPosts: Array<Post> = filterPostsByAuthor(author);
+    const authorPosts: Post[] = filterPostsByAuthor(author);
     return {
         props:{ author, authorPosts } 
     };

@@ -2,7 +2,9 @@ import { readdirSync, readFileSync } from 'fs';
 import matter from 'gray-matter';
 import {join} from 'path';
 import Author, { getAuthor } from '@classes/Author'
-import Category, { getPostCategories } from '@classes/category'
+import Category, { getPostCategories, isCategoriesInCategories } from '@classes/category'
+import { FaLess } from 'react-icons/fa';
+import { sortByCategoryAmount, sortByDate } from '@utils/sort';
 
 const postsFolderPath: string = 'src/posts';
 
@@ -18,17 +20,6 @@ type Post = {
   title: string,
 }
 
-export const getCoverImage = (slug: string, image_name:any) =>{
-  var coverImage;
-  
-  if(typeof(image_name) === "number" || !isImageCoverValid(slug, image_name)){
-    var defaultImageIndex = image_name || Math.floor(Math.random() * 4) + 1;
-    coverImage = `/images/posts/default-images/${defaultImageIndex}.webp`;
-    return coverImage;
-  }
-  coverImage = `/images/posts/${slug}/${image_name}.webp`;   
-  return coverImage; 
-}
 
 export const createPost = (filename: string): Post => {
   const slug: string = filename.replace('.md', '');
@@ -52,6 +43,18 @@ export const createPost = (filename: string): Post => {
   return post;
 }
 
+export const getCoverImage = (slug: string, image_name:any) =>{
+  var coverImage;
+  
+  if(typeof(image_name) === "number" || !isImageCoverValid(slug, image_name)){
+    var defaultImageIndex = image_name || Math.floor(Math.random() * 4) + 1;
+    coverImage = `/images/posts/default-images/${defaultImageIndex}.webp`;
+    return coverImage;
+  }
+  coverImage = `/images/posts/${slug}/${image_name}.webp`;   
+  return coverImage; 
+}
+
 const isImageCoverValid = (slug: string, image_name: any) => {
   const isImageTextValid: boolean = (typeof(image_name) === "string" && !image_name.toString().startsWith('https'))
   if(image_name === null || !isImageTextValid ){
@@ -60,7 +63,7 @@ const isImageCoverValid = (slug: string, image_name: any) => {
   }
 
   var imageExistInFolder = false;    
-  const images: Array<string> = readdirSync(join(`public/images/posts/${slug}`));
+  const images: string[] = readdirSync(join(`public/images/posts/${slug}`));
 
   for(let image of images) {
     if(image.replace('.webp', '') === image_name){
@@ -71,8 +74,8 @@ const isImageCoverValid = (slug: string, image_name: any) => {
   return imageExistInFolder;
 }
 
-export const getPostsFileName = ( ): Array<string> =>{
-  const files: Array<string> = readdirSync(postsFolderPath);
+export const getPostsFileName = ( ): string[] =>{
+  const files: string[] = readdirSync(postsFolderPath);
   return files;
 }
 
@@ -81,35 +84,56 @@ export const getSinglePostData = (filename:string) => {
   return postData;
 }
 
-export const getFilteredPosts = (category?: Array<Category>, author?: Author): Array<Post> =>{
-  const allPostsFileNames = getPostsFileName();
-  const filteredPosts: Array<Post> = [];
+export const getPostRecomendations = (mainPost: Post) =>{
+  const allCreatedPosts: Post[] = getPostsFileName().map((file) => createPost(file));
+  allCreatedPosts.sort(sortByDate);
 
-  //filter by category
-  // filter by author
-  return filteredPosts;
+  var comparedCategories: Category[] = [... mainPost.categories];
+  let postsWithSameCategories: Post[] = [];
+
+  for(let i:number = 0; postsWithSameCategories.length < 3 || i === 5; i +=1){
+    allCreatedPosts.map((post: Post) => {
+      if(post.slug === mainPost.slug) return;
+
+      const isCategoriesSimilar: boolean = isCategoriesInCategories(comparedCategories, post.categories);
+      if(!isPostInArray(post, postsWithSameCategories) && isCategoriesSimilar) return;
+
+      postsWithSameCategories.push(post);
+    });
+    
+    comparedCategories.pop();
+  }
+  return postsWithSameCategories.sort(sortByCategoryAmount).slice(0,3);
 }
 
-export const filterPostsByCategory = (categories: Array<Category>): Array<Post> =>{
+const isPostInArray = (post: Post, array: Post[]): boolean => {
+  let isInArray: boolean = false;
+  array.some(element => {
+    if (element.slug === post.slug) {
+      isInArray = true;
+    }
+  });
+  return isInArray;
+}
+
+export const filterPostsByCategory = (category:Category): Post[] =>{
   const allPostsFileNames = getPostsFileName();
-  const filteredPosts: Array<Post> = [];
+  const filteredPosts: Post[] = [];
 
   allPostsFileNames.map((postFile:any, index:number) =>{
     const generatedPost: Post = createPost(postFile);
 
-    categories.map((category: Category) => {
-      if(!generatedPost.categories.includes(category)) return;
-
+    if(generatedPost.categories.includes(category)) {
       filteredPosts.push(generatedPost);
-    })
+    }
 
   });
   return filteredPosts;
 }
 
-export const filterPostsByAuthor = (author: Author): Array<Post> =>{
+export const filterPostsByAuthor = (author: Author): Post[] =>{
   const allPostsFileNames = getPostsFileName();
-  const filteredPosts: Array<Post> = [];
+  const filteredPosts: Post[] = [];
 
   allPostsFileNames.map((postFile:any, index:number) =>{
     const generatedPost: Post = createPost(postFile);

@@ -24,7 +24,6 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
     const [isHovering, setIsHovering] = useState(false);
     const doenstHaveCoverImage:boolean = post.cover_image.includes('/default-images/');
     const extendedCategories: boolean = post.categories.length > 2;
-    const sortedCategories: Category[] = post.categories.sort(sortByCategoryImportance);
     var shortExcerpt: string = post.excerpt;
 
     if(post.excerpt.length > maximumExcerptSize){
@@ -86,12 +85,12 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                             <div className='tooltip'>
                                 <div className={extendedCategories? "categories-row" : ""}>
                                     {
-                                        sortedCategories.map((category: Category, index: number)=>{
+                                        post.categories.map((category: Category, index: number)=>{
                                             if(index >= 2) return;
                                             return <CategoryTag category={category} key={index}/>
                                         })
                                     }
-                                    {extendedCategories ? <CategoryTagTransparent category={sortedCategories[2]}/> : <></>}
+                                    {extendedCategories ? <CategoryTagTransparent category={post.categories[2]}/> : <></>}
                                 </div>
                                 {
                                     extendedCategories
@@ -99,7 +98,7 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                                     <span className="tooltiptext">
                                         <div className="extended-categories"  >
                                         {
-                                            sortedCategories.map((category: Category, index: number)=>{
+                                            post.categories.map((category: Category, index: number)=>{
                                                 return (
                                                     <motion.div 
                                                         whileHover={{ scale: 1.1 }}

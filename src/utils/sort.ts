@@ -1,10 +1,14 @@
 import { CategoryType } from "@classes/category";
+import Post from "@classes/Post";
 
 export const sortByDate = (a: any, b: any) =>{
     const dateA: Date = new Date(a.date);
     const dateB: Date = new Date(b.date);
 
     return dateB.valueOf() - dateA.valueOf();
+}
+export const sortByCategoryAmount = (a: Post, b: Post) =>{
+    return b.categories.length - a.categories.length; 
 }
 
 export const sortByDateReverse = (a: any, b: any) =>{

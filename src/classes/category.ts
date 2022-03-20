@@ -1,3 +1,5 @@
+import { sortByCategoryImportance } from "@utils/sort";
+
 const categoriesInfo = require('@helpers/categoriesInfo.json');
 
 
@@ -16,8 +18,8 @@ export enum CategoryType {
   PROGRAMMING = 3,
   //Tools / languages
   ARCHITECTURE = 4,
-  NEXTJS = 5,
-  TUTORIAL = 6,
+  TUTORIAL = 5,
+  NEXTJS = 6,
   //Projects
   BLOG = 7,
   RINGS = 8,
@@ -25,15 +27,14 @@ export enum CategoryType {
 
 export const getPostCategories = (categories: any[]): Category[] => {
     var categoryList: Category[] = [];
-  
     categories.forEach((category: Category) => {
       if(category === undefined || category === null){
-        throw new Error("Category is null, undefined or invalid");
+        throw new Error(`Category is null, undefined or invalid {${category}}`);
       }
       const tagkey: string = category.toString().toLowerCase();
-      categoryList.push(getCategoryInfo(tagkey));  
+      categoryList.push(getCategoryByKey(tagkey));  
     });
-    return categoryList;
+    return categoryList.sort(sortByCategoryImportance);;
 }
 
 export const getAllCategories = (): Category[] =>{
@@ -41,19 +42,23 @@ export const getAllCategories = (): Category[] =>{
   
   const categoriesList: Category[] = listOfCategories.map((element) => {
     let tagKey = element[0];
-    return getCategoryInfo(tagKey);
+    return getCategoryByKey(tagKey);
   })
 
   return categoriesList;
 }
 
-export const getCategoryInfo = (categoryName: string): Category =>{
-  var tagInfo: Category  = categoriesInfo[categoryName];
+export const getCategoryByKey = (categoryName: string): Category =>{
+  var tagInfo: Category = categoriesInfo[categoryName];
 
   if(tagInfo === undefined || tagInfo === null){
-    throw `CategoryName not find or undefined (${categoryName})`
+    throw new Error(`CategoryName not find or undefined (${categoryName})`);
   }
   return tagInfo;
 }
- 
+
+export const isCategoriesInCategories = (searchedCategories: Category[], targetCategories: Category[] ): boolean =>{
+  return searchedCategories.every(cat => targetCategories.includes(cat));
+}
+
 export default Category

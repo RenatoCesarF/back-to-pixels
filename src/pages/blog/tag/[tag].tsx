@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 
 import { slideInUp, slideButtonDown } from '@helpers/animations';
 import HeadTag from '@components/HeadTag';
-import Category, { getAllCategories, getCategoryInfo } from '@classes/category';
+import Category, { getAllCategories, getCategoryByKey } from '@classes/category';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import { getAuthor } from '@classes/Author';
 import CategoryTag from '@components/CategoryTag/CategoryTag';
@@ -16,7 +16,7 @@ import { sortByDate } from '@utils/sort';
 
 interface Params {tag: string};
 interface StaticResponse {params: Params};
-interface TagInfoProps {category: Category, posts: Array<Post>}
+interface TagInfoProps {category: Category, posts: Post[]}
 
 const TagInfo: React.FC<TagInfoProps> = ({category, posts}: TagInfoProps) => {
     const router = useRouter();
@@ -44,7 +44,7 @@ const TagInfo: React.FC<TagInfoProps> = ({category, posts}: TagInfoProps) => {
                         <h2>Posts in the category <CategoryTag isBig category={category}/></h2>
                     </motion.div>
 
-                    <p>{category.about}</p>
+                    <motion.p>{category.about}</motion.p>
                 </main>
                 <section className='tag-page-posts-section'>
                     <PostGrid posts={posts}/>
@@ -68,8 +68,8 @@ export async function getStaticPaths(){
 }
 
 export async function getStaticProps({params}: StaticResponse ){
-    const category: Category = getCategoryInfo(params.tag);
-    const posts: Array<Post> = filterPostsByCategory([category]).sort(sortByDate);
+    const category: Category = getCategoryByKey(params.tag);
+    const posts: Post[] = filterPostsByCategory(category).sort(sortByDate);
     return {
         props:{ category, posts } 
     };

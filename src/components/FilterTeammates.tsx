@@ -2,7 +2,7 @@ import Author, {Role, roleFromString} from "@classes/Author";
 import { useEffect } from "react";
 
 interface FilterTeammatesProps {
-    allTeammates: Array<Author>, 
+    allTeammates: Author[], 
     activeRoleFilter: Role, 
     setFilteredTeammates: Function, 
     setActiveRoleFilter: Function
@@ -23,7 +23,7 @@ const FilterTeammates = ({allTeammates, setFilteredTeammates, activeRoleFilter, 
     return (
         <>  
             {
-                roleButtonsOptions.map((role: Array<string>, index: number) =>{
+                roleButtonsOptions.map((role: string[], index: number) =>{
                     return (
                         <button 
                             className={activeRoleFilter == roleFromString(role[0]) ?  "active" : ""}

@@ -4,7 +4,7 @@ import Category from "@classes/category";
 import { sortByCategoryImportance } from "@utils/sort";
 import CategoryTag from "@components/CategoryTag/CategoryTag";
 
-interface ListOfCategoriesProps{categories: Array<Category>}
+interface ListOfCategoriesProps{categories: Category[]}
 
 const ListOfCategories = ({categories}: ListOfCategoriesProps) =>{
     const sortedCategories: Category[] = categories.sort(sortByCategoryImportance);

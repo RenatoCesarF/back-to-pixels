@@ -12,7 +12,7 @@ type Author ={
     key: string,
     name: string,
     email: string,
-    roles: Array<string>
+    roles: string[]
     image_path: string,
     about: string,
     twitter: string,
@@ -54,7 +54,7 @@ export const getAuthorsList = () =>{
 export const getAuthorsKeyList = () => {
     const authorsList = getAuthorsList();
 
-    var authorsKeys: Array<string> = [];
+    var authorsKeys: string[] = [];
     authorsList.map((author: any) => {
         authorsKeys.push(author[0]);
     });
