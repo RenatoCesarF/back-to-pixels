@@ -49,7 +49,7 @@ Another thing to notice is that you can **overwrite** variable values in another
 
 Those variables are very useful if you want to test palettes, change fonts easily, etc. So even if you are not going to a *dark-theme* implementation, I recommend you to use CSS variables.
 
-## Making Dark Theme With CSS Only
+# Making Dark Theme With CSS Only
 So, you can define and use variables in all your code. If you define it all in the `:root` you can use it anywhere. Changing only one variable you will change the value for all the elements that use it.
 
 The dark theme with CSS only is based on this idea:
@@ -74,7 +74,7 @@ The idea is to change the *body* class depending on the theme that you want to u
 ---
 If you declare all your variables and overwrite them in the `body.dark` you can already test it by adding a *class* to the *body* in your browser.
 
-## Changing Themes Inside Next.JS
+# Changing Themes Inside Next.JS
 There are problems changing CSS inside *Next-JS* thus it's a server-side rendering, but it's still possible.
 
 But first a context: I created a theme switcher on my page, and the code that I will explain now is inside this component.
@@ -130,13 +130,13 @@ Now, when constructing your *theme switcher* you need to use this *load* variabl
  )
  ```
 
-## No Colors on Loading Problem
+# No Colors on Loading Problem
 Thus, the code to decide the theme that is active only executes when the page loads. You may have a problem with no defined colors when your website starts to load (before the "choose theme" function be executed). To fix that you have two options:
 
-### Option 1
+## Option 1
 Instead of creating two classes for the body `.dark-theme` and `.light-theme` you can create only one and add or remove it on the *change theme* code, instead of changing from one to another. In this way, the no-class colors will be loaded instantly.
 
-### Option 2
+## Option 2
 You can define *general-colors* (that don't change) and main colors in the `:root` element. In this way, these *general-colors* will be loaded on start and overwritten if needed after the *change theme* code execute. This helps if you want to add more themes in the future and it's the option that I choose, mainly for readability.
 
 ```css
@@ -153,7 +153,7 @@ body.dark-theme{
 ```
 
 
-## Other Methods
+# Other Methods
 Of course, you could  use a package, but personally I always rather do it myself instead. In this way, you learn more about your tools and how things work.
 
 Anyways, it's that. Any questions or advice you can send me on my [Twitter](https://twitter.com/nerat0). I always post some updates about this blog there as well. See ya!

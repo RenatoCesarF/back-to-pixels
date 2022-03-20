@@ -1,16 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Merriweather&display=swap');/*H2 font*/
+
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@500&display=swap');
 
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&family=Source+Sans+Pro:wght@600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@500&display=swap');
 
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&display=swap');
 
 /*=================== THEMES ============*/
 :root{
   --main-font:  'Roboto', sans-serif;
+  --title-font: 'Inter', serif;
+  --sub-title-font: 'Merriweather Sans',sans-serif;
   --date-font:   "Helvetica Neue", Helvetica;
+
   --button-font: '';
   --main-color: #382F60;
   --secondary-color: #485188;
@@ -56,8 +60,9 @@ body.light{
 
   --post-text-color: #292929;
   --post-h1-color:  rgba(41, 41, 41, 1);
+  --title-before-color: #C0C0C0;
   --post-resume-color:#575757;
-
+  
   --code-background-color:#485188;
   
   --link-color: #4f5dad;
@@ -76,11 +81,11 @@ body.dark{
   --rss-link-color: #c1c1c1ad;
   --background-quote-color: #92919127;
   --scrollbar-background-color: #292828;
-
-  --card-border-color: #382F60; 
+  
+  --card-border-color: #241E3E; 
   --card-text-color: #e9e7e7;
   --card-resume-text-color: #e9e7e7c2;
-  --card-color: #241E3E;
+  --card-color: #382F60;
   --card-date-color: #b5b5b5;
 
   --header-background-color: #38393B;
@@ -92,8 +97,9 @@ body.dark{
   
   --font-contrast-color: rgb(214, 212, 212);
   
-  --post-text-color: #e9e7e7;
-  --post-h1-color: #ffff;
+  --post-text-color: #e9e7e7ed;
+  --title-before-color: #575757;
+  --post-h1-color: rgb(240, 240, 240);
   --post-resume-color:rgb(165, 165, 165); 
   
   --code-background-color:#485188;
@@ -127,10 +133,12 @@ body {
   padding: 0;
   background-color: var(--background-color);
   font-family: var(--main-font);
-
+  
   min-height:100%; 
   display: flex;
   flex-direction: column;
+  transition: background .2s cubic-bezier(0.55, 0.055, 0.675, 0.19), color .2s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+
 }
 
 .page{
@@ -165,7 +173,6 @@ code {
 
 
 h1{
-  /* font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif; */
   line-height: 1.12;
   font-style: normal;
   font-weight: 700;
@@ -174,7 +181,7 @@ h1{
  
 }
 h2{
-  font-family: 'Merriweather', serif;
+  font-family: 'Merriweather Sans', serif;
   margin: 2rem 0px 0px  0px;
   color: var(--post-h1-color);
 }
@@ -187,9 +194,7 @@ h3{
 hr{
   border: 1px solid var(--line-color)
 }
-span{
-  color: var(--post-text-color);
-}
+
 p{
   word-break: break-word;
   color: var(--post-text-color);

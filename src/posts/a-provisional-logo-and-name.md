@@ -49,7 +49,7 @@ Another cool thing that I added was a [Lottie](https://lottiefiles.com/what-is-l
 
 ![under-dev-gif](in-development.gif)
 
-## Tag system
+# Tag system
 My main idea to filter the blog posts is to use a tag system, where each post can have many tags to make it easier for the user to find what he/she is looking for. In the future, you will be able to filter posts by any number of specific tags, searching its name and description or by author. 
 
 There will be multiple types of tags, for projects, languages, categories, etc. There is no filter yet, but you can already see the tags in each post. If the post has more than 2 tags, you can hover it to reveal the others. It's a very cute animation though.

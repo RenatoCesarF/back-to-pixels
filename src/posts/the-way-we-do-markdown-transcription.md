@@ -35,7 +35,7 @@ In the first versions of this website, we used to use [markdown-it](https://www.
 
 Now, for the other side, [react-markdown](https://github.com/remarkjs/react-markdown) provides all of it and much more. Thus react-markdown uses remark as an API and it has some kind of modular separation, it provides the addition of plugins, such as remark and rehype plugins. React-markdown also provides a way to replace the HTML translated with functions. So if I want to change every link that has my name to a golden and shines name, I actually can.
 
-## Amazing Possibilities
+# Amazing Possibilities
 Using this kind of replacement I was able to replace every code block with a Prism Syntax Highlighter React element that can provide us with those beautiful code blocks. Or for example the replacement of every image by a zoomable image element that I created. Or even the stylization of our check-boxes. There are many other things to replace yet, and the code of it is very ugly but it is stills very useful in this case. 
 
 I also realized some days ago this plugin thing of the package and added some of those to our project. Like tables and footer-notes. I still need to test it on smartphones, etc but it is already working[^1] . The go-to footer not is working fine, but the come back doesn't for no reason. Maybe I implemented something wrong, but it should work. The tables thing was something that I was missing up for future posts, and now I don't.
@@ -56,7 +56,7 @@ Dark-theme | don't have any idea
 News-letter | what? how?
 Writer/post info | Designing
 
-## More Slylish Quotes
+# More Slylish Quotes
 Another thing that I added thus those ones, was a property style for the `<blockquote>` component. That goes like this:
 
 >Now I've heard there was a secret chord

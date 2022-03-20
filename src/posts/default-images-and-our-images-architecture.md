@@ -15,7 +15,7 @@ I just finished the implementation of the default images that appear on posts th
  
 The logic is to have those default images saved locally and just change the `cover_image` URL to a default one when the post doesn't have a `cover_image` defined. We can choose default cover images as well using **number**. 
 
-## How To make Good-Looking Cover Images
+# How To make Good-Looking Cover Images
 Yes! Those images are pretty cool. I found an online generator of section-transition images to be used in websites, but the images are so cool that can be used anywhere (you can check out the [generator here](https://app.haikei.app/)).
 
 ![generator-site](generator-site.webp)
@@ -42,7 +42,7 @@ So I changed the colors and play a little bit with the configuration in some gen
 
 The system is very simple. We just verify if the `cover_image` variable is a valid image, or if it's of the type *Number*. If the image isn't valid or is a number we choose one of the four default images and use its URL instead. Let's see: 
 
-## How We Store Posts Images
+# How We Store Posts Images
 
 Before understanding how the default images work, you need to understand how we store our post-images in the first place. All the website logic, programming, design was made by me ([Renato](/team/renato)). And I do not have sure that this is the best architecture option to store posts images, but is the one that most fits my case. Maybe in the future, it changes (I hope not). But for now, it is what it is.
 
@@ -59,7 +59,7 @@ Another thing is the dash/trace ('-') nomenclature chosen. I know that CammelCas
 In this way, we have an organized way to store all our images knowing where each one is always.
 
 
-## And The Default Images?
+# And The Default Images?
 
 Each *default image* is saved in a `default-images` folder, inside `images/posts` as a number (1 to 4) in `webp` format (because of performance). 
 

@@ -13,6 +13,7 @@ export default css.global`
 
 .posts-written{ 
     display:flex;
+    color: var(--post-text-color);
     /* justify-content: center; */
     
     margin: 1rem 0 1rem 1.9rem;
@@ -24,6 +25,7 @@ export default css.global`
     font-family:'Source Code Pro', serif;
 }
 .post-count{
+    color: var(--post-text-color);
     font-family:'Source Code Pro', serif;
     font-size: 1.5em;
     font-weight: 900;

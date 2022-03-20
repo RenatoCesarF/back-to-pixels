@@ -13,7 +13,7 @@ Yesterday (01/05/2022) we made our first reunion, sadly with only two of us pers
 -   We tried some palette colors 
 -   Improve the overall CSS structure with new variables
 
-## Choosing Fonts
+# Choosing Fonts
 To choose the font we made some kind of display of the possible options. Between the options was:
 
 - Mukto
@@ -25,7 +25,7 @@ To choose the font we made some kind of display of the possible options. Between
 We ended up with Roboto, just because the time was running out. Maybe I will test some Open Sans in the future
 
 
-## Trying Palettes
+# Trying Palettes
 
 It was a lot of fun and we are excited to improve each time more this website and write new and improved articles here.
 

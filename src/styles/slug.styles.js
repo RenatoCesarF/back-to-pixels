@@ -35,12 +35,21 @@ export default css.global`
   .post-content h1{
     font-size: 1.6em;
     margin-top: 2rem;
+    font-family:var(--title-font);
+    font-weight: bolder;
+  }
+  .post-content h1::before{
+    content: "#  ";
+    font-family:var(--title-font);
+    font-weight: 600;
+    color: var(--title-before-color);
+    margin-right: 0.4rem;
   }
   .post-content h2{
-    color: var(--post-h1-color);
     font-size: 1.3em;
     margin-top: 1.5rem;
-    margin-bottom: -0.5rem;
+    margin-bottom: -1rem;
+    font-family: var(--title-font);
   }
  
   /*============ IMAGE ===============*/

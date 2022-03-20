@@ -18,8 +18,7 @@ export default css.global`
     margin: 0.5rem;
     user-select:none;
     /* transition: height 0.69s cubic-bezier(.65,-0.53,.24,1.12); */
-    transition: height .6s cubic-bezier(0.215, 0.610, 0.355, 1);
-    /* transition-delay: 0.1s; */
+    transition: height .6s cubic-bezier(0.215, 0.610, 0.355, 1), background .2s ease-in;
   
     
     -webkit-box-shadow:  9px 9px 10px -6px var(--card-shadow-color);
@@ -126,6 +125,7 @@ export default css.global`
     border-radius: 0px 0px 0.4rem 0.4rem;
     height: auto;
     justify-content: space-between;
+    transition: background .2s ease-in;
     
   }
   .card-date-row{

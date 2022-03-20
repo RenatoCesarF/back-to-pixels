@@ -17,7 +17,7 @@ It also works in *instagram*, *whatsapp*, *facebook*, *Discord* and *LinkedIn*.
 
 I have never known how this kind of interpretation was made. The only thing like that I knew was the RSS system that many podcast providers use. The RSS is a bunch of HTML tags with all the information of the podcast. First I thought that this cover image and description was based on RSS ass well. But no. It's all **Meta Tags**.
 
-## More About Meta Tags
+# More About Meta Tags
 
 The only thing that I knew about meta tags is that they could change the *favi.icon*, the bar color, and the title of the website. But searching a little bit about meta tags to fix a Next.Js bug, I came across another kind of meta tags, with properties like *og* (OpenGraph) and *twitter*.
 
@@ -26,7 +26,7 @@ This *OpenGraph* protocol was created by facebook and:
 according to the [Facebook Platform Wikipedia](https://en.wikipedia.org/wiki/Facebook_Platform).
 Over time more websites and social media start to use it as well.
 
-## How I implemented it here
+# How I implemented it here
 
 First I added a simple `<head>`component with general metatag info in the *_app.tsx* file. Info like:
 - Creator
@@ -65,7 +65,7 @@ Just using this it's possible to implement the cool share card in social Media. 
 
 The only thing that give me some problems was the Twitter postcard. I don't know why, but Twitter only accepts when you put the post image coming from the internet, and not local. I will make some new tests to see if this deduction is correct.
 
-## New features in this website
+# New features in this website
 
 Since the last update ([reunion 0.1](/blog/reunion-0-1)) I made some new things here. But the coolest and more important is the animations.
 
