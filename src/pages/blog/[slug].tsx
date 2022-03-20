@@ -1,4 +1,3 @@
-import React from 'react';
 import { useRouter } from 'next/router';
 import { domAnimation, LazyMotion, m } from 'framer-motion';
 import dynamic from 'next/dynamic';
@@ -112,7 +111,7 @@ export async function getStaticProps({params}: StaticResponse){
         props:{
             post, 
             postsRecomendations
-         } 
+        }
     };
 }
 
