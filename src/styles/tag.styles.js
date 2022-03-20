@@ -15,16 +15,19 @@ export default css.global`
 .tag-especific-page h2{
     margin: 0;
     margin-left: clamp(0.3rem,1rem, 3vw);
+    font-size: 1.5rem;
 }
 .tag-especific-page h1{
     font-family: 'Source Code Pro', serif;
     margin-left: clamp(0.2rem,2rem, 4vw);
     margin-top: 0.35vh;
+    font-size: 2rem;
 }
 
 .tag-especific-page p{
-    margin-left: clamp(1rem, 1rem, 1rem);
-    margin-right: clamp(1rem, 1rem, 1rem);
+    font-size: 1.1rem;
+    margin-left: clamp(5vw, 1rem, 20vw);
+    margin-right: clamp(5vw, 1rem, 20vw);
 }
 
 

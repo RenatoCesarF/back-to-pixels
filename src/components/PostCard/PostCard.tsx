@@ -54,7 +54,7 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                                     loading='lazy'
                                     placeholder='blur'
                                     lazyBoundary='50px'
-                                    blurDataURL={rgbDataURL(56, 47, 96)}   
+                                    blurDataURL={rgbDataURL(72, 81, 136)}   
                                     className='post-card-img'
                                 />
                                 {

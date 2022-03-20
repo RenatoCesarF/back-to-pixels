@@ -62,4 +62,25 @@ export const getAuthorsKeyList = () => {
     return authorsKeys;
 }
 
+export const getRoleBackgroundColor = (role: Role): string =>{
+    switch (role) {
+        case Role.Developer:
+            return "var(--secondary-color)";
+        case Role.Designer:
+            return "#582F60";//"var(--secondary-color)";
+        case Role.Artist:
+            return "var(--tertiary-color)";
+    
+        default:
+            return  "var(--main-color)";
+        //possible colors
+        //#2F6160
+        //#582F60  
+        //#612F5F
+        //#7ea0c6
+    }
+}
+;
+
+
 export default Author;

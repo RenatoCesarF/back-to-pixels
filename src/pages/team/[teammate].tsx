@@ -1,19 +1,17 @@
 import { domAnimation, LazyMotion, m, motion } from "framer-motion";
 import { useRouter } from "next/router";
 
-import dynamic from "next/dynamic";
 
 import CustomButton, { ButtonIcon } from "@components/CustomButton/CustomButton";
 import RoleTag from "@components/RoleTag";
 import HeadTag from "@components/HeadTag";
-import Author, { getAuthor, getAuthorsList } from "@classes/Author";
+import Author, { getAuthor, getAuthorsList, Role, roleFromString } from "@classes/Author";
 import { slideButtonDown, slideInUp } from "@helpers/animations";
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import globalStyles from '@styles/teammate.styles';
 import Post, { filterPostsByAuthor } from "@classes/Post";
 
 import PostGrid from '@components/PostGrid/PostsGrid';
-import PostCard from "@components/PostCard/PostCard";
 
 interface TeammatePageProps{author: Author, authorPosts: Array<Post>};
 
@@ -55,7 +53,7 @@ const Teammate: React.FC<TeammatePageProps> = ({author, authorPosts}: TeammatePa
                                 <div className="author-roles">
                                     {
                                         author.roles.map((roll: string, index: number) => {
-                                            return <RoleTag key={index} role={roll}/>
+                                            return <RoleTag key={index} role={Role[roleFromString(roll)]}/>
                                         })
                                     }
                                 </div>

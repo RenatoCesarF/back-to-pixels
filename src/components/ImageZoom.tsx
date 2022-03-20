@@ -31,7 +31,7 @@ const ImageZoom: React.FC<ImageZoomProps> = (props: ImageZoomProps)=>{
                         placeholder='blur'
                         loading='lazy'
                         lazyBoundary='20px'
-                        blurDataURL={rgbDataURL(56, 47, 96)} 
+                        blurDataURL={rgbDataURL(72, 81, 136)} 
                         quality={100}  
                         unoptimized={true}
                     />

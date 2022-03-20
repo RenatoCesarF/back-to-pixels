@@ -1,14 +1,14 @@
-import { motion } from "framer-motion"
-import Link from "next/link"
-import Author, { roleFromString, Role } from "@classes/Author"
-import { slideInUp } from "@helpers/animations"
+import { motion } from "framer-motion";
+import Link from "next/link";
+import Author, { roleFromString, Role, getRoleBackgroundColor } from "@classes/Author";
+import { slideInUp } from "@helpers/animations";
 
 interface teammateProps {
     author: Author
 }
 
-export const TeammateCard: React.FC<teammateProps> = ({author}:teammateProps) =>{
-    const backgroundColor: string = getBackgroundColor(Role[roleFromString(author.roles[0])]);
+const TeammateCard: React.FC<teammateProps> = ({author}:teammateProps) =>{
+    const backgroundColor: string = getRoleBackgroundColor(Role[roleFromString(author.roles[0])]);
     return (
         <Link href={`/team/${author.key}`} passHref>
             <motion.div     
@@ -35,24 +35,4 @@ export const TeammateCard: React.FC<teammateProps> = ({author}:teammateProps) =>
     );
 }
 
-const getBackgroundColor = (role: Role): string =>{
-    switch (role) {
-        case Role.Developer:
-            return "var(--secondary-color)";
-        case Role.Designer:
-            return "#582F60";//"var(--secondary-color)";
-        case Role.Artist:
-            return "var(--tertiary-color)";
-    
-        default:
-            return  "var(--main-color)";
-    }
-}
-
 export default TeammateCard;
-
-//possible colors
-//#2F6160
-//#582F60  
-//#612F5F
-//#7ea0c6

@@ -1,4 +1,5 @@
-import Author, { getAuthor } from "@classes/Author"
+import Author, { getAuthor, Role, roleFromString } from "@classes/Author"
+import RoleTag from "./RoleTag"
 
 interface AuthorRowInfoProps{
     authorName: string
@@ -19,8 +20,8 @@ const AuthorRowInfo: React.FC<AuthorRowInfoProps> = (props: AuthorRowInfoProps) 
             </img>
             <div className="author-tooltip-role">
                 {
-                    author.roles.map((name: string, index: number) =>{
-                        return <p key={index} >{name}<br/></p>
+                    author.roles.map((roll: string, index: number) =>{
+                        return <p key={index} >{roll}<br/></p>
                     })
                 }
             </div>

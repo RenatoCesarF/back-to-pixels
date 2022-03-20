@@ -52,7 +52,7 @@ const PostInternInformation: React.FC<PostInternInformationProps> = ({post}:Post
                                 src={post.author.image_path}
                                 placeholder='blur'
                                 loading='lazy'
-                                blurDataURL={rgbDataURL(56, 47, 96)} 
+                                blurDataURL={rgbDataURL(72, 81, 136)} 
                                 quality={100}  
                                 unoptimized={true}
                             />

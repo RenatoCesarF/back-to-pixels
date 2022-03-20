@@ -43,12 +43,11 @@ export default css.global`
     font-family:var(--title-font);
     font-weight: 600;
     color: var(--title-before-color);
-    margin-right: 0.4rem;
+    margin-right: 0.2rem;
   }
   .post-content h2{
     font-size: 1.3em;
-    margin-top: 1.5rem;
-    margin-bottom: -1rem;
+    margin: 1.5rem 0 -1rem 0;
     font-family: var(--title-font);
   }
  

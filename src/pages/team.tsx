@@ -8,9 +8,7 @@ import Author, { getAuthor, getAuthorsList, Role } from '@classes/Author';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import HeadTag from '@components/HeadTag';
 
-
 const FilterTeammates = dynamic(() => import('@components/FilterTeammates'));
-// const TeammateCard = dynamic(() => import('@components/TeammateCard'));
 import TeammateCard from '@components/TeammateCard';
 
 interface authorsList{

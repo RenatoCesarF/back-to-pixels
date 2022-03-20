@@ -73,6 +73,7 @@ body.light{
   --table-row-hover: #2d2d2d36;
   --table-line-color: #2d2d2d48;
 
+  --role-tag-color: #C0C0C0;
 }
 
 body.dark{
@@ -304,9 +305,17 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .role-tag-div{
-  background-color: #b3aaaa ;
+  background-color: var(--tertiary-color) ;
   width: fit-content;
-  padding: 0.1rem 0.3rem;
+  padding: 0.2rem 0.4rem;
+  border-radius: .2rem;
+
+}
+.role-tag-div span{
+  font-weight: 500;
+  color: var(--font-contrast-color);
+  font-family: 'Merriweather Sans', serif;
+
 }
 
 
