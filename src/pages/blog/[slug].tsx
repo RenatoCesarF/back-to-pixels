@@ -56,7 +56,7 @@ const PostPage: React.FC<IPost> = ({post}: IPost) => {
                     <meta itemProp='image' content={post.cover_image}/>
 
                     <LazyMotion features={domAnimation}>
-                        <m.div variants={slideButtonDown}>
+                        <m.div variants={slideButtonDown} style={{margin: ".5rem 0"}}>
                             <CustomButton description='Return to Blog page' text='' icon={ButtonIcon.arrowBack} onClick={() => {router.back()}}/>
                         </m.div>
                                 

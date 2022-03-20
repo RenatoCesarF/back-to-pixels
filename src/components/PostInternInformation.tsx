@@ -11,10 +11,9 @@ import WEBSITE_INFO from '@helpers/webSiteInfo';
 import { formateDate } from "@utils/formateDate";
 import copyToClipboard from "@utils/copyToClipBoard";
 import { rgbDataURL } from "@utils/rgbDataURL";
+import { redirectToInstagram, redirectToTwitter } from "@utils/redirect";
 
 
-const instagramURL: string = "https://www.instagram.com";
-const twitterURL: string = "https://www.twitter.com";
 
 interface PostInternInformationProps{post: Post}
 
@@ -25,12 +24,8 @@ const PostInternInformation: React.FC<PostInternInformationProps> = ({post}:Post
     const autorRedirectLink: string = `/team/${post.author.key}`;
     const formatedDate: string = formateDate(post.date);
     const hasntTwitter: boolean = post.author.twitter != null || post.author.twitter == ""
-
-    const redirectToInstagram = () => window.open(`${instagramURL}/${post.author.instagram}/`);
-    const redirectToTwitter = () => window.open(`${twitterURL}/${post.author.twitter}/`);
     const openShareWindow = () => window.navigator.share({title:post.title,text: shareText,url:shareURL});
     const copyPostLink = () => copyToClipboard(shareURL);
-
 
     useEffect(() => {
         setIsShareApiAvailable(!!window.navigator.share);
@@ -67,8 +62,8 @@ const PostInternInformation: React.FC<PostInternInformationProps> = ({post}:Post
                     </div>
                 </div>
                 <div className="post-info-buttons">
-                    <ActionIconButton icon={ActionButtonIcon.Instagram} onClick={redirectToInstagram}/>
-                    {hasntTwitter ? <ActionIconButton icon={ActionButtonIcon.Twitter} onClick={redirectToTwitter}/> : null} 
+                    <ActionIconButton icon={ActionButtonIcon.Instagram} onClick={() => redirectToInstagram(post.author.instagram)}/>
+                    {hasntTwitter ? <ActionIconButton icon={ActionButtonIcon.Twitter} onClick={() => redirectToTwitter(post.author.twitter)}/> : null} 
                     {isShareApiAvailable ? 
                         <ActionIconButton icon={ActionButtonIcon.Share} onClick={openShareWindow}/> 
                         : null

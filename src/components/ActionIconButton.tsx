@@ -1,5 +1,4 @@
 import {FiInstagram,FiTwitter,FiCopy, FiShare} from 'react-icons/fi'
-
 export enum ActionButtonIcon {
     Instagram = 0,
     Twitter = 1,
@@ -11,20 +10,6 @@ interface ActionIconButtonProps{
     icon: ActionButtonIcon,
     onClick: Function,
 }
-
-const getActionIcon = (iconEnum: ActionButtonIcon) =>{
-    switch (iconEnum) {
-        case 0:
-            return <FiInstagram size={iconSize} color={iconColor}/>;
-        case 1:
-            return <div style={{marginLeft: "1px", marginTop: "5px"}}> <FiTwitter size={iconSize} color={iconColor}/> </div>;
-        case 2:
-            return <FiCopy size={iconSize} color={iconColor}/>;
-        case 3:
-            return <FiShare size={iconSize} color={iconColor}/>;
-    }
-}
-
 
 const divSize:string = "28px";
 const iconSize:number = 20;
@@ -40,5 +25,19 @@ const ActionIconButton: React.FC<ActionIconButtonProps> = (props:ActionIconButto
         </div>
     );
 }
+
+const getActionIcon = (iconEnum: ActionButtonIcon) =>{
+    switch (iconEnum) {
+        case 0:
+            return <FiInstagram size={iconSize} color={iconColor}/>;
+        case 1:
+            return <div style={{marginLeft: "1px", marginTop: "5px"}}> <FiTwitter size={iconSize} color={iconColor}/> </div>;
+        case 2:
+            return <FiCopy size={iconSize} color={iconColor}/>;
+        case 3:
+            return <FiShare size={iconSize} color={iconColor}/>;
+    }
+}
+
 
 export default ActionIconButton;

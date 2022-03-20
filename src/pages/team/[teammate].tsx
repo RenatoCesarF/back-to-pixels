@@ -12,6 +12,7 @@ import globalStyles from '@styles/teammate.styles';
 import Post, { filterPostsByAuthor } from "@classes/Post";
 
 import PostGrid from '@components/PostGrid/PostsGrid';
+import AuthorSocialLinks from "@components/AuthorSocialLinks";
 
 interface TeammatePageProps{author: Author, authorPosts: Array<Post>};
 
@@ -41,7 +42,7 @@ const Teammate: React.FC<TeammatePageProps> = ({author, authorPosts}: TeammatePa
             <LazyMotion features={domAnimation}>
                 <div className="page">
                     <main className="teammate-page">
-                        <motion.div variants={slideButtonDown}>
+                        <motion.div variants={slideButtonDown} style={{margin: ".5rem 0"}}>
                             <CustomButton description='Return to Blog page' text='' icon={ButtonIcon.arrowBack} onClick={() => {router.back()}}/>
                         </motion.div>
                         <motion.article itemProp="author" itemScope  itemType='https://schema.org/author' variants={slideInUp} className="teammate-page-author-info-row" > 
@@ -59,8 +60,10 @@ const Teammate: React.FC<TeammatePageProps> = ({author, authorPosts}: TeammatePa
                                 </div>
                                 <p>{author.about}</p>
                             </div>
-
                         </motion.article>
+                        <section>
+                            <AuthorSocialLinks author={author}/>
+                        </section>
 
                     </main>
                     <section className="teammate-page-posts-section">

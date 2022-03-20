@@ -12,21 +12,22 @@ export default css.global`
     text-align:center;
     vertical-align:middle;
     
-    margin: 1rem 0.2rem;
+    margin: 0.5rem 0.4rem;
     max-width: 100vw;
-}
+  }
   .button-text{
     color: var(--button-text-color);
     margin: 0.3rem 0;
     font-size: 1em;
-
+    font-weight: 400;
+    font-family: 'Inter';    
   }
   .button-icon{
     color: var(--button-text-color);
     width: 1.6em;
     height: 1.6em;
     margin: 0.1rem;
-    /* margin-top: 3px;*/
+    align-self: self-start;
   }
   
 `
