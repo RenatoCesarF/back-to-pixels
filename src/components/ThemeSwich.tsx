@@ -30,7 +30,7 @@ const ThemeSwitch = () => {
     }, [theme]);
 
     return(
-        <button aria-label={buttonName} name={buttonName} style={{border:"none", backgroundColor:"transparent"}}>
+        <button className="switch-theme-button" aria-label={buttonName} name={buttonName} >
         {
             loaded? 
                 <div onClick={() => switchTheme()}>

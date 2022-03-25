@@ -37,7 +37,7 @@ export default function Header() {
         <header className="header">
             <div className='logo-menu-line'>
                 <Link passHref href="/">
-                    <img src={WEBSITE_INFO.LOGO_SMALL_PATH} height="56px" width="129px" className='logo' alt='Logo Image'/>
+                    <img src={WEBSITE_INFO.LOGO_SMALL_PATH} className='logo' alt='Logo Image'/>
                 </Link>
                 
                 <div className='menu-icon-div'>

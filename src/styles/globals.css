@@ -333,11 +333,9 @@ body::-webkit-scrollbar-thumb:hover {
 
 .header .logo{
   margin-left: 1.3rem;
-  margin-top:0.5rem;
-  margin-bottom: 0.7em;
-  height: 3.5rem;
+  margin-top: 0.3rem;
+  height: 4.2rem;
   cursor: pointer;
-  aspect-ratio: 129/56;
 }
 .header .logo-menu-line{
   display: inline-flex;
@@ -392,14 +390,14 @@ body::-webkit-scrollbar-thumb:hover {
   .header{
     display: block;
   }
-  .logo{
+  .header .logo{
     padding-top:0;
     padding-bottom:0;
-    margin-bottom: 0;
+    margin-bottom: 0.4rem;
   }
   .header .logo-menu-line{
-    margin-top: 0.3rem;
-}
+    margin-top: 0.1rem;
+  }
   #home-option{
     margin-top: 20px;
   }
@@ -450,6 +448,20 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 
+.posts-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 20rem);
+  justify-content: center;
+  row-gap: 0;
+}
+
+@media screen and (max-width: 640px) {
+  .posts-grid{
+    display: grid;
+    grid-template-columns:max-content;
+  }
+}
+
 /*===========MENU ICON ============*/
 @media screen and (max-width: 500px){ 
 .menu-toggle {
@@ -492,6 +504,11 @@ button.toggled span:nth-child(3) {
 }  
 }
 
+.switch-theme-button{
+  border: none;
+  background-color:transparent;
+  cursor: pointer
+}
 .switch-theme-icon{
   color: var(--theme-switch-color);
   width: 1.5rem;

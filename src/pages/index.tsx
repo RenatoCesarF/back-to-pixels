@@ -12,7 +12,7 @@ const Home: NextPage = () => {
     <div  className='page'>
       <HeadTag 
           image={WEBSITE_INFO.LOGO_PATH}
-          title={`${WEBSITE_INFO.NAME} Home`} 
+          title={`${WEBSITE_INFO.NAME}`} 
           description={`${WEBSITE_INFO.NAME} website Home page, Learn more about our work`}
           keywords={['home page', 'home']} 
           date={new Date()} 

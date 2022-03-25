@@ -7,14 +7,13 @@ import globalStyles from '@styles/slug.styles';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import {slideButtonDown, slideInUp } from '@helpers/animations';
 import TranscribedPost from "@components/TranscribedPost"
+import PostGrid from '@components/PostsGrid';
 
 import CustomButton, {ButtonIcon} from '@components/CustomButton/CustomButton';
 
 const PostInternInformation = dynamic(() => import('@components/PostInternInformation'));
 const RssLinks              = dynamic(() => import('@components/RssLinks/RssLinks'));
 const HeadTag               = dynamic(() => import('@components/HeadTag'));
-const PostGrid              = dynamic(() => import('@components/PostGrid/PostsGrid'));
-// const TranscribedPost = dynamic(() => import('@components/TranscribedPost'));
 
 interface SlugPageProps{post: Post, postsRecomendations: Post[]};
 type Params = {slug: string};

@@ -11,7 +11,7 @@ import WEBSITE_INFO from '@helpers/webSiteInfo';
 import globalStyles from '@styles/teammate.styles';
 import Post, { filterPostsByAuthor } from "@classes/Post";
 
-import PostGrid from '@components/PostGrid/PostsGrid';
+import PostGrid from '@components/PostsGrid';
 import AuthorSocialLinks from "@components/AuthorSocialLinks";
 
 interface TeammatePageProps{author: Author, authorPosts: Post[]};
@@ -33,7 +33,7 @@ const Teammate: React.FC<TeammatePageProps> = ({author, authorPosts}: TeammatePa
             </style>
             <HeadTag 
               image={author.image_path}
-              title={`${WEBSITE_INFO.NAME} Teammate – ${author.name}`}
+              title={`${WEBSITE_INFO.NAME} - ${author.name}`}
               description={`${WEBSITE_INFO.NAME} Teammate ${author.name} - Info and posts from one of our Teammates`}
               keywords={authorPageKeywords} 
               date={new Date()} 
@@ -61,7 +61,7 @@ const Teammate: React.FC<TeammatePageProps> = ({author, authorPosts}: TeammatePa
                                 <p>{author.about}</p>
                             </div>
                         </motion.article>
-                        <section>
+                        <section style={{margin: "1rem 0"}}>
                             <AuthorSocialLinks author={author}/>
                         </section>
 

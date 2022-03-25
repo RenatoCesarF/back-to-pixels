@@ -26,7 +26,7 @@ const TeamPage = ({allTeammates}: authorsList) => {
             </style>
             <HeadTag 
               image={WEBSITE_INFO.LOGO_PATH}
-              title={`${WEBSITE_INFO.NAME} Team`} 
+              title={`${WEBSITE_INFO.NAME} - Team`} 
               description={`${WEBSITE_INFO.NAME} Team page - Read about our teammates`}
               keywords={['home page']} 
               date={new Date()} 

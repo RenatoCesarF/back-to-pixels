@@ -11,7 +11,7 @@ import Post, { filterPostsByCategory } from '@classes/Post';
 import styles from '@styles/tag.styles.js';
 import CustomButton, { ButtonIcon } from '@components/CustomButton/CustomButton';
 import { useRouter } from 'next/router';
-import PostGrid from '@components/PostGrid/PostsGrid';
+import PostGrid from '@components/PostsGrid';
 import { sortByDate } from '@utils/sort';
 
 interface Params {tag: string};
@@ -28,13 +28,12 @@ const TagInfo: React.FC<TagInfoProps> = ({category, posts}: TagInfoProps) => {
             <HeadTag
                 image={WEBSITE_INFO.LOGO_PATH}
                 date={new Date()}
-                description={`Posts with category ${category.name} - ${category.about}`}
+                description={`Posts in ${category.name} Category - ${category.about}`}
                 keywords={[category.key.toString()]}
                 title={`Posts In ${category.name} Category - ${WEBSITE_INFO.NAME}`}
                 url={`${WEBSITE_INFO.URL}/blog/tag/${category.key}`}
                 author={getAuthor('renato')}
             />
-            {/* <div className='page'> */}
                 <main className='tag-especific-page'>
                     <motion.div variants={slideButtonDown}>
                             <CustomButton description='Return to Blog page' text='' icon={ButtonIcon.arrowBack} onClick={() => {router.back()}}/>
@@ -49,7 +48,6 @@ const TagInfo: React.FC<TagInfoProps> = ({category, posts}: TagInfoProps) => {
                 <section className='tag-page-posts-section'>
                     <PostGrid posts={posts}/>
                 </section>
-            {/* </div> */}
         </>
     )
 

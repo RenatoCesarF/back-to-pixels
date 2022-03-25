@@ -152,7 +152,7 @@ export default css.global`
   
     width: 50px;
     height: 20px;
-    background-color:var(--main-color);
+    background-color:var(--header-background-color);
     text-align: center;
     padding: 8px 2px;
     visibility: hidden;

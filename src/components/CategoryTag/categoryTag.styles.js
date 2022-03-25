@@ -11,8 +11,7 @@ export default css.global`
     text-align:center;
     vertical-align:middle;
     padding: 0.2rem 0.4rem;
-    margin-left: 0.2rem;
-    margin-right: 0.2rem;
+    margin-right: 0.3rem;
     max-width: 100vw;
 }
 .category-tag-text{

@@ -12,7 +12,7 @@ interface HeadProps{
     author?: Author,
 };
 const defaultKeywords: string[] = ["indie", "Indie Games", "NextJS", "Developers", "Company", "games", "development", "developers", "blog", "documentation"]
-const defaultIconPath: string = "/images/icon";
+const defaultIconPath: string = "/info";
 const mainColor: string = "#382F60"
 
 const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
@@ -23,15 +23,33 @@ const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
 
     return(
         <Head>
+            <title>{props.title}</title>
+
             <link rel="shortcut icon" href="/favicon.ico" />
             <link rel="manifest" href="/manifest.json" />
-            <title>{props.title}</title>
+
+            <link rel="apple-touch-icon" sizes="57x57" href={`${defaultIconPath}/apple-icon-57x57.png`}/>
+            <link rel="apple-touch-icon" sizes="60x60" href={`${defaultIconPath}/apple-icon-60x60.png`}/>
+            <link rel="apple-touch-icon" sizes="72x72" href={`${defaultIconPath}/apple-icon-72x72.png`}/>
+            <link rel="apple-touch-icon" sizes="76x76" href={`${defaultIconPath}/apple-icon-76x76.png`}/>
+            <link rel="apple-touch-icon" sizes="114x114" href={`${defaultIconPath}/apple-icon-114x114.png`}/>
+            <link rel="apple-touch-icon" sizes="120x120" href={`${defaultIconPath}/apple-icon-120x120.png`}/>
+            <link rel="apple-touch-icon" sizes="144x144" href={`${defaultIconPath}/apple-icon-144x144.png`}/>
+            <link rel="apple-touch-icon" sizes="152x152" href={`${defaultIconPath}/apple-icon-152x152.png`}/>
+            <link rel="apple-touch-icon" sizes="180x180" href={`${defaultIconPath}/apple-icon-180x180.png`}/>
+            <link rel="icon" type="image/png" sizes="192x192"  href={`${defaultIconPath}/android-icon-192x192.png`}/>
+            <link rel="icon" type="image/png" sizes="32x32" href={`${defaultIconPath}/info/favicon-32x32.png`}/>
+            <link rel="icon" type="image/png" sizes="96x96" href={`${defaultIconPath}/info/favicon-96x96.png`}/>
+            <link rel="icon" type="image/png" sizes="16x16" href={`${defaultIconPath}/info/favicon-16x16.png`}/>
+            <meta name="msapplication-TileImage" content={`${defaultIconPath}/ms-icon-144x144.png`}/>
+            <meta name="msapplication-TileImage" content={mainColor}/>
+        
+            <link rel="shortcut icon" href="/favicon.ico" />
+            <link rel="manifest" href="/manifest.json" />
 
             <meta name="apple-mobile-web-app-title" content={WEBSITE_INFO.NAME}/>
             <meta name="apple-mobile-web-app-status-bar" content={mainColor} />
-            <link rel="apple-touch-icon" sizes="180x180" href={`${defaultIconPath}/apple-touch-icon.png`}/>
-            <link key="apple-touch-icon" rel="apple-touch-icon" sizes="180x180" href={`${defaultIconPath}/apple-touch-icon.png`}/>
-            <link rel="apple-touch-icon" href={`/images/logo/sizes/logo-96x96.png`} />
+ 
 
             {/* MICROSOFT */}
             <meta  key="msapplication-TileColor" name="msapplication-TileColor" content={mainColor}/>

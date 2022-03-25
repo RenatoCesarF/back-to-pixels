@@ -7,10 +7,10 @@ interface WebSiteInfo{
 }
 
 const WEBSITE_INFO: WebSiteInfo ={
-    NAME: "Coding Ideas",
-    URL: "https://codingideas.vercel.app",
-    LOGO_PATH: "/images/logo/logo-name.webp",
-    LOGO_SMALL_PATH: "/images/logo/transparent/logo-little.webp",
+    NAME: "Back To Pixel",
+    URL: "https://backtopixel.vercel.app",
+    LOGO_PATH: "/images/logo/logo-big.webp",
+    LOGO_SMALL_PATH: "/images/logo/transparent/logo-big.webp",
     LOGO_SYMBOL_PATH: "/images/logo/transparent/logo.webp"
 }   
 

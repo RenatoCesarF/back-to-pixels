@@ -10,55 +10,40 @@
     "id": "/",
     "icons": [
       {
-        "src": "/images/icon/android-chrome-192x192.png",
-        "sizes": "192x192",
-        "type": "image/png",
-        "purpose": "maskable"
+       "src": "info\/android-icon-36x36.png",
+       "sizes": "36x36",
+       "type": "image\/png",
+       "density": "0.75"
       },
       {
-        "src": "/images/icon/android-chrome-512x512.png",
-        "sizes": "512x512",
-        "type": "image/png"
+       "src": "info\/android-icon-48x48.png",
+       "sizes": "48x48",
+       "type": "image\/png",
+       "density": "1.0"
       },
       {
-        "src": "/images/logo/sizes/logo-72-72.png",
-        "type": "image/png",
-        "sizes": "72x72"
+       "src": "info\/android-icon-72x72.png",
+       "sizes": "72x72",
+       "type": "image\/png",
+       "density": "1.5"
       },
       {
-        "src": "/images/logo/sizes/logo-96-96.png",
-        "type": "image/png",
-        "sizes": "96x96"
+       "src": "info\/android-icon-96x96.png",
+       "sizes": "96x96",
+       "type": "image\/png",
+       "density": "2.0"
       },
       {
-        "src": "/images/logo/sizes/logo-128-128.png",
-        "type": "image/png",
-        "sizes": "128x128"
+       "src": "info\/android-icon-144x144.png",
+       "sizes": "144x144",
+       "type": "image\/png",
+       "density": "3.0"
       },
       {
-        "src": "/images/logo/sizes/logo-144-144.png",
-        "type": "image/png",
-        "sizes": "144x144"
-      },
-      {
-        "src": "/images/logo/sizes/logo-152-152.png",
-        "type": "image/png",
-        "sizes": "152x152"
-      },
-      {
-        "src": "/images/logo/sizes/logo-192-192.png",
-        "type": "image/png",
-        "sizes": "192x192"
-      },
-      {
-        "src": "/images/logo/sizes/logo-384-384.png",
-        "type": "image/png",
-        "sizes": "384x384"
-      },
-      {
-        "src": "/images/logo/sizes/logo-512-512.png",
-        "type": "image/png",
-        "sizes": "512x512"
+       "src": "info\/android-icon-192x192.png",
+       "sizes": "192x192",
+       "type": "image\/png",
+       "density": "4.0"
       }
-    ]
+     ]
   }

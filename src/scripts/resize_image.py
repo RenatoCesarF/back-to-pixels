@@ -1,12 +1,11 @@
 from PIL import Image
 
-
 def create_resized_logos():
     logo_sizes = [128, 144, 152, 192, 384, 512, 72, 96]
 
     save_path = './public/images/logo/sizes/'
 
-    img = Image.open('./public/images/logo/sizes/logo-512-512.png')
+    img = Image.open('./public/images/logo/transparent/logo-icon.png')
 
     for size in logo_sizes:
         name_to_save = f'logo-{size}-{size}.png'
@@ -26,6 +25,7 @@ def save_image(image: Image, folder: str, name: str):
     offset = ((bg_w - image_width) // 2, (bg_h - image_height) // 2)
 
     background.paste(image, offset)
-    background.save(folder + name)
+    background.save(f"{folder}{name}")
     print(f"Saved image {name} into {folder}")
 
+create_resized_logos()
