@@ -3,7 +3,7 @@
     "short_name": "Back To Pixel",
     "start_url": "/",
     "display": "standalone",
-    "background_color": "#FFFFFF",
+    "background_color": "#2d2d2d",
     "theme_color": "#382F60",
     "orientation": "portrait-primary",
     "Scope": "/",
