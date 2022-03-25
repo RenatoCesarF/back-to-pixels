@@ -13,7 +13,7 @@ module.exports = withBundleAnalyzer(withPWA(
     },
     reactStrictMode: true,
     images: {
-      domains: ['codingideas.vercel.app'],
+      domains: ['backtopixel.vercel.app'],
     },
     // staticPageGenerationTimeout: 1000,
   }

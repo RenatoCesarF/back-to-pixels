@@ -1,5 +1,5 @@
 {
-  "name": "codingideas",
+  "name": "back-to-pixel",
   "private": true,
   "scripts": {
     "dev": "next dev",
