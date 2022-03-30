@@ -1,17 +1,18 @@
 import React from "react";
-import { BiLeftArrowAlt } from 'react-icons/bi';
+import { BiLeftArrowAlt,BiUpArrowAlt } from 'react-icons/bi';
 import {FiInstagram,FiTwitter} from 'react-icons/fi'
 import {MdEmail} from 'react-icons/md';
 import { motion } from "framer-motion";
 
 import globalStyles from './CustomButton.styles'
 
-
+const buttonIconClass = "button-icon";
 export enum ButtonIcon{
     arrowBack = 1,
     email = 2,
     instagram = 3,
     twitter = 4,
+    arrowTop = 5,
 }
 interface ButtomProps{
     onClick: Function;
@@ -46,15 +47,17 @@ const CustomButton: React.FC<ButtomProps> = (props: ButtomProps)=>{
 const geticon = (iconName: ButtonIcon) =>{
     switch (iconName) {
         case 1:
-            return(<BiLeftArrowAlt className="button-icon"/>)
+            return(<BiLeftArrowAlt className={buttonIconClass}/>);
         case 2:
-            return(<MdEmail className="button-icon"/>)
+            return(<MdEmail className={buttonIconClass}/>);
         case 3:
-            return(<FiInstagram className="button-icon"/>)
+            return(<FiInstagram className={buttonIconClass}/>);
         case 4:
-            return(<FiTwitter className="button-icon"/>)
+            return(<FiTwitter className={buttonIconClass}/>);
+        case 5:
+            return(<BiUpArrowAlt className={buttonIconClass}/>);
         default:
-            return(<div></div>)
+            return(<div></div>);
     }
 }
 

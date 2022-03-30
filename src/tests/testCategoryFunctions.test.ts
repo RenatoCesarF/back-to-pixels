@@ -8,21 +8,21 @@ const categories1:Category[] = [categoryTest1, categoryTest2];
 
 describe('Verify if post has same categories', () => {
     const categories2:Category[] = [categoryTest1, categoryTest2];
-    test(`[rings, tutorial] in [rings,tutorial]`, () => {
+    it(`[rings, tutorial] in [rings,tutorial]`, () => {
         expect(isCategoriesInCategories(categories1, categories2)).toBe(true);
     });
 });
 
 describe('Verify if post has not the same categories', () => {
     const categories2:Category[] = [categoryTest1];
-    test(`[rings, tutorial] in [rings]`, () =>{
+    it(`[rings, tutorial] in [rings]`, () =>{
         expect(isCategoriesInCategories(categories1, categories2)).toBe(false);
     });
 });
 
 describe('Verify if post has not the same categories', () => {
     const categories2:Category[] = [categoryTest1, categoryTest2, getCategoryByKey('blog')];
-    test(`[rings, tutorial] in [rings, tutorial, blog]`, () =>{
+    it(`[rings, tutorial] in [rings, tutorial, blog]`, () =>{
         expect(isCategoriesInCategories(categories1, categories2)).toBe(true);
     });
 });

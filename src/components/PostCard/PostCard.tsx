@@ -45,7 +45,7 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                     >
                     <Link passHref href={`/blog/${post.slug}`}>
                         <m.article className="post-card-clickable">
-                            <header className='post-card-image-container'>
+                            <m.header className='post-card-image-container'>
                                 <NextImage 
                                     src={post.cover_image} 
                                     alt='post card image' 
@@ -61,7 +61,7 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                                         <h1 className='post-card-cover-date'>{post.date}</h1> 
                                     : null 
                                 }
-                            </header>
+                            </m.header>
 
                             <h2 className='post-card-title'>{post.title}</h2>
 

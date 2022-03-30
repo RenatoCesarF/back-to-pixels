@@ -23,12 +23,6 @@ const bubbleOptions = {
 
 // reducedMotion='user'
 const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
-  function handleScrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  }
   return(
     <>
       <Header/>

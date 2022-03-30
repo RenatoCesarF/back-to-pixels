@@ -1,6 +1,20 @@
 import css from 'styled-jsx/css'
 
 export default css.global`
+  .back-to-top-button{
+    position: fixed;
+    display: flex;
+    align-items: flex-end;
+    right: 0;
+    bottom: 60px;
+    transform: rotate(270deg);
+    opacity: 0.5;
+    font-family: var(--date-font);
+    font-weight: 500;
+  }
+  .back-to-top-button:hover{
+    opacity: 1;
+  }
   .post-section{
     font-family: var(--main-font);
   }
@@ -153,6 +167,10 @@ export default css.global`
   }
   
   @media only screen and (max-width: 599px){
+    .back-to-top-button{
+      display: none;
+
+    }
     .post-container{
       margin-left: 5vw;
       margin-right: 5vw; 
@@ -300,4 +318,5 @@ export default css.global`
   margin-left: 0.4rem;
 }
 /*============ ==============*/
+
 `

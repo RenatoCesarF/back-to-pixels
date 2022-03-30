@@ -10,15 +10,20 @@ import TranscribedPost from "@components/TranscribedPost"
 import PostGrid from '@components/PostsGrid';
 
 import CustomButton, {ButtonIcon} from '@components/CustomButton/CustomButton';
+import windowScrollTo from '@utils/windowScrollTo';
+import BackToTopButton from '@components/BackToTopButton';
 
 const PostInternInformation = dynamic(() => import('@components/PostInternInformation'));
 const RssLinks              = dynamic(() => import('@components/RssLinks/RssLinks'));
 const HeadTag               = dynamic(() => import('@components/HeadTag'));
+// const PostGrid              = dynamic(() => import('@components/PostsGrid'));
+
+
+
 
 interface SlugPageProps{post: Post, postsRecomendations: Post[]};
 type Params = {slug: string};
 type StaticResponse = {params: Params};
-
 
 const PostPage: React.FC<SlugPageProps> = ({post, postsRecomendations}: SlugPageProps) => {
     const router = useRouter();
@@ -29,7 +34,7 @@ const PostPage: React.FC<SlugPageProps> = ({post, postsRecomendations}: SlugPage
     post.categories.every(category => keywordsList.push(category.name))
 
     return(
-        <>
+        <LazyMotion features={domAnimation}>
             <style jsx global>
                 {globalStyles}
             </style>
@@ -42,51 +47,61 @@ const PostPage: React.FC<SlugPageProps> = ({post, postsRecomendations}: SlugPage
                 url={`/blog/${post.slug}`}
                 author={post.author}
             />
+            
+            
             <main role="main" className='post-section'>
                 <article itemScope itemType='http://schema.org/Article' about={post.excerpt} className='post-container'>
                     <meta itemProp='datePublished' content={`${post.date} 11:30:00 -0700 -0700`}/>
                     <meta itemProp='publisher' content={WEBSITE_INFO.NAME}/>
                     <meta itemProp='image' content={post.cover_image}/>
 
-                    <LazyMotion features={domAnimation}>
-                        <m.div variants={slideButtonDown} style={{margin: ".5rem 0"}}>
-                            <CustomButton description='Return to Blog page' text='' icon={ButtonIcon.arrowBack} onClick={() => {router.back()}}/>
-                        </m.div>
-                                
-                        <m.div variants={slideInUp} className='post-cover-div'>
-                                <img
-                                    width='536px'height='341px'
-                                    alt='blog post cover' className='post-cover' 
-                                    src={post.cover_image}/>
-                                {
-                                    doenstHaveCoverImage ? 
-                                    <h1 className='post-cover-date'>{post.date}</h1>
-                                    : null
-                                }   
-                        </m.div >
+                    <BackToTopButton/>
+                    
+                    <m.div variants={slideButtonDown} style={{margin: ".5rem 0"}}>
+                        <CustomButton description='Return to Blog page' text='' icon={ButtonIcon.arrowBack} onClick={() => {router.back()}}/>
+                    </m.div>
+                            
+                    <m.div variants={slideInUp} className='post-cover-div'>
+                            <img
+                                width='536px'height='341px'
+                                alt='blog post cover' className='post-cover' 
+                                src={post.cover_image}/>
+                            {
+                                doenstHaveCoverImage ? 
+                                <h1 className='post-cover-date'>{post.date}</h1>
+                                : null
+                            }   
+                    </m.div >
 
-                        <PostInternInformation post={post}/>
-                        <hr style={{marginTop: "1.4rem"}}/>
-                        
-                        <m.section variants={slideInUp} itemProp="articleBody">
-                            <h1 itemProp='name' className='post-title'>{post.title}</h1>
-                            <p className='post-resume'>{post.excerpt}</p>
-                            <br/>
-                            <div className='post-content'> 
-                                <TranscribedPost post={post}/>
-                            </div>
-                        </m.section>
-                    </LazyMotion>
+                    <PostInternInformation post={post}/>
+                    <hr style={{marginTop: "1.4rem"}}/>
+                    
+                    <m.section variants={slideInUp} itemProp="articleBody">
+                        <h1 itemProp='name' className='post-title'>{post.title}</h1>
+                        <p className='post-resume'>{post.excerpt}</p>
+                        <br/>
+                        <div className='post-content'> 
+                            <TranscribedPost post={post}/>
+                            <hr/>
+                            <m.div style={{display: "flex", justifyContent: "space-between", marginTop: "2rem"}}>
+                                <CustomButton description='Return to Blog page' text='Back' icon={ButtonIcon.arrowBack} onClick={() => {router.back()}}/>
+                                <CustomButton description='Return to Blog page' text='Scroll To Top' icon={ButtonIcon.arrowTop} onClick={() => {windowScrollTo()}}/>
+                            </m.div>
+                        </div>
+                    </m.section>
                 </article>
             </main>
 
-            <div style={{margin: "0 clamp(1rem, 4rem, 10vw)"}}>
-                <h2 >Recomendations</h2>
-                <hr/>
-            </div>
+
+            <m.div variants={slideButtonDown} style={{margin: "0 clamp(1rem, 4rem, 6vw)"}}>
+                <h2>Recomendations</h2>
+            </m.div>
+
+            <hr/>
+
             <PostGrid posts={postsRecomendations}/>
             <RssLinks/>
-        </>
+        </LazyMotion>
     );
 };
 
@@ -98,7 +113,7 @@ export async function getStaticPaths(){
         }
     }));
 
-    return {paths, fallback: false};
+    return {paths, fallback: true};
 }
 
 export async function getStaticProps({params}: StaticResponse){
