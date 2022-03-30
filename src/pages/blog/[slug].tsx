@@ -113,7 +113,7 @@ export async function getStaticPaths(){
         }
     }));
 
-    return {paths, fallback: true};
+    return {paths, fallback: false};
 }
 
 export async function getStaticProps({params}: StaticResponse){
