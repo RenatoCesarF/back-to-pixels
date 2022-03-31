@@ -43,7 +43,7 @@ const getTitleLinks = (titles: string[]): TitleAnchorLink[] =>{
     const titleLinks: TitleAnchorLink[] = [];
     titles.map((title: string) =>{
         let link = title.slice(2);
-        link = removeSymbolsFromLink(link);
+        // link = removeSymbolsFromLink(link);
         titleLinks.push({name: title.slice(2), href: link.toLowerCase().replaceAll(" ", "-")});
     });
     
