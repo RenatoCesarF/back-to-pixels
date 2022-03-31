@@ -12,7 +12,7 @@ interface HeadProps{
     author?: Author,
 };
 const defaultKeywords: string[] = ["indie", "Indie Games", "NextJS", "Developers", "Company", "games", "development", "developers", "blog", "documentation"]
-const defaultIconPath: string = "/info";
+const defaultIconPath: string = "/icon";
 const mainColor: string = "#382F60"
 
 const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
@@ -38,9 +38,9 @@ const HeadTag: React.FC<HeadProps> = (props: HeadProps) =>{
             <link rel="apple-touch-icon" sizes="152x152" href={`${defaultIconPath}/apple-icon-152x152.png`}/>
             <link rel="apple-touch-icon" sizes="180x180" href={`${defaultIconPath}/apple-icon-180x180.png`}/>
             <link rel="icon" type="image/png" sizes="192x192"  href={`${defaultIconPath}/android-icon-192x192.png`}/>
-            <link rel="icon" type="image/png" sizes="32x32" href={`${defaultIconPath}/info/favicon-32x32.png`}/>
-            <link rel="icon" type="image/png" sizes="96x96" href={`${defaultIconPath}/info/favicon-96x96.png`}/>
-            <link rel="icon" type="image/png" sizes="16x16" href={`${defaultIconPath}/info/favicon-16x16.png`}/>
+            <link rel="icon" type="image/png" sizes="32x32" href={`${defaultIconPath}/favicon-32x32.png`}/>
+            <link rel="icon" type="image/png" sizes="96x96" href={`${defaultIconPath}/favicon-96x96.png`}/>
+            <link rel="icon" type="image/png" sizes="16x16" href={`${defaultIconPath}/favicon-16x16.png`}/>
             <meta name="msapplication-TileImage" content={`${defaultIconPath}/ms-icon-144x144.png`}/>
             <meta name="msapplication-TileImage" content={mainColor}/>
         

@@ -3,9 +3,7 @@ import matter from 'gray-matter';
 import {join} from 'path';
 import Author, { getAuthor } from '@classes/Author'
 import Category, { getPostCategories, isCategoriesInCategories } from '@classes/category'
-import { FaLess } from 'react-icons/fa';
 import { sortByCategoryAmount, sortByDate } from '@utils/sort';
-import { MdConfirmationNumber } from 'react-icons/md';
 
 const postsFolderPath: string = 'src/posts';
 
