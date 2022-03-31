@@ -42,18 +42,24 @@ const getPostTitles = (content: string)=>{
 const getTitleLinks = (titles: string[]): TitleAnchorLink[] =>{
     const titleLinks: TitleAnchorLink[] = [];
     titles.map((title: string) =>{
-        let link = title.slice(2);
-        // link = removeSymbolsFromLink(link);
-        titleLinks.push({name: title.slice(2), href: link.toLowerCase().replaceAll(" ", "-")});
+        const link = formatTitleLink(title);
+        title = title.slice(2);
+        titleLinks.push({name: title, href: link});
     });
     
     return titleLinks;
 }
 
+const formatTitleLink = (title: string): string =>{
+    let link = title.slice(2).toLowerCase().split(" ").join("-");
+    link = removeSymbolsFromLink(link);
+    return link;
+}
+
 const removeSymbolsFromLink = (link: string): string =>{
     const symbolsToRemove = ["?", "/", "@", "+","."];
     symbolsToRemove.map((symbol: string) => {
-        link = link.replaceAll(symbol,"");
+        link = link.split(symbol).join("");
     });
     
     return link;
