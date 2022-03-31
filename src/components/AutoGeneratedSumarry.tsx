@@ -42,9 +42,9 @@ const getPostTitles = (content: string)=>{
 const getTitleLinks = (titles: string[]): TitleAnchorLink[] =>{
     const titleLinks: TitleAnchorLink[] = [];
     titles.map((title: string) =>{
-        let link = title.slice(2).toLowerCase().replaceAll(" ", "-");
+        let link = title.slice(2);
         link = removeSymbolsFromLink(link);
-        titleLinks.push({name: title.slice(2), href: link});
+        titleLinks.push({name: title.slice(2), href: link.toLowerCase().replaceAll(" ", "-")});
     });
     
     return titleLinks;

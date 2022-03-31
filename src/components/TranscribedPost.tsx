@@ -58,7 +58,7 @@ const TranscribedPost = ({post}: TranscribedPostProps) =>{
                 
                     const isAuthor = getAuthorsKeyList().includes(children[0].toString().toLowerCase());
                     return(
-                        <Link href={props.href || "/blog"} passHref={true}> 
+                        <Link href={props.href || "/blog"} passHref scroll> 
                         {
                             isAuthor?
 
