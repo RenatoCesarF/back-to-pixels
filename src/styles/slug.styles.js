@@ -11,7 +11,12 @@ export default css.global`
     opacity: 0.5;
     font-family: var(--date-font);
     font-weight: 500;
+    user-select: none;
   }
+  .back-to-top-button span, .back-to-top-button svg{
+    color: var(--post-text-color)
+  }
+
   .back-to-top-button:hover{
     opacity: 1;
   }
@@ -32,7 +37,7 @@ export default css.global`
     font-style: italic;
   }
 
-  .post-section a{
+  .post-content a{
     font-size: 1.0em;
     border-bottom: 1px dashed var(--link-color);
     text-decoration: none;
@@ -318,5 +323,23 @@ export default css.global`
   margin-left: 0.4rem;
 }
 /*============ ==============*/
-
+.post-sumarry{
+  background-color: var(--background-quote-color);
+  border-radius: 0.2rem;
+  padding: 0.05rem 1rem 0.6rem 1rem;
+  margin: 0rem auto;
+}
+.post-sumarry h3{
+  font-family: var(--main-font);
+  margin: 0;
+  padding: 0.8rem 0px 0.4rem 0px;
+}
+.post-sumarry a{
+  font-family: var(--main-font);
+  margin: 0;
+  padding: 0.1rem 0;
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--link-color);
+}
 `

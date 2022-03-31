@@ -41,7 +41,7 @@ body.light{
   --theme-switch-color: #f3f3f3dc;
   --line-color: #acacac;
   --rss-link-color: #2d2d2dad;
-  --background-quote-color: #2d2d2d0f;
+  --background-quote-color: #e3e3e3;
   --scrollbar-background-color: #B5B5B5;
 
   --card-border-color: #485188; 
@@ -80,7 +80,7 @@ body.dark{
   --theme-switch-color: #FCC422;
   --line-color: #818181;
   --rss-link-color: #c1c1c1ad;
-  --background-quote-color: #92919127;
+  --background-quote-color: #303030;
   --scrollbar-background-color: #292828;
   
   --card-border-color: #241E3E; 
@@ -187,6 +187,7 @@ h2{
   color: var(--post-h1-color);
 }
 h3{
+  color: var(--post-h1-color);
   /* margin: 20px 0px 0px 40px; */
   margin: 0px;
   padding-top: 25px;
