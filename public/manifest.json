@@ -1,6 +1,6 @@
 {
-    "name": "Back To Pixel",
-    "short_name": "Back To Pixel",
+    "name": "Back To Pixels",
+    "short_name": "Back To Pixels",
     "start_url": "/",
     "display": "standalone",
     "background_color": "#2d2d2d",

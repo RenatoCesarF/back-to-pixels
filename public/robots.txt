@@ -3,8 +3,8 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://backtopixel.vercel.app
+Host: https://backtopixels.vercel.app
 
 # Sitemaps
-Sitemap: https://backtopixel.vercel.app/sitemap.xml
-Sitemap: https://backtopixel.vercel.app/sitemap-0.xml
+Sitemap: https://backtopixels.vercel.app/sitemap.xml
+Sitemap: https://backtopixels.vercel.app/sitemap-0.xml
