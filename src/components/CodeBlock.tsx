@@ -9,7 +9,6 @@ const CodeBlock: React.FC<CodeBlockProps> = ({content, className}: CodeBlockProp
     const codeTheme = getCodeTheme()
     const match = /language-(\w+)/.exec(className || '') || "none"
     return(
-
         <SyntaxHighlighter
             style={codeTheme}
             language={match[1]}
