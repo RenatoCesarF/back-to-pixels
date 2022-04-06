@@ -59,7 +59,6 @@ const PostPage: React.FC<SlugPageProps> = ({post, postsRecomendations}: SlugPage
 
                     <BackToTopButton/>
                   
-                            
                     <m.div variants={slideInUp} className='post-cover-div'>
                             <img
                                 width='536px'height='341px'

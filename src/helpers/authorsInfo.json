@@ -15,7 +15,8 @@
         "email": "taynavit.lima@gmail.com",
         "roles": ["Designer","Artist"],
         "image_path": "/images/authors/tayna.webp",
-        "about": "About tayna",
+        "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+
         "twitter": "",
         "instagram": "arttayna_"
     },
@@ -25,7 +26,8 @@
         "email": "brunocosta1996b@gmail.com",
         "roles": ["Developer"],
         "image_path": "/images/authors/bruno.webp",
-        "about": "About tayna",
+        "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+
         "twitter": "",
         "instagram": ""
     }

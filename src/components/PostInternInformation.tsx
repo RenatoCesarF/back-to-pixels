@@ -13,8 +13,6 @@ import copyToClipboard from "@utils/copyToClipBoard";
 import { rgbDataURL } from "@utils/rgbDataURL";
 import { redirectToInstagram, redirectToTwitter } from "@utils/redirect";
 
-
-
 interface PostInternInformationProps{post: Post}
 
 const PostInternInformation: React.FC<PostInternInformationProps> = ({post}:PostInternInformationProps) =>{    
