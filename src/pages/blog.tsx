@@ -9,6 +9,7 @@ import {sortByDate, sortByDateReverse} from '@utils/sort';
 import { slideInLeft } from '@helpers/animations';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import PostGrid from '@components/PostsGrid';
+import CategoryCount from '@components/CategoryCount';
 
 const HeadTag = dynamic(() => import('@components/HeadTag'));
 const RssLinks = dynamic(() => import('@components/RssLinks/RssLinks'));
@@ -41,6 +42,8 @@ export default function BlogPage({posts}:PostList){
                 <span className='post-count'> {posts.length} </span>
                 <span className="post-count-text">posts</span>
               </motion.div>
+
+              <CategoryCount posts={posts}/>
 
               <PostGrid posts={posts}/>
               

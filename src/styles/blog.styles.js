@@ -31,4 +31,14 @@ export default css.global`
     font-weight: 900;
     margin: 0 0.5rem 0 0.5rem;
 }
+
+.category-count{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.category-count-element{
+    margin: .3rem .1rem;
+}
+
 `

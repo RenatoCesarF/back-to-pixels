@@ -26,13 +26,13 @@ const TranscribedPost = ({post}: TranscribedPostProps) =>{
             rehypePlugins={[rehypeRaw]} 
             skipHtml={false}
             components={{
-                img({node, className, children, ...props}){
+                img({node, className, children, ...props}): JSX.Element{
                     return <ImageZoom 
                                 src={`/images/posts/${post.slug}/${props.src}`} 
                                 alt={`${props.src}`}
                             />
                 },
-                a({node, className, children, ...props}){
+                a({node, className, children, ...props}): JSX.Element{
                     const linkElement = <a target="_blank" rel="noopener noreferrer" href={props.href} >{children}</a>
                     const isInternLink = props.href?.startsWith('#') || props.href?.startsWith('/');
 
@@ -57,9 +57,9 @@ const TranscribedPost = ({post}: TranscribedPostProps) =>{
                         </Link>
                     );
                 },
-                code({node, inline, className, children, ...props}) {
-                    const match = /language-(\w+)/.exec(className || '')
-                    return !inline && match ? 
+                code({node, inline, className, children, ...props}): JSX.Element {
+    
+                    return !inline ? 
                         <CodeBlock content={children} className={className}/>
                     :
                         <code className='simple-code' {...props}>

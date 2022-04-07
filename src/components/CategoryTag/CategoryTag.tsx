@@ -4,6 +4,7 @@ import globalStyles from './categoryTag.styles';
 interface CategoryTagProps{
     category: Category
     isBig?: boolean
+    insideText?: string
 }
 
 const CategoryTag: React.FC<CategoryTagProps> = (props: CategoryTagProps)=>{
@@ -21,7 +22,13 @@ const CategoryTag: React.FC<CategoryTagProps> = (props: CategoryTagProps)=>{
                         className={`category-tag ${props.isBig ? "big" : " "}`}
                         style={buttonStyle} onClick={() => { } }
                     >
-                        <span className='category-tag-text' style={{ color: category.textColor }}>{category.name}</span>
+                        <span className='category-tag-text' style={{ color: category.textColor }}>
+                            {category.name} 
+                            {props.insideText ? 
+                                <sub style={{marginLeft: ".2rem"}}> {props.insideText}</sub> 
+                                : null
+                            }
+                        </span>
                     </button>
             </Link>
         </>
