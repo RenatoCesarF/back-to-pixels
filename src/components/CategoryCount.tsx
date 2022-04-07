@@ -21,7 +21,7 @@ const CategoryCount = ({posts}: CategoryCountProps) =>{
             {
                 categoryList.map((value: CategoryCountElement, index: number) =>{
                     return(
-                        <div className="category-count-element">
+                        <div className="category-count-element" key={index}>
                             <CategoryTag category={value.category} insideText={value.amount.toString()}/>
                         </div>
                     )
