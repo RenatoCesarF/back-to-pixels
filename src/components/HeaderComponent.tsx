@@ -48,7 +48,7 @@ export default function Header() {
                     </div>
                 </div>
             </div>
-    
+
             <nav className={`header-right ${checkMenuState()}`} >
                 <Link href="/">
                     <a 

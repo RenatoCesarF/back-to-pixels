@@ -2,10 +2,10 @@ import type { NextPage } from 'next'
 import generateRssFeed from '@scripts/rss'
 
 import { motion} from 'framer-motion'
-import { slideInLeft } from '@helpers/animations'
-import InDevelopment from '@components/InDevelopment'
+import { slideInDown, slideInLeft } from '@helpers/animations'
 import HeadTag from '@components/HeadTag';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
+import ParalaxElement from '@components/ParalaxElement'
 
 const Home: NextPage = () => {
   return (
@@ -19,11 +19,9 @@ const Home: NextPage = () => {
           url=""
       />
       <div className='page' >
-        <motion.div variants={slideInLeft}>
-          <h1>Home</h1>
+        <motion.div variants={slideInDown}>
+          <ParalaxElement/>                         
         </motion.div>
-                                          
-        <InDevelopment/>
       </div>
       
     </div>
