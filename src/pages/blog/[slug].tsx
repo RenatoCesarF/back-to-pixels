@@ -92,7 +92,7 @@ const PostPage: React.FC<SlugPageProps> = ({post, postsRecomendations}: SlugPage
 
                         <div className='post-content'> 
                         
-                            <Suspense fallback={<LoadingArea height='28rem' width='100%'/>}>
+                            <Suspense fallback={<LoadingArea height='200vh' width='100%'/>}>
                                 <TranscribedPost post={post}/>
                             </Suspense>
 

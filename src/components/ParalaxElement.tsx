@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 
 interface ParalaxImage {
     source: string,
-    layerLevel: number
+    layerLevel: number,
+    customClass?: string,
 }
 interface Position{
     y: number
@@ -10,7 +11,7 @@ interface Position{
 }
 
 const ParalaxElement = () =>{
-    const [mousePosition, setMousePosition] = useState({"x":300, "y": 300});
+    const [mousePosition, setMousePosition] = useState({"x":500, "y": 500});
 
     useEffect(
         () => {
@@ -43,9 +44,9 @@ const getParalaxElements = (mousePosition: Position): JSX.Element =>{
 
 const getParalaxImagesElements = (mousePosition: Position): JSX.Element =>{
     const images: ParalaxImage[] = [
-        {'source': '/images/paralax/arrows.png', 'layerLevel': 2},
-        {'source': '/images/paralax/logo_shadow.png', 'layerLevel':6},
-        {'source': '/images/paralax/logo.png', 'layerLevel': 5},
+        {source: '/images/paralax/arrows.png', layerLevel: 2},
+        {source: '/images/paralax/logo_shadow.png', layerLevel:6,  customClass: "logo-paralax"},
+        {source: '/images/paralax/logo.png', layerLevel: 5, customClass: "logo-paralax"},
 
     ]
     return (
@@ -55,7 +56,7 @@ const getParalaxImagesElements = (mousePosition: Position): JSX.Element =>{
                     const position = getOffsetPosition(mousePosition, value.layerLevel);
 
                     return(
-                        <img src={value.source} key={index} className="paralax-image" alt="paralax-image" 
+                        <img src={value.source} key={index} className={`paralax-image ${value.customClass}`} alt="paralax-image" 
                             style={{transform: `translate(${position.x}%,${position.y}%)`}}
                         />
                     ) 

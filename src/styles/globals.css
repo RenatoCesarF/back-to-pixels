@@ -127,6 +127,7 @@ body.dark{
 *{
   box-sizing: border-box;
   margin: 0;
+  overflow-x: hidden;
 }
 html{
   padding: 0;
@@ -531,11 +532,10 @@ button.toggled span:nth-child(3) {
 
 .paralax-container{
   position: relative;
-  width: 100%;
-  height: clamp(66vh, 80vh, 80vh);
+  width: clamp(100vw, 100%, 120vw);
+  height: clamp(66vh, 80vh, 100vh);
 
-  max-width: 100vw;
-  max-height: 100vh;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -560,16 +560,21 @@ button.toggled span:nth-child(3) {
 }
 .paralax-image{
   position: absolute;
-  width: 100%;
-  min-width: clamp(100vw, 100vw, 120vw);
-  height: clamp(66vh, 80vh, 80vh);
-
+  width: clamp(100vw,100%, 120vw);
+  height: clamp(66vh, 80vh, 100vh);
   top: 0;
   left: 0;
   object-fit: cover;
   z-index: 2;
   transition: all 1.2s cubic-bezier(0.215, 0.610, 0.355, 1);
   user-select: none;
+}
+
+@media screen and (max-width: 500px) {
+  .logo-paralax{
+    width: 120vw;
+    height: 70%;
+  }
 }
 
 /*================ Loding area ================*/
@@ -580,6 +585,7 @@ button.toggled span:nth-child(3) {
   position: relative;
   width: 100%;
   overflow: hidden;
+  margin: 4rem 0;
 }
 
 .loading-area:after {
@@ -596,8 +602,6 @@ button.toggled span:nth-child(3) {
 
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#007db9e8',GradientType=1 );
 }
-
-/* animation */
 
 @keyframes slide {
 	0% {transform:translateX(-100%);}
