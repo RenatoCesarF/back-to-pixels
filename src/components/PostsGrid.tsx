@@ -5,7 +5,6 @@ import dynamic from 'next/dynamic'
 
 import Post from "@classes/Post";
 const PostCard = dynamic(() => import("@components/PostCard/PostCard"), { suspense: true });
-// import PostCard from "@components/PostCard/PostCard";
 
 
 interface PostGridProps{
@@ -15,20 +14,18 @@ interface PostGridProps{
 const PostGrid = ({posts}: PostGridProps) =>{
     return(
         <LazyMotion features={domAnimation}>
-            <div className='posts-grid'>
-                {
-                    posts.length ?
-                        posts.map((post: Post, index: number) =>{
-                            return (
-                                <Suspense key={index} fallback={<p key={index}>Loading...</p>}>
-                                    <PostCard post={post} key={index}/>
-                                </Suspense>
-                            )
-                        })
-                    :
-                    <p>Nothing here...</p>
-                }
-            </div>
+                <div className='posts-grid'>
+                    <Suspense fallback={<p>Loading...</p>}>
+                        {
+                            posts.length ?
+                                posts.map((post: Post, index: number) =>{
+                                    return  <PostCard post={post} key={index}/>
+                                })
+                            :
+                            <p>Nothing here...</p>
+                        }
+                    </Suspense>
+                </div>
         </LazyMotion> 
     )
 }

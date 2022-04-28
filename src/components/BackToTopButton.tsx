@@ -1,6 +1,6 @@
-import windowScrollTo from "@utils/windowScrollTo"
-import { useEffect, useState } from "react"
-import { BiRightArrowAlt } from "react-icons/bi"
+import windowScrollTo from "@utils/windowScrollTo";
+import { useEffect, useState } from "react";
+import { BiRightArrowAlt } from "react-icons/bi";
 
 
 const BackToTopButton = () =>{
@@ -15,14 +15,13 @@ const BackToTopButton = () =>{
         } 
         setIsVisible(false); 
     };
+
     useEffect(() => {   
         window.addEventListener("scroll", listenToScroll);
         return () => {
             window.removeEventListener("scroll", listenToScroll); 
         }
     }, []);
-    
-  
 
     if(!isVisible) return <></>;
 
@@ -33,4 +32,5 @@ const BackToTopButton = () =>{
         </div>
     );
 }
-export default BackToTopButton
+
+export default BackToTopButton;

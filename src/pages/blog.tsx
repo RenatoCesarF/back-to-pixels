@@ -1,8 +1,8 @@
-import dynamic from 'next/dynamic'
+import dynamic from 'next/dynamic';
 
 
 
-import globalStyles from '@styles/blog.styles'
+import globalStyles from '@styles/blog.styles';
 import Post, { createPost, getPostsFileName } from '@classes/Post';
 import {sortByDate} from '@utils/sort';
 
