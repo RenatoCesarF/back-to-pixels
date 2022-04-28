@@ -18,7 +18,10 @@ const Home = () => {
           date={new Date()} 
           url=""
           />
-          <ParalaxElement/>                         
+          <div style={{overflowX: "hidden"}}>
+
+            <ParalaxElement/>                         
+          </div>
           <div style={{height: "200vh"}}>
 
           </div>

@@ -35,8 +35,6 @@
   --shadow-color: #333333c4;
 
   --code-color: rgb(245, 244, 244);
-
-  
 }
 
 body.light{
@@ -127,7 +125,6 @@ body.dark{
 *{
   box-sizing: border-box;
   margin: 0;
-  overflow-x: hidden;
 }
 html{
   padding: 0;
