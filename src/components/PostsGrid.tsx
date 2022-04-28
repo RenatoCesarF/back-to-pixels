@@ -1,4 +1,3 @@
-import { domAnimation, LazyMotion, m } from "framer-motion";
 
 import Post from "@classes/Post";
 import PostCard from "@components/PostCard/PostCard";
@@ -11,18 +10,16 @@ interface PostGridProps{
 
 const PostGrid = ({posts}: PostGridProps) =>{
     return(
-        <LazyMotion features={domAnimation}>
-            <m.div className='posts-grid'>
-                {
-                    posts.length ?
-                        posts.map((post: Post, index: number) =>{
-                            return <PostCard post={post} key={index}/>
-                        })
-                    :
-                    <p>Nothing here...</p>
-                }
-            </m.div>
-        </LazyMotion> 
+        <div className='posts-grid'>
+            {
+                posts.length ?
+                    posts.map((post: Post, index: number) =>{
+                        return <PostCard post={post} key={index}/>
+                    })
+                :
+                <p>Nothing here...</p>
+            }
+        </div>
     )
 }
 

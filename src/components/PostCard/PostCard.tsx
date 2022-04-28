@@ -2,14 +2,11 @@ import { useState } from 'react';
 import { FaRegCalendarAlt } from 'react-icons/fa';
 import Link from 'next/link';
 import NextImage from 'next/image'
-import { m, motion } from 'framer-motion';
 
 
 import CategoryTag, { CategoryTagTransparent } from '@components/CategoryTag/CategoryTag';
 import Post from '@classes/Post';
 import Category from '@classes/category';
-import { cardVariants } from '@helpers/animations';
-import { sortByCategoryImportance } from '@utils/sort';
 import { rgbDataURL } from '@utils/rgbDataURL';
 
 import globalStyles from './PostCard.styles'
@@ -35,8 +32,8 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
             <style jsx global>
                 {globalStyles}
             </style>
-            <m.div variants={cardVariants}  layout className='post-card-expanded-external'>
-                <m.div className='post-card-div'  
+            <div className='post-card-expanded-external'>
+                <div className='post-card-div'  
                     onMouseOver={()=>{setIsHovering(true)}}
                     onMouseLeave={()=>{setIsHovering(false)}}
                     onTouchCancel={()=>{setIsHovering(false)}}
@@ -44,8 +41,8 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                     onTouchCancelCapture={()=>{setIsHovering(false)}}
                     >
                     <Link passHref href={`/blog/${post.slug}`}>
-                        <m.article className="post-card-clickable">
-                            <m.header className='post-card-image-container'>
+                        <article className="post-card-clickable">
+                            <header className='post-card-image-container'>
                                 <NextImage 
                                     src={post.cover_image} 
                                     alt='post card image' 
@@ -61,7 +58,7 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                                         <h1 className='post-card-cover-date'>{post.date}</h1> 
                                     : null 
                                 }
-                            </m.header>
+                            </header>
 
                             <h2 className='post-card-title'>{post.title}</h2>
 
@@ -73,10 +70,10 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                                 </div>
                             
                             </div>
-                        </m.article>
+                        </article>
                     </Link>
 
-                    <m.footer className='post-card-footer'>
+                    <footer className='post-card-footer'>
                         <div className='card-date-row'>
                             <FaRegCalendarAlt id='card-date-icon' size={16}/>
                             <p className="post-card-date">{post.date}</p>
@@ -100,13 +97,12 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                                         {
                                             post.categories.map((category: Category, index: number)=>{
                                                 return (
-                                                    <motion.div 
-                                                        whileHover={{ scale: 1.1 }}
+                                                    <div 
                                                         style={{display: "inline-block", transitionDuration: "0s"}}
                                                         key={index}  
                                                     >
                                                         <CategoryTag category={category} key={index} />
-                                                    </motion.div>
+                                                    </div>
                                                 )
                                             })
                                         }
@@ -117,9 +113,9 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                                 }
                             </div>
                         </div>
-                    </m.footer>
-                </m.div>
-            </m.div>
+                    </footer>
+                </div>
+            </div>
         </>
     )
 }
