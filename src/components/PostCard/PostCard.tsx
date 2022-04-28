@@ -11,7 +11,7 @@ import Category from '@classes/category';
 import { cardVariants } from '@helpers/animations';
 import { rgbDataURL } from '@utils/rgbDataURL';
 
-// import globalStyles from './PostCard.styles'
+import globalStyles from './PostCard.styles'
 
 interface IPost{
     post: Post
@@ -31,9 +31,9 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
 
     return(
         <>
-            {/* <style jsx global>
+            <style jsx global>
                 {globalStyles}
-            </style> */}
+            </style>
             <m.div variants={cardVariants}  layout className='post-card-expanded-external'>
                 <m.div className='post-card-div'  
                     onMouseOver={()=>{setIsHovering(true)}}

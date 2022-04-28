@@ -1,9 +1,10 @@
-import { domAnimation, LazyMotion, m } from "framer-motion";
+import { domAnimation, LazyMotion } from "framer-motion";
 
 import Post from "@classes/Post";
-import PostCard from "@components/PostCard/PostCard";
+import dynamic from "next/dynamic";
+// import PostCard from "@components/PostCard/PostCard";
 
-// const PostCard = dynamic(() => import('@components/PostCard'));
+const PostCard = dynamic(() => import('@components/PostCard/PostCard'));
 
 interface PostGridProps{
     posts: Post[]
