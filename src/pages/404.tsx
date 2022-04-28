@@ -1,5 +1,4 @@
 import { motion } from 'framer-motion';
-import 'next';
 import { useRouter } from 'next/router'
 import CustomButton, {ButtonIcon} from '@components/CustomButton/CustomButton';
 import { slideInDown, slideInUp } from '@helpers/animations';

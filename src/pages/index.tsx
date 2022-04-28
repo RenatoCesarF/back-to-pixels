@@ -1,4 +1,4 @@
-import type { NextPage } from 'next'
+import type { NextPage } from 'next';
 import generateRssFeed from '@scripts/rss'
 
 import { motion} from 'framer-motion'
@@ -7,9 +7,9 @@ import HeadTag from '@components/HeadTag';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import ParalaxElement from '@components/ParalaxElement'
 
-const Home: NextPage = () => {
+const Home = () => {
   return (
-    <div  className='page'>
+    <>
       <HeadTag 
           image={WEBSITE_INFO.LOGO_PATH}
           title={`${WEBSITE_INFO.NAME}`} 
@@ -17,14 +17,15 @@ const Home: NextPage = () => {
           keywords={['home page', 'home']} 
           date={new Date()} 
           url=""
-      />
-      <div className='page' >
+          />
         <motion.div variants={slideInDown}>
           <ParalaxElement/>                         
         </motion.div>
-      </div>
+        <div style={{height: "200vh"}}>
+
+        </div>
+      </>
       
-    </div>
   )
 }
 

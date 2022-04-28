@@ -8,32 +8,26 @@ interface ParalaxImage {
 
 function getImages(mousePosition: any){
     const images: ParalaxImage[] = [
-        {'source': '/images/test/1.png', 'layerLevel': 1},
-        {'source': '/images/test/2.png', 'layerLevel': 1},
-        {'source': '/images/test/3.png', 'layerLevel': 1},
-        {'source': '/images/test/4.png', 'layerLevel': 3},
-        {'source': '/images/test/5.png', 'layerLevel': 6},
-        {'source': '/images/test/6.png', 'layerLevel': 6},
-        {'source': '/images/test/7.png', 'layerLevel': 6},
-        {'source': '/images/test/8.png', 'layerLevel': 10},
-        {'source': '/images/test/9.png', 'layerLevel': 10},
-        {'source': '/images/test/10.png', 'layerLevel': 10},
-        {'source': '/images/test/11.png', 'layerLevel': 10},
-        {'source': '/images/test/11.png', 'layerLevel':10}
+        {'source': '/images/paralax/arrows.png', 'layerLevel': 2},
+        {'source': '/images/paralax/logo_shadow.png', 'layerLevel': 4},
+        {'source': '/images/paralax/logo.png', 'layerLevel': 5},
+
     ]
     return (
         <>
             {
                 images.map((value: ParalaxImage, index: number) =>{
-                    const yPosition = -50 + ((mousePosition.y / 4) * value.layerLevel)/15;
-                    const xPosition = -200 + ((mousePosition.x / 4) * value.layerLevel)/15;
+                    const yPosition = 2 + (((mousePosition.y / 10) * value.layerLevel)/60);
+                    const xPosition = -4 + (((mousePosition.x / 10) * value.layerLevel)/60);
                     return(
                         <img src={value.source} key={index} className="paralax-image" 
-                            style={{transform: `translate(${xPosition}px,${yPosition}px)`}}
+                            style={{transform: `translate(${xPosition}%,${yPosition}%)`}}
                         />
                     ) 
                 })
             }
+           
+            <div className="radiend-shadow"/>
         </>
     )
 }
