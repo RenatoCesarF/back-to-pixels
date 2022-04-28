@@ -9,7 +9,7 @@ interface ParalaxImage {
 function getImages(mousePosition: any){
     const images: ParalaxImage[] = [
         {'source': '/images/paralax/arrows.png', 'layerLevel': 2},
-        {'source': '/images/paralax/logo_shadow.png', 'layerLevel': 4},
+        {'source': '/images/paralax/logo_shadow.png', 'layerLevel': 7},
         {'source': '/images/paralax/logo.png', 'layerLevel': 5},
 
     ]
