@@ -67,7 +67,7 @@ const getParalaxImagesElements = (mousePosition: Position): JSX.Element =>{
 }
 
 const getOffsetPosition = (mousePosition:Position, layerLevel: number): Position => {
-    const yPosition = 2 + (((mousePosition.y / 10) * layerLevel)/60) 
+    const yPosition = (((mousePosition.y / 10) * layerLevel)/60) 
     const xPosition = -4 + (((mousePosition.x / 10) * layerLevel)/60)
     const position: Position = {"x": xPosition ,"y": yPosition }
     return position
