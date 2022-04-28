@@ -18,10 +18,8 @@ const Home = () => {
           date={new Date()} 
           url=""
           />
-        <motion.div variants={slideInDown}>
           <ParalaxElement/>                         
-        </motion.div>
-        <div style={{height: "200vh"}}>
+          <div style={{height: "200vh"}}>
 
         </div>
       </>
