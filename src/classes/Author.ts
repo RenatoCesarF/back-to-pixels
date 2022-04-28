@@ -29,7 +29,7 @@ export const getAuthor = (authorKey: string): Author => {
     return authorInfo;
 }
 
-export const roleFromString = (role: string): Role =>{
+export const getRoleFromString = (role: string): Role =>{
     switch (role) {
         case 'Developer':
             return Role.Developer;                

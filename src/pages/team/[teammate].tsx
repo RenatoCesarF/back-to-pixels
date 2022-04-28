@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import CustomButton, { ButtonIcon } from "@components/CustomButton/CustomButton";
 import RoleTag from "@components/RoleTag";
 import HeadTag from "@components/HeadTag";
-import Author, { getAuthor, getAuthorsList, Role, roleFromString } from "@classes/Author";
+import Author, { getAuthor, getAuthorsList, Role, getRoleFromString } from "@classes/Author";
 import { slideButtonDown, slideInUp } from "@helpers/animations";
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import globalStyles from '@styles/teammate.styles';
@@ -54,7 +54,7 @@ const Teammate: React.FC<TeammatePageProps> = ({author, authorPosts}: TeammatePa
                                 <div className="author-roles">
                                     {
                                         author.roles.map((roll: string, index: number) => {
-                                            return <RoleTag key={index} role={Role[roleFromString(roll)]}/>
+                                            return <RoleTag key={index} role={Role[getRoleFromString(roll)]}/>
                                         })
                                     }
                                 </div>

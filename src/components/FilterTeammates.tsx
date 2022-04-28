@@ -1,4 +1,4 @@
-import Author, {Role, roleFromString} from "@classes/Author";
+import Author, {Role, getRoleFromString} from "@classes/Author";
 import { useEffect } from "react";
 
 interface FilterTeammatesProps {
@@ -26,7 +26,7 @@ const FilterTeammates = ({allTeammates, setFilteredTeammates, activeRoleFilter, 
                 roleButtonsOptions.map((role: string[], index: number) =>{
                     return (
                         <button 
-                            className={activeRoleFilter == roleFromString(role[0]) ?  "active" : ""}
+                            className={activeRoleFilter == getRoleFromString(role[0]) ?  "active" : ""}
                             onClick={()=> setActiveRoleFilter(role[0])}
                             key={index}
                             name={`filter by ${role} button`} 

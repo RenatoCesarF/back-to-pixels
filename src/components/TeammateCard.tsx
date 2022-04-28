@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Author, { roleFromString, Role, getRoleBackgroundColor } from "@classes/Author";
+import Author, { getRoleFromString, Role, getRoleBackgroundColor } from "@classes/Author";
 import { slideInUp } from "@helpers/animations";
 
 interface teammateProps {
@@ -8,7 +8,7 @@ interface teammateProps {
 }
 
 const TeammateCard: React.FC<teammateProps> = ({author}:teammateProps) =>{
-    const backgroundColor: string = getRoleBackgroundColor(Role[roleFromString(author.roles[0])]);
+    const backgroundColor: string = getRoleBackgroundColor(Role[getRoleFromString(author.roles[0])]);
     return (
         <Link href={`/team/${author.key}`} passHref>
             <motion.div     

@@ -55,7 +55,7 @@ const getParalaxImagesElements = (mousePosition: Position): JSX.Element =>{
                     const position = getOffsetPosition(mousePosition, value.layerLevel);
 
                     return(
-                        <img src={value.source} key={index} className="paralax-image" 
+                        <img src={value.source} key={index} className="paralax-image" alt="paralax-image" 
                             style={{transform: `translate(${position.x}%,${position.y}%)`}}
                         />
                     ) 

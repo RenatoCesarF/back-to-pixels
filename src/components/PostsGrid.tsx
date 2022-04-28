@@ -20,7 +20,7 @@ const PostGrid = ({posts}: PostGridProps) =>{
                     posts.length ?
                         posts.map((post: Post, index: number) =>{
                             return (
-                                <Suspense fallback={<p>Loading...</p>}>
+                                <Suspense key={index} fallback={<p key={index}>Loading...</p>}>
                                     <PostCard post={post} key={index}/>
                                 </Suspense>
                             )
