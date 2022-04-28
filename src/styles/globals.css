@@ -15,6 +15,8 @@
   --sub-title-font: 'Merriweather Sans',sans-serif;
   --date-font:   "Helvetica Neue", Helvetica;
 
+  --shine-color: rgb(241, 241, 241);
+
   --button-font: '';
   --main-color: #382F60;
   --secondary-color: #485188;
@@ -112,6 +114,8 @@ body.dark{
   --table-row-odd: #272727;
   --table-row-hover: #2d2d2d36;
   --table-line-color: #adadad48;
+
+  --shine-color: rgb(82, 82, 82);
 } 
 
 ::selection {
@@ -567,3 +571,44 @@ button.toggled span:nth-child(3) {
   transition: all 1.2s cubic-bezier(0.215, 0.610, 0.355, 1);
   user-select: none;
 }
+
+/*================ Loding area ================*/
+.loading-area{
+  background-color: var(--background-quote-color);
+  border-radius: 0.5rem;
+  z-index:0;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.loading-area:after {
+	content:'';
+  top:0;
+	transform: translateX(100%);
+	width:100%;
+	height:100%;
+	position: absolute;
+	z-index:1;
+	animation: slide 1.3s infinite;
+
+	background: linear-gradient(to right, rgba(255,255,255,0) 0%, var(--shine-color) 50%, rgba(128,186,232,0) 99%,rgba(125,185,232,0) 100%); 
+
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#007db9e8',GradientType=1 );
+}
+
+/* animation */
+
+@keyframes slide {
+	0% {transform:translateX(-100%);}
+	100% {transform:translateX(100%);}
+}
+
+.loading-card{
+  height: 17rem;
+  width: 17rem;
+  border-radius: 0.5rem;
+  margin: 0.5rem;
+}
+
+@media screen and (max-width: 640px) {.loading-card{width: 90vw;}}

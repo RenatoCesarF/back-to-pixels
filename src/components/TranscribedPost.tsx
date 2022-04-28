@@ -8,14 +8,11 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import remarkSlug from 'remark-slug';
 
-import { getAuthorsKeyList } from '@classes/Author';
 import Post from '@classes/Post';
 
 import ImageZoom from '@components/ImageZoom';
-import AuthorRowInfo from '@components/AuthorRowInfo'
 import CodeBlock from '@components/CodeBlock';
 
-const BaseHoverInfo = dynamic(() => import('@components/BaseHoverInfo'));
 
 interface TranscribedPostProps{post: Post}
 
@@ -40,20 +37,9 @@ const TranscribedPost = ({post}: TranscribedPostProps) =>{
                         return linkElement;
                     }
                 
-                    const isAuthor = getAuthorsKeyList().includes(children[0].toString().toLowerCase());
                     return(
                         <Link href={props.href || "/blog"} passHref scroll> 
-                        {
-                            isAuthor?
-
-                                <div style={{ display: "contents", position: "relative"}}>
-                                    <BaseHoverInfo displayedText={children[0].toString()}>
-                                        <AuthorRowInfo authorName={children[0].toString()}/>
-                                    </BaseHoverInfo>
-                                </div>    
-                            :
-                                <a style={{"border": "none"}}>{children}</a>
-                        }
+                            <a style={{"border": "none"}}>{children}</a>
                         </Link>
                     );
                 },

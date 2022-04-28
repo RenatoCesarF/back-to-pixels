@@ -17,27 +17,25 @@ interface ImageZoomProps{
 
 const ImageZoom: React.FC<ImageZoomProps> = (props: ImageZoomProps)=>{
     return (
-        // <div className='image-zoom'>
-            <Zoom 
-                wrapStyle={{display:"flex", alignContent:"center", justifyContent:"center"}}
-                overlayBgColorEnd='rgb(0 0 0 / 81%)'
-                scrollableEl={undefined}>
-                <div className="image-container">
-                    <NextImage 
-                        src={props.src} 
-                        alt={props.alt}
-                        className='next-image'
-                        layout="fill"
-                        placeholder='blur'
-                        loading='lazy'
-                        lazyBoundary='20px'
-                        blurDataURL={rgbDataURL(72, 81, 136)} 
-                        quality={100}  
-                        unoptimized={true}
-                    />
-                </div>
-            </Zoom> 
-        // </div>
+        <Zoom 
+            wrapStyle={{display:"flex", alignContent:"center", justifyContent:"center"}}
+            overlayBgColorEnd='rgb(0 0 0 / 81%)'
+            scrollableEl={undefined}>
+            <div className="image-container">
+                <NextImage 
+                    src={props.src} 
+                    alt={props.alt}
+                    className='next-image'
+                    layout="fill"
+                    placeholder='blur'
+                    loading='lazy'
+                    lazyBoundary='20px'
+                    blurDataURL={rgbDataURL(72, 81, 136)} 
+                    quality={100}  
+                    unoptimized={true}
+                />
+            </div>
+        </Zoom> 
     )
 }
 export default ImageZoom

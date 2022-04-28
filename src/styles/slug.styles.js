@@ -294,10 +294,11 @@ export default css.global`
   padding: 0.05rem 1rem 0.6rem 1rem;
   margin: 0rem auto;
 }
-.post-sumarry h3{
+.post-sumarry h2{
   font-family: var(--main-font);
   margin: 0;
   padding: 0.8rem 0px 0.4rem 0px;
+  font-size: 1.2rem;
 }
 .post-sumarry a{
   font-family: var(--main-font);

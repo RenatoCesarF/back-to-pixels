@@ -4,6 +4,8 @@ import { Suspense } from 'react'
 import dynamic from 'next/dynamic'
 
 import Post from "@classes/Post";
+import LoadingPostCard from "@components/PostCard/LoadingPostCard";
+
 const PostCard = dynamic(() => import("@components/PostCard/PostCard"), { suspense: true });
 
 
@@ -15,7 +17,7 @@ const PostGrid = ({posts}: PostGridProps) =>{
     return(
         <LazyMotion features={domAnimation}>
                 <div className='posts-grid'>
-                    <Suspense fallback={<p>Loading...</p>}>
+                    <Suspense fallback={loadingPostsList()}> 
                         {
                             posts.length ?
                                 posts.map((post: Post, index: number) =>{
@@ -30,5 +32,17 @@ const PostGrid = ({posts}: PostGridProps) =>{
     )
 }
 
+const loadingPostsList = (): JSX.Element =>{
+    return(
+        <>
+            <LoadingPostCard/>
+            <LoadingPostCard/>
+            <LoadingPostCard/>
+            <LoadingPostCard/>
+            <LoadingPostCard/>
+            <LoadingPostCard/>
+        </>
+    )
+}
 
 export default PostGrid;
