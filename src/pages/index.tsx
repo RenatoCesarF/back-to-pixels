@@ -21,7 +21,8 @@ const Home = () => {
           <ParalaxElement/>                         
           <div style={{height: "200vh"}}>
 
-        </div>
+          </div>
+
       </>
       
   )

@@ -1,36 +1,14 @@
-import { getValueTransition } from "framer-motion/types/animation/utils/transitions";
 import { useEffect, useState } from "react";
 
 interface ParalaxImage {
     source: string,
     layerLevel: number
 }
-
-function getImages(mousePosition: any){
-    const images: ParalaxImage[] = [
-        {'source': '/images/paralax/arrows.png', 'layerLevel': 2},
-        {'source': '/images/paralax/logo_shadow.png', 'layerLevel': 7},
-        {'source': '/images/paralax/logo.png', 'layerLevel': 5},
-
-    ]
-    return (
-        <>
-            {
-                images.map((value: ParalaxImage, index: number) =>{
-                    const yPosition = 2 + (((mousePosition.y / 10) * value.layerLevel)/60);
-                    const xPosition = -4 + (((mousePosition.x / 10) * value.layerLevel)/60);
-                    return(
-                        <img src={value.source} key={index} className="paralax-image" 
-                            style={{transform: `translate(${xPosition}%,${yPosition}%)`}}
-                        />
-                    ) 
-                })
-            }
-           
-            <div className="radiend-shadow"/>
-        </>
-    )
+interface Position{
+    y: number
+    x: number
 }
+
 const ParalaxElement = () =>{
     const [mousePosition, setMousePosition] = useState({"x":300, "y": 300});
 
@@ -47,10 +25,52 @@ const ParalaxElement = () =>{
     );
     return (
         <div className="paralax-container">
-            { getImages(mousePosition) }
+            { getParalaxElements(mousePosition) }
+            <div className="radiend-shadow"/>
         </div>
     )
 }
 
+const getParalaxElements = (mousePosition: Position): JSX.Element =>{
+    return(
+        <>
+            {
+                getParalaxImagesElements(mousePosition)
+            }
+        </>
+    )
+}
+
+const getParalaxImagesElements = (mousePosition: Position): JSX.Element =>{
+    const images: ParalaxImage[] = [
+        {'source': '/images/paralax/arrows.png', 'layerLevel': 2},
+        {'source': '/images/paralax/logo_shadow.png', 'layerLevel':6},
+        {'source': '/images/paralax/logo.png', 'layerLevel': 5},
+
+    ]
+    return (
+        <>
+            {
+                images.map((value: ParalaxImage, index: number) =>{
+                    const position = getOffsetPosition(mousePosition, value.layerLevel);
+
+                    return(
+                        <img src={value.source} key={index} className="paralax-image" 
+                            style={{transform: `translate(${position.x}%,${position.y}%)`}}
+                        />
+                    ) 
+                })
+            }
+           
+        </>
+    )
+}
+
+const getOffsetPosition = (mousePosition:Position, layerLevel: number): Position => {
+    const yPosition = 2 + (((mousePosition.y / 10) * layerLevel)/60) 
+    const xPosition = -4 + (((mousePosition.x / 10) * layerLevel)/60)
+    const position: Position = {"x": xPosition ,"y": yPosition }
+    return position
+}
 
 export default ParalaxElement;
