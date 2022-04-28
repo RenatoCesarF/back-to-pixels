@@ -12,6 +12,7 @@ module.exports = withBundleAnalyzer(withPWA(
       skipWaiting: true,
     },
     reactStrictMode: true,
+    concurrentFeatures: true,
     images: {
       domains: ['backtopixels.vercel.app'],
     },

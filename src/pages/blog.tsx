@@ -1,5 +1,7 @@
 import dynamic from 'next/dynamic'
 
+
+
 import globalStyles from '@styles/blog.styles'
 import Post, { createPost, getPostsFileName } from '@classes/Post';
 import {sortByDate} from '@utils/sort';
@@ -43,7 +45,6 @@ export default function BlogPage({posts}:PostList){
               <CategoryCount posts={posts}/>
 
               <PostGrid posts={posts}/>
-              
           </div>
           <RssLinks/>
         </>

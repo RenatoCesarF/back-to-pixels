@@ -5,7 +5,7 @@ const RssLinks = () =>{
     const baseURL: string = `${WEBSITE_INFO.URL}/rss`
     return (
         <>
-            <style>
+            <style jsx global>
                 {styles}
             </style>
             <div className="rss-feed-container">

@@ -8,7 +8,7 @@ const Footer = dynamic(() => import('@components/Footer/Footer'));
 
 import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
 
-const bubbleOptions = {
+const bubbleOptions = { // move it to helpers
   className: 'toaster',
   success:{
     style:{

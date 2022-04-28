@@ -22,7 +22,7 @@ export default function Custom404() {
     
     return (
         <div className="page">
-            <style>
+            <style jsx global>
                 {styles}
             </style>
             <HeadTag 

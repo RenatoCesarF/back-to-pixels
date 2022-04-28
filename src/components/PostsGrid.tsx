@@ -1,7 +1,12 @@
-import { domAnimation, LazyMotion, m } from "framer-motion";
+import { domAnimation, LazyMotion } from "framer-motion";
+
+import { Suspense } from 'react'
+import dynamic from 'next/dynamic'
 
 import Post from "@classes/Post";
-import PostCard from "@components/PostCard/PostCard";
+const PostCard = dynamic(() => import("@components/PostCard/PostCard"), { suspense: true });
+// import PostCard from "@components/PostCard/PostCard";
+
 
 interface PostGridProps{
     posts: Post[]
@@ -10,18 +15,23 @@ interface PostGridProps{
 const PostGrid = ({posts}: PostGridProps) =>{
     return(
         <LazyMotion features={domAnimation}>
-            <m.div className='posts-grid'>
+            <div className='posts-grid'>
                 {
                     posts.length ?
                         posts.map((post: Post, index: number) =>{
-                            return <PostCard post={post} key={index}/>
+                            return (
+                                <Suspense fallback={<p>Loading...</p>}>
+                                    <PostCard post={post} key={index}/>
+                                </Suspense>
+                            )
                         })
                     :
                     <p>Nothing here...</p>
                 }
-            </m.div>
+            </div>
         </LazyMotion> 
     )
 }
+
 
 export default PostGrid;

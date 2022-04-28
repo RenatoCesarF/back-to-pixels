@@ -22,7 +22,7 @@ const TagInfo: React.FC<TagInfoProps> = ({category, posts}: TagInfoProps) => {
     const router = useRouter();
     return(
         <>
-            <style>
+            <style jsx global>
                 {styles}
             </style>
             <HeadTag
