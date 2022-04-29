@@ -31,9 +31,9 @@ export const RandomLoadingAreas = ({amount}: RandomLoadingAreaProps) => {
                 })
             }
         </>
-    )
+    );
     
 }
 
 
-export default LoadingArea
+export default LoadingArea;
