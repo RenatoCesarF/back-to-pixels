@@ -26,8 +26,8 @@ export const RandomLoadingAreas = ({amount}: RandomLoadingAreaProps) => {
     return (
         <>
             {   
-                randomHeights.map(height =>{
-                    return <LoadingArea height={`${height}rem`} width="100%" borderRadius="0.4rem"/>
+                randomHeights.map((height:number, index:number)=>{
+                    return <LoadingArea  key={index} height={`${height}rem`} width="100%" borderRadius="0.4rem"/>
                 })
             }
         </>
