@@ -582,7 +582,7 @@ button.toggled span:nth-child(3) {
   position: relative;
   width: 100%;
   overflow: hidden;
-  margin: 4rem 0;
+  margin: 3rem 0;
 }
 
 .loading-area:after {

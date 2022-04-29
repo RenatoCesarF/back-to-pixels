@@ -11,7 +11,7 @@ import WEBSITE_INFO from '@helpers/webSiteInfo';
 import globalStyles from '@styles/teammate.styles';
 import Post, { filterPostsByAuthor } from "@classes/Post";
 
-import PostGrid from '@components/PostsGrid';
+import PostGrid from '@components/PostGrid';
 import AuthorSocialLinks from "@components/AuthorSocialLinks";
 
 interface TeammatePageProps{author: Author, authorPosts: Post[]};

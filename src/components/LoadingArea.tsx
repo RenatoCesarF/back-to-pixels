@@ -1,9 +1,13 @@
+import { getRandomInteger } from "@helpers/randomNumber"
 
 
 interface LoadingAreaProps{
     height?: string
     width?: string
     borderRadius?: string
+}
+interface RandomLoadingAreaProps{
+    amount:number
 }
 const LoadingArea = ({height = "100%", width = "100%", borderRadius = "0"}: LoadingAreaProps)=>{
     return(
@@ -12,5 +16,24 @@ const LoadingArea = ({height = "100%", width = "100%", borderRadius = "0"}: Load
         </div>
     )
 }
+
+export const RandomLoadingAreas = ({amount}: RandomLoadingAreaProps) => {
+    const randomHeights:number[] = [];
+    for(let i = 0; i < amount; i ++){
+        randomHeights.push(getRandomInteger(4,15));
+    }
+
+    return (
+        <>
+            {   
+                randomHeights.map(height =>{
+                    return <LoadingArea height={`${height}rem`} width="100%" borderRadius="0.4rem"/>
+                })
+            }
+        </>
+    )
+    
+}
+
 
 export default LoadingArea

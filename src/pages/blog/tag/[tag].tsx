@@ -11,7 +11,7 @@ import Post, { filterPostsByCategory } from '@classes/Post';
 import styles from '@styles/tag.styles.js';
 import CustomButton, { ButtonIcon } from '@components/CustomButton/CustomButton';
 import { useRouter } from 'next/router';
-import PostGrid from '@components/PostsGrid';
+import PostGrid from '@components/PostGrid';
 import { sortByDate } from '@utils/sort';
 
 interface Params {tag: string};
