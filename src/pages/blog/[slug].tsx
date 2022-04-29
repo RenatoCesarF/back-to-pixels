@@ -13,7 +13,7 @@ import {slideButtonDown, slideInUp } from '@helpers/animations';
 import LoadingArea, { RandomLoadingAreas } from '@components/LoadingArea';
 import CustomButton, {ButtonIcon} from '@components/CustomButton/CustomButton';
 import windowScrollTo from '@utils/windowScrollTo';
-import PostGrid from '@components/PostsGrid';
+import PostGrid from '@components/PostGrid';
 
 const RssLinks              = dynamic(() => import('@components/RssLinks/RssLinks'));
 const HeadTag               = dynamic(() => import('@components/HeadTag'));
