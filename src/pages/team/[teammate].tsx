@@ -1,4 +1,4 @@
-import { domAnimation, LazyMotion, m, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRouter } from "next/router";
 
 
@@ -13,6 +13,8 @@ import Post, { filterPostsByAuthor } from "@classes/Post";
 
 import PostGrid from '@components/PostGrid';
 import AuthorSocialLinks from "@components/AuthorSocialLinks";
+import { Suspense } from "react";
+import LoadingArea from "@components/LoadingArea";
 
 interface TeammatePageProps{author: Author, authorPosts: Post[]};
 
@@ -39,38 +41,39 @@ const Teammate: React.FC<TeammatePageProps> = ({author, authorPosts}: TeammatePa
               date={new Date()} 
               url={`/team/${author.key}`} 
             />
-            <LazyMotion features={domAnimation}>
-                <div className="page">
-                    <main className="teammate-page">
-                        <motion.div variants={slideButtonDown} style={{margin: ".5rem 0"}}>
-                            <CustomButton description='Return to Blog page' text='' icon={ButtonIcon.arrowBack} onClick={() => {router.back()}}/>
-                        </motion.div>
-                        <motion.article itemProp="author" itemScope  itemType='https://schema.org/author' variants={slideInUp} className="teammate-page-author-info-row" > 
-                            <div style={{ alignItems: "center", display: 'flex',flexDirection: 'column'}}>
+            <div className="page">
+                <main className="teammate-page">
+                    <motion.div variants={slideButtonDown} style={{margin: ".5rem 0"}}>
+                        <CustomButton description='Return to Blog page' text='' icon={ButtonIcon.arrowBack} onClick={() => {router.back()}}/>
+                    </motion.div>
+                    <motion.article itemProp="author" itemScope  itemType='https://schema.org/author' variants={slideInUp} className="teammate-page-author-info-row" > 
+                        <div style={{ alignItems: "center", display: 'flex',flexDirection: 'column'}}>
+                            <Suspense fallback={<LoadingArea borderRadius="2%" height="25rem" width="25rem" margin="0 1rem 0 0"/>}>
                                 <img src={author.image_path} alt={`${author.name} image`} className="teammate-page-author-image"/>
+                            </Suspense>
+                        </div>
+                        
+                        <div>
+                            <h1 itemProp='name'>{author.name}</h1>
+                            <div className="author-roles">
+                                {
+                                    author.roles.map((roll: string, index: number) => {
+                                        return <RoleTag key={index} role={Role[getRoleFromString(roll)]}/>
+                                    })
+                                }
                             </div>
-                            <div>
-                                <h1 itemProp='name'>{author.name}</h1>
-                                <div className="author-roles">
-                                    {
-                                        author.roles.map((roll: string, index: number) => {
-                                            return <RoleTag key={index} role={Role[getRoleFromString(roll)]}/>
-                                        })
-                                    }
-                                </div>
-                                <p>{author.about}</p>
-                            </div>
-                        </motion.article>
-                        <section style={{margin: "1rem 0"}}>
-                            <AuthorSocialLinks author={author}/>
-                        </section>
-
-                    </main>
-                    <section className="teammate-page-posts-section">
-                        <PostGrid posts={authorPosts}/>
+                            <p>{author.about}</p>
+                        </div>
+                    </motion.article>
+                    <section style={{margin: "1rem 0"}}>
+                        <AuthorSocialLinks author={author}/>
                     </section>
-                </div>
-            </LazyMotion>
+
+                </main>
+                <section className="teammate-page-posts-section">
+                    <PostGrid posts={authorPosts}/>
+                </section>
+            </div>
         </div>
     )
 } 

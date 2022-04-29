@@ -1,8 +1,10 @@
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 
-import { domAnimation, LazyMotion, m, motion } from 'framer-motion';
+import { domAnimation, LazyMotion, motion } from 'framer-motion';
 import { Suspense } from 'react';
+
+import Image from 'next/image'
 
 import Post, { createPost, getPostRecomendations, getPostsFileName } from '@classes/Post';
 import globalStyles from '@styles/slug.styles';
@@ -14,6 +16,8 @@ import LoadingArea, { RandomLoadingAreas } from '@components/LoadingArea';
 import CustomButton, {ButtonIcon} from '@components/CustomButton/CustomButton';
 import windowScrollTo from '@utils/windowScrollTo';
 import PostGrid from '@components/PostGrid';
+import ImageZoom from '@components/ImageZoom';
+import LazyImage from '@components/LazyImage';
 
 const RssLinks              = dynamic(() => import('@components/RssLinks/RssLinks'));
 const HeadTag               = dynamic(() => import('@components/HeadTag'));
@@ -64,17 +68,20 @@ const PostPage: React.FC<SlugPageProps> = ({post, postsRecomendations}: SlugPage
 
                     <BackToTopButton/>
                   
-                    <m.div variants={slideInUp} className='post-cover-div'>
-                            <img
-                                width='536px'height='341px'
-                                alt='blog post cover' className='post-cover' 
-                                src={post.cover_image}/>
+                    <motion.div variants={slideInUp} >
+                            <LazyImage 
+                                width='536px' height='341px'
+                                className='post-cover'
+                                alt='blog post cover'
+                                layout="responsive" 
+                                src={post.cover_image}
+                            />
                             {
                                 doenstHaveCoverImage ? 
                                 <h1 className='post-cover-date'>{post.date}</h1>
                                 : null
                             }   
-                    </m.div >
+                    </motion.div >
                     
                     <Suspense fallback={<LoadingArea height='8rem' width='100%'/>}>
                         <PostInternInformation post={post}/>
@@ -82,7 +89,7 @@ const PostPage: React.FC<SlugPageProps> = ({post, postsRecomendations}: SlugPage
 
                     <hr style={{marginTop: "1.4rem"}}/>
                     
-                    <m.section variants={slideInUp} itemProp="articleBody">
+                    <motion.section variants={slideInUp} itemProp="articleBody">
                         <h1 itemProp='name' className='post-title'>{post.title}</h1>
                         <p className='post-resume'>{post.excerpt}</p>
                         <br/>
@@ -96,19 +103,19 @@ const PostPage: React.FC<SlugPageProps> = ({post, postsRecomendations}: SlugPage
                                 <TranscribedPost post={post}/>
                             </Suspense>
 
-                            <m.div style={{display: "flex", justifyContent: "space-between", marginTop: "2rem"}}>
+                            <div style={{display: "flex", justifyContent: "space-between", marginTop: "2rem"}}>
                                 <CustomButton description='Return to Blog page' text='Back' icon={ButtonIcon.arrowBack} onClick={() => {router.back()}}/>
                                 <CustomButton description='Return to Blog page' text='Scroll To Top' icon={ButtonIcon.arrowTop} onClick={() => {windowScrollTo()}}/>
-                            </m.div>
+                            </div>
                         </div>
-                    </m.section>  
+                    </motion.section>  
                 </article>
             </main>
 
 
-            <m.div variants={slideButtonDown} style={{margin: "0 clamp(1rem, 4rem, 6vw)"}}>
+            <motion.div variants={slideButtonDown} style={{margin: "0 clamp(1rem, 4rem, 6vw)"}}>
                 <h2>Recomendations</h2>
-            </m.div>
+            </motion.div>
 
             <hr/>
 

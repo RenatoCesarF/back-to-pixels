@@ -162,7 +162,7 @@ code {
   line-height: 1.4em;
   text-indent: 1rem;
 }
-@media screen and (max-width: 341px){code{word-break:break-all;}}
+@media screen and (max-width: 600px){code{word-break:break-all;}}
 .simple-code{
   font-size: 0.8em;
   font-family: 'Source Code Pro', monospace ;

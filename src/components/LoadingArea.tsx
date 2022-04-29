@@ -5,13 +5,22 @@ interface LoadingAreaProps{
     height?: string
     width?: string
     borderRadius?: string
+    margin?: string
 }
 interface RandomLoadingAreaProps{
     amount:number
 }
-const LoadingArea = ({height = "100%", width = "100%", borderRadius = "0"}: LoadingAreaProps)=>{
+const LoadingArea = ({height = "100%", width = "100%", borderRadius = "0", margin = "0.5rem"}: LoadingAreaProps)=>{
+    const extraStyle = {
+        height: `${height}`, 
+        width: `${width}`, 
+        borderRadius: `${borderRadius}`,
+        margin: margin
+    }
     return(
-        <div className="loading-area" style={{height: `${height}`, width: `${width}`, borderRadius: `${borderRadius}`}}>
+        <div 
+            className="loading-area" 
+            style={extraStyle}>
 
         </div>
     )
