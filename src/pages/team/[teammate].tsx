@@ -48,9 +48,7 @@ const Teammate: React.FC<TeammatePageProps> = ({author, authorPosts}: TeammatePa
                     </motion.div>
                     <motion.article itemProp="author" itemScope  itemType='https://schema.org/author' variants={slideInUp} className="teammate-page-author-info-row" > 
                         <div style={{ alignItems: "center", display: 'flex',flexDirection: 'column'}}>
-                            <Suspense fallback={<LoadingArea borderRadius="2%" height="25rem" width="25rem" margin="0 1rem 0 0"/>}>
-                                <img src={author.image_path} alt={`${author.name} image`} className="teammate-page-author-image"/>
-                            </Suspense>
+                            <img src={author.image_path} alt={`${author.name} image`} className="teammate-page-author-image"/>
                         </div>
                         
                         <div>

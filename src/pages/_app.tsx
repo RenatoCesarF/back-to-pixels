@@ -7,21 +7,8 @@ import Header from '@components/HeaderComponent'
 const Footer = dynamic(() => import('@components/Footer/Footer'));
 
 import { AnimatePresence, motion, MotionConfig } from 'framer-motion';
+import { toastOptions } from '@helpers/toastOptions';
 
-const bubbleOptions = { // move it to helpers
-  className: 'toaster',
-  success:{
-    style:{
-      background: "#485188"
-    }
-  },
-  error: {
-    style: {
-      background: 'red',
-    },
-},}
-
-// reducedMotion='user'
 const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   return(
     <>
@@ -39,7 +26,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
           </motion.div>
         </MotionConfig>
       </AnimatePresence>
-      <Toaster position='bottom-center' toastOptions={bubbleOptions}/>
+      <Toaster position='bottom-center' toastOptions={toastOptions}/>
       <Footer/>
     </>
 
