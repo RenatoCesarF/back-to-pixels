@@ -27,7 +27,7 @@ const BackToTopButton = () =>{
 
     return (
         <div className='back-to-top-button' onClick={() => windowScrollTo()}>
-            <span>Bak To Top {scroll}</span>
+            <span>Back To Top {scroll}</span>
             <BiRightArrowAlt />
         </div>
     );
