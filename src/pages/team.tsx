@@ -1,5 +1,5 @@
 import dynamic from 'next/dynamic';
-import { domAnimation, LazyMotion, m, motion } from 'framer-motion'
+import { AnimatePresence, AnimateSharedLayout, motion, MotionConfig, usePresence} from 'framer-motion'
 import { useState } from 'react';
 
 import { slideInDown } from '@helpers/animations';
@@ -15,10 +15,17 @@ interface authorsList{
     allTeammates: Author[]
 }
 
+
+
 const TeamPage = ({allTeammates}: authorsList) => {
     const [filteredTeammates, setFilteredTeammates] = useState(allTeammates);
     const [activeRoleFilter, setActiveRoleFilter] = useState(Role.Everyone);
+    const animation ={
 
+        initial: {scale: 0},
+        animate: {scale: 1},
+        exit: {scale: 0},
+    }
     return(
         <>
             <style jsx global>
@@ -35,28 +42,31 @@ const TeamPage = ({allTeammates}: authorsList) => {
             <div className='page'>
                 <motion.div className='teammates-filters' variants={slideInDown}>
                     <FilterTeammates 
-                        allTeammates={allTeammates} 
+                        allTeammates={allTeammates}
                         setFilteredTeammates={setFilteredTeammates} 
                         activeRoleFilter={Role[activeRoleFilter]} 
                         setActiveRoleFilter={setActiveRoleFilter}
                     />
                 </motion.div>
-                
-                <LazyMotion features={domAnimation}>
-                    <m.div className='teammate-cards-grid'>
-                        {
-                            filteredTeammates.map((teammate: Author, index: number) =>{
-                                return <TeammateCard author={teammate} key={index}/>
-                            })
-                        }
-                    </m.div>
-                </LazyMotion>
+                <AnimateSharedLayout>
+                    <AnimatePresence>
+                        <div className='teammate-cards-grid'>
+                            {
+                                filteredTeammates.map((teammate: Author, index: number) =>{
+                                    return (
+                                        <motion.div {...animation} key={index} layout>
+                                                <TeammateCard author={teammate} />
+                                            </motion.div>
+                                        )
+                                    })
+                                }
+                        </div>
+                    </AnimatePresence>
+                </AnimateSharedLayout>
             </div>
         </>
     );
 }
-
-
 
 export async function getStaticProps(){
     const authorsList = getAuthorsList()

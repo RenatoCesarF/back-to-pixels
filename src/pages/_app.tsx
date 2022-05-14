@@ -13,19 +13,19 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   return(
     <>
       <Header/>
-      <AnimatePresence exitBeforeEnter >
-        <MotionConfig reducedMotion='user'>
+      {/* <AnimatePresence exitBeforeEnter >
+        <MotionConfig>
           <motion.div
                 key={router.route}
                 initial="exit"
                 animate="enter"
                 exit="exit"
                 transition={{ ease: [0.175, 0.85, 0.42, 0.96], duration: 0.2, staggerChildren: 0.1 }}
-                >
+                > */}
                 <Component {...pageProps} />
-          </motion.div>
+          {/* </motion.div>
         </MotionConfig>
-      </AnimatePresence>
+      </AnimatePresence> */}
       <Toaster position='bottom-center' toastOptions={toastOptions}/>
       <Footer/>
     </>

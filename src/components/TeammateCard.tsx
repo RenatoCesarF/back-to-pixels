@@ -15,7 +15,9 @@ const TeammateCard: React.FC<teammateProps> = ({author}:teammateProps) =>{
                 whileHover={{scale: 1.05}}
                 whileTap={{scale: 0.95}}
                 className='teammate-card-div'
-                variants={slideInUp} layout >
+                variants={slideInUp} 
+                layout 
+            >
                 <div className="teammate-image-container">
                     <img className="teammate-card-background-image" alt={`${author.name} image`} src={author.image_path}/>
                 </div>

@@ -6,6 +6,7 @@ import { slideInDown, slideInLeft } from '@helpers/animations'
 import HeadTag from '@components/HeadTag';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import ParalaxElement from '@components/ParalaxElement'
+import Carousel from '@components/Carousel/Carousel';
 
 const Home = () => {
   return (
@@ -19,11 +20,11 @@ const Home = () => {
           url=""
           />
           <div style={{overflowX: "hidden"}}>
+            {/* <Carousel/> */}
 
             <ParalaxElement/>                         
           </div>
-          <div style={{height: "200vh"}}>
-
+          <div style={{height: "140vh"}}>
           </div>
 
       </>
