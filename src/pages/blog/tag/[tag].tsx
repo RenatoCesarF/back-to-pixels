@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 
-import { slideInUp, slideButtonDown } from '@helpers/animations';
+import {opacityChange, slideButtonDown } from '@helpers/animations';
 import HeadTag from '@components/HeadTag';
 import Category, { getAllCategories, getCategoryByKey } from '@classes/category';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
@@ -13,6 +13,7 @@ import CustomButton, { ButtonIcon } from '@components/CustomButton/CustomButton'
 import { useRouter } from 'next/router';
 import PostGrid from '@components/PostGrid';
 import { sortByDate } from '@utils/sort';
+import AnimatedLayout from '@components/AnimatedLayout';
 
 interface Params {tag: string};
 interface StaticResponse {params: Params};
@@ -21,7 +22,7 @@ interface TagInfoProps {category: Category, posts: Post[]}
 const TagInfo: React.FC<TagInfoProps> = ({category, posts}: TagInfoProps) => {
     const router = useRouter();
     return(
-        <>
+        <AnimatedLayout>
             <style jsx global>
                 {styles}
             </style>
@@ -34,21 +35,23 @@ const TagInfo: React.FC<TagInfoProps> = ({category, posts}: TagInfoProps) => {
                 url={`${WEBSITE_INFO.URL}/blog/tag/${category.key}`}
                 author={getAuthor('renato')}
             />
-                <main className='tag-especific-page'>
-                    <motion.div variants={slideButtonDown}>
-                            <CustomButton description='Return to Blog page' text='' icon={ButtonIcon.arrowBack} onClick={() => {router.back()}}/>
-                    </motion.div>
-                    <motion.div variants={slideButtonDown} className="tag-page-description">
-                        <h1>{posts.length}</h1>
-                        <h2>Posts in the category <CategoryTag isBig category={category}/></h2>
-                    </motion.div>
+            <main className='tag-especific-page'>
+                <motion.div variants={slideButtonDown}>
+                        <CustomButton description='Return to Blog page' text='' icon={ButtonIcon.arrowBack} onClick={() => {router.back()}}/>
+                </motion.div>
 
-                    <motion.p>{category.about}</motion.p>
-                </main>
-                <section className='tag-page-posts-section'>
-                    <PostGrid posts={posts}/>
-                </section>
-        </>
+                <motion.div variants={slideButtonDown} className="tag-page-description">
+                    <h1>{posts.length}</h1>
+                    <h2>Posts in the category <CategoryTag isBig category={category}/></h2>
+                </motion.div>
+                
+                <motion.p variants={opacityChange}>{category.about}</motion.p>
+
+            </main>
+            <section className='tag-page-posts-section'>
+                <PostGrid posts={posts}/>
+            </section>
+        </AnimatedLayout>
     )
 
 }

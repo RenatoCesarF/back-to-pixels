@@ -1,8 +1,8 @@
 import dynamic from 'next/dynamic';
-import { AnimatePresence, AnimateSharedLayout, motion, MotionConfig, usePresence} from 'framer-motion'
+import {  AnimateSharedLayout, motion} from 'framer-motion'
 import { useState } from 'react';
 
-import { slideInDown } from '@helpers/animations';
+import { slideInDown, slideInUp } from '@helpers/animations';
 import globalStyles from '@styles/team.styles';
 import Author, { getAuthor, getAuthorsList, Role } from '@classes/Author';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
@@ -10,24 +10,24 @@ import HeadTag from '@components/HeadTag';
 
 const FilterTeammates = dynamic(() => import('@components/FilterTeammates'));
 import TeammateCard from '@components/TeammateCard';
+import AnimatedLayout from '@components/AnimatedLayout';
 
 interface authorsList{
     allTeammates: Author[]
 }
 
+const animation ={
+    initial: {scale: 0},
+    animate: {scale: 1},
+    exit: {scale: 0},
+}
 
 
 const TeamPage = ({allTeammates}: authorsList) => {
     const [filteredTeammates, setFilteredTeammates] = useState(allTeammates);
     const [activeRoleFilter, setActiveRoleFilter] = useState(Role.Everyone);
-    const animation ={
-
-        initial: {scale: 0},
-        animate: {scale: 1},
-        exit: {scale: 0},
-    }
     return(
-        <>
+        <AnimatedLayout>
             <style jsx global>
                 {globalStyles}
             </style>
@@ -49,22 +49,20 @@ const TeamPage = ({allTeammates}: authorsList) => {
                     />
                 </motion.div>
                 <AnimateSharedLayout>
-                    <AnimatePresence>
-                        <div className='teammate-cards-grid'>
-                            {
-                                filteredTeammates.map((teammate: Author, index: number) =>{
-                                    return (
-                                        <motion.div {...animation} key={index} layout>
-                                                <TeammateCard author={teammate} />
-                                            </motion.div>
-                                        )
-                                    })
-                                }
-                        </div>
-                    </AnimatePresence>
+                    <motion.div className='teammate-cards-grid'  variants={slideInUp}>
+                        {
+                            filteredTeammates.map((teammate: Author, index: number) =>{
+                                return (
+                                    <motion.div {...animation} key={index} layout>
+                                        <TeammateCard author={teammate} />
+                                    </motion.div>
+                                )
+                            })
+                        }
+                    </motion.div>
                 </AnimateSharedLayout>
             </div>
-        </>
+        </AnimatedLayout>
     );
 }
 

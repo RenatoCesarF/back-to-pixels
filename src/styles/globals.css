@@ -136,7 +136,7 @@ body.dark{
 
 
 /*=============== SCROLL BAR ===============*/
-/* 
+
 *::-webkit-scrollbar-track {
   background-color: var(--scrollbar-background-color);
 }
@@ -149,19 +149,6 @@ body.dark{
 }
 *::-webkit-scrollbar-thumb:hover {
   background: var(--main-color);
-} */
-
-*::-webkit-scrollbar {
-  width: 0;
-}
-
-*::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-*::-webkit-scrollbar-thumb {
-  background: transparent;
-  border: none;
 }
 
 
@@ -348,7 +335,7 @@ table th {
 
 .header {
   overflow: hidden;
-  z-index: 1;
+  z-index: 10;
   background-color: var(--header-background-color);
   display: flex;
   justify-content: space-between;

@@ -15,20 +15,18 @@ interface PostGridProps{
 
 const PostGrid = ({posts}: PostGridProps) =>{
     return(
-        <LazyMotion features={domAnimation}>
-                <div className='posts-grid'>
-                    <Suspense fallback={loadingPostsList()}> 
-                        {
-                            posts.length ?
-                                posts.map((post: Post, index: number) =>{
-                                    return  <PostCard post={post} key={index}/>
-                                })
-                            :
-                            <p>Nothing here...</p>
-                        }
-                    </Suspense>
-                </div>
-        </LazyMotion> 
+            <div className='posts-grid'>
+                <Suspense fallback={loadingPostsList()}> 
+                    {
+                        posts.length ?
+                            posts.map((post: Post, index: number) =>{
+                                return  <PostCard post={post} key={index}/>
+                            })
+                        :
+                        <p>Nothing here...</p>
+                    }
+                </Suspense>
+            </div>
     )
 }
 

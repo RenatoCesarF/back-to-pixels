@@ -3,7 +3,7 @@ import css from 'styled-jsx/css'
 export default css.global`
 .button-div{
     background-color: var(--button-color);
-   
+    z-index: -1;
     border-radius: 0.3rem;
     display: inline-flex;
     cursor: pointer;

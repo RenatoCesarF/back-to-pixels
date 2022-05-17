@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
 
 
@@ -13,8 +13,7 @@ import Post, { filterPostsByAuthor } from "@classes/Post";
 
 import PostGrid from '@components/PostGrid';
 import AuthorSocialLinks from "@components/AuthorSocialLinks";
-import { Suspense } from "react";
-import LoadingArea from "@components/LoadingArea";
+import AnimatedLayout from "@components/AnimatedLayout";
 
 interface TeammatePageProps{author: Author, authorPosts: Post[]};
 
@@ -29,7 +28,7 @@ const Teammate: React.FC<TeammatePageProps> = ({author, authorPosts}: TeammatePa
     author.roles.map((val) => authorPageKeywords.push(val));
 
     return (
-        <div> 
+        <AnimatedLayout>
             <style jsx global>
                 {globalStyles}
             </style>
@@ -63,16 +62,16 @@ const Teammate: React.FC<TeammatePageProps> = ({author, authorPosts}: TeammatePa
                             <p>{author.about}</p>
                         </div>
                     </motion.article>
-                    <section style={{margin: "1rem 0"}}>
+                    <motion.section style={{margin: "1rem 0"}} variants={slideInUp}>
                         <AuthorSocialLinks author={author}/>
-                    </section>
+                    </motion.section>
 
                 </main>
                 <section className="teammate-page-posts-section">
                     <PostGrid posts={authorPosts}/>
                 </section>
             </div>
-        </div>
+        </AnimatedLayout>
     )
 } 
 

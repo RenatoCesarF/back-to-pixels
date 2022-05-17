@@ -106,6 +106,7 @@ export default css.global`
 
     /*======================== TEAM FILTERS ================*/
     .teammates-filters{
+        z-index: -1;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;

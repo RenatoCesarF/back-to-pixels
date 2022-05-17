@@ -67,7 +67,6 @@ const getParalaxImagesElements = (mousePosition: Position): JSX.Element =>{
                     ) 
                 })
             }
-           
         </>
     )
 }

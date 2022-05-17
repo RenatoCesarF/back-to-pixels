@@ -1,12 +1,11 @@
 import Link from "next/link";
 import NextImage from 'next/image';
 import { useEffect, useState } from "react";
-import { m } from "framer-motion";
+import { motion } from "framer-motion";
 
 import Post from "@classes/Post";
 import ActionIconButton, { ActionButtonIcon } from "@components/ActionIconButton";
 import ListOfCategories from "@components/ListCategories";
-import { opacityChange } from "@helpers/animations";
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import { formateDate } from "@utils/formateDate";
 import copyToClipboard from "@utils/copyToClipBoard";
@@ -30,7 +29,7 @@ const PostInternInformation: React.FC<PostInternInformationProps> = ({post}:Post
     }, []);
     const authorImageSize: string ="69";
     return(
-        <m.div variants={opacityChange}>
+        <div>
             <div className="post-author-info" >
             <div style={{display: "flex", alignItems: "center"}}>
                     {/* IMAGE */}
@@ -72,7 +71,7 @@ const PostInternInformation: React.FC<PostInternInformationProps> = ({post}:Post
             <div className="post-categories-info">
                 <ListOfCategories categories={post.categories}/>    
             </div>
-        </m.div>
+        </div>
     );
 }
 
