@@ -75,25 +75,21 @@ export const slideInLeft = {
 
 export const cardVariants = {
   offscreen: {
-    y: 300
+    y: 400
   },
   onscreen: {
-    y: 0,
+    y: 50,
+    transition: {
       type: "spring",
-      bounce: 0.2,
-      duration: 0.6
-  },
-  exit: {
-    y: 300,
-    opacity: 0,
-
-  },
-  enter: {
-    y: 0,
-    opacity: 1,
+      duration: 0.8
+    }
   },
   hidden:{
-    y: 0,
-    opacity: 1,
+      y: 400,
+      opacity: 0
+  },
+  exit:{
+      y: 400,
+      opacity: 0
   }
 };

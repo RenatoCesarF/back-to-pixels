@@ -1,7 +1,7 @@
-import Category, { getAllCategories, isCategoriesInCategories } from "@classes/category";
+import Category, { getAllCategories } from "@classes/category";
 import Post from "@classes/Post";
-import { elementDragControls } from "framer-motion/types/gestures/drag/VisualElementDragControls";
-import { useEffect, useState } from "react";
+import { opacityChange } from "@helpers/animations";
+import { motion } from "framer-motion";
 import CategoryTag from "./CategoryTag/CategoryTag";
 
 
@@ -17,7 +17,7 @@ interface CategoryCountElement {
 const CategoryCount = ({posts}: CategoryCountProps) =>{
     const categoryList = getCategoriesAndAmount(posts);
     return (
-        <div className="category-count">
+        <motion.div variants={opacityChange} className="category-count">
             {
                 categoryList.map((value: CategoryCountElement, index: number) =>{
                     return(
@@ -27,7 +27,7 @@ const CategoryCount = ({posts}: CategoryCountProps) =>{
                     )
                 })
             }
-        </div>
+        </motion.div>
     );
 }
 

@@ -44,7 +44,7 @@ export default function BlogPage({posts}:PostList){
                   <span className="post-count-text">posts</span>
                 </div>
               </motion.div>
-
+      
               <CategoryCount posts={posts}/>
 
               <PostGrid posts={posts}/>
