@@ -9,7 +9,7 @@ import CategoryTag from '@components/CategoryTag/CategoryTag';
 import Post, { filterPostsByCategory } from '@classes/Post';
 
 import styles from '@styles/tag.styles.js';
-import CustomButton, { ButtonIcon } from '@components/CustomButton/CustomButton';
+import CustomButton from '@components/CustomButton/CustomButton';
 import { useRouter } from 'next/router';
 import PostGrid from '@components/PostGrid';
 import { sortByDate } from '@utils/sort';
@@ -37,7 +37,7 @@ const TagInfo: React.FC<TagInfoProps> = ({category, posts}: TagInfoProps) => {
             />
             <main className='tag-especific-page'>
                 <motion.div variants={slideButtonDown}>
-                        <CustomButton description='Return to Blog page' text='' icon={ButtonIcon.arrowBack} onClick={() => {router.back()}}/>
+                        <CustomButton description='Return to Blog page' text='' icon={"arrowBack"} onClick={() => {router.back()}}/>
                 </motion.div>
 
                 <motion.div variants={slideButtonDown} className="tag-page-description">

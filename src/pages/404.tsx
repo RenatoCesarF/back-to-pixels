@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router'
-import CustomButton, {ButtonIcon} from '@components/CustomButton/CustomButton';
+import CustomButton from '@components/CustomButton/CustomButton';
 import { slideInDown, slideInUp } from '@helpers/animations';
 import lotie404 from '@public/lotties/404-lottie.json';
 import Lottie from 'react-lottie'
@@ -42,7 +42,7 @@ export default function Custom404() {
                     </motion.div>
 
                     <motion.div variants={slideInUp}>
-                        <CustomButton description="Return to last Page" onClick={() => {router.back()}} text="Back" icon={ButtonIcon.arrowBack} />
+                        <CustomButton description="Return to last Page" onClick={() => {router.back()}} text="Back" icon={"arrowBack"} />
                     </motion.div>
                 </div>
             </div>

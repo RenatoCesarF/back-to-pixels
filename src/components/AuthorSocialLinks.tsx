@@ -1,7 +1,7 @@
 import Author from "@classes/Author";
 import copyToClipboard from "@utils/copyToClipBoard";
 import { redirectToInstagram, redirectToTwitter } from "@utils/redirect";
-import CustomButton, { ButtonIcon } from "./CustomButton/CustomButton";
+import CustomButton from "./CustomButton/CustomButton";
 
 const instagramGradient: string = 'linear-gradient(193deg, rgba(131,58,180,1) 13%, rgba(253,29,29,1) 64%, rgba(252,176,69,1) 88%)';
 const twitterColor: string = '#008CFF';
@@ -18,19 +18,19 @@ const AuthorSocialLinks = ({author}: AuthorSocialLinksProps) => {
                 <CustomButton 
                     description={`Redirect to ${author.name} Twitter`}
                     color={twitterColor}
-                    icon={ButtonIcon.twitter} 
+                    icon={"twitter"} 
                     onClick={() => redirectToTwitter(author.twitter) } text={"Twitter"}/>
                 : null
             }
             <CustomButton 
                 description={`Redirect to ${author.name} Instagram`}
                 color={instagramGradient}
-                icon={ButtonIcon.instagram} 
+                icon={"instagram"} 
                 onClick={() => redirectToInstagram(author.instagram)} text={"Instagram"}/>
             <CustomButton 
                 description={`Copy ${author.name} e-mail`}
                 color="var(--main-color)" 
-                icon={ButtonIcon.email} 
+                icon={"email"} 
                 onClick={() => copyToClipboard(author.email) } text={author.email}/>
 
         </div>

@@ -11,7 +11,7 @@ import { slideButtonDown, slideInUp } from '@helpers/animations';
 
 
 import LoadingArea, { RandomLoadingAreas } from '@components/LoadingArea';
-import CustomButton, { ButtonIcon } from '@components/CustomButton/CustomButton';
+import CustomButton from '@components/CustomButton/CustomButton';
 import windowScrollTo from '@utils/windowScrollTo';
 import PostGrid from '@components/PostGrid';
 import LazyImage from '@components/LazyImage';
@@ -55,7 +55,7 @@ const PostPage: React.FC<SlugPageProps> = ({ post, postsRecomendations }: SlugPa
             />
 
             <motion.div variants={slideButtonDown} style={{ margin: ".5rem 0" }}>
-                <CustomButton description='Return to Blog page' text='' icon={ButtonIcon.arrowBack} onClick={() => { router.back() }} />
+                <CustomButton description='Return to Blog page' text='' icon={"arrowBack"} onClick={() => { router.back() }} />
             </motion.div>
 
             <main role="main" className='post-section'>
@@ -105,8 +105,8 @@ const PostPage: React.FC<SlugPageProps> = ({ post, postsRecomendations }: SlugPa
                             </Suspense>
                         </div>
                         <div style={{ marginTop: "2rem"}}>
-                            <CustomButton description='Return to Blog page' text='Back' icon={ButtonIcon.arrowBack} onClick={() => router.back() } />
-                            <CustomButton description='Scroll To Top' text='Scroll To Top' icon={ButtonIcon.arrowTop} onClick={() => windowScrollTo() } />
+                            <CustomButton description='Return to Blog page' text='Back' icon={"arrowBack"} onClick={() => router.back() } />
+                            <CustomButton description='Scroll To Top' text='Scroll To Top' icon={"arrowTop"} onClick={() => windowScrollTo() } />
                         </div>
                     </section>
                 </motion.article>

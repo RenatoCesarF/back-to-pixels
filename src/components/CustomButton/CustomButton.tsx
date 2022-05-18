@@ -7,13 +7,14 @@ import { motion } from "framer-motion";
 import globalStyles from './CustomButton.styles'
 
 const buttonIconClass = "button-icon";
-export enum ButtonIcon{ // change this enum to a type with specific values
-    arrowBack = 1,
-    email = 2,
-    instagram = 3,
-    twitter = 4,
-    arrowTop = 5,
-}
+// export enum ButtonIcon{ // change this enum to a type with specific values
+//     arrowBack = 1,
+//     email = 2,
+//     instagram = 3,
+//     twitter = 4,
+//     arrowTop = 5,
+// }
+type ButtonIcon = "arrowBack" | "email" | "instagram" | "twitter" | "arrowTop"
 interface ButtomProps{
     onClick: Function;
     icon: ButtonIcon;
@@ -46,15 +47,15 @@ const CustomButton: React.FC<ButtomProps> = ({description ,onClick, color, icon,
 
 const geticon = (iconName: ButtonIcon) =>{
     switch (iconName) {
-        case 1:
+        case "arrowBack":
             return(<BiLeftArrowAlt className={buttonIconClass}/>);
-        case 2:
+        case "email":
             return(<MdEmail className={buttonIconClass}/>);
-        case 3:
+        case "instagram":
             return(<FiInstagram className={buttonIconClass}/>);
-        case 4:
+        case "twitter":
             return(<FiTwitter className={buttonIconClass}/>);
-        case 5:
+        case "arrowTop":
             return(<BiUpArrowAlt className={buttonIconClass}/>);
         default:
             return(<div></div>);

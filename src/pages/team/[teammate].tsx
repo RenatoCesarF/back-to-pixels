@@ -2,7 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
 
 
-import CustomButton, { ButtonIcon } from "@components/CustomButton/CustomButton";
+import CustomButton from "@components/CustomButton/CustomButton";
 import RoleTag from "@components/RoleTag";
 import HeadTag from "@components/HeadTag";
 import Author, { getAuthor, getAuthorsList, Role, getRoleFromString } from "@classes/Author";
@@ -43,7 +43,7 @@ const Teammate: React.FC<TeammatePageProps> = ({author, authorPosts}: TeammatePa
             <div className="page">
                 <main className="teammate-page">
                     <motion.div variants={slideButtonDown} style={{margin: ".5rem 0"}}>
-                        <CustomButton description='Return to Blog page' text='' icon={ButtonIcon.arrowBack} onClick={() => {router.back()}}/>
+                        <CustomButton description='Return to Blog page' text='' icon={"arrowBack"} onClick={() => {router.back()}}/>
                     </motion.div>
                     <motion.article itemProp="author" itemScope  itemType='https://schema.org/author' variants={slideInUp} className="teammate-page-author-info-row" > 
                         <div style={{ alignItems: "center", display: 'flex',flexDirection: 'column'}}>
