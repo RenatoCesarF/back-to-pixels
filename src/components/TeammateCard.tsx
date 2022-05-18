@@ -1,7 +1,8 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Author, { getRoleFromString, Role, getRoleBackgroundColor } from "@classes/Author";
+import Author from "@classes/Author";
 import { slideInUp } from "@helpers/animations";
+import { getRoleBackgroundColor, getRoleFromString, Role } from "@classes/Role";
 
 interface teammateProps {
     author: Author

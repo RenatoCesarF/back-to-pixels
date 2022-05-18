@@ -1,4 +1,5 @@
-import Author, {Role, getRoleFromString} from "@classes/Author";
+import Author from "@classes/Author";
+import { Role, getRoleFromString } from "@classes/Role";
 import { useEffect } from "react";
 
 interface FilterTeammatesProps {

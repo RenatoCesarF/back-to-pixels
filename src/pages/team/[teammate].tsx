@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import CustomButton from "@components/CustomButton/CustomButton";
 import RoleTag from "@components/RoleTag";
 import HeadTag from "@components/HeadTag";
-import Author, { getAuthor, getAuthorsList, Role, getRoleFromString } from "@classes/Author";
+import Author, { getAuthor, getAuthorsList } from "@classes/Author";
 import { slideButtonDown, slideInUp } from "@helpers/animations";
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import globalStyles from '@styles/teammate.styles';
@@ -14,6 +14,7 @@ import Post, { filterPostsByAuthor } from "@classes/Post";
 import PostGrid from '@components/PostGrid';
 import AuthorSocialLinks from "@components/AuthorSocialLinks";
 import AnimatedLayout from "@components/AnimatedLayout";
+import { getRoleFromString, Role } from "@classes/Role";
 
 interface TeammatePageProps{author: Author, authorPosts: Post[]};
 

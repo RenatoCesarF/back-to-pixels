@@ -25,10 +25,10 @@ export enum CategoryType {
   RINGS = 8,
 }
 
-export const getPostCategories = (categories: Category[]): Category[] => {
+export const getPostCategories = (categories: string[]): Category[] => {
     var categoryList: Category[] = [];
 
-    categories.forEach((category: Category) => {
+    categories.forEach((category: string) => {
       if(category === undefined || category === null){
         throw new Error(`Category is null, undefined or invalid {${category}}`);
       }
