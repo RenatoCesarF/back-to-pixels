@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 import globalStyles from './CustomButton.styles'
 
 const buttonIconClass = "button-icon";
-export enum ButtonIcon{
+export enum ButtonIcon{ // change this enum to a type with specific values
     arrowBack = 1,
     email = 2,
     instagram = 3,
@@ -22,23 +22,23 @@ interface ButtomProps{
     color?: string;
 };
 
-const CustomButton: React.FC<ButtomProps> = (props: ButtomProps)=>{
+const CustomButton: React.FC<ButtomProps> = ({description ,onClick, color, icon, text}: ButtomProps)=>{
     return(
         <>
             <style jsx global>
                 {globalStyles}
             </style>
             <motion.button 
-                aria-label={props.description}
-                name={props.description}
+                aria-label={description}
+                name={description}
                 className="button-div" 
-                onClick={() => {props.onClick()}}
+                onClick={() => {onClick()}}
                 whileHover={{scale: 1.05}}
                 whileTap={{scale: 1}}
-                style={{background: props.color}}
+                style={{background: color}}
             >
-                {geticon(props.icon)}
-                <span className="button-text" style={{paddingLeft: props.text ? ".3rem" : ""}}>{props.text}</span>
+                {geticon(icon)}
+                <span className="button-text" style={{paddingLeft: text ? ".3rem" : ""}}>{text}</span>
             </motion.button>
         </>
     )

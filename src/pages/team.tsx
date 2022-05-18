@@ -48,19 +48,15 @@ const TeamPage = ({allTeammates}: authorsList) => {
                         setActiveRoleFilter={setActiveRoleFilter}
                     />
                 </motion.div>
-                <AnimateSharedLayout>
-                    <motion.div className='teammate-cards-grid'  variants={slideInUp}>
+                <motion.div className='teammate-cards-grid'  variants={slideInUp}>
+                    <AnimateSharedLayout>
                         {
                             filteredTeammates.map((teammate: Author, index: number) =>{
-                                return (
-                                    <motion.div {...animation} key={index} layout>
-                                        <TeammateCard author={teammate} />
-                                    </motion.div>
-                                )
+                                return  <TeammateCard author={teammate} key={index}/>
                             })
                         }
-                    </motion.div>
-                </AnimateSharedLayout>
+                    </AnimateSharedLayout>
+                </motion.div>
             </div>
         </AnimatedLayout>
     );
