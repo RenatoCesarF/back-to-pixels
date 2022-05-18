@@ -21,7 +21,7 @@ const BackToTopButton = () =>{
         return () => {
             window.removeEventListener("scroll", listenToScroll); 
         }
-    }, []);
+    }, [listenToScroll]);
 
     if(!isVisible) return <></>;
 

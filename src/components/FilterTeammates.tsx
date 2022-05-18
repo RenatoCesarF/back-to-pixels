@@ -18,7 +18,7 @@ const FilterTeammates = ({allTeammates, setFilteredTeammates, activeRoleFilter, 
 
         const newList = allTeammates.filter((author: Author) => author.roles.includes(activeRoleFilter))
         setFilteredTeammates(newList)
-    }, [activeRoleFilter, ]);
+    }, [activeRoleFilter, setFilteredTeammates, allTeammates]);
 
     return (
         <>  

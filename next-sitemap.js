@@ -1,4 +1,4 @@
-const url = require('@helpers/webSiteInfo.ts')
+const url = require('@helpers/webSiteInfo')
 
 module.exports = {
     siteUrl: url.defaultURL,
