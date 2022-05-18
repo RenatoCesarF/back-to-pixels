@@ -42,30 +42,31 @@ export const createPost = (filename: string): Post => {
   return post;
 }
 
-export const getCoverImage = (slug: string, image_name:any) =>{
-  var coverImage;
-  
-  if(typeof(image_name) === "number" || !isImageCoverValid(slug, image_name)){
-    var defaultImageIndex = image_name || Math.floor(Math.random() * 4) + 1;
-    coverImage = `/images/posts/default-images/${defaultImageIndex}.webp`;
-    return coverImage;
+export const getCoverImage = (slug: string, cover_image:string | number) =>{
+  if(typeof(cover_image) === "number" || !isCoverImageValid(slug, cover_image)){
+    return getRandomDefaultImage()
   }
-  coverImage = `/images/posts/${slug}/${image_name}.webp`;   
-  return coverImage; 
+  return `/images/posts/${slug}/${cover_image}.webp`;   
+}
+const getRandomDefaultImage = (imageNumber?: number) =>{
+  var defaultImageIndex = imageNumber || Math.floor(Math.random() * 4) + 1;
+  return `/images/posts/default-images/${defaultImageIndex}.webp`;
 }
 
-const isImageCoverValid = (slug: string, image_name: any) => {
-  const isImageTextValid: boolean = (typeof(image_name) === "string" && !image_name.toString().startsWith('https'))
-  if(image_name === null || !isImageTextValid ){
-    throw new Error(`cover_image from ${slug} is undefined/null os isn't valid`);
-    
+const isCoverImageValid = (slug: string, cover_image: string | number) => {
+  const startsWithHTTPS = cover_image.toString().startsWith('https')
+
+  // if does not start with https and is a string, it is valid
+  const isImagePathValid: boolean = typeof(cover_image) === "string" && !startsWithHTTPS
+  if(cover_image === null || !isImagePathValid ){
+    throw new Error(`cover_image from ${slug} is undefined/null os isn't valid`); 
   }
 
   var imageExistInFolder = false;    
   const images: string[] = readdirSync(join(`public/images/posts/${slug}`));
 
   for(let image of images) {
-    if(image.replace('.webp', '') === image_name){
+    if(image.replace('.webp', '') === cover_image){
       imageExistInFolder = true;
       break;
     }

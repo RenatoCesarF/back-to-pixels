@@ -25,8 +25,9 @@ export enum CategoryType {
   RINGS = 8,
 }
 
-export const getPostCategories = (categories: any[]): Category[] => {
+export const getPostCategories = (categories: Category[]): Category[] => {
     var categoryList: Category[] = [];
+
     categories.forEach((category: Category) => {
       if(category === undefined || category === null){
         throw new Error(`Category is null, undefined or invalid {${category}}`);
@@ -49,7 +50,7 @@ export const getAllCategories = (): Category[] =>{
 }
 
 export const getCategoryByKey = (categoryName: string): Category =>{
-  var tagInfo: Category = categoriesInfo[categoryName];
+  var tagInfo: Category = categoriesInfo[categoryName.toLowerCase().trim()];
 
   if(tagInfo === undefined || tagInfo === null){
     throw new Error(`CategoryName not find or undefined (${categoryName})`);

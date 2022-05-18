@@ -21,6 +21,7 @@ type Author ={
 export const getAuthor = (authorKey: string): Author => {
     authorKey = authorKey.toString().toLowerCase();
     var authorInfo: Author  = authorsInfo[authorKey];
+
     if(!authorInfo || authorInfo === undefined || authorInfo === null){
         throw new Error(`Author [${authorKey}] is null, undefined or invalid`);
     }
@@ -35,19 +36,13 @@ export const getRoleFromString = (role: string): Role =>{
         case 'Artist':
             return Role.Artist;                
         case 'Designer':
-            return Role.Designer
+            return Role.Designer;
         case 'Everyone':
             return Role.Everyone;                
         
         default:
             throw new Error(`Undefined or invalid role ${role}`);
-            
     }
-}
-
-export const getAuthorsList = () =>{
-    const authorsList = Object.entries(authorsInfo);
-    return authorsList;
 }
 
 export const getAuthorsKeyList = () => {
@@ -61,6 +56,12 @@ export const getAuthorsKeyList = () => {
     return authorsKeys;
 }
 
+export const getAuthorsList = () =>{
+    const authorsList = Object.entries(authorsInfo);
+    return authorsList;
+}
+
+
 export const getRoleBackgroundColor = (role: Role): string =>{
     switch (role) {
         case Role.Developer:
@@ -69,7 +70,6 @@ export const getRoleBackgroundColor = (role: Role): string =>{
             return "#582F60";//"var(--secondary-color)";
         case Role.Artist:
             return "var(--tertiary-color)";
-    
         default:
             return  "var(--main-color)";
         //possible colors
@@ -79,7 +79,5 @@ export const getRoleBackgroundColor = (role: Role): string =>{
         //#7ea0c6
     }
 }
-;
-
 
 export default Author;

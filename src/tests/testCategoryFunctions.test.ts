@@ -1,4 +1,4 @@
-import Category, { CategoryType, getCategoryByKey } from "@classes/category";
+import Category, { getCategoryByKey } from "@classes/category";
 import { isCategoriesInCategories } from "@classes/category";
 
 const categoryTest1 = getCategoryByKey('rings')

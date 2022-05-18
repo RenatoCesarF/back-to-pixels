@@ -35,22 +35,24 @@ const TagInfo: React.FC<TagInfoProps> = ({category, posts}: TagInfoProps) => {
                 url={`${WEBSITE_INFO.URL}/blog/tag/${category.key}`}
                 author={getAuthor('renato')}
             />
-            <main className='tag-especific-page'>
-                <motion.div variants={slideButtonDown}>
-                    <CustomButton description='Return to Blog page' text='' icon={"arrowBack"} onClick={() => {router.back()}}/>
-                </motion.div>
+            <div className="page">
+                <main className='tag-especific-page'>
+                    <motion.div variants={slideButtonDown}>
+                        <CustomButton description='Return to Blog page' text='' icon={"arrowBack"} onClick={() => {router.back()}}/>
+                    </motion.div>
 
-                <motion.div variants={slideButtonDown} className="tag-page-description">
-                    <h1>{posts.length}</h1>
-                    <h2>Posts in the category <CategoryTag isBig category={category}/></h2>
-                </motion.div>
-                
-                <motion.p variants={opacityChange}>{category.about}</motion.p>
+                    <motion.div variants={slideButtonDown} className="tag-page-description">
+                        <h1>{posts.length}</h1>
+                        <h2>Posts in the category <CategoryTag isBig category={category}/></h2>
+                    </motion.div>
+                    
+                    <motion.p variants={opacityChange}>{category.about}</motion.p>
 
-            </main>
-            <section className='tag-page-posts-section'>
-                <PostGrid posts={posts}/>
-            </section>
+                </main>
+                <section className='tag-page-posts-section'>
+                    <PostGrid posts={posts}/>
+                </section>
+            </div>
         </AnimatedLayout>
     )
 

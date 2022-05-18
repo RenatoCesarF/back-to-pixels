@@ -16,13 +16,6 @@ interface authorsList{
     allTeammates: Author[]
 }
 
-const animation ={
-    initial: {scale: 0},
-    animate: {scale: 1},
-    exit: {scale: 0},
-}
-
-
 const TeamPage = ({allTeammates}: authorsList) => {
     const [filteredTeammates, setFilteredTeammates] = useState(allTeammates);
     const [activeRoleFilter, setActiveRoleFilter] = useState(Role.Everyone);

@@ -18,7 +18,6 @@ const defaultOptions = {
 
 export default function Custom404() {
     const router = useRouter()
-
     
     return (
         <AnimatedLayout>
@@ -47,7 +46,6 @@ export default function Custom404() {
                 </div>
             </div>
         </AnimatedLayout>
-
     )
 }
 

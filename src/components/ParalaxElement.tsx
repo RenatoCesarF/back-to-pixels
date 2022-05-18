@@ -39,7 +39,6 @@ const getParalaxImagesElements = (mousePosition: Position): JSX.Element =>{
         {source: '/images/paralax/arrows.png', layerLevel: 2},
         {source: '/images/paralax/logo_shadow.png', layerLevel:7,  customClass: "logo-paralax"},
         {source: '/images/paralax/logo.png', layerLevel: 5, customClass: "logo-paralax"},
-
     ]
     return (
         <>

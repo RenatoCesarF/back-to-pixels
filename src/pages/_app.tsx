@@ -19,7 +19,6 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
       <Toaster position='bottom-center' toastOptions={toastOptions}/>
       <Footer/>
     </>
-
   ) 
 }
 

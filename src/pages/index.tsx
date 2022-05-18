@@ -18,17 +18,18 @@ const Home = () => {
           keywords={['home page', 'home']} 
           date={new Date()} 
           url=""
-          />
-          <div style={{overflowX: "hidden"}}>
-            {/* <Carousel/> */}
+        />
+        <div style={{overflowX: "hidden"}}>
+          <ParalaxElement/>                         
+          {/* <Carousel/> */}
 
-            <ParalaxElement/>                         
-          </div>
+          {/* Projects */}
+          {/* Last Posts carousel */}
+          {/* authors carrousel */}
+        </div>
 
-          
-          <div style={{height: "140vh"}}>
-          </div>
-
+        <div style={{height: "140vh"}}>
+        </div>
       </>
       
   )
