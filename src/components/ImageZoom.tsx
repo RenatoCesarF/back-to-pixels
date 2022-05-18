@@ -1,17 +1,13 @@
-
-
 import Zoom from 'react-medium-image-zoom'
 import 'react-medium-image-zoom/dist/styles.css';
 
 import LazyImage from '@components/LazyImage'
-
 
 interface ImageZoomProps{
     src: string
     alt: string
     className?: string
 }
-
 
 const ImageZoom: React.FC<ImageZoomProps> = (props: ImageZoomProps)=>{
     return (

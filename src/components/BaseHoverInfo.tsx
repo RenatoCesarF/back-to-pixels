@@ -19,7 +19,6 @@ const BaseHoverInfo = (props: BaseHoverInfoProps) =>{
 
     return (
         <div className="tooltip-expand">
-    
             <span
                 ref={el => {
                     if(!el) return;

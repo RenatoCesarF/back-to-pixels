@@ -1,5 +1,4 @@
 import Author, { getAuthor, Role, getRoleFromString } from "@classes/Author"
-import RoleTag from "./RoleTag"
 
 interface AuthorRowInfoProps{
     authorName: string
@@ -25,8 +24,6 @@ const AuthorRowInfo: React.FC<AuthorRowInfoProps> = (props: AuthorRowInfoProps) 
                     })
                 }
             </div>
-    
-
         </div>
     )
 }

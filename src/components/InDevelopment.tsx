@@ -12,7 +12,7 @@ export default function InDevelopment(){
         rendererSettings: {
           preserveAspectRatio: "xMidYMid slice"
         }
-      };
+    };
     return(
         <motion.div  className="under-dev"variants={slideInUp}>
             <Lottie options={defaultOptions}/>

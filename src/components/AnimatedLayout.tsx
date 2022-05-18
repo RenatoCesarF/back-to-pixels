@@ -20,9 +20,7 @@ const AnimatedLayout  = ({children}: AnimatedLayoutProps): JSX.Element =>{
                 transition={{duration: 0.7,type: 'easeInOut'}}
                 style={{position:"relative"}}
             >
-                <>
-                    {children}
-                </>
+                {children}
             </motion.div>
     )
 }

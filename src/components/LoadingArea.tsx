@@ -10,6 +10,7 @@ interface LoadingAreaProps{
 interface RandomLoadingAreaProps{
     amount:number
 }
+
 const LoadingArea = ({height = "100%", width = "100%", borderRadius = "0", margin = "0.5rem"}: LoadingAreaProps)=>{
     const extraStyle = {
         height: `${height}`, 

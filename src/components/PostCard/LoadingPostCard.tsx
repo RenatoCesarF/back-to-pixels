@@ -1,12 +1,7 @@
 
 
-const LoadingPostCard = () =>{
-    return(
-        <div className="loading-area loading-card">
-            
-
-        </div>
-    )
+const LoadingPostCard: React.FC = () =>{
+    return <div className="loading-area loading-card"/>
 }
 
 export default LoadingPostCard

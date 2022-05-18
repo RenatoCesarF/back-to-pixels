@@ -37,7 +37,7 @@ const TagInfo: React.FC<TagInfoProps> = ({category, posts}: TagInfoProps) => {
             />
             <main className='tag-especific-page'>
                 <motion.div variants={slideButtonDown}>
-                        <CustomButton description='Return to Blog page' text='' icon={"arrowBack"} onClick={() => {router.back()}}/>
+                    <CustomButton description='Return to Blog page' text='' icon={"arrowBack"} onClick={() => {router.back()}}/>
                 </motion.div>
 
                 <motion.div variants={slideButtonDown} className="tag-page-description">

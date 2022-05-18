@@ -1,10 +1,11 @@
 import {FiInstagram,FiTwitter,FiCopy, FiShare} from 'react-icons/fi'
-export enum ActionButtonIcon {
-    Instagram = 0,
-    Twitter = 1,
-    Copy = 2,
-    Share = 3
-}
+// export enum ActionButtonIcon {
+//     Instagram = 0,
+//     Twitter = 1,
+//     Copy = 2,
+//     Share = 3
+// }
+type ActionButtonIcon = "instagram" | "twitter" | "copy" | "share"
 
 interface ActionIconButtonProps{
     icon: ActionButtonIcon,
@@ -28,13 +29,13 @@ const ActionIconButton: React.FC<ActionIconButtonProps> = (props:ActionIconButto
 
 const getActionIcon = (iconEnum: ActionButtonIcon) =>{
     switch (iconEnum) {
-        case 0:
+        case "instagram" :
             return <FiInstagram size={iconSize} color={iconColor}/>;
-        case 1:
+        case "twitter":
             return <div style={{marginLeft: "1px", marginTop: "5px"}}> <FiTwitter size={iconSize} color={iconColor}/> </div>;
-        case 2:
+        case "copy":
             return <FiCopy size={iconSize} color={iconColor}/>;
-        case 3:
+        case "share":
             return <FiShare size={iconSize} color={iconColor}/>;
     }
 }

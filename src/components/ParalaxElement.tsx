@@ -27,21 +27,12 @@ const ParalaxElement = () =>{
     );
     return (
         <div className="paralax-container">
-            { getParalaxElements(mousePosition) }
+            { getParalaxImagesElements(mousePosition) }
             <div className="radiend-shadow"/>
         </div>
     )
 }
 
-const getParalaxElements = (mousePosition: Position): JSX.Element =>{
-    return(
-        <>
-            {
-                getParalaxImagesElements(mousePosition)
-            }
-        </>
-    )
-}
 
 const getParalaxImagesElements = (mousePosition: Position): JSX.Element =>{
     const images: ParalaxImage[] = [

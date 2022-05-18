@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 import Post from "@classes/Post";
-import ActionIconButton, { ActionButtonIcon } from "@components/ActionIconButton";
+import ActionIconButton from "@components/ActionIconButton";
 import ListOfCategories from "@components/ListCategories";
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import { formateDate } from "@utils/formateDate";
@@ -59,13 +59,13 @@ const PostInternInformation: React.FC<PostInternInformationProps> = ({post}:Post
                     </div>
                 </div>
                 <div className="post-info-buttons">
-                    <ActionIconButton icon={ActionButtonIcon.Instagram} onClick={() => redirectToInstagram(post.author.instagram)}/>
-                    {hasntTwitter ? <ActionIconButton icon={ActionButtonIcon.Twitter} onClick={() => redirectToTwitter(post.author.twitter)}/> : null} 
+                    <ActionIconButton icon={"instagram"} onClick={() => redirectToInstagram(post.author.instagram)}/>
+                    {hasntTwitter ? <ActionIconButton icon={"twitter"} onClick={() => redirectToTwitter(post.author.twitter)}/> : null} 
                     {isShareApiAvailable ? 
-                        <ActionIconButton icon={ActionButtonIcon.Share} onClick={openShareWindow}/> 
+                        <ActionIconButton icon={"share"} onClick={openShareWindow}/> 
                         : null
                     }
-                    <ActionIconButton icon={ActionButtonIcon.Copy} onClick={copyPostLink}/>
+                    <ActionIconButton icon={"copy"} onClick={copyPostLink}/>
                 </div>
             </div>
             <div className="post-categories-info">
