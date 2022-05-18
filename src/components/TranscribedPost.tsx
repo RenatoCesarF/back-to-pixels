@@ -1,7 +1,5 @@
 
 import ReactMarkdown from 'react-markdown';
-import Link from 'next/link';
-import dynamic from 'next/dynamic';
 import React from 'react';
 
 import remarkGfm from 'remark-gfm';
@@ -10,6 +8,7 @@ import remarkSlug from 'remark-slug';
 
 import Post from '@classes/Post';
 
+import transcribedLinkElement from '@components/transcribeLinkElement';
 import ImageZoom from '@components/ImageZoom';
 import CodeBlock from '@components/CodeBlock';
 
@@ -30,18 +29,7 @@ const TranscribedPost = ({post}: TranscribedPostProps) =>{
                             />
                 },
                 a({node, className, children, ...props}): JSX.Element{
-                    const linkElement = <a target="_blank" rel="noopener noreferrer" href={props.href} >{children}</a>
-                    const isInternLink = props.href?.startsWith('#') || props.href?.startsWith('/');
-
-                    if(!children[0] || !isInternLink){
-                        return linkElement;
-                    }
-                
-                    return(
-                        <Link href={props.href || "/blog"} passHref scroll> 
-                            <a style={{"border": "none"}}>{children}</a>
-                        </Link>
-                    );
+                   return transcribedLinkElement({node, className, children, ...props})
                 },
                 code({node, inline, className, children, ...props}): JSX.Element {
     

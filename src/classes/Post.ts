@@ -4,6 +4,7 @@ import {join} from 'path';
 import Author, { getAuthor } from '@classes/Author'
 import Category, { getPostCategories, isCategoriesInCategories } from '@classes/category'
 import { sortByCategoryAmount, sortByDate } from '@utils/sort';
+import { descontructMdData } from '@utils/descontructMdData';
 
 const postsFolderPath: string = 'src/posts';
 
@@ -22,8 +23,8 @@ type Post = {
 
 export const createPost = (filename: string): Post => {
   const slug: string = filename.replace('.md', '');
-  const markdownWithMeta = getSinglePostData(filename);
-  const {data, content} = matter(markdownWithMeta);
+  const markdown = getSinglePostData(filename);
+  const {data, content} = descontructMdData(markdown)
   const postAuthor: Author = getAuthor(data.author);
   const categories: Category[] = getPostCategories(data.categories);
   const coverImage = getCoverImage(slug,data.cover_image);

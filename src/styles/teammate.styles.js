@@ -43,7 +43,7 @@ export default css.global`
     background-color: var(--constrated-brackground-color);
     height: max-content;
     min-height: max-content;
-    padding: 3rem 0 3rem 0;
+    padding: 3rem 0 5rem 0;
 }
 
 `

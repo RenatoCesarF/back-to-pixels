@@ -1,5 +1,6 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRouter } from "next/router";
+import ReactMarkdown from "react-markdown";
 
 
 import CustomButton from "@components/CustomButton/CustomButton";
@@ -15,6 +16,8 @@ import PostGrid from '@components/PostGrid';
 import AuthorSocialLinks from "@components/AuthorSocialLinks";
 import AnimatedLayout from "@components/AnimatedLayout";
 import { getRoleFromString, Role } from "@classes/Role";
+import transcribedLinkElement from '@components/transcribeLinkElement'
+
 
 interface TeammatePageProps{author: Author, authorPosts: Post[]};
 
@@ -60,7 +63,14 @@ const Teammate: React.FC<TeammatePageProps> = ({author, authorPosts}: TeammatePa
                                     })
                                 }
                             </div>
-                            <p>{author.about}</p>
+                            <ReactMarkdown
+                                components={{
+                                    a({node, className, children, ...props}): JSX.Element{
+                                        return transcribedLinkElement({node, className, children, ...props})
+                                     },
+                                }}>
+                                {author.about}
+                            </ReactMarkdown>
                         </div>
                     </motion.article>
                     <motion.section style={{margin: "1rem 0"}} variants={slideInUp}>
@@ -91,6 +101,7 @@ export async function getStaticPaths(){
 export async function getStaticProps({params}: StaticResponse ){
     const author: Author = getAuthor(params.teammate);
     const authorPosts: Post[] = filterPostsByAuthor(author);
+    // const HTMLAuthorDescription = descontructMdData(author.about)
     return {
         props:{ author, authorPosts } 
     };

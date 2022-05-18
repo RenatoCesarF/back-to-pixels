@@ -1,5 +1,4 @@
-const authorsInfo = require('@helpers/authorsInfo.json');
-
+import authorsData from '@helpers/authorsData'
 
 type Author ={
     key: string,
@@ -14,13 +13,18 @@ type Author ={
 
 export const getAuthor = (authorKey: string): Author => {
     authorKey = authorKey.toString().toLowerCase();
-    var authorInfo: Author  = authorsInfo[authorKey];
+    const authorInfo: Author = Object
+                                .values(authorsData)
+                                .filter((element: Author) => 
+                                element.key === authorKey)[0]
+   
 
     if(!authorInfo || authorInfo === undefined || authorInfo === null){
         throw new Error(`Author [${authorKey}] is null, undefined or invalid`);
     }
   
     return authorInfo;
+
 }
 
 export const getAuthorsKeyList = () => {
@@ -35,7 +39,7 @@ export const getAuthorsKeyList = () => {
 }
 
 export const getAuthorsList = () =>{
-    const authorsList = Object.entries(authorsInfo);
+    const authorsList = Object.entries(authorsData);
     return authorsList;
 }
 

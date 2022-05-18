@@ -36,21 +36,6 @@ export default css.global`
     font-weight: 600;
     font-style: italic;
   }
-
-  .post-content a{
-    font-size: 1.0em;
-    border-bottom: 1px dashed var(--link-color);
-    text-decoration: none;
-    font-weight: bold;
-    color: var(--link-color);
-    padding-left: 3px;
-    padding-right: 3px;
-    transition: color .4s ease-in-out, box-shadow .4s ease-in-out;
-    box-shadow: inset 0 0 0 0 var(--link-color);
-  }
-  .post-section a:hover{
-    color: var(--link-hover-color);
-  }
   .post-content h1{
     font-size: 1.6em;
     margin-top: 2rem;
@@ -164,7 +149,7 @@ export default css.global`
   }
   
  
-  @media only screen and (min-width:600px) and (max-width:990px){
+  @media only screen and (min-width:600px) and (max-width:1000px){
     .post-container{
       margin-left: 14vw;
       margin-right: 20vw; 

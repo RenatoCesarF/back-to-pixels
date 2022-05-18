@@ -4,13 +4,14 @@ import { useState } from 'react';
 
 import { slideInDown, slideInUp } from '@helpers/animations';
 import globalStyles from '@styles/team.styles';
-import Author, { getAuthor, getAuthorsList, Role } from '@classes/Author';
+import Author, { getAuthor, getAuthorsList } from '@classes/Author';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import HeadTag from '@components/HeadTag';
 
 const FilterTeammates = dynamic(() => import('@components/FilterTeammates'));
 import TeammateCard from '@components/TeammateCard';
 import AnimatedLayout from '@components/AnimatedLayout';
+import { Role } from '@classes/Role';
 
 interface authorsList{
     allTeammates: Author[]

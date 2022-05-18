@@ -1,4 +1,4 @@
-import { getRoleBackgroundColor, Role } from "@classes/Author";
+import { getRoleBackgroundColor, Role } from "@classes/Role";
 
 
 interface RoleTagProps{
