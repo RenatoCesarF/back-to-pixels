@@ -554,24 +554,24 @@ button.toggled span:nth-child(3) {
   width: clamp(100vw, 100%, 120vw);
   height: clamp(66vh, 80vh, 100vh);
 
-
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
 
   background-color: var(--main-color);
+
+  z-index: -50;
 }
 
 .radiend-shadow{
-  background: transparent;
-  background: radial-gradient(circle,transparent 60%, #00000086 100%);
+  background: rgb(45,45,45);
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 44%);
   position: absolute;
 
   width: 100%;
   height: 100%;
   min-width: 100vw;
-  min-height: 100vw;
   top: 0;
   left: 0;
 
@@ -638,3 +638,47 @@ button.toggled span:nth-child(3) {
 }
 
 @media screen and (max-width: 640px) {.loading-card{width: 90vw;}}
+
+.shadow-test{
+  height: 15rem;
+  background: rgb(45,45,45);
+  background: linear-gradient(180deg, transparent 0%, #1F1F1F 44%, #1F1F1F 59%, transparent 95%);
+  margin-top: -13%;
+  z-index: 40;
+}
+
+.waves{
+  /* position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0; */
+}
+
+.wave-1{
+  animation: moveWave1 3s cubic-bezier(.165,.84,.44,1) infinite alternate
+}
+
+@keyframes moveWave1 {
+  from {
+    transform: translateY(-100px);
+  }
+}
+
+.wave-2{
+  animation: moveWave2 3s 1.2s cubic-bezier(.165,.84,.44,1) infinite alternate
+}
+
+@keyframes moveWave2 {
+  from {
+    transform: translateY(-80px);
+  }
+}
+.wave-3{
+  animation: moveWave3 3s 0.7s cubic-bezier(.165,.84,.44,1) infinite alternate
+}
+
+@keyframes moveWave3 {
+  from {
+    transform: translateY(-60px);
+  }
+}

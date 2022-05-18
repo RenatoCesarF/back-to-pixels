@@ -28,6 +28,7 @@ const ParalaxElement = () =>{
     return (
         <div className="paralax-container">
             { getParalaxImagesElements(mousePosition) }
+       
             <div className="radiend-shadow"/>
         </div>
     )
@@ -62,8 +63,8 @@ const getParalaxImagesElements = (mousePosition: Position): JSX.Element =>{
 }
 
 const getOffsetPosition = (mousePosition:Position, layerLevel: number): Position => {
-    const yPosition = -4 + (((mousePosition.y / 10) * layerLevel)/40) 
-    const xPosition = -3+ (((mousePosition.x / 10) * layerLevel)/40)
+    const yPosition =  (((mousePosition.y / 10) * layerLevel)/40) 
+    const xPosition = -6+ (((mousePosition.x / 10) * layerLevel)/40)
     const position: Position = {"x": xPosition ,"y": yPosition }
     return position
 }
