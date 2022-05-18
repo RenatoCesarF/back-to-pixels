@@ -1,5 +1,3 @@
-import { AnimateSharedLayout, domAnimation, LazyMotion } from "framer-motion";
-
 import { Suspense } from 'react'
 import dynamic from 'next/dynamic'
 
