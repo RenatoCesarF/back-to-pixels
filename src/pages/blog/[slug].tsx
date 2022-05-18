@@ -17,9 +17,9 @@ import PostGrid from '@components/PostGrid';
 import LazyImage from '@components/LazyImage';
 import AnimatedLayout from '@components/AnimatedLayout';
 
-const RssLinks = dynamic(() => import('@components/RssLinks/RssLinks'));
-const HeadTag = dynamic(() => import('@components/HeadTag'));
-const BackToTopButton = dynamic(() => import('@components/BackToTopButton'));
+const RssLinks              = dynamic(() => import('@components/RssLinks/RssLinks'));
+const HeadTag               = dynamic(() => import('@components/HeadTag'));
+const BackToTopButton       = dynamic(() => import('@components/BackToTopButton'));
 
 // const PostGrid              = dynamic(() => import('@components/PostGrid'),  {suspense: true});
 const PostInternInformation = dynamic(() => import('@components/PostInternInformation'), { suspense: true });
@@ -69,7 +69,7 @@ const PostPage: React.FC<SlugPageProps> = ({ post, postsRecomendations }: SlugPa
 
                     <BackToTopButton />
 
-                    <div >
+                    <motion.div variants={slideInUp} className='post-cover-div'>
                         <LazyImage
                             width='536px' height='341px'
                             className='post-cover'
@@ -77,19 +77,18 @@ const PostPage: React.FC<SlugPageProps> = ({ post, postsRecomendations }: SlugPa
                             layout="responsive"
                             src={post.cover_image}
                         />
-                        {/*
+                        {
                             doenstHaveCoverImage ?
                                 <h1 className='post-cover-date'>{post.date}</h1>
-                                : null
-                        */}
-                    </div >
+                            : null
+                        }
+                    </motion.div >
 
                     <Suspense fallback={<LoadingArea height='8rem' width='100%' />}>
                         <PostInternInformation post={post} />
                     </Suspense>
 
                     <hr style={{ marginTop: "1.4rem" }} />
-
                     <section itemProp="articleBody">
                         <h1 itemProp='name' className='post-title'>{post.title}</h1>
                         <p className='post-resume'>{post.excerpt}</p>
@@ -108,13 +107,13 @@ const PostPage: React.FC<SlugPageProps> = ({ post, postsRecomendations }: SlugPa
                             <CustomButton description='Return to Blog page' text='Back' icon={"arrowBack"} onClick={() => router.back() } />
                             <CustomButton description='Scroll To Top' text='Scroll To Top' icon={"arrowTop"} onClick={() => windowScrollTo() } />
                         </div>
-                    </section>
+                    </section> 
                 </motion.article>
             </main>
 
-            <motion.div variants={slideButtonDown} style={{ margin: "0 clamp(1rem, 4rem, 6vw)" }}>
+            <div style={{ margin: "0 clamp(1rem, 4rem, 6vw)" }}>
                 <h2>Recomendations</h2>
-            </motion.div>
+            </div>
 
             <hr/>
 

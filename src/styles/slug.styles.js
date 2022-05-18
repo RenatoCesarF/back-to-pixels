@@ -94,22 +94,19 @@ export default css.global`
     margin-right: auto; 
   }
   .post-cover-div{
-    display: flex;
     position: relative;
-    background-color: #2d2d2d
+    background-color: #2d2d2d 
   }
 
   .post-cover-date{
-    font-family: 'Open Sans', sans-serif;
-    margin: auto;
-    margin-top: 27%;
-    text-align: center;
-    height: 100%;
-    width: 100%;
     position: absolute;
-    user-select: none;
-
+    margin-top: -35%;
+    width: 100%;
     
+    
+    user-select: none;
+    font-family: 'Open Sans', sans-serif;
+    text-align: center;
     font-size: 2.5em;
     color: var(--font-contrast-color); 
    
@@ -167,7 +164,7 @@ export default css.global`
     }
     .post-cover-date{
       font-size: 2em;
-      margin-top: 28%;
+      /* margin-top: 28%; */
     }
   }
   .tooltip-expand{
