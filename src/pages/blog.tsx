@@ -1,7 +1,7 @@
 import dynamic from 'next/dynamic';
 
 import globalStyles from '@styles/blog.styles';
-import Post, { createPost, getPostsFileName } from '@classes/Post';
+import Post, { getAllPostsSortedByDate } from '@classes/Post';
 import {sortByDate} from '@utils/sort';
 
 import WEBSITE_INFO from '@helpers/webSiteInfo';
@@ -55,13 +55,7 @@ export default function BlogPage({posts}:PostList){
 }
 
 export async function getStaticProps(){
-    const files = getPostsFileName();
-  
-    var posts: Post[] = files.map(filename => {
-      return createPost(filename);
-    });
-
-    posts = posts.sort(sortByDate);
+    const posts = getAllPostsSortedByDate();
     return {
       props: {posts}
     };

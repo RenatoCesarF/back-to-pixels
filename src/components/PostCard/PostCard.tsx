@@ -15,11 +15,12 @@ import globalStyles from './PostCard.styles'
 
 interface IPost{
     post: Post
+    width?: string
 }
 const maximumExcerptSize: number = 70;
 
 
-const PostCard: React.FC<IPost> = ({post}: IPost) => {
+const PostCard: React.FC<IPost> = ({post,width}: IPost) => {
     const [isHovering, setIsHovering] = useState(false);
     const doenstHaveCoverImage:boolean = post.cover_image.includes('/default-images/');
     const extendedCategories: boolean = post.categories.length > 2;
@@ -39,9 +40,10 @@ const PostCard: React.FC<IPost> = ({post}: IPost) => {
                 whileInView="onscreen"
                 exit="exit"
                 viewport={{ once: true, amount: 0.3 }}
-                layout className='post-card-expanded-external'>
+                className='post-card-expanded-external'>
                 <motion.div className='post-card-div'  
                     variants={cardVariants} 
+                    style={{width:`${width}`}}
                     onMouseOver={()=>{setIsHovering(true)}}
                     onMouseLeave={()=>{setIsHovering(false)}}
                     onTouchCancel={()=>{setIsHovering(false)}}

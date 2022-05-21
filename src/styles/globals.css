@@ -648,37 +648,20 @@ button.toggled span:nth-child(3) {
 }
 
 .waves{
-  /* position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0; */
+  margin-top: -1%;
 }
 
-.wave-1{
-  animation: moveWave1 3s cubic-bezier(.165,.84,.44,1) infinite alternate
+.test{
+  overflow: hidden;
+  position: absolute;
+  width:auto;
+  height: 25rem;
 }
-
-@keyframes moveWave1 {
-  from {
-    transform: translateY(-100px);
-  }
-}
-
-.wave-2{
-  animation: moveWave2 3s 1.2s cubic-bezier(.165,.84,.44,1) infinite alternate
-}
-
-@keyframes moveWave2 {
-  from {
-    transform: translateY(-80px);
-  }
-}
-.wave-3{
-  animation: moveWave3 3s 0.7s cubic-bezier(.165,.84,.44,1) infinite alternate
-}
-
-@keyframes moveWave3 {
-  from {
-    transform: translateY(-60px);
-  }
+.carousel{
+  overflow: hidden;
+  /* 
+  display: flex;
+  margin-bottom: 10rem; */
+  height: 24rem;
+  position: relative;
 }

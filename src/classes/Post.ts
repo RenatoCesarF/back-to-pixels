@@ -1,5 +1,4 @@
 import { readdirSync, readFileSync } from 'fs';
-import matter from 'gray-matter';
 import {join} from 'path';
 import Author, { getAuthor } from '@classes/Author'
 import Category, { getPostCategories, isCategoriesInCategories } from '@classes/category'
@@ -19,7 +18,16 @@ type Post = {
   code_theme: string, // need to create a type that store these values
   title: string,
 }
+export const getAllPostsSortedByDate = (): Post[] => {
+  const files = getPostsFileName();
+  
+  var posts: Post[] = files.map(filename => {
+    return createPost(filename);
+  });
 
+  posts = posts.sort(sortByDate);
+  return posts
+}
 
 export const createPost = (filename: string): Post => {
   const slug: string = filename.replace('.md', '');
