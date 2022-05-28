@@ -1,38 +1,38 @@
 import generateRssFeed from '@scripts/rss'
-
-import { motion } from 'framer-motion'
-import { slideInDown, slideInLeft } from '@helpers/animations'
 import HeadTag from '@components/HeadTag';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import ParalaxElement from '@components/ParalaxElement'
-import { useSwipeable } from 'react-swipeable';
 import Post, { getAllPostsSortedByDate } from '@classes/Post';
 import PostCard from '@components/PostCard/PostCard';
-import { useState } from 'react';
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
 
 interface homeProps {
   posts: Post[]
 }
-const Home = ({ posts }: homeProps) => {
-  const [position, setPosition] = useState(0)
-  const onRight = () =>{
-    if(position < posts.length - 2){
-      setPosition(position + 1)
-    }
-  }
-  const onLeft = () =>{
-    if(position > -1){
-      setPosition(position - 1)
-    }
-  }
 
-  const handlers = useSwipeable({
-    onSwipedLeft: () => onRight(),
-    onSwipedRight: () => onLeft(),
-    swipeDuration: 500,
-    preventScrollOnSwipe: true,
-    trackMouse: true
-  });
+const responsive = {
+  superLargeDesktop: {
+    // the naming can be any, depends on you.
+    breakpoint: { max: 4000, min: 3000 },
+    items: 6
+  },
+  desktop: {
+    breakpoint: { max: 3000, min: 1024 },
+    items: 4
+  },
+  tablet: {
+    breakpoint: { max: 1024, min: 464 },
+    items: 2
+  },
+  mobile: {
+    breakpoint: { max: 464, min: 0 },
+    items: 1
+  }
+};
+
+
+const Home = ({ posts }: homeProps) => {
 
   return (
     <>
@@ -45,7 +45,7 @@ const Home = ({ posts }: homeProps) => {
         url=""
       />
 
-      <div style={{ overflowX: "hidden" }}>
+      <div style={{ overflowX: "hidden"}}>
         <ParalaxElement />
 
 
@@ -61,45 +61,28 @@ const Home = ({ posts }: homeProps) => {
             </g>
           </svg>
         </div>
-      <div style={{position:"relative"}}>
-        <div style={{
-          position: "absolute",
-          top: -20,
-          left: 30
-        }}>
 
-          <button onClick={() => onLeft()}>&lt;&lt;</button>
-          <button onClick={() => onRight()}>&gt;&gt;</button>
-        </div>
-      </div>
-
-        <motion.div {...handlers} className='carousel' >
+        <Carousel
+          swipeable
+          keyBoardControl
+          draggable
+          autoPlay={false}
+          autoPlaySpeed={0}
+          shouldResetAutoplay={false}
+          responsive={responsive}
+          ssr={true}
+          className='test'
+        >
           {
             posts.map((element, index) => {
-              return (
-                <motion.div 
-                  layout
-                  key={index}
-                  // style={{ marginLeft: "1vw" }}
-                  initial={{scale: 0}}
-                  className="test"
-                  animate={{
-                    left: `${(index - position) * 19 }em`,
-                    scale: index === position  + 1 ? 1 : 0.8
-                  }}
-                >
-                  <PostCard post={element} key={index}/>
-                  {/* <div style={{backgroundColor:"lightblue", width: "22rem", height: "19rem"}}></div> */}
-                </motion.div>
-              )
+              return <PostCard post={element} key={index}/>
             })
           }
+        </Carousel>
 
-        </motion.div >
       </div>
-
+ 
     </>
-
   )
 }
 

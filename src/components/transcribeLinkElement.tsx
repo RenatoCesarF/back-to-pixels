@@ -6,7 +6,7 @@ export default function transcribedLinkElement({node, className, children, ...pr
                            rel="noopener noreferrer"
                            href={props.href}
                         >
-                               {children}
+                            {children}
                         </a>
     const isInternLink = props.href?.startsWith('#') || props.href?.startsWith('/');
 

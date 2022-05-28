@@ -652,16 +652,5 @@ button.toggled span:nth-child(3) {
 }
 
 .test{
-  overflow: hidden;
-  position: absolute;
-  width:auto;
-  height: 25rem;
-}
-.carousel{
-  overflow: hidden;
-  /* 
-  display: flex;
-  margin-bottom: 10rem; */
-  height: 24rem;
-  position: relative;
+  height: 30rem;
 }
