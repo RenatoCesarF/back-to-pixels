@@ -4,7 +4,7 @@ import globalStyles from './categoryTag.styles';
 interface CategoryTagProps{
     category: Category
     isBig?: boolean
-    insideText?: string
+    internText?: string
 }
 
 const CategoryTag: React.FC<CategoryTagProps> = (props: CategoryTagProps)=>{
@@ -24,8 +24,8 @@ const CategoryTag: React.FC<CategoryTagProps> = (props: CategoryTagProps)=>{
                     >
                         <span className='category-tag-text' style={{ color: category.textColor }}>
                             {category.name} 
-                            {props.insideText ? 
-                                <sub style={{marginLeft: ".2rem"}}> {props.insideText}</sub> 
+                            {props.internText ? 
+                                <sub style={{marginLeft: ".2rem"}}> {props.internText}</sub> 
                                 : null
                             }
                         </span>

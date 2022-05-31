@@ -5,23 +5,23 @@ import { BiRightArrowAlt } from "react-icons/bi";
 
 const BackToTopButton = () =>{
     const [isVisible, setIsVisible] = useState<boolean>(false);
-    const listenToScroll = () => {
-        let heightToShow = 600;
-        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            
-        if (winScroll > heightToShow) {  
-             !isVisible && setIsVisible(true);
-             return;
-        } 
-        setIsVisible(false); 
-    };
-
+    
     useEffect(() => {   
+        const listenToScroll = () => {
+            let heightToShow = 600;
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                
+            if (winScroll > heightToShow) {  
+                 !isVisible && setIsVisible(true);
+                 return;
+            } 
+            setIsVisible(false); 
+        };
         window.addEventListener("scroll", listenToScroll);
         return () => {
             window.removeEventListener("scroll", listenToScroll); 
         }
-    }, [listenToScroll]);
+    }, []);
 
     if(!isVisible) return <></>;
 

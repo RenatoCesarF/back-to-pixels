@@ -5,24 +5,27 @@ import { motion } from "framer-motion";
 import CategoryTag from "./CategoryTag/CategoryTag";
 
 
-interface CategoryCountProps{
+interface CategoriesTagPostCountProps{
     posts: Post[]
 }
 
-interface CategoryCountElement {
+interface CategoriesTagPostCountElement {
     category: Category,
     amount: number,
 }
 
-const CategoryCount = ({posts}: CategoryCountProps) =>{
+const CategoriesTagPostCount = ({posts}: CategoriesTagPostCountProps) =>{
     const categoryList = getCategoriesAndAmount(posts);
     return (
         <motion.div variants={opacityChange} className="category-count">
             {
-                categoryList.map((value: CategoryCountElement, index: number) =>{
+                categoryList.map((value: CategoriesTagPostCountElement, index: number) =>{
+                    if(value.amount === 0)
+                        return <></>
+
                     return(
                         <div className="category-count-element" key={index}>
-                            <CategoryTag category={value.category} insideText={value.amount.toString()}/>
+                            <CategoryTag category={value.category} internText={value.amount.toString()}/>
                         </div>
                     )
                 })
@@ -32,9 +35,9 @@ const CategoryCount = ({posts}: CategoryCountProps) =>{
 }
 
 
-const getCategoriesAndAmount = (posts: Post[]): CategoryCountElement[] => {
+const getCategoriesAndAmount = (posts: Post[]): CategoriesTagPostCountElement[] => {
     const categories = getAllCategories();
-    const result: CategoryCountElement[] = [];
+    const result: CategoriesTagPostCountElement[] = [];
 
     categories.map((category: Category) => {
         result.push({category: category, amount: 0});
@@ -50,4 +53,4 @@ const getCategoriesAndAmount = (posts: Post[]): CategoryCountElement[] => {
     return result;
 }
 
-export default CategoryCount;
+export default CategoriesTagPostCount;

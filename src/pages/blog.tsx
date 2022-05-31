@@ -6,7 +6,7 @@ import {sortByDate} from '@utils/sort';
 
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import PostGrid from '@components/PostGrid';
-import CategoryCount from '@components/CategoryCount';
+import CategoriesTagPostCount from '@components/CategoriesTagPostCount';
 import { motion } from 'framer-motion';
 import { slideInDown, slideInLeft } from '@helpers/animations';
 import AnimatedLayout from '@components/AnimatedLayout';
@@ -45,7 +45,7 @@ export default function BlogPage({posts}:PostList){
                 </div>
               </motion.div>
       
-              <CategoryCount posts={posts}/>
+              <CategoriesTagPostCount posts={posts}/>
 
               <PostGrid posts={posts}/>
           </div>
