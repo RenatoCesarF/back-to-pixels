@@ -6,31 +6,11 @@ import Post, { getAllPostsSortedByDate } from '@classes/Post';
 import PostCard from '@components/PostCard/PostCard';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import { responsive } from '@helpers/carrouselConfiguration';
 
 interface homeProps {
   posts: Post[]
 }
-
-const responsive = {
-  superLargeDesktop: {
-    // the naming can be any, depends on you.
-    breakpoint: { max: 4000, min: 3000 },
-    items: 6
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 4
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 2
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1
-  }
-};
-
 
 const Home = ({ posts }: homeProps) => {
 
@@ -47,7 +27,6 @@ const Home = ({ posts }: homeProps) => {
 
       <div style={{ overflowX: "hidden"}}>
         <ParalaxElement />
-
 
         <div className="waves">
           <svg id="master-artboard" viewBox="0 0 1400 312" version="1.1" xmlns="http://www.w3.org/2000/svg">
