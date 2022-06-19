@@ -50,7 +50,7 @@ const Home = ({ posts }: homeProps) => {
           shouldResetAutoplay={false}
           responsive={responsive}
           ssr={true}
-          className='test'
+          className='carousel'
         >
           {
             posts.map((element, index) => {
