@@ -4,7 +4,7 @@ export default css.global`
 
 .center-404 {
     margin: auto;
-    margin-top: 5rem;
+    margin-top: 10rem;
     padding: 10px;
     text-align: center;
     max-width: 100vw;

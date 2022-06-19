@@ -4,7 +4,7 @@ import {RiMoonClearFill, RiSunFill } from 'react-icons/ri'
 
 const lightTheme = 'light'
 const darkTheme = 'dark'
-const cookiesConfig = {path: '/', maxAge: 86400 * 30}
+// const cookiesConfig = {path: '/', maxAge: 86400 * 30}
 const buttonName = "theme switcher button"
 
 const ThemeSwitch = () => {

@@ -294,26 +294,6 @@ table th {
 }
 
 
-.under-dev{
-  margin: auto;
-  margin-bottom: 0px;
-  padding: 10px;
-  text-align: center;
-  max-width: 100vw;
-  width: 35rem;
-  height: min-content;
-}
-.under-dev h2{
-  font-family: "Source Code Pro", sans-serif;
-  word-spacing: 2px;
-  font-size: 1.5em;
-  color: var(--post-text-color);
-  margin: 0;
-  padding: 0;
-  margin-top: -3rem;
-
-}
-
 
 /*=============================*/
 
@@ -472,7 +452,6 @@ table th {
     display: flex;
   }
 }
-
 
 .posts-grid{
   display: grid;
@@ -651,6 +630,40 @@ button.toggled span:nth-child(3) {
   margin-top: -1%;
 }
 
-.test{
+.carousel{
   height: 30rem;
+  /* justify-content: center; */
 }
+
+
+/*=
+.image-item {
+  padding: 10px;
+}
+.container {
+  margin-top: 20px;
+}
+.container-with-dots {
+  margin-top: 20px;
+  padding-bottom: 10px;
+}
+.react-multi-carousel-dot-list {
+  bottom: 0px !important;
+}
+#__next {
+  overflow: scroll;
+  margin-bottom: 40px;
+}
+.react-multi-carousel-dot button {
+  border-color: grey !important;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.first-carousel-container {
+  margin-bottom: 50px;
+}
+
+===============*/
