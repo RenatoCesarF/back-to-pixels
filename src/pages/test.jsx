@@ -90,8 +90,8 @@ class App extends React.Component {
           containerClass="first-carousel-container container"
           deviceType={this.props.deviceType}
         >
-          {fakerData.map(card => {
-            return <PostCard isMoving={this.state.isMoving} {...card} />;
+          {fakerData.map((card,index) => {
+            return <PostCard key={index} isMoving={this.state.isMoving} {...card} />;
           })}
         </Carousel>
 
