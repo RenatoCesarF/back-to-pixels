@@ -26,20 +26,20 @@ const authorsData = {
         "key": "tayna",
         "name": "Tayna Vitória",
         "email": "taynavit.lima@gmail.com",
-        "roles": ["Designer","Artist"],
+        "roles": ["Designer", "Artist"],
         "image_path": "/images/authors/tayna.webp",
         "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
 
         "twitter": "",
         "instagram": "arttayna_"
     },
-    bruno:{
-        "key":"bruno",
+    bruno: {
+        "key": "bruno",
         "name": "Bruno Costa",
         "email": "brunocosta1996b@gmail.com",
         "roles": ["Developer"],
         "image_path": "/images/authors/bruno.webp",
-        "about": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "about": "Colaborador com conteúdo do site. Atualmente estuda na Universidade Federal da Grande Dourados (UFGD). Quando tenho tempo, gosto de estudar estatística aplicada a computação, análise de dados, simulação de realidades computacionais e inteligência artificial. Esse é o primeiro projeto que participo como profissional da computação.",
 
         "twitter": "",
         "instagram": ""
