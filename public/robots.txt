@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://backtopixels.com
+Host: https://www.backtopixels.com
 
 # Sitemaps
-Sitemap: https://backtopixels.com/sitemap.xml
+Sitemap: https://www.backtopixels.com/sitemap.xml
