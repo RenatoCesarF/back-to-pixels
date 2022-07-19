@@ -1,5 +1,5 @@
 
 module.exports = {
-    siteUrl: "https://backtopixels.com",
+    siteUrl: "https://www.backtopixels.com",
     generateRobotsTxt: true,
 }
