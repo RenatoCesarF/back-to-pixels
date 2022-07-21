@@ -6,4 +6,4 @@ Allow: /
 Host: https://www.backtopixels.com
 
 # Sitemaps
-Sitemap: https://www.backtopixels.com/sitemap.xml
+Sitemap: https://www.backtopixels.com/sitemap-0.xml

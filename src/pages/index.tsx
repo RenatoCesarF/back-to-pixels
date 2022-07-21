@@ -19,13 +19,13 @@ const Home = ({ posts }: homeProps) => {
       <HeadTag
         image={WEBSITE_INFO.LOGO_PATH}
         title={`${WEBSITE_INFO.NAME}`}
-        description={`${WEBSITE_INFO.NAME} website Home page, Learn more about our work`}
+        description={`Game Development studio. Checkout our blog to learn more and follow our projects`}
         keywords={['home page', 'home']}
         date={new Date()}
         url=""
       />
 
-      <div style={{ overflowX: "hidden"}}>
+      <div style={{ overflowX: "hidden" }}>
         <ParalaxElement />
 
         <div className="waves">
@@ -54,20 +54,20 @@ const Home = ({ posts }: homeProps) => {
         >
           {
             posts.map((element, index) => {
-              return <PostCard post={element} key={index}/>
+              return <PostCard post={element} key={index} />
             })
           }
         </Carousel>
 
       </div>
- 
+
     </>
   )
 }
 
 export async function getStaticProps() {
   await generateRssFeed();
-  const posts = getAllPostsSortedByDate().slice(0,6)
+  const posts = getAllPostsSortedByDate().slice(0, 6)
   return { props: { posts } };
 }
 
