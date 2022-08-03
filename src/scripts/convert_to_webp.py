@@ -2,8 +2,6 @@ from pathlib import Path
 from PIL import Image
 import os
 
-
-
 def main():
     postDirectory = "public/images/posts"
     authorsDirectory = "public/images/authors"
