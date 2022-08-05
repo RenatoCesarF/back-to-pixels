@@ -132,7 +132,7 @@ while running:
 
 > I removed some unecessary parts
 
-## Some less-bad code
+# Some less-bad code
 ```python
 class Game:
 	_entities: list

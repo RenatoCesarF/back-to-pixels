@@ -1,35 +1,35 @@
 import Category from '@classes/category'
 import Link from 'next/link'
 import globalStyles from './categoryTag.styles';
-interface CategoryTagProps{
+interface CategoryTagProps {
     category: Category
     isBig?: boolean
     internText?: string
 }
 
-const CategoryTag: React.FC<CategoryTagProps> = (props: CategoryTagProps)=>{
+const CategoryTag: React.FC<CategoryTagProps> = (props: CategoryTagProps) => {
     const tagPageURL: string = `/blog/tag/${props.category.key}`
     const category = props.category
     const buttonStyle = { backgroundColor: category.color }
-    return(
+    return (
         <>
             <style jsx global>
                 {globalStyles}
             </style>
             <Link href={tagPageURL} passHref>
-                    <button
-                        name={`${props.category.name} button`}
-                        className={`category-tag ${props.isBig ? "big" : " "}`}
-                        style={buttonStyle} onClick={() => { } }
-                    >
-                        <span className='category-tag-text' style={{ color: category.textColor }}>
-                            {category.name} 
-                            {props.internText ? 
-                                <sub style={{marginLeft: ".2rem"}}> {props.internText}</sub> 
-                                : null
-                            }
-                        </span>
-                    </button>
+                <button
+                    name={`${props.category.name} button`}
+                    className={`category-tag ${props.isBig ? "big" : " "}`}
+                    style={buttonStyle} onClick={() => { }}
+                >
+                    <span className='category-tag-text' style={{ color: category.textColor }}>
+                        {category.name}
+                        {props.internText ?
+                            <sub style={{ marginLeft: ".2rem" }}> {props.internText}</sub>
+                            : null
+                        }
+                    </span>
+                </button>
             </Link>
         </>
     )
@@ -37,8 +37,8 @@ const CategoryTag: React.FC<CategoryTagProps> = (props: CategoryTagProps)=>{
 
 export const CategoryTagTransparent: React.FC<CategoryTagProps> = (props: CategoryTagProps) => {
     const category = props.category
-    const gradientColor:string  = category.color;
-    const style = {backgroundImage: `linear-gradient(90deg, ${gradientColor} 7px, transparent 17px)`}
+    const gradientColor: string = category.color;
+    const style = { backgroundImage: `linear-gradient(90deg, ${gradientColor} 7px, transparent 17px)` }
     return (
         <>
             <style jsx global>
@@ -52,4 +52,3 @@ export const CategoryTagTransparent: React.FC<CategoryTagProps> = (props: Catego
 }
 
 export default CategoryTag;
-
