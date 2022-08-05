@@ -1,4 +1,6 @@
-from PIL import Image
+from PIL import Image, ImageDraw
+
+
 
 def create_resized_logos():
     logo_sizes = [128, 144, 152, 192, 384, 512, 72, 96]
@@ -28,4 +30,45 @@ def save_image(image: Image, folder: str, name: str):
     background.save(f"{folder}{name}")
     print(f"Saved image {name} into {folder}")
 
-create_resized_logos()
+
+
+def crop_image(image: Image, desirable_height: int, desirable_width: int):
+    width, height = image.size
+    ''' 
+    Daria pra ir aumentando a imagem até ela chegar ao tamanho necessário 
+    para o crop acontecer corretamente. A questão é o quanto que se aumenta a imagem
+    de forma que evite problemas de scale (perca de qualidade ou de aspecto)
+    
+    '''
+    while desirable_width > width:
+        desirable_width -= 10 
+    while desirable_height > height:
+        desirable_height -= 10 
+    
+    half_height = height/2
+    half_width = width/2
+
+    
+    left_top_start_point = half_height - desirable_height/2
+    right_bottom_end_point = half_height + desirable_height/2
+    
+    left_bottom_start_point = half_width - desirable_width/2
+    right_top_end_point = half_width + desirable_width/2
+    
+    image_area = (
+        left_bottom_start_point,
+        left_top_start_point,
+        right_top_end_point,
+        right_bottom_end_point
+    )
+    
+    final_image = image.crop(image_area)
+    final_image.show()
+
+    return final_image
+
+
+img = Image.open('./gear.png')
+
+save_image(crop_image(img, 682, 1072), "./", "resized.png")
+# create_resized_logos()
