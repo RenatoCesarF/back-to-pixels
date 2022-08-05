@@ -1,6 +1,6 @@
 ---
 title: 'New Blog Features'
-date: '01/04/22'
+date: '01/042022'
 author: 'renato'
 cover_image: 1
 excerpt: "Adding new stuff to this blog, it it's gettting very cool"

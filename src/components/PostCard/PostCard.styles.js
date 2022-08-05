@@ -249,9 +249,9 @@ export default css.global`
   }
   
   .post-card-date{
-    font-size: 0.9em;
+    font-size: 0.8em;
     margin-bottom: 0.45rem;
-    vertical-align: bottom;
+    margin-top: 1.2em;
     color: var(--card-date-color);
     font-family: var(--date-font)
   }
