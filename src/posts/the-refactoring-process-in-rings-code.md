@@ -2,7 +2,7 @@
 title: 'The Refactoring process in Rings code'
 date: '07/07/2022'
 author: 'renato'
-cover_image: 1
+cover_image: 'cover'
 excerpt: "Presenting the Rings project and talking about some refatorations that I did"
 categories: [RINGS, ARCHITECTURE, PROGRAMMING, PYTHON]
 code_theme: 'dracula'
