@@ -1,6 +1,6 @@
 ---
 title: 'Discovering Meta tags + Website Updates'
-date: '01/112022'
+date: '01/11/2022'
 author: 'renato'
 cover_image: 'metatags-cover'
 excerpt: 'How I maneged to make our posts look amazing in social midia using meta tags and new website features that I added recently'

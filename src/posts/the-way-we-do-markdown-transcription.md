@@ -1,6 +1,6 @@
 ---
 title: 'The Way We Do MarkDown Transcriptions'
-date: '02/092022'
+date: '02/09/2022'
 author: 'renato'
 cover_image: 'cover'
 excerpt: "Explaining how our .md to HTML works and the new features I just implement"
@@ -15,7 +15,7 @@ The `.md` file is configured by a header, where you can declare variables to use
 ```yaml
 ---
 title: 'The Way We Do MarkDown Transcriptions'
-date: '09/022022'
+date: '09/02/2022'
 author: 'renato'
 cover_image: 'cover'
 excerpt: "Explaining how our .md to HTML works and the new features I just implement"

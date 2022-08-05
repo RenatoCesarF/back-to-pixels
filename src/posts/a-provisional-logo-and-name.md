@@ -1,6 +1,6 @@
 ---
 title: 'A Provisional Logo And Name'
-date: '01/242022'
+date: '01/24/2022'
 author: 'renato'
 cover_image: 'provisional-logo'
 excerpt: "Some improvements made since the last blog post and a provisional name and logo that we are using"

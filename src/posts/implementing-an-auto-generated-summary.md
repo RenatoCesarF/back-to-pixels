@@ -1,6 +1,6 @@
 ---
 title: 'Implementing An Auto-Generated Summary'
-date: '04/012022'
+date: '04/01/2022'
 author: 'renato'
 cover_image: 'cover'
 excerpt: "How to make a summary with anchor links to your website/blog titles with basic knowledge about Next.JS and programming logic!"

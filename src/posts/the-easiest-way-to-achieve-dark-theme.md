@@ -1,6 +1,6 @@
 ---
 title: 'The Easiest Way to Achieve Dark-Theme'
-date: '02/192022'
+date: '02/19/2022'
 author: 'renato'
 cover_image: 'cover'
 excerpt: "How CSS variables works and an explanation about how we made our Dark-theme without reloading or packages, with CSS Only."
