@@ -1,6 +1,6 @@
 ---
 title: 'Default Images And Our Images Architecture'
-date: '02/01/2022'
+date: '02/01/22'
 author: 'renato'
 cover_image: 'dobro'
 excerpt: "How I made our first default images and How does this system work behind the beauty. I took the opportunity to explain how our posts architecture works and how we store images"
