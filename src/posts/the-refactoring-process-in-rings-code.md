@@ -10,7 +10,7 @@ code_theme: 'dracula'
 
 Hi There! I would like to introduce to you one of my (and Back to Pixels's) project **Rings**. And perhaps show some big refatorations that I did some days ago.
 
-## Presenting Rings
+# Presenting Rings
 Rings is a pygame video-game project that initialy was inspired by [Enter the Gungeon](https://enterthegungeon.com) and [Nuclear Throne](https://nuclearthrone.com) (even the sprite animation test was done usinig it's sprites). But with the time (and some studies) I realized that this scope was too big for my first game, and by the time I was preaty into [Vampire Survivors](https://store.steampowered.com/app/1794680/Vampire_Survivors/), so I decided to redirect Rings to be a "stand-still" rogue-like game. Aiming to try some video-game software architecture and push to the limits that python can do as a game development language!
 
 > The name rings was refering to the upgrades in the game, that would be rings that you could use, maximum of 10.
@@ -19,7 +19,7 @@ But a compleete game still a big scope for someone that studies and have a full 
 
 And here today I will show you what was *Rings* before and after some cool structural changes that I made based on some simple things that I'v learned recently.
 
-## How It Was and Where Its Going
+# How It Was and Where Its Going
 Since I'm just developing feature to feature, my architecture thing was not that importante, so I keept the code struct as the simple pygame tutorial would give you, that is, extrimily bad, but with the simple *check-events*, *update entities*, *render entities* order.  
 
 But after seen some [DaFluffyPotato](https://www.youtube.com/c/DaFluffyPotato) livestreams I start to recognize a patter in his code. He put everything into a *Game* class, and pass this game class to everyone inside it (this part is preaty danger, but ok), and inside this class he have a *world*  atrubute (of the class World) and a *Input* atribut (of the class Input) and so on for every major thing in his game. He also had some classic structs such as a list of *entities* and a list of projectile.
@@ -28,7 +28,7 @@ Anyways, this architecture can help a lot such in debugging (because um can tear
 
 So that's where I aimed to when refactoring Rings for (almos) the firt time.
 
-## Some Bad Code
+# Some Bad Code
 Here I will show you how the code was (its a little bit long, so maybe I will change it in the future)
 
 ```python
@@ -41,8 +41,6 @@ pygame.display.set_caption("Rings")
 pygame.mouse.set_visible(False)
 
 FONT = pygame.font.Font("res/Pixellari.ttf", 22)
-
-# // "resolution": [1280, 720],
 
 global debugging
 game_time = 0
@@ -206,7 +204,7 @@ The new rings architecture looks like some Ok poem, but I actually think it coul
 All the world logic and draw are inside the *World* class, for example, and the same things applies to all the other pieces of the game. It's clear that I don't have much to organize, but it was a good start point to do all this refatoration.
 
 
-## What Rings has until now?
+# What Rings has until now?
 Rings started as an experiment, just me trying to implement some cool game-development features. So, the porject doesn't have much, just some split, bad implemented simple features, like particles, animations, colisions and sparks (that i just copied from DaFlufy). But those simple things that I have will be re-writed and documented here in the future. 
 
 For now, the game looks something like this:
@@ -216,7 +214,7 @@ For now, the game looks something like this:
 > I used the Nuclear Throne animation to test some stuff ;)
 
 
-## Conclusion
+# Conclusion
 
 As I said, Rings is only in the start, and I pretend to turn it into a simple rogue-like game, and that's is some of the things I will bring here to the game-studio blog. 
 
