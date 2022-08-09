@@ -3,33 +3,36 @@ title: 'The Refactoring process in Rings code'
 date: '07/07/2022'
 author: 'renato'
 cover_image: 'cover'
-excerpt: "Presenting the Rings project and talking about some refatorations that I did"
+excerpt: "Presenting the Rings project and talking about some refactoring that I did"
 categories: [RINGS, ARCHITECTURE, PROGRAMMING, PYTHON]
 code_theme: 'dracula'
 ---
 
-Hi There! I would like to introduce to you one of my (and Back to Pixels's) project **Rings**. And perhaps show some big refatorations that I did some days ago.
+
+Hi There! I would like to introduce to you one of my (and Back to Pixels) project **Rings**. And perhaps show some big refactorings
+ that I did some days ago.
 
 # Presenting Rings
-Rings is a pygame video-game project that initialy was inspired by [Enter the Gungeon](https://enterthegungeon.com) and [Nuclear Throne](https://nuclearthrone.com) (even the sprite animation test was done usinig it's sprites). But with the time (and some studies) I realized that this scope was too big for my first game, and by the time I was preaty into [Vampire Survivors](https://store.steampowered.com/app/1794680/Vampire_Survivors/), so I decided to redirect Rings to be a "stand-still" rogue-like game. Aiming to try some video-game software architecture and push to the limits that python can do as a game development language!
+Rings is a pygame video-game project that initially was inspired by [Enter the Gungeon](https://enterthegungeon.com) and [Nuclear Throne](https://nuclearthrone.com) (even the sprite animation test was done using its sprites). But with time (and some studies) I realized that this scope was too big for my first game, and by the time I was pretty into [Vampire Survivors](https://store.steampowered.com/app/1794680/Vampire_Survivors/), so I decided to redirect Rings to be a "stand-still" rogue-like game. Aiming to try some video-game software architecture and push to the limits that python can do as a game development language!
 
-> The name rings was refering to the upgrades in the game, that would be rings that you could use, maximum of 10.
+> The name rings was referring to the upgrades in the game, that would be rings that you could use, a maximum of 10.
 
-But a compleete game still a big scope for someone that studies and have a full time job. So, my current idea is to develop each feature of a simple game development framework just to experiment with some module architectures.
+But a complete game is still a big scope for someone that studies and has a full-time job. So, my current idea is to develop each feature of a simple game development framework just to experiment with some module architectures.
 
-And here today I will show you what was *Rings* before and after some cool structural changes that I made based on some simple things that I'v learned recently.
+And here today I will show you what was *Rings* was before and after some cool structural changes that I made based on some simple things that I've learned recently.
 
-# How It Was and Where Its Going
-Since I'm just developing feature to feature, my architecture thing was not that importante, so I keept the code struct as the simple pygame tutorial would give you, that is, extrimily bad, but with the simple *check-events*, *update entities*, *render entities* order.  
+# How It Was and Where it is Going
+Since I'm just developing feature to feature, my architecture thing was not that important, so I kept the code struct as the simple pygame tutorial would give you, which is, extremely bad, but with the simple *check-events*, *update entities*, *render entities* order. 
 
-But after seen some [DaFluffyPotato](https://www.youtube.com/c/DaFluffyPotato) livestreams I start to recognize a patter in his code. He put everything into a *Game* class, and pass this game class to everyone inside it (this part is preaty danger, but ok), and inside this class he have a *world*  atrubute (of the class World) and a *Input* atribut (of the class Input) and so on for every major thing in his game. He also had some classic structs such as a list of *entities* and a list of projectile.
+But after seeing some [DaFluffyPotato](https://www.youtube.com/c/DaFluffyPotato) live streams I start to recognize a pattern in his code. He put everything into a *Game* class, and passes this game class to everyone inside it (this part is pretty dangerous but ok), and inside this class, he has a *world* attribute (of the class World) and an *Input* attribute (of the class Input) and so on for every major thing in his game. He also had some classic structs such as a list of *entities* and a list of projectiles.
 
-Anyways, this architecture can help a lot such in debugging (because um can tear apart things easilly) and in modularity.
+Anyways, this architecture can help a lot such in debugging (because um can tear apart things easily) and in modularity.
 
-So that's where I aimed to when refactoring Rings for (almos) the firt time.
+So that's where I aimed to when refactoring Rings for (almost) the first time.
 
 # Some Bad Code
-Here I will show you how the code was (its a little bit long, so maybe I will change it in the future)
+Here I will show you how the code was (it is a little bit longer, so maybe I will change it in the future)
+
 
 ```python
 configs = json.load(open('config.json'))
@@ -130,7 +133,7 @@ while running:
 	clock.tick(60)
 ```
 
-> I removed some unecessary parts
+> I removed some unnecessary parts
 
 # Some less-bad code
 ```python
@@ -193,19 +196,19 @@ class Game:
 game = Game().run()
 ```
 
-Even with this "better" code, there are always things to improve everywhere. Such as an Input class to handle all the input commands and logic (that I hidded in this example), or some particles and sound managers (that i didn't implemented yet).
+Even with this "better" code, there are always things to improve everywhere. Such as an Input class to handle all the input commands and logic (that I hid in this example), or some particles and sound managers (that I didn't implement yet).
 
 As Uncle Bob says in "Clean Architecture":
 
-> Good (clean and well architectured) code, should look like well writen poem
+> Good (clean and well architectured) code, should look like a well-written poem
 
-The new rings architecture looks like some Ok poem, but I actually think it could be better, mainlly in the *Player* class (the animation system is kind messed up). In the end, all I did was to hide things properly and realocate then where they should be.
+The new rings architecture looks like some Ok poem, but I think it could be better, mainly in the *Player* class (the animation system is kind of messed up). In the end, all I did was hide things properly and reallocate them where they should be.
 
-All the world logic and draw are inside the *World* class, for example, and the same things applies to all the other pieces of the game. It's clear that I don't have much to organize, but it was a good start point to do all this refatoration.
+All the world logic and drawing are inside the *World* class, for example, and the same thing applies to all the other pieces of the game. It's clear that I don't have much to organize, but it was a good starting point to do all these refactorings.
 
 
-# What Rings has until now?
-Rings started as an experiment, just me trying to implement some cool game-development features. So, the porject doesn't have much, just some split, bad implemented simple features, like particles, animations, colisions and sparks (that i just copied from DaFlufy). But those simple things that I have will be re-writed and documented here in the future. 
+# What Rings have until now?
+Rings started as an experiment, just me trying to implement some cool game-development features. So, the project doesn't have much, just some split, badly implemented simple features, like particles, animations, collisions, and sparks (that I just copied from DaFlufy). But those simple things that I have will be re-write and documented here in the future. 
 
 For now, the game looks something like this:
 
@@ -216,10 +219,10 @@ For now, the game looks something like this:
 
 # Conclusion
 
-As I said, Rings is only in the start, and I pretend to turn it into a simple rogue-like game, and that's is some of the things I will bring here to the game-studio blog. 
+As I said, Rings are only the start, and I pretend to turn it into a simple rogue-like game, and that's some of the things I will bring her to the game-studio blog. 
 
-I will bring some cool implementations and mainlly focoused in game-design architecture.
+I will bring some cool implementations and mainly focus on game-design architecture.
 
-Hope you like and Thanks for reading! You can follow all **Rings** articles in [tag/rings](/blog/tag/rings)
+Hope you like it and Thanks for reading! You can follow all **Rings** articles in [tag/rings](/blog/tag/rings)
 
-You can checkout this project on my [RenatoCesraF/Rings](https://github.com/RenatoCesarF/Rings)
+You can check out this project on my [RenatoCesraF/Rings](https://github.com/RenatoCesarF/Rings)
