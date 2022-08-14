@@ -11,7 +11,12 @@ interface HeadProps {
     url: string,
     author?: Author,
 };
-const defaultKeywords: string[] = ["indie", "Indie Games", "NextJS", "Developers", "Company", "games", "development", "developers", "blog", "documentation"]
+const defaultKeywords: string[] = [
+    "backtopixels", "indie", "Indie Games",
+    "NextJS", "Developers", "Company",
+    "games", "development", "developers",
+    "blog", "documentation",
+]
 const defaultIconPath: string = "/icon";
 const mainColor: string = "#382F60"
 
