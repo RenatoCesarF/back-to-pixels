@@ -12,7 +12,8 @@ interface HeadProps {
     author?: Author,
 };
 const defaultKeywords: string[] = [
-    "backtopixels", "indie", "Indie Games",
+    "backtopixels", "back to pixels",
+    "baccktopixels", "indie", "Indie Games",
     "NextJS", "Developers", "Company",
     "games", "development", "developers",
     "blog", "documentation",

@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 
 import globalStyles from '@styles/blog.styles';
 import Post, { getAllPostsSortedByDate } from '@classes/Post';
-import {sortByDate} from '@utils/sort';
+import { sortByDate } from '@utils/sort';
 
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import PostGrid from '@components/PostGrid';
@@ -14,50 +14,50 @@ import AnimatedLayout from '@components/AnimatedLayout';
 const HeadTag = dynamic(() => import('@components/HeadTag'));
 const RssLinks = dynamic(() => import('@components/RssLinks/RssLinks'));
 
-interface PostList{
+interface PostList {
   posts: Post[]
 };
 
-export default function BlogPage({posts}:PostList){
-    return (
-        <AnimatedLayout>
-          <style jsx global>
-              {globalStyles}
-          </style>
-          <HeadTag 
-              image={WEBSITE_INFO.LOGO_PATH}  //use generator here
-              title={`${WEBSITE_INFO.NAME} – Blog`}
-              description={`${WEBSITE_INFO.NAME} Blog Page - A list of all our articles and blog posts. Here we document the process of the development of all our projects and games`}
-              keywords={[]} 
-              date={new Date()} 
-              url="/blog"
-          />
+export default function BlogPage({ posts }: PostList) {
+  return (
+    <AnimatedLayout>
+      <style jsx global>
+        {globalStyles}
+      </style>
+      <HeadTag
+        image={WEBSITE_INFO.LOGO_PATH}  //use generator here
+        title={`${WEBSITE_INFO.NAME} – Blog`}
+        description={`${WEBSITE_INFO.NAME} Blog Page - A list of all our articles and blog posts. Here we document the process of the development of all our projects and games`}
+        keywords={['articles']}
+        date={new Date()}
+        url="/blog"
+      />
 
-          <div className='page'style={{zIndex: "-24"}}>
-              <motion.div variants={slideInLeft} >
-                <div>
-                  <h1 className="page-title">Posts</h1>
-                </div>
-                <div className='posts-written'>
-                  <span className="post-count-text">We have written</span>
-                  <span className='post-count'> {posts.length} </span>
-                  <span className="post-count-text">posts</span>
-                </div>
-              </motion.div>
-      
-              <CategoriesTagPostCount posts={posts}/>
-
-              <PostGrid posts={posts}/>
+      <div className='page' style={{ zIndex: "-24" }}>
+        <motion.div variants={slideInLeft} >
+          <div>
+            <h1 className="page-title">Posts</h1>
           </div>
-          <RssLinks/>
-        </AnimatedLayout>
-    );
+          <div className='posts-written'>
+            <span className="post-count-text">We have written</span>
+            <span className='post-count'> {posts.length} </span>
+            <span className="post-count-text">posts</span>
+          </div>
+        </motion.div>
+
+        <CategoriesTagPostCount posts={posts} />
+
+        <PostGrid posts={posts} />
+      </div>
+      <RssLinks />
+    </AnimatedLayout>
+  );
 }
 
-export async function getStaticProps(){
-    const posts = getAllPostsSortedByDate();
-    return {
-      props: {posts}
-    };
+export async function getStaticProps() {
+  const posts = getAllPostsSortedByDate();
+  return {
+    props: { posts }
+  };
 }
 
