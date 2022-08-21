@@ -11,6 +11,7 @@ import { slideButtonDown, slideInUp } from "@helpers/animations";
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import globalStyles from '@styles/teammate.styles';
 import Post, { filterPostsByAuthor } from "@classes/Post";
+import { sortByDate } from '@utils/sort';
 
 import PostGrid from '@components/PostGrid';
 import AuthorSocialLinks from "@components/AuthorSocialLinks";
@@ -100,7 +101,8 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }: StaticResponse) {
     const author: Author = getAuthor(params.teammate);
-    const authorPosts: Post[] = filterPostsByAuthor(author);
+    const authorPosts: Post[] = filterPostsByAuthor(author).sort(sortByDate);
+
     // const HTMLAuthorDescription = descontructMdData(author.about)
     return {
         props: { author, authorPosts }

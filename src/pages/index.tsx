@@ -20,7 +20,7 @@ const Home = ({ posts }: homeProps) => {
         image={WEBSITE_INFO.LOGO_PATH}
         title={`${WEBSITE_INFO.NAME}`}
         description={`Game Development studio. Checkout our blog to learn more and follow our projects`}
-        keywords={['home page', 'home']}
+        keywords={['home page', 'home', 'posts']}
         date={new Date()}
         url=""
       />
