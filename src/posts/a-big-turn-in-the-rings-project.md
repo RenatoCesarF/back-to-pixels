@@ -16,7 +16,7 @@ But now imagine a game with static units, fixed targets, simple upgrades, and a 
 
 But, to add more dynamics to the game, I decided to implement an isometric style. The main idea was to bring the semi-3D perspective and the strategi feeling that this kind of graphics brings to games. The first games of **Age of Empires** used those graphics for example. And I think that this is a way to make things more challenging.
 
-![[Pasted image 20220927123003.png]]
+![unit_selection](age-of-empires.webp)
 
 ## New inspirations and the main idea
 Since the rogue-like games exploded in the last few years, the idea is to go against this, for more strategic gameplay. Recently I played [Rogue Tower](https://store.steampowered.com/app/1843760/Rogue_Tower/), rogue-like tower-defense with voxel graphics, its a pretty fun game, but I get bored with it after the first plays, the range of builds is not diverse enough that you want to experiment with other types of stats and machines. 
@@ -32,7 +32,7 @@ Since I'm a noobie game developer, my ideas and implementations probably will go
 It's important to say that we don't have any style concept formed so far, don't have gameplay and the base of Pygame start code continues there. For the first interactions of the game, I focused on doing the isometric stuff (that is harder than it looks). Then I created an `UnitManager` to take care of the unit placement and delete. 
 
 To make the Unit selection I needed to work better on detecting which Tile and which Unit I was hovering with the mouse, It's kind of tricky but it does the job.
-![[unit_selection.mp4]]
+![unit_selection](unit_selection.mp4)
 
 I still need to improve the isometric-to-plane logic, because now I'm stuck on the code to detect if an enemy enters a unit range, and I cannot use the isometric position straight ahead, I need to make some kind of conversion. I need to calculate those collisions in the flat plane and then, only transform to isometric when needed (to draw and calculate mouse collision with units). 
 
