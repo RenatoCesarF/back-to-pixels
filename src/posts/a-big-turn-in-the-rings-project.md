@@ -4,12 +4,12 @@ date: '09/27/2022'
 author: 'renato'
 cover_image: 'cover'
 excerpt: "I decided to change the basic concept of the rings project to a turn based game, read about it"
-categories: [RINGS, PROGRAMMING, ARCHITECTURE]
+categories: [RINGS, PROGRAMMING, ARCHITECTURE, PYTHON]
 ---
 
 In the [last post](/blog/the-refactoring-process-in-rings-code) I presented you the Rings project, a repository where I (Renato) started implementing some basic systems that I would use in game development in the future. First, as I said in the last post, the idea was to make a rogue-like top-down shooter, but some days ago, I decided that to keep it simple and with the least amount of complexity, Rings should be a Tower Defense game.
 
-## The complexity thing
+# The complexity thing
 When you start to think about how to manage multiple abilities that interfere with one another; hundreds of bullets can collide, bounce, go back and pass through stuff. You start to think that Python and Pygame maybe is not the right choice for the job, and starting everything from zero with a new language is kind of a hard decision as well.
 
 But now imagine a game with static units, fixed targets, simple upgrades, and a stateless game loop, you can accept Python as a decent tool for the job.
@@ -18,7 +18,7 @@ But, to add more dynamics to the game, I decided to implement an isometric style
 
 ![unit_selection](age-of-empires.webp)
 
-## New inspirations and the main idea
+# New inspirations and the main idea
 Since the rogue-like games exploded in the last few years, the idea is to go against this, for more strategic gameplay. Recently I played [Rogue Tower](https://store.steampowered.com/app/1843760/Rogue_Tower/), rogue-like tower-defense with voxel graphics, its a pretty fun game, but I get bored with it after the first plays, the range of builds is not diverse enough that you want to experiment with other types of stats and machines. 
 
 A game that does this part very well is [ Despot's Game: Dystopian Army Builder](https://store.steampowered.com/app/1227280/Despots_Game_Dystopian_Army_Builder/), which goes for an auto-battle (TFT vibes) with class combinations and power-ups. 
@@ -28,7 +28,7 @@ So, the idea is to mess up with those concepts in a [Bloons TD 6](https://www.go
 Since I'm a noobie game developer, my ideas and implementations probably will go pretty badly, but the idea is to experiment with everything before making a serious game.
 
 
-## The Game so far
+# The Game so far
 It's important to say that we don't have any style concept formed so far, don't have gameplay and the base of Pygame start code continues there. For the first interactions of the game, I focused on doing the isometric stuff (that is harder than it looks). Then I created an `UnitManager` to take care of the unit placement and delete. 
 
 To make the Unit selection I needed to work better on detecting which Tile and which Unit I was hovering with the mouse, It's kind of tricky but it does the job.
@@ -38,7 +38,7 @@ I still need to improve the isometric-to-plane logic, because now I'm stuck on t
 
 I made a simple shoot system just to try it out, but need to fix those collisions before showing anything. 
 
-## Some problems
+# Some problems
 Finally, as things progress it get's harder to develop some stuf, that's why we should build things different. But at the same time we need to make things work before refactoring it. Another thing that I'm facing is unit testing problems.
 
 What, where and how to test thing in a video-game code? Should you test it with all things turned on? (like graphics) Or should you just test the intern things like sub-functions? Given that things change brutly during early development, those test can start to requiring more work then the real code, and it's kind ok to do that, since those tests hold your software together and protected from future mistakes.
