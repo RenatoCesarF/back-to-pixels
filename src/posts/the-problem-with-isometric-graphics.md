@@ -1,11 +1,18 @@
 ---
 title: 'The Problem with Isometric Graphics'
+date: '06/24/2023'
+author: 'renato'
+cover_image: 2
+excerpt: "Working with isometric is harder than it looks, let me show you some problems that I'm facing"
+categories: [RINGS, PROGRAMMING, ARCHITECTURE, PYTHON]
+---
+
+title: 'The Problem with Isometric Graphics'
 date: '24/06/2023'
 author: 'renato'
 cover_image: 'cover'
 excerpt: "Working with isometric is harder than it looks, let me show you some problems that I'm facing"
 categories:[RINGS, PROGRAMMING, ARCHITECTURE, PYTHON]
----
 
 Since I [changed the Rings project to be an isometric tower defense](/blog/a-big-turn-in-the-rings-project) , I've been having some problems with the 2D representation of things in this perspective. Why, you may ask? The thing is that the isometric view is exactly what I described—a representation of the actual 2D top-down game. However, when I started this project, I wasn't considering that isometric would entail more than just a different way of drawing. Unfortunately, this oversight has led to some coding issues
 

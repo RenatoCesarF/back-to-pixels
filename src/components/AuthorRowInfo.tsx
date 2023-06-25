@@ -6,6 +6,7 @@ interface AuthorRowInfoProps{
 const authorImageSize = "4rem"
 
 const AuthorRowInfo: React.FC<AuthorRowInfoProps> = (props: AuthorRowInfoProps) =>{
+    console.log(props.authorName);
     const author: Author = getAuthor(props.authorName)
 
     return (
