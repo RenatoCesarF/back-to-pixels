@@ -15,12 +15,13 @@ import globalStyles from './PostCard.styles'
 
 interface IPost{
     post: Post
+    key: number
     width?: string
 }
 const maximumExcerptSize: number = 70;
 
 
-const PostCard: React.FC<IPost> = ({post,width}: IPost) => {
+const PostCard: React.FC<IPost> = ({post,width, key}: IPost) => {
     const [isHovering, setIsHovering] = useState(false);
     const doenstHaveCoverImage:boolean = post.cover_image.includes('/default-images/');
     const extendedCategories: boolean = post.categories.length > 2;
@@ -36,6 +37,7 @@ const PostCard: React.FC<IPost> = ({post,width}: IPost) => {
                 {globalStyles}
             </style>
             <motion.div 
+                key={key}
                 initial="offscreen"
                 whileInView="onscreen"
                 exit="exit"

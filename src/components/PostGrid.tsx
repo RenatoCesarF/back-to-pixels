@@ -18,7 +18,11 @@ const PostGrid = ({posts}: PostGridProps) =>{
                     {
                         posts.length ?
                             posts.map((post: Post, index: number) =>{
-                                return  <PostCard post={post} key={index}/>
+                                return (
+                                <div key={index}> 
+                                    <PostCard post={post} key={index}/>
+                                </div>
+                                )
                             })
                         :
                         <p>Nothing here...</p>
