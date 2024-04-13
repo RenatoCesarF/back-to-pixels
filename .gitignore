@@ -21,7 +21,7 @@
 /build
 
 # misc
-.DS_Store
+./*.DS_Store
 *.pem
 
 # debug
@@ -40,3 +40,8 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+public/.DS_Store
+public/images/.DS_Store
+public/posts/.DS_Store
+public/posts/the-problem-with-isometric-graphics/.DS_Store
+.DS_Store

@@ -144,9 +144,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params }: StaticResponse) {
     const slug: string = params.slug;
-    console.log(slug)
     const post: Post = createPost(`${slug}`);
-    // console.log(post)
     const postsRecomendations: Post[] = getPostRecomendations(post);
 
     return {
