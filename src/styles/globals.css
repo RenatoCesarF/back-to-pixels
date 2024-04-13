@@ -323,6 +323,11 @@ ul {
   color: var(--post-text-color)
 }
 
+li {
+  font: var(--main-font);
+  font-family: var(--main-font);
+}
+
 
 /*=============================*/
 
@@ -689,4 +694,5 @@ ul {
 .carousel {
   height: 30rem;
   /* justify-content: center; */
+  justify-items: center;
 }

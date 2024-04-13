@@ -61,5 +61,12 @@
         "color": "#0b5e99",
         "about": "Articles talking where the main topic is Python or the main language used is Python",
         "textColor": "#EEEEEE"
+    },
+    "challange": {
+        "key": "challange",
+        "name": "Challange",
+        "color": "#fcba03",
+        "about": "Articles talking where the main topic is Python or the main language used is Python",
+        "textColor": "#222222"
     }
 }

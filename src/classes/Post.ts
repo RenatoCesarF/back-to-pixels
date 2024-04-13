@@ -8,7 +8,7 @@ import Category, {
 import { sortByCategoryAmount, sortByDate } from '@utils/sort';
 import { descontructMdData } from '@utils/descontructMdData';
 
-const postsFolderPath: string = 'src/posts';
+const postsFolderPath: string = 'public/posts';
 
 type Post = {
 	author: Author;
@@ -21,24 +21,28 @@ type Post = {
 	code_theme: string; // need to create a type that store these values
 	title: string;
 };
+
 export const getAllPostsSortedByDate = (): Post[] => {
 	const files = getPostsFileName();
 
-	var posts: Post[] = files.map((filename) => {
-		return createPost(filename);
+	var posts: Post[] = [];
+	files.forEach(filename => {
+		if (!filename.startsWith(".") && !filename.includes("DS_Store")) {
+			posts.push(createPost(filename))
+		}
 	});
-
 	posts = posts.sort(sortByDate);
 	return posts;
 };
 
 export const createPost = (filename: string): Post => {
+	const contentFile = filename + "/content.md"
 	const slug: string = filename.replace('.md', '');
-	const markdown = getSinglePostData(filename);
+	const markdown = getSinglePostData(contentFile.replace(".md", ""));
 	const { data, content } = descontructMdData(markdown);
 	const postAuthor: Author = getAuthor(data.author);
 	const categories: Category[] = getPostCategories(data.categories);
-	const coverImage = getCoverImage(slug, data.cover_image);
+	const coverImage = getCoverImage(filename, data.cover_image);
 
 	const post: Post = {
 		slug,
@@ -61,11 +65,12 @@ export const getCoverImage = (slug: string, cover_image: string | number) => {
 	) {
 		return getRandomDefaultImage();
 	}
-	return `/images/posts/${slug}/${cover_image}.webp`;
+	return `/posts/${slug}/${cover_image}.webp`;
 };
+
 const getRandomDefaultImage = (imageNumber?: number) => {
 	var defaultImageIndex = imageNumber || Math.floor(Math.random() * 4) + 1;
-	return `/images/posts/default-images/${defaultImageIndex}.webp`;
+	return `/images/default-images/${defaultImageIndex}.webp`;
 };
 
 const isCoverImageValid = (slug: string, cover_image: string | number) => {
@@ -81,7 +86,8 @@ const isCoverImageValid = (slug: string, cover_image: string | number) => {
 	}
 
 	var imageExistInFolder = false;
-	const images: string[] = readdirSync(join(`public/images/posts/${slug}`));
+	const joinResult = join(`public/posts/${slug}`)
+	const images: string[] = readdirSync(joinResult);
 
 	for (let image of images) {
 		if (image.replace('.webp', '') === cover_image) {
@@ -98,14 +104,18 @@ export const getPostsFileName = (): string[] => {
 };
 
 export const getSinglePostData = (filename: string) => {
-	const postData = readFileSync(join(postsFolderPath, filename), 'utf-8');
+	const joinResult = join(postsFolderPath, filename + ".md")
+	const postData = readFileSync(joinResult, 'utf-8');
 	return postData;
 };
 
 export const getPostRecomendations = (mainPost: Post) => {
-	const allCreatedPosts: Post[] = getPostsFileName().map((file) =>
-		createPost(file)
-	);
+	const allCreatedPosts: Post[] = []
+	getPostsFileName().forEach((file) => {
+		if (!file.startsWith(".") && !file.includes("DS_Store")) {
+			allCreatedPosts.push(createPost(file))
+		}
+	})
 	allCreatedPosts.sort(sortByDate);
 
 	var comparedCategories: Category[] = [...mainPost.categories];
@@ -141,10 +151,12 @@ export const filterPostsByCategory = (category: Category): Post[] => {
 	const filteredPosts: Post[] = [];
 
 	allPostsFileNames.map((postFile: any, index: number) => {
-		const generatedPost: Post = createPost(postFile);
 
-		if (generatedPost.categories.includes(category)) {
-			filteredPosts.push(generatedPost);
+		if (!postFile.startsWith(".") && !postFile.includes("DS_Store")) {
+			const generatedPost: Post = createPost(postFile);
+			if (generatedPost.categories.includes(category)) {
+				filteredPosts.push(generatedPost);
+			}
 		}
 	});
 	return filteredPosts;
@@ -155,9 +167,11 @@ export const filterPostsByAuthor = (author: Author): Post[] => {
 	const filteredPosts: Post[] = [];
 
 	allPostsFileNames.map((postFile: any, index: number) => {
-		const generatedPost: Post = createPost(postFile);
-		if (author && generatedPost.author === author) {
-			filteredPosts.push(generatedPost);
+		if (!postFile.startsWith(".") && !postFile.includes("DS_Store")) {
+			const generatedPost: Post = createPost(postFile);
+			if (author && generatedPost.author === author) {
+				filteredPosts.push(generatedPost);
+			}
 		}
 	});
 

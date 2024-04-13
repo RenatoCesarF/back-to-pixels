@@ -3,7 +3,7 @@ from PIL import Image
 import os
 
 def main():
-    postDirectory = "public/images/posts"
+    postDirectory = "public/posts"
     authorsDirectory = "public/images/authors"
 
     images_paths = get_all_images_paths_from([postDirectory, authorsDirectory])

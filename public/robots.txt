@@ -2,6 +2,9 @@
 User-agent: *
 Allow: /
 
+User-agent: GPTBot
+Disallow: /
+
 # Host
 Host: https://www.backtopixels.com
 

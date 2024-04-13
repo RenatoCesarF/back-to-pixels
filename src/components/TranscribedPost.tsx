@@ -11,35 +11,39 @@ import Post from '@classes/Post';
 import transcribedLinkElement from '@components/transcribeLinkElement';
 import ImageZoom from '@components/ImageZoom';
 import CodeBlock from '@components/CodeBlock';
+import { toTitleCase } from '@utils/toTitle';
 
 
-interface TranscribedPostProps{post: Post}
+interface TranscribedPostProps { post: Post }
 
-const TranscribedPost = ({post}: TranscribedPostProps) =>{
-    return(
+const TranscribedPost = ({ post }: TranscribedPostProps) => {
+    return (
         <ReactMarkdown
-            remarkPlugins={[remarkGfm, remarkSlug]} 
-            rehypePlugins={[rehypeRaw]} 
+            remarkPlugins={[remarkGfm, remarkSlug]}
+            rehypePlugins={[rehypeRaw]}
             skipHtml={false}
             components={{
-                img({node, className, children, ...props}): JSX.Element{
-                    return <ImageZoom 
-                                src={`/images/posts/${post.slug}/${props.src}`} 
-                                alt={`${props.src}`}
-                            />
+                img({ node, className, children, ...props }): JSX.Element {
+                    return <ImageZoom
+                        src={`/posts/${post.slug}/${props.src}`}
+                        alt={`${props.src}`}
+                    />
                 },
-                a({node, className, children, ...props}): JSX.Element{
-                   return transcribedLinkElement({node, className, children, ...props})
+                a({ node, className, children, ...props }): JSX.Element {
+                    return transcribedLinkElement({ node, className, children, ...props })
                 },
-                code({node, inline, className, children, ...props}): JSX.Element {
-    
-                    return !inline ? 
-                        <CodeBlock content={children} className={className}/>
-                    :
+                h1({ node, className, children, ...props }): JSX.Element {
+                    return <h1 className={className}>{toTitleCase(children.toString())}</h1>
+                },
+                code({ node, inline, className, children, ...props }): JSX.Element {
+
+                    return !inline ?
+                        <CodeBlock content={children} className={className} />
+                        :
                         <code className='simple-code' {...props}>
                             {children}
                         </code>
-                    
+
                 }
             }}
         >
