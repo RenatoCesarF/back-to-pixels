@@ -2,9 +2,9 @@
 title: 'Arvore de arquitos em uma TUI'
 date: '01/17/2025'
 author: 'renato'
-cover_image: 'logo'
-excerpt: "Some improvements made since the last blog post and a provisional name and logo that we are using"
-categories: [BLOG, DESIGN]
+cover_image: 'cover'
+excerpt: "Decidi fazer um navegador de arquivos dentro do terminal, nesse post estou tentando representar os arquivos de forma correta"
+categories: [BLOG, PROGRAMMING]
 ---
 Olá a todos! Faz tempo que não escrevo por aqui, pois estive ocupado e não programando muito. Mas prometo que voltarei a trabalhar com joguinhos e coisas interessantes para que eu possa movimentar mais esse site.
 
