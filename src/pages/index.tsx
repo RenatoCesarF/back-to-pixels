@@ -1,4 +1,4 @@
-// import generateRssFeed from '../../scripts/rss'
+import generateRssFeed from '@utils/rss'
 import HeadTag from '@components/HeadTag';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import ParalaxElement from '@components/ParalaxElement'
@@ -67,7 +67,7 @@ const Home = ({ posts }: homeProps) => {
 }
 
 export async function getStaticProps() {
-  // await generateRssFeed();
+  await generateRssFeed();
   const posts = getAllPostsSortedByDate().slice(0, 6)
   return { props: { posts } };
 }
