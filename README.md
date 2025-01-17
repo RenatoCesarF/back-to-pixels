@@ -5,7 +5,8 @@
 ## A blog to document our projects implementation process, write about things we learned in the process, and teach interesting things
 
 
-###  🖱️ Access at: https://backtopixels.com/
+###  🖱️ Access at: https://backtopixels.vercel.app
+
 
 ### :blue_book: Libraries:
 * Next.js (for static generation and optmization)
