@@ -12,7 +12,7 @@
         "../public/*"
       ],
       "@scripts/*": [
-        "../scripts/*"
+        "./scripts/*"
       ],
       "@utils/*": [
         "utils/*"

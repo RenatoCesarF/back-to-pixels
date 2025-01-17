@@ -2,11 +2,8 @@
 User-agent: *
 Allow: /
 
-User-agent: GPTBot
-Disallow: /
-
 # Host
 Host: https://www.backtopixels.com
 
 # Sitemaps
-Sitemap: https://www.backtopixels.com/sitemap-0.xml
+Sitemap: https://www.backtopixels.com/sitemap.xml
