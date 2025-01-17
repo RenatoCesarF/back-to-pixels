@@ -1,4 +1,4 @@
-import generateRssFeed from '@root/scripts/rss'
+import generateRssFeed from '@scripts/rss'
 import HeadTag from '@components/HeadTag';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import ParalaxElement from '@components/ParalaxElement'
