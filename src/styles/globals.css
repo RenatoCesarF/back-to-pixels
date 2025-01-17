@@ -130,7 +130,7 @@ body.dark {
   -ms-overflow-style: none;
 
   box-sizing: border-box;
-  scrollbar-color: transparent transparent;
+  /* scrollbar-color: transparent transparent; */
   /* thumb and track color */
   scrollbar-width: 0px;
   text-decoration: none;
@@ -691,10 +691,9 @@ li {
 
 .waves {
   margin-top: -1%;
+  height: 15rem;
 }
 
 .carousel {
-  height: 30rem;
-  /* justify-content: center; */
   justify-items: center;
 }

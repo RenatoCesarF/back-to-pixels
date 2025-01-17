@@ -1,5 +1,5 @@
 
 module.exports = {
-    siteUrl: "https://www.backtopixels.com",
+    siteUrl: "https://backtopixels.vercel.app",
     generateRobotsTxt: true,
 }
