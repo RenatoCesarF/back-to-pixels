@@ -691,9 +691,10 @@ li {
 
 .waves {
   margin-top: -1%;
-  height: 15rem;
+  /* height: 15rem; */
 }
 
 .carousel {
+  height: 30rem;
   justify-items: center;
 }
