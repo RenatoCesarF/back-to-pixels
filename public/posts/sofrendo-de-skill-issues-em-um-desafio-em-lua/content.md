@@ -4,7 +4,7 @@ date: '04/13/2024'
 author: 'renato'
 cover_image: 'cover'
 excerpt: "Todos os problemas que tive tentando solucionar um desafio usando uma linguagem que não conheço"
-categories: [PROGRAMMING]
+categories: [PROGRAMMING, DESAFIO]
 code_theme: 'dracula'
 ---
 Num fim de tarde qualquer, buscando programar algo, como é de minha natureza, decidi me aventurar em um desafio do [Advent of Code](https://adventofcode.com/), um site clássico repleto de problemas de lógica e programação.

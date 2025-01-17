@@ -1,4 +1,4 @@
-import generateRssFeed from '@scripts/rss'
+import generateRssFeed from '@root/scripts/rss'
 import HeadTag from '@components/HeadTag';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 import ParalaxElement from '@components/ParalaxElement'
@@ -59,7 +59,8 @@ const Home = ({ posts }: homeProps) => {
           }
         </Carousel>
 
-      </div>
+        <div style={{ paddingBottom: '10em' }}></div>
+      </div >
 
     </>
   )
