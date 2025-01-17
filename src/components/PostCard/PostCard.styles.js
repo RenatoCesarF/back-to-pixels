@@ -3,6 +3,8 @@ export default css.global`
 .post-card-expanded-external{
     height: 19.6em;
     width: fit-content;
+    text-decoration: none;
+    user-select:none;
   }
   .post-card-div{
     width: 17em;
@@ -27,6 +29,7 @@ export default css.global`
   }
   
   .post-card-clickable{
+    text-decoration: none;
     cursor: pointer;
     user-select:none;
   }
@@ -79,7 +82,8 @@ export default css.global`
     margin-top: 0.2vh;  
     margin-bottom: 0.5vh;  
     height: auto;
-  
+    text-decoration: none;
+    user-select:none;
   }
   .post-card-title{
     font-family: 'Inconsolata', sans-serif;
@@ -88,8 +92,11 @@ export default css.global`
     margin-top: 0.2rem;
     margin-left: 0.4rem;
     margin-right: 0.4rem;
-    color: var(--card-text-color)
+    color: var(--card-text-color);
+    text-decoration: none;
+    user-select:none;
   }
+
   .excerpt-post-card-div{
     position: relative; 
     z-index: 0;
@@ -263,18 +270,33 @@ export default css.global`
   }
   /*on hover, change image and text*/
   .post-card-clickable:hover .post-card-img, .post-card-clickable:hover .post-card-cover-date{
+    user-select:none;
     -webkit-transform:scale(1.15); /* Safari and Chrome */
     -moz-transform:scale(1.15); /* Firefox */
     -ms-transform:scale(1.15); /* IE 9 */
     -o-transform:scale(1.15); /* Opera */
     transform:scale(1.15);
+    text-decoration: none;
+    user-select:none;
     min-height: 100%;
   }
   
+
   .post-card-clickable:focus .post-card-title{
-    text-decoration: underline;
+    text-decoration: none;
+    user-select:none;
+  }
+  .post-card-clickable .post-card-title{
+    text-decoration: none;
+    user-select:none;
   }
   .post-card-clickable:focus-within h2:focus {
     text-decoration: none;
+    user-select:none;
+  }
+
+  .post-card-clickable:active h2:focus {
+    text-decoration: none;
+    user-select:none;
   }
 `

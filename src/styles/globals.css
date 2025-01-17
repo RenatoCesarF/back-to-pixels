@@ -133,6 +133,7 @@ body.dark {
   scrollbar-color: transparent transparent;
   /* thumb and track color */
   scrollbar-width: 0px;
+  /* text-decoration: none; */
 }
 
 
@@ -382,7 +383,7 @@ li {
   /* justify-content: space-between; */
 }
 
-.header a {
+.header p {
   float: left;
   color: var(--header-option-text);
   font-weight: 700;
@@ -400,11 +401,11 @@ li {
   border-radius: 3px;
 }
 
-.header a:hover {
+.header p:hover {
   background-color: var(--header-option-hover);
 }
 
-.header a.active {
+.header p.active {
   background-color: var(--header-option-activated);
   color: var(--header-text-option-activated);
 
@@ -452,7 +453,7 @@ li {
     margin-top: 20px;
   }
 
-  .header a {
+  .header p {
     float: none;
     display: block;
     text-align: left;

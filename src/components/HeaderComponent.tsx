@@ -6,7 +6,7 @@ import ThemeSwitch from '@components/ThemeSwich';
 import MenuIcon from '@components/MenuIcon';
 import WEBSITE_INFO from '@helpers/webSiteInfo';
 
-enum HeaderOption{
+enum HeaderOption {
     HOME,
     BLOG,
     TEAM,
@@ -19,59 +19,59 @@ export default function Header() {
     var currentPage: HeaderOption = getCurrentPage(router.pathname);
 
     const toggleMenuIcon = () => {
-        if(isMenuOpened){
+        if (isMenuOpened) {
             setMenuState(false);
             return;
         }
         setMenuState(true);
     }
 
-    const isMenuActive =(checkedOption: HeaderOption) => {
+    const isMenuActive = (checkedOption: HeaderOption) => {
         return currentPage === checkedOption ? "active" : ""
     }
-    const checkMenuState =() => {
-        return isMenuOpened? "" : "closed"
+    const checkMenuState = () => {
+        return isMenuOpened ? "" : "closed"
     }
-    
-    return(
+
+    return (
         <header className="header">
             <div className='logo-menu-line'>
                 <Link passHref href="/">
                     <img src={WEBSITE_INFO.LOGO_SMALL_PATH} className='logo' alt='Logo Image'
-                        	width="107px" height="61px"
+                        width="107px" height="61px"
                     />
                 </Link>
-                
+
                 <div className='menu-icon-div'>
                     <div onClick={(toggleMenuIcon)}>
-                        <MenuIcon/>
+                        <MenuIcon />
                     </div>
                 </div>
             </div>
 
             <nav className={`header-right ${checkMenuState()}`} >
                 <Link href="/">
-                    <a 
-                        onClick={()=>changeToOption(HeaderOption.HOME)}
+                    <p
+                        onClick={() => changeToOption(HeaderOption.HOME)}
                         id='home-option'
-                        
-                        className={`menu-option ${isMenuActive(HeaderOption.HOME)}`}>Home 
-                    </a>
+
+                        className={`menu-option ${isMenuActive(HeaderOption.HOME)}`}>Home
+                    </p>
                 </Link>
                 <Link href="/blog">
-                    <a 
-                        onClick={()=>changeToOption(HeaderOption.BLOG)} 
-                        className={`menu-option ${isMenuActive(HeaderOption.BLOG)}` } >Blog
-                    </a>
+                    <p
+                        onClick={() => changeToOption(HeaderOption.BLOG)}
+                        className={`menu-option ${isMenuActive(HeaderOption.BLOG)}`} >Blog
+                    </p>
                 </Link>
                 <Link href="/team">
-                    <a 
-                        onClick={()=>changeToOption(HeaderOption.TEAM)} 
-                        className={`menu-option ${isMenuActive(HeaderOption.TEAM)}` } >Team
-                    </a>
+                    <p
+                        onClick={() => changeToOption(HeaderOption.TEAM)}
+                        className={`menu-option ${isMenuActive(HeaderOption.TEAM)}`} >Team
+                    </p>
                 </Link>
-                <div className='theme-switcher'>  
-                    <ThemeSwitch/>
+                <div className='theme-switcher'>
+                    <ThemeSwitch />
                 </div>
             </nav>
         </header>
@@ -81,25 +81,25 @@ export default function Header() {
 
 const changeToOption = (selectedOption: HeaderOption) => {
     var options = document.getElementsByClassName("menu-option");
-    for (var i:number = 0; i < options.length; i++) {
+    for (var i: number = 0; i < options.length; i++) {
         options[i].className = options[i].className.replace(" active", "");
     }
 
     options[selectedOption].className += " active";
 }
 
-const getCurrentPage = (pathName: string) =>{
+const getCurrentPage = (pathName: string) => {
     var currentPage: HeaderOption = HeaderOption.NONE;
-    
-    if(pathName === '/'){
+
+    if (pathName === '/') {
         currentPage = HeaderOption.HOME;
         return currentPage;
     }
-    if(pathName.includes('/blog')){
+    if (pathName.includes('/blog')) {
         currentPage = HeaderOption.BLOG;
         return currentPage;
     }
-    if(pathName.includes('/team')){
+    if (pathName.includes('/team')) {
         currentPage = HeaderOption.TEAM;
         return currentPage;
     }

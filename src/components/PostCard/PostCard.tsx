@@ -13,7 +13,7 @@ import { rgbDataURL } from '@utils/rgbDataURL';
 
 import globalStyles from './PostCard.styles'
 
-interface IPost{
+interface IPost {
     post: Post
     key: number
     width?: string
@@ -21,54 +21,54 @@ interface IPost{
 const maximumExcerptSize: number = 70;
 
 
-const PostCard: React.FC<IPost> = ({post,width, key}: IPost) => {
+const PostCard: React.FC<IPost> = ({ post, width, key }: IPost) => {
     const [isHovering, setIsHovering] = useState(false);
-    const doenstHaveCoverImage:boolean = post.cover_image.includes('/default-images/');
+    const doenstHaveCoverImage: boolean = post.cover_image.includes('/default-images/');
     const extendedCategories: boolean = post.categories.length > 2;
     var shortExcerpt: string = post.excerpt;
 
-    if(post.excerpt.length > maximumExcerptSize){
-        shortExcerpt = post.excerpt.substring( 0, maximumExcerptSize) + "...";
+    if (post.excerpt.length > maximumExcerptSize) {
+        shortExcerpt = post.excerpt.substring(0, maximumExcerptSize) + "...";
     }
 
-    return(
+    return (
         <>
             <style jsx global>
                 {globalStyles}
             </style>
-            <motion.div 
+            <motion.div
                 key={key}
                 initial="offscreen"
                 whileInView="onscreen"
                 exit="exit"
                 viewport={{ once: true, amount: 0.3 }}
                 className='post-card-expanded-external'>
-                <motion.div className='post-card-div'  
-                    variants={cardVariants} 
-                    style={{width:`${width}`}}
-                    onMouseOver={()=>{setIsHovering(true)}}
-                    onMouseLeave={()=>{setIsHovering(false)}}
-                    onTouchCancel={()=>{setIsHovering(false)}}
-                    onTouchEndCapture={()=>{setIsHovering(true)}}
-                    onTouchCancelCapture={()=>{setIsHovering(false)}}
+                <motion.div className='post-card-div'
+                    variants={cardVariants}
+                    style={{ width: `${width}` }}
+                    onMouseOver={() => { setIsHovering(true) }}
+                    onMouseLeave={() => { setIsHovering(false) }}
+                    onTouchCancel={() => { setIsHovering(false) }}
+                    onTouchEndCapture={() => { setIsHovering(true) }}
+                    onTouchCancelCapture={() => { setIsHovering(false) }}
                 >
                     <Link passHref href={`/blog/${post.slug}`}>
                         <article className="post-card-clickable">
                             <header className='post-card-image-container'>
-                                <NextImage 
-                                    src={post.cover_image} 
-                                    alt='post card image' 
-                                    layout="fill" 
+                                <NextImage
+                                    src={post.cover_image}
+                                    alt='post card image'
+                                    layout="fill"
                                     loading='lazy'
                                     placeholder='blur'
                                     lazyBoundary='50px'
-                                    blurDataURL={rgbDataURL(72, 81, 136)}   
+                                    blurDataURL={rgbDataURL(72, 81, 136)}
                                     className='post-card-img'
                                 />
                                 {
                                     doenstHaveCoverImage ?
-                                        <h1 className='post-card-cover-date'>{post.date}</h1> 
-                                    : null 
+                                        <h1 className='post-card-cover-date'>{post.date}</h1>
+                                        : null
                                 }
                             </header>
 
@@ -80,49 +80,49 @@ const PostCard: React.FC<IPost> = ({post,width, key}: IPost) => {
                                         {isHovering ? post.excerpt : shortExcerpt}
                                     </p>
                                 </div>
-                            
+
                             </div>
                         </article>
                     </Link>
 
                     <footer className='post-card-footer'>
                         <div className='card-date-row'>
-                            <FaRegCalendarAlt id='card-date-icon' size={16}/>
+                            <FaRegCalendarAlt id='card-date-icon' size={16} />
                             <p className="post-card-date">{post.date}</p>
                         </div>
                         <div className='post-card-categories-row'>
                             <div className='tooltip'>
-                                <div className={extendedCategories? "categories-row" : ""}>
+                                <div className={extendedCategories ? "categories-row" : ""}>
                                     {
-                                        post.categories.map((category: Category, index: number)=>{
-                                            if(index >= 2) return;
-                                            return <CategoryTag category={category} key={index}/>
+                                        post.categories.map((category: Category, index: number) => {
+                                            if (index >= 2) return;
+                                            return <CategoryTag category={category} key={index} />
                                         })
                                     }
-                                    {extendedCategories ? <CategoryTagTransparent category={post.categories[2]}/> : <></>}
+                                    {extendedCategories ? <CategoryTagTransparent category={post.categories[2]} /> : <></>}
                                 </div>
                                 {
                                     extendedCategories
-                                    ?
-                                    <span className="tooltiptext">
-                                        <div className="extended-categories"  >
-                                        {
-                                            post.categories.map((category: Category, index: number)=>{
-                                                return (
-                                                    <motion.div 
-                                                        whileHover={{ scale: 1.1 }}
-                                                        style={{display: "inline-block", transitionDuration: "0s"}}
-                                                        key={index}  
-                                                    >
-                                                        <CategoryTag category={category} key={index} />
-                                                    </motion.div>
-                                                )
-                                            })
-                                        }
-                                        </div>
-                                    </span>
-                                    :
-                                    null
+                                        ?
+                                        <span className="tooltiptext">
+                                            <div className="extended-categories"  >
+                                                {
+                                                    post.categories.map((category: Category, index: number) => {
+                                                        return (
+                                                            <motion.div
+                                                                whileHover={{ scale: 1.1 }}
+                                                                style={{ display: "inline-block", transitionDuration: "0s" }}
+                                                                key={index}
+                                                            >
+                                                                <CategoryTag category={category} key={index} />
+                                                            </motion.div>
+                                                        )
+                                                    })
+                                                }
+                                            </div>
+                                        </span>
+                                        :
+                                        null
                                 }
                             </div>
                         </div>

@@ -62,11 +62,11 @@
         "about": "Articles talking where the main topic is Python or the main language used is Python",
         "textColor": "#EEEEEE"
     },
-    "challange": {
-        "key": "challange",
-        "name": "Challange",
+    "desafio": {
+        "key": "desafio",
+        "name": "Desafio",
         "color": "#fcba03",
-        "about": "Articles talking where the main topic is Python or the main language used is Python",
+        "about": "Artigos onde comento sobre desafios propóstos por mim, ou por sites de lógica/programação. Principalmente Advent Of Code",
         "textColor": "#222222"
     }
 }

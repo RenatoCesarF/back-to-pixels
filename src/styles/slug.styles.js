@@ -171,6 +171,7 @@ export default css.global`
     font-size: 1.0em;
     text-decoration: none;
     font-weight: bold;
+    user-select:none;
     color: var(--link-color);
     cursor: pointer;
     user-select: none;
@@ -287,6 +288,7 @@ export default css.global`
   margin: 0;
   padding: 0.1rem 0;
   text-decoration: none;
+    user-select:none;
   font-weight: 600;
   color: var(--link-color);
 }
