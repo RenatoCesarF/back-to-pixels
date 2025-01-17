@@ -93,7 +93,7 @@ export default css.global`
     margin-left: 0.4rem;
     margin-right: 0.4rem;
     color: var(--card-text-color);
-    text-decoration: none;
+    text-decoration: none !important;
     user-select:none;
   }
 
@@ -299,4 +299,5 @@ export default css.global`
     text-decoration: none;
     user-select:none;
   }
+
 `

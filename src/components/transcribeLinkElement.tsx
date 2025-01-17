@@ -16,7 +16,7 @@ export default function transcribedLinkElement({ node, className, children, ...p
 
     return (
         <Link href={props.href || "/blog"} passHref scroll>
-            <p style={{ "border": "none" }} className="transcribe-link">{children}</p>
+            <span style={{ "border": "none" }} className="transcribe-link">{children}</span>
         </Link>
     );
 }

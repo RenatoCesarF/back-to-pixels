@@ -1,5 +1,5 @@
 import Link from "next/link";
-import NextImage from 'next/image';
+import NextImage from "next/image";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
@@ -29,7 +29,7 @@ const PostInternInformation: React.FC<PostInternInformationProps> = ({ post }: P
     }, []);
     const authorImageSize: string = "69";
     return (
-        <div>
+        (<div>
             <div className="post-author-info" >
                 <div style={{ display: "flex", alignItems: "center" }}>
                     {/* IMAGE */}
@@ -37,7 +37,6 @@ const PostInternInformation: React.FC<PostInternInformationProps> = ({ post }: P
                         <Link passHref href={autorRedirectLink}>
                             <NextImage
                                 className="post-info-author-image"
-                                layout="fixed"
                                 width={parseInt(authorImageSize)}
                                 height={parseInt(authorImageSize)}
                                 alt={`${post.author.name} image`}
@@ -46,8 +45,7 @@ const PostInternInformation: React.FC<PostInternInformationProps> = ({ post }: P
                                 loading='lazy'
                                 blurDataURL={rgbDataURL(72, 81, 136)}
                                 quality={100}
-                                unoptimized={true}
-                            />
+                                unoptimized={true} />
                         </Link>
                     </div>
                     {/* NAME AND PUBLISH DATE */}
@@ -71,7 +69,7 @@ const PostInternInformation: React.FC<PostInternInformationProps> = ({ post }: P
             <div className="post-categories-info">
                 <ListOfCategories categories={post.categories} />
             </div>
-        </div>
+        </div>)
     );
 }
 

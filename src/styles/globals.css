@@ -133,7 +133,8 @@ body.dark {
   scrollbar-color: transparent transparent;
   /* thumb and track color */
   scrollbar-width: 0px;
-  /* text-decoration: none; */
+  text-decoration: none;
+  /* remove if breaks something*/
 }
 
 
