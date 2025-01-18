@@ -60,7 +60,8 @@ body.light {
 
   --post-text-color: #292929;
   --post-h1-color: rgba(41, 41, 41, 1);
-  --title-before-color: #C0C0C0;
+  --title-before-color: #bdbdbd;
+  --title-before-color-h2: #b2b1b1;
   --post-resume-color: #575757;
 
   --code-background-color: #485188;
@@ -99,7 +100,8 @@ body.dark {
   --font-contrast-color: rgb(214, 212, 212);
 
   --post-text-color: #e9e7e7ed;
-  --title-before-color: #575757;
+  --title-before-color: #676767;
+  --title-before-color-h2: #575757;
   --post-h1-color: rgb(240, 240, 240);
   --post-resume-color: rgb(165, 165, 165);
 

@@ -25,6 +25,7 @@ export default css.global`
   }
   .post-content p{
     line-height: 1.8em;
+    text-align: justify
   }
   .post-section li{
     line-height: 1.7em;
@@ -37,7 +38,7 @@ export default css.global`
     font-style: italic;
   }
   .post-content h1{
-    font-size: 1.6em;
+    font-size: 1.8em;
     margin-top: 2rem;
     font-family:var(--title-font);
     font-weight: bolder;
@@ -52,7 +53,16 @@ export default css.global`
   .post-content h2{
     font-size: 1.3em;
     margin: 1.5rem 0 -1rem 0;
-    font-family: var(--title-font);
+    font-weight: 200;
+    // font-family: var(--title-font);
+  }
+
+  .post-content h2::before{
+    content: "##  ";
+    font-family:var(--title-font);
+    font-weight: 300;
+    color: var(--title-before-color-h2);
+    margin-right: 0.2rem;
   }
  
   /*============ IMAGE ===============*/
@@ -84,7 +94,7 @@ export default css.global`
     width: 100% !important;
   } 
   .post-cover{
-    border-radius: 0.15rem;
+    border-radius: 0.3rem;
     height: 100%;
     width:100%;
     object-fit: cover;
@@ -96,6 +106,7 @@ export default css.global`
   .post-cover-div{
     position: relative;
     background-color: #2d2d2d 
+    border-radius: 0.3rem;
   }
 
   .post-cover-date{
@@ -125,8 +136,8 @@ export default css.global`
  
   .post-container {
     justify-content: center;
-    margin-left: 25vw;
-    margin-right: 30vw; 
+    margin-left: 22vw;
+    margin-right: 27vw; 
     margin-bottom: 10vh;
     font-family: charter, Georgia, Cambria, "Times New Roman", Times, serif;
   }
@@ -148,8 +159,8 @@ export default css.global`
  
   @media only screen and (min-width:600px) and (max-width:1000px){
     .post-container{
-      margin-left: 14vw;
-      margin-right: 20vw; 
+      margin-left: 10vw;
+      margin-right: 16vw; 
     }
   }
   

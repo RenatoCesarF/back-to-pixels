@@ -1,7 +1,7 @@
 import css from 'styled-jsx/css'
 export default css.global`
 .post-card-expanded-external{
-    height: 26em;
+    height: 19rem;
     width: fit-content;
     text-decoration: none;
     user-select:none;

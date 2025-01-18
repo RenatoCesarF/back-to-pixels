@@ -33,7 +33,10 @@ const TranscribedPost = ({ post }: TranscribedPostProps) => {
                     return transcribedLinkElement({ node, className, children, ...props })
                 },
                 h1({ node, className, children, ...props }): JSX.Element {
-                    return <h1 className={className}>{toTitleCase(children.toString())}</h1>
+                    return <h1 id={props.id} className={className}>{toTitleCase(children.toString())}</h1>
+                },
+                h2({ node, className, children, ...props }): JSX.Element {
+                    return <h2 id={props.id} className={className}>{toTitleCase(children.toString())}</h2>
                 },
                 code({ node, inline, className, children, ...props }): JSX.Element {
 
