@@ -24,6 +24,7 @@ export enum CategoryType {
   //Projects
   BLOG = 8,
   RINGS = 9,
+  GAMEDEV = 10
 }
 
 export const getPostCategories = (categories: string[]): Category[] => {

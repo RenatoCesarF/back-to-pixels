@@ -51,9 +51,9 @@ export default css.global`
     margin-right: 0.2rem;
   }
   .post-content h2{
-    font-size: 1.3em;
+    font-size: 1.8em;
     margin: 1.5rem 0 -1rem 0;
-    font-weight: 200;
+    font-weight: bolder;
     // font-family: var(--title-font);
   }
 

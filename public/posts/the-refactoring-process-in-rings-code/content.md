@@ -1,38 +1,39 @@
 ---
-title: 'The Refactoring process in Rings code'
-date: '07/07/2022'
-author: 'renato'
-cover_image: 'cover'
+title: "The Refactoring process in Rings code"
+date: "07/07/2022"
+author: "renato"
+cover_image: "cover"
 excerpt: "Presenting the Rings project and talking about some refactoring that I did"
-categories: [RINGS, ARCHITECTURE, PROGRAMMING, PYTHON]
-code_theme: 'dracula'
+categories: [RINGS, ARCHITECTURE, PROGRAMMING, PYTHON, game-dev]
+code_theme: "dracula"
 ---
 
-
 Hi There! I would like to introduce to you one of my (and Back to Pixels) project **Rings**. And perhaps show some big refactorings
- that I did some days ago.
+that I did some days ago.
 
 # Presenting Rings
+
 Rings is a pygame video-game project that initially was inspired by [Enter the Gungeon](https://enterthegungeon.com) and [Nuclear Throne](https://nuclearthrone.com) (even the sprite animation test was done using its sprites). But with time (and some studies) I realized that this scope was too big for my first game, and by the time I was pretty into [Vampire Survivors](https://store.steampowered.com/app/1794680/Vampire_Survivors/), so I decided to redirect Rings to be a "stand-still" rogue-like game. Aiming to try some video-game software architecture and push to the limits that python can do as a game development language!
 
 > The name rings was referring to the upgrades in the game, that would be rings that you could use, a maximum of 10.
 
 But a complete game is still a big scope for someone that studies and has a full-time job. So, my current idea is to develop each feature of a simple game development framework just to experiment with some module architectures.
 
-And here today I will show you what was *Rings* was before and after some cool structural changes that I made based on some simple things that I've learned recently.
+And here today I will show you what was _Rings_ was before and after some cool structural changes that I made based on some simple things that I've learned recently.
 
 # How It Was and Where it is Going
-Since I'm just developing feature to feature, my architecture thing was not that important, so I kept the code struct as the simple pygame tutorial would give you, which is, extremely bad, but with the simple *check-events*, *update entities*, *render entities* order. 
 
-But after seeing some [DaFluffyPotato](https://www.youtube.com/c/DaFluffyPotato) live streams I start to recognize a pattern in his code. He put everything into a *Game* class, and passes this game class to everyone inside it (this part is pretty dangerous but ok), and inside this class, he has a *world* attribute (of the class World) and an *Input* attribute (of the class Input) and so on for every major thing in his game. He also had some classic structs such as a list of *entities* and a list of projectiles.
+Since I'm just developing feature to feature, my architecture thing was not that important, so I kept the code struct as the simple pygame tutorial would give you, which is, extremely bad, but with the simple _check-events_, _update entities_, _render entities_ order.
+
+But after seeing some [DaFluffyPotato](https://www.youtube.com/c/DaFluffyPotato) live streams I start to recognize a pattern in his code. He put everything into a _Game_ class, and passes this game class to everyone inside it (this part is pretty dangerous but ok), and inside this class, he has a _world_ attribute (of the class World) and an _Input_ attribute (of the class Input) and so on for every major thing in his game. He also had some classic structs such as a list of _entities_ and a list of projectiles.
 
 Anyways, this architecture can help a lot such in debugging (because um can tear apart things easily) and in modularity.
 
 So that's where I aimed to when refactoring Rings for (almost) the first time.
 
 # Some Bad Code
-Here I will show you how the code was (it is a little bit longer, so maybe I will change it in the future)
 
+Here I will show you how the code was (it is a little bit longer, so maybe I will change it in the future)
 
 ```python
 configs = json.load(open('config.json'))
@@ -113,7 +114,7 @@ while running:
 		#<big tiles logic and draw>
 		for t in row:
 			#<more logic and draw world stuff>
-			
+
 	player.update(mx, collision_tiles,camera)
 	player.draw(display,debugging)
 
@@ -136,6 +137,7 @@ while running:
 > I removed some unnecessary parts
 
 # Some less-bad code
+
 ```python
 class Game:
 	_entities: list
@@ -145,7 +147,7 @@ class Game:
 	world: World
 	mouse: Mouse
 	camera: Camera
-	
+
 	def __init__(self):
 		configs = json.load(open("config.json"))
 		self.window = Window(configs)
@@ -154,45 +156,45 @@ class Game:
 		self.player = Player(self)
 		self.player.load_animations()
 		self.camera = Camera(
-				self.player, 
+				self.player,
 				self.window.screen_real_size
 		)
-	
-	
+
+
 		self._entities = []
 		self._entities.append(self.player)
 		self.running = True
 		self.clock = pygame.time.Clock()
 		self.FONT = pygame.font.Font("res/Pixellari.ttf", 22)
-	
-	
+
+
 	def update(self):
 		self.world.update()
 		self.mouse.update()
 		self.camera.update()
 		for entitiy in self._entities:
 			entitiy.update()
-	
+
 		pygame.display.update()
 		self.clock.tick(60)
-		
+
 	def draw(self):
 		self.window.display.fill((30, 30, 30))
 		self.world.draw(self.window.display, self.camera.position)
-		
+
 		for entitiy in self._entities:
 			entitiy.draw(self.window.display, self.camera.position)
-			
-	
+
+
 		self.window.blit_displays()
 		self.mouse.draw(self.window.screen)
-		
+
 	def run(self):
 		while self.running:
 			self.check_events()
 			self.update()
 			self.draw()
-			
+
 game = Game().run()
 ```
 
@@ -202,13 +204,13 @@ As Uncle Bob says in "Clean Architecture":
 
 > Good (clean and well architectured) code, should look like a well-written poem
 
-The new rings architecture looks like some Ok poem, but I think it could be better, mainly in the *Player* class (the animation system is kind of messed up). In the end, all I did was hide things properly and reallocate them where they should be.
+The new rings architecture looks like some Ok poem, but I think it could be better, mainly in the _Player_ class (the animation system is kind of messed up). In the end, all I did was hide things properly and reallocate them where they should be.
 
-All the world logic and drawing are inside the *World* class, for example, and the same thing applies to all the other pieces of the game. It's clear that I don't have much to organize, but it was a good starting point to do all these refactorings.
-
+All the world logic and drawing are inside the _World_ class, for example, and the same thing applies to all the other pieces of the game. It's clear that I don't have much to organize, but it was a good starting point to do all these refactorings.
 
 # What Rings have until now?
-Rings started as an experiment, just me trying to implement some cool game-development features. So, the project doesn't have much, just some split, badly implemented simple features, like particles, animations, collisions, and sparks (that I just copied from DaFlufy). But those simple things that I have will be re-write and documented here in the future. 
+
+Rings started as an experiment, just me trying to implement some cool game-development features. So, the project doesn't have much, just some split, badly implemented simple features, like particles, animations, collisions, and sparks (that I just copied from DaFlufy). But those simple things that I have will be re-write and documented here in the future.
 
 For now, the game looks something like this:
 
@@ -216,10 +218,9 @@ For now, the game looks something like this:
 
 > I used the Nuclear Throne animation to test some stuff ;)
 
-
 # Conclusion
 
-As I said, Rings are only the start, and I pretend to turn it into a simple rogue-like game, and that's some of the things I will bring her to the game-studio blog. 
+As I said, Rings are only the start, and I pretend to turn it into a simple rogue-like game, and that's some of the things I will bring her to the game-studio blog.
 
 I will bring some cool implementations and mainly focus on game-design architecture.
 

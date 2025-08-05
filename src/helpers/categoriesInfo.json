@@ -1,72 +1,86 @@
 {
-    "rings": {
-        "key": "rings",
-        "name": "Rings",
-        "color": "#727A9A",
-        "about": "Development process and documentation about the project Rings. A Python package to game delopment. Developed using pygame",
-        "textColor": "#eeeeee"
-    },
-    "nextjs": {
-        "key": "nextjs",
-        "name": "Next.JS",
-        "color": "#000000",
-        "about": "Articles about projects or matters that envolves the Next.JS framework, that was used to build this website. The posts with the tag Next.JS are mainlly focused in some features implemented in the blog, like Dark-Theme, How we do our .MD transcriptions to HTML and etc.",
-        "textColor": "#EEEEEE"
-    },
-    "blog": {
-        "key": "blog",
-        "name": "Blog",
-        "color": "#FB8123",
-        "about": "Articles about the creation and documentation around the blog it self. You can find the source code in Renato's GitHub (RenatoCesarF)",
-        "textColor": "#2a2a2a"
-    },
-    "art": {
-        "key": "art",
-        "name": "Art",
-        "color": "#43639B",
-        "about": "Articles about art direction, pixel art and art in general",
-        "textColor": "#EEEEEE"
-    },
-    "programming": {
-        "key": "programming",
-        "name": "Programming",
-        "color": "#7f4596",
-        "about": "Articles with about programming, examples, explanations and etc. Not all the posts are about programming, thus we have artists in the Team as well. But all programming content will be found in the programming tag.",
-        "textColor": "#EEEEEE"
-    },
-    "architecture": {
-        "key": "architecture",
-        "name": "Architecture",
-        "color": "#00a4b6",
-        "about": "Articles with about software-architecture, how we manage to get to then, how it works and why choose them",
-        "textColor": "#222222"
-    },
-    "tutorial": {
-        "key": "tutorial",
-        "name": "Tutorial",
-        "color": "#247ba3",
-        "about": "Articles with about software-architecture, how we manage to get to then, how it works and why choose them",
-        "textColor": "#EEEEEE"
-    },
-    "design": {
-        "key": "design",
-        "name": "Design",
-        "color": "#85BC3C",
-        "about": "Articles with about web-design and things that we changed in the blog website that envolves the design of the blog itself. Like dart-theme, positioning and visuals of some element or page. ",
-        "textColor": "#2a2a2a"
-    },
-    "python": {
-        "key": "python",
-        "name": "Python",
-        "color": "#0b5e99",
-        "about": "Articles talking where the main topic is Python or the main language used is Python",
-        "textColor": "#EEEEEE"
-    },
-    "desafio": {
-        "key": "desafio",
-        "name": "Desafio",
-        "color": "#fcba03",
-        "about": "Artigos onde comento sobre desafios propóstos por mim, ou por sites de lógica/programação. Principalmente Advent Of Code",
-        "textColor": "#222222"
-    }
+	"rings": {
+		"key": "rings",
+		"name": "Rings",
+		"color": "#727A9A",
+		"about": "Development process and documentation about the project Rings. A Python package to game delopment. Developed using pygame",
+		"textColor": "#eeeeee"
+	},
+	"nextjs": {
+		"key": "nextjs",
+		"name": "Next.JS",
+		"color": "#000000",
+		"about": "Articles about projects or matters that envolves the Next.JS framework, that was used to build this website. The posts with the tag Next.JS are mainlly focused in some features implemented in the blog, like Dark-Theme, How we do our .MD transcriptions to HTML and etc.",
+		"textColor": "#EEEEEE"
+	},
+	"blog": {
+		"key": "blog",
+		"name": "Blog",
+		"color": "#FB8123",
+		"about": "Articles about the creation and documentation around the blog it self. You can find the source code in Renato's GitHub (RenatoCesarF)",
+		"textColor": "#2a2a2a"
+	},
+	"art": {
+		"key": "art",
+		"name": "Art",
+		"color": "#43639B",
+		"about": "Articles about art direction, pixel art and art in general",
+		"textColor": "#EEEEEE"
+	},
+	"programming": {
+		"key": "programming",
+		"name": "Programming",
+		"color": "#7f4596",
+		"about": "Articles with about programming, examples, explanations and etc. Not all the posts are about programming, thus we have artists in the Team as well. But all programming content will be found in the programming tag.",
+		"textColor": "#EEEEEE"
+	},
+	"architecture": {
+		"key": "architecture",
+		"name": "Architecture",
+		"color": "#00a4b6",
+		"about": "Articles with about software-architecture, how we manage to get to then, how it works and why choose them",
+		"textColor": "#ffffff"
+	},
+	"tutorial": {
+		"key": "tutorial",
+		"name": "Tutorial",
+		"color": "#247ba3",
+		"about": "Articles with about software-architecture, how we manage to get to then, how it works and why choose them",
+		"textColor": "#EEEEEE"
+	},
+	"design": {
+		"key": "design",
+		"name": "Design",
+		"color": "#85BC3C",
+		"about": "Articles with about web-design and things that we changed in the blog website that envolves the design of the blog itself. Like dart-theme, positioning and visuals of some element or page. ",
+		"textColor": "#2a2a2a"
+	},
+	"python": {
+		"key": "python",
+		"name": "Python",
+		"color": "#0b5e99",
+		"about": "Articles talking where the main topic is Python or the main language used is Python",
+		"textColor": "#EEEEEE"
+	},
+	"odin": {
+		"key": "odin",
+		"name": "Odin",
+		"color": "#383838",
+		"about": "Articles talking where the main topic is Python or the main language used is Python",
+		"textColor": "#EEEEEE"
+	},
+	"desafio": {
+		"key": "desafio",
+		"name": "Desafio",
+		"color": "#fcba03",
+		"about": "Artigos onde comento sobre desafios propóstos por mim, ou por sites de lógica/programação. Principalmente Advent Of Code",
+		"textColor": "#222222"
+	},
+	"game-dev": {
+		"key": "game-dev",
+		"name": "Game Dev",
+		"color": "#C63D2F",
+		"about": "Artigos sobre desenvolvimento de jogos: testes de engines, experiências com linguagens como C#, Python, Rust, Odin, e também abordagens como ECS, DOD e sistemas de física, colisão e renderização.",
+		"textColor": "#ffffff"
+	}
 }

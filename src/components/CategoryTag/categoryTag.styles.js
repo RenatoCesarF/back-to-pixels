@@ -15,10 +15,10 @@ export default css.global`
     max-width: 100vw;
 }
 .category-tag-text{
-    font-size: 1em;
+    font-size: 1.1em;
     color: var(--font-contrast-color);
     font-family: "Open Sans", sans-serif;
-    font-weight: bolder;
+    font-weight: normal;
   }
 
 .transparent-tag{
