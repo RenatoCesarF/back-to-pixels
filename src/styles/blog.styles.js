@@ -36,7 +36,7 @@ export default css.global`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 1.5rem .2rem;
+    margin: 0.2rem 0rem;
 }
 .category-count-element{
     margin: .3rem .1rem;

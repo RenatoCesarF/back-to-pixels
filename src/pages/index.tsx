@@ -1,5 +1,5 @@
 
-import { AnimateSharedLayout, motion } from 'framer-motion';
+import { LayoutGroup, motion } from 'framer-motion';
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -101,13 +101,13 @@ const Home = ({ posts, allTeammates }: homeProps) => {
         <AnimatedLayout>
 
           <motion.div className='teammate-cards-grid' variants={slideInUp}>
-            <AnimateSharedLayout>
+            <LayoutGroup>
               {
                 allTeammates.map((teammate: Author, index: number) => {
                   return <TeammateCard author={teammate} key={index} />
                 })
               }
-            </AnimateSharedLayout>
+            </LayoutGroup>
           </motion.div>
 
         </AnimatedLayout>

@@ -13,7 +13,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps, router }) => {
   return (
     <>
       <Header />
-      <AnimatePresence exitBeforeEnter initial={true} >
+      <AnimatePresence mode="wait" initial={true} >
         <Component {...pageProps} key={router.route} />
       </AnimatePresence>
       <Toaster position='bottom-center' key={0} toastOptions={toastOptions} />
