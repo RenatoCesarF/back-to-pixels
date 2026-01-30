@@ -50,13 +50,22 @@ const TranscribedPost = ({ post }: TranscribedPostProps) => {
       );
     },
     pre: (props) => {
+      const child = props.children;
+
+      if (!React.isValidElement(child)) {
+        return <></>;
+      }
+
+      const childProps: any = child.props;
+
       return (
         <CodeBlock
-          content={props.children.props.children as any}
-          className={props.children.props.className}
+          content={childProps.children}
+          className={childProps.className}
         />
       );
     },
+
     code: ({ inline, className, children, ...props }: CodePropsFix) => {
       return (
         <code className="simple-code" {...props}>
